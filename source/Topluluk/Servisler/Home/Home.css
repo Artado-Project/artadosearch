@@ -1,0 +1,164 @@
+﻿body {
+    font-family: Bahnschrift;
+    margin: 0;
+}
+
+@media screen and (min-width: 1000px) {
+
+    .açılış {
+        text-align: center;
+        background-color: black;
+        height: 200px;
+    }
+
+    .image {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+    }
+
+    .button {
+        margin-left: 30px;
+    }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+        }
+
+    .içerik {
+        margin-left: 115px;
+        margin-top: 30px;
+    }
+
+    .banner {
+        margin-top: 2px;
+        display: grid;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        min-height: 60vh;
+        background-image: url('../../../Opera Anlık Görüntü_2021-01-27_155144_artadosearch.com.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .ser {
+        width: 553px;
+        height: 180px;
+        float: right;
+        margin-right: 50px;
+    }
+
+        .ser:hover {
+            width: 560px;
+        }
+
+    .games {
+        width: 553px;
+        height: 180px;
+        float: left;
+        margin-left: 50px;
+    }
+
+        .games:hover {
+            width: 560px;
+        }
+
+    .destek {
+        width: 553px;
+        margin-left: 50px;
+    }
+
+    .ads {
+        width: 553px;
+        float: right;
+        margin-right: 50px;
+        height: 180px;
+        background-color: antiquewhite;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .dwn {
+        background-color: black;
+        height: 100px;
+        text-align: center;
+        transform-style: preserve-3d;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+    .açılış {
+        text-align: center;
+        background-color: black;
+        height: 200px;
+    }
+
+    .image {
+        width: 100px;
+        height: 100px;
+        margin-top: 5px;
+    }
+
+    .button {
+        margin-left: 20px;
+    }
+
+    .içerik {
+        margin-left: 35px;
+        margin-top: 10px;
+    }
+
+    .içerik {
+        margin-left: 115px;
+        margin-top: 30px;
+    }
+
+    .banner {
+        margin-top: 2px;
+        display: grid;
+        max-height: 100%;
+        min-height: 60vh;
+        background-image: url('../../../Opera Anlık Görüntü_2021-01-29_194628_www.artadosearch.com.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .ser {
+        width:100%;
+        height: 180px;
+    }
+
+        .ser:hover {
+            height: 185px;
+        }
+
+    .games {
+        width: 100%;
+        height: 180px;
+    }
+
+        .games:hover {
+            height:185px;
+        }
+
+    .destek {
+
+    }
+
+    .ads {
+        height: 180px;
+        background-color:antiquewhite;
+        text-align:center;
+        margin-top:50px;
+    }
+
+    .dwn {
+        background-color: black;
+        height: 100px;
+        text-align: center;
+        transform-style: preserve-3d;
+    }
+}
