@@ -5,9 +5,9 @@ This source code is belong to old version of Artado. Soon I will update
 
 
 What can I do with this? 
-- You can develop the code
+- You can develop the repo
 - You can add features
-- You can examine the code
+- You can examine the repo
 
 Can I publish what I have done with this source code?
 -Yes, you can but you have to publish with source code and you have to give attribution.
