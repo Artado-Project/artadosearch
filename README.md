@@ -4,7 +4,7 @@ Basic Artado Search(www.artadosearch.com) Source Code
 This source code is belong to old version of Artado. Soon I will update
 
 
-What can I do with this repo? 
+What can I do with this? 
 - You can develop the code
 - You can add features
 - You can examine the code
