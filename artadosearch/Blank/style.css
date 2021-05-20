@@ -1,0 +1,114 @@
+﻿#myFakeElement {
+    color: red;
+}
+
+body {
+    background-color: black;
+}
+
+
+@media screen and (min-width: 600px) {
+    .img {
+        width: 200px;
+        height: 50px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    .panel {
+        background-color: #0c0c0c;
+        width: 500px;
+        height: 80px;
+        margin-left: 250px;
+        margin-top: 50px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .textbox {
+        background-color: #0c0c0c;
+        width: 400px;
+        height: 29px;
+    }
+
+    .akış {
+        margin-left: 250px;
+        background-color: #0c0c0c;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 500px;
+        max-height: 500px;
+        margin-top: 20px;
+    }
+
+    .buttons{
+        float:right;
+        margin-right:100px;
+        margin-top:20px;
+    }
+
+    .select {
+        margin-left: 250px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .img {
+        width: 200px;
+        height: 50px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    .panel {
+        background-color: #0c0c0c;
+        width: 350px;
+        height: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .textbox {
+        background-color: #0c0c0c;
+        width: 200px;
+        height: 29px;
+    }
+
+    .akış {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #0c0c0c;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 350px;
+        max-height: 500px;
+        margin-top: 10px;
+    }
+
+    .select {
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+    }
+
+    .buttons {
+        float: right;
+        margin-right: 10px;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,4 @@
+﻿<asp:Button runat="server" BorderStyle="none"/>
+<asp:Textbox runat="server" BackColor="white" ForeColor="black" BorderStyle="none"/>
+<asp:DropDownList runat="server" BackColor="black" ForeColor="white" BorderStyle="none"/>
+<asp:Panel runat="server" ForeColor="white" BorderStyle="none"/>

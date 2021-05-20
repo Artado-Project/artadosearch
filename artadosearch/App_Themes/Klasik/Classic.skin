@@ -1,0 +1,3 @@
+﻿<asp:Panel runat="server"/>
+<asp:Button runat="server" BorderStyle="None"/>
+<asp:Textbox runat="server" BorderStyle="None" BackColor="#F9F9FA"/>

@@ -1,0 +1,368 @@
+﻿@import url(Normalize.css);
+
+body {
+    background-color: white;
+    font-family: Bahnschrift;
+}
+
+.container {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.çizgi {
+    background-color: black;
+    width:10px;
+}
+
+
+
+@media screen and (min-width: 600px) {
+    .orta {
+        text-align: center;
+    }
+    .auto-style1 {
+        width: 350px;
+        height: 100px;
+        margin-top: 130px;
+    }
+    .arama {
+        background-color: #F9F9FA;
+        width: 580px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+    }
+    #arama_çubugu {
+        Height: 29px;
+        Width: 460px;
+    }
+        #arama_çubugu:focus {
+            outline: none;
+        }
+    .Button1 {
+        vertical-align:middle;
+    }
+        .Button1:focus {
+            outline: none;
+        }
+    .asistan {
+        width: 350px;
+        background-color: #F9F9FA;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        margin-top: 50px;
+    }
+
+    .label{
+        margin-bottom:0px;
+    }
+    .ayarlar {
+        width: 35px;
+        height: 30px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+    }
+        .ayarlar:focus {
+            outline: none;
+        }
+    .oturum {
+        width: 100px;
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 280px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .destek {
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 80px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .search_engine {
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 250px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .kontrol {
+        width: 250px;
+        height: 500px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        text-align: left;
+        padding: 15px 15px 15px 15px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .kapat {
+        width: 25px;
+        height: 25px;
+        float: right;
+    }
+        .kapat:focus {
+            outline: none;
+        }
+
+
+    .komutlar {
+        background-color: white;
+        Width: 540px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        height: 280px;
+    }
+
+    .komuttxt{
+        float:left;
+        margin-left:10px;
+        margin-top:10px;
+    }
+
+    .komut1 {
+        float: right;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+        .komut1:focus {
+            outline: none;
+        }
+
+    .komut2 {
+        float: left;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+        .komut2:focus {
+            outline: none;
+        }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .orta {
+        text-align: center;
+    }
+    .auto-style1 {
+        width: 250px;
+        height: 80px;
+        margin-top: 120px;
+    }
+    .arama {
+        background-color: white;
+        width: 300px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 5px 5px 5px;
+    }
+    #arama_çubugu {
+        width: 180px;
+        Height: 29px;
+    }
+        #arama_çubugu:focus {
+            outline: none;
+        }
+
+    .Button1 {
+        vertical-align: middle;
+    }
+        .Button1:focus {
+            outline: none;
+        }
+    .asistan {
+        width: 200px;
+        background-color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        margin-top: 100px;
+    }
+
+
+    .des1 {
+        background-color: #517BBA;
+        height: 850px;
+        margin-top: 150px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .dlabel {
+        margin-left: 10px;
+    }
+
+    .polis {
+        width: 250px;
+        height: 250px;
+        float: initial;
+        margin-top: 80px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .ayarlar {
+        width: 35px;
+        height: 30px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 12px;
+        right: 5px;
+    }
+
+        .ayarlar:focus {
+            outline: none;
+        }
+
+    .oturum {
+        width: 80px;
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 100px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: small;
+    }
+
+    .destek {
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: small;
+    }
+
+    .search_engine {
+        height: 35px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        right: 180px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: small;
+    }
+
+    .kontrol {
+        background-color: white;
+        width: 200px;
+        height: 450px;
+        float: right;
+        margin-top: 0px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        text-align: left;
+        padding: 15px 15px 15px 15px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        overflow: scroll;
+    }
+
+    .kapat {
+        width: 25px;
+        height: 25px;
+        float: right;
+    }
+        .kapat:focus {
+            outline: none;
+        }
+
+    .komutlar {
+        background-color: white;
+        Width: 250px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        height: 280px;
+        overflow: scroll;
+    }
+
+    .komuttxt {
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .komut1 {
+        width: 200px;
+        margin-bottom: 10px;
+        height:50px;
+    }
+
+    .komut2 {
+        width: 200px;
+        margin-bottom: 10px;
+        height:50px;
+    }
+}
+

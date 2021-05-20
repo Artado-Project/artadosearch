@@ -1,0 +1,95 @@
+﻿body {
+    background: #0c0c0c;
+    color: #e6e6e6;
+}
+
+
+
+#Deneyim {
+    background-color: #121212;
+}
+
+.iletişim {
+    background-color: #121212;
+    border-style: outset;
+    border-color: #121212;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.ınfo {
+    background-color: #121212;
+    border-style: outset;
+    border-color: #121212;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.arama {
+    background-color: #0c0c0c;
+    width: 580px;
+    height: 45px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 5px 5px 5px;
+}
+
+.arama2 {
+    background-color: #0c0c0c;
+}
+
+.linktxt{
+    color:deepskyblue;
+}
+
+.gsc-result {
+    background-color: #0c0c0c !important;
+    border-color: #0c0c0c !important;
+    color: white !important;
+}
+
+.gsc-control-cse {
+    background-color: #0c0c0c !important;
+    border-color: #0c0c0c !important;
+    color: white !important;
+}
+
+.gs-bidi-start-align {
+    color: white !important;
+}
+
+.gsc-cursor-page {
+    background-color: #0c0c0c !important;
+    border-color: #0c0c0c !important;
+}
+
+.adBlock{
+    background-color: #0c0c0c !important;
+    border-color: #0c0c0c !important;
+    color: white !important;
+}
+
+@media screen and (min-width: 100px) and (max-width: 480px) {
+    .arama {
+        background-color: white;
+        width: 300px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px 5px 5px 5px;
+    }
+}

@@ -1,0 +1,857 @@
+﻿@import url(Normalize.css);
+
+body {
+    background-color: #F9F9FA;
+}
+
+.çizgi {
+    background-color: black;
+    margin-top:0px;
+}
+
+
+
+.yakında{
+    text-align:center;
+}
+
+@media screen and (min-width: 1024px) {
+    .üstkısım{
+
+    }
+
+    .sonuclar {
+        margin-left: 115px;
+        color: #000000;
+        margin-top: 40px;
+    }
+
+    .sonuc {
+        max-height: 150px;
+        width: 600px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+    }
+
+        .sonuc:hover {
+            background-color: cornsilk;
+        }
+
+    .akademiksonuc {
+        max-height: 300px;
+        width: 600px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+    }
+        .akademiksonuc:hover {
+            background-color: cornsilk;
+        }
+
+    .arama2 {
+        background-color: #F9F9FA;
+        width: 530px;
+        height: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: 100px;
+        margin-top: 10px;
+        padding: 8px 8px 8px 8px;
+    }
+
+    .textbox {
+        Width: 450px;
+    }
+
+    #arama_çubugu2:focus {
+        outline: none;
+    }
+
+    .Button1 {
+        vertical-align: middle;
+    }
+        .Button1:focus {
+            outline: none;
+        }
+    .web {
+        height: 32px;
+        position:absolute;
+        top:70px;
+        margin-left:120px;
+        float:left;
+    }
+        .web:focus {
+            outline: none;
+        }
+    .görsel {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 170px;
+    }
+        .görsel:focus {
+            outline: none;
+        }
+    .sözlük {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 230px;
+    }
+        .sözlük:focus {
+            outline: none;
+        }
+    .müzik {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 290px;
+    }
+        .müzik:focus {
+            outline: none;
+        }
+
+    .akademik {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 330px;
+    }
+
+        .akademik:focus {
+            outline: none;
+        }
+
+    .feedback {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 420px;
+    }
+
+        .feedback:focus {
+            outline: none;
+        }
+
+    .image {
+        Height: 60px;
+        Width: 60px;
+        margin-left: 20px;
+        margin-right: 10px;
+        float: left;
+        position:absolute;
+        top:5px;
+    }
+        .image:focus {
+            outline: none;
+        }
+
+    .label {
+        margin-left: 65px;
+    }
+    .panelimage {
+        float: left;
+        width: 100px;
+        height: 110px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .panel {
+        height:120px;
+        width:500px;
+        margin-left:115px;
+    }
+
+    .sözlüköneri {
+        min-height: 100px;
+        max-width : 500px;
+        margin-left: 140px;
+        overflow:hidden;
+    }
+
+    .ınfoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .ınfo {
+        max-width: 500px;
+        max-height: 300px;
+        background-color: #F9F9FA;
+        float: right;
+        margin-right: 40px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .searchsuggest {
+        width: 350px;
+        height: 250px;
+        background-color: blanchedalmond;
+        float: right;
+        margin-right: 40px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .iletişim {
+        width: 500px;
+        height: 400px;
+        background-color: #F9F9FA;
+        float: right;
+        margin-right: 40px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+    }
+
+    #Mail{
+        width:300px;
+    }
+
+    #Deneyim {
+        height: 200px;
+        width: 300px;
+        background-color: #F9F9FA;
+    }
+
+    #Gönder {
+        width:80px;
+        height:30px;
+        float: right;
+    }
+
+    .çizgid {
+        background-color: black;
+        margin-top: 0px;
+        width: 600px;
+        margin-left: 0px;
+    }
+
+    .link{
+       
+    } 
+
+    .danger{
+        height:20px;
+        width:20px;
+    }
+
+    .görselsonuc {
+        width: 250px;
+        height: 200px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+        text-align:center;
+    }
+        .görselsonuc:hover {
+            width: 300px;
+            height: 250px;
+        }
+    .gorsel {
+        max-width: 80%;
+        max-height: 80%;
+    }
+        .gorsel:hover {
+            width: 80%;
+            height: 80%;
+        }
+
+    .hesap {
+        margin-left: 115px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .üstkısım {
+        margin-top: 20px;
+    }
+
+    .image {
+        Height: 60px;
+        Width: 60px;
+        margin-left: 5px;
+        float: left;
+        position: absolute;
+        top: 10px;
+    }
+        .image:focus {
+            outline: none;
+        }
+
+    .arama2 {
+        background-color: #F9F9FA;
+        width: 280px;
+        height: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: 70px;
+        margin-top: 20px;
+        padding: 8px 8px;
+    }
+    .Button1 {
+        vertical-align: middle;
+    }
+        .Button1:focus {
+            outline: none;
+        }
+    .textbox {
+        Height: 29px;
+        Width: 200px;
+    }
+    #arama_çubugu2:focus {
+        outline: none;
+    }
+
+    .web {
+        height: 32px;
+        width: 78px;
+        position: absolute;
+        top: 80px;
+        float: left;
+        left: 1px;
+    }
+        .web:focus {
+            outline: none;
+        }
+
+    .görsel {
+        height: 32px;
+        width: 78px;
+        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        left: 60px;
+    }
+        .görsel:focus {
+            outline: none;
+        }
+    .sözlük {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        left: 125px;
+    }
+        .sözlük:focus {
+            outline: none;
+        }
+
+    .müzik {
+        height: 32px;
+        width: 78px;
+        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        left: 190px;
+    }
+        .müzik:focus {
+            outline: none;
+        }
+
+    .akademik {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        left: 260px;
+    }
+
+        .akademik:focus {
+            outline: none;
+        }
+
+    .feedback {
+        height: 32px;
+        width: 92px;
+        margin-top: 10px;
+        position: absolute;
+        top: 70px;
+        left: 350px;
+    }
+
+        .feedback:focus {
+            outline: none;
+        }
+
+    .secme {
+        width: 400px;
+        overflow: scroll;
+    }
+
+
+    .webarama {
+    }
+
+    .sonuc {
+        max-height: 250px;
+        width: 330px;
+        margin-bottom: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .sonuc:hover {
+            background-color: cornsilk;
+        }
+
+    .sonuclar {
+        color: #000000;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .label {
+        margin-left: -25px;
+    }
+
+    .panelimage {
+        float: left;
+        width: 100px;
+        height: 110px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .panel {
+        height: 120px;
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sözlüköneri {
+        min-height: 100px;
+        max-width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+
+    .ınfoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .ınfo {
+        max-width: 330px;
+        min-height: 210px;
+        background-color: #F9F9FA;
+        margin-left: auto;
+        margin-right: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .searchsuggest {
+        width: 330px;
+        height: 210px;
+        background-color: #F9F9FA;
+        margin-left: auto;
+        margin-right: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .iletişim {
+        width: 330px;
+        height: 335px;
+        background-color: #F9F9FA;
+        margin-left: auto;
+        margin-right: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+    }
+
+    #Mail {
+        width: 200px;
+    }
+
+    #Deneyim {
+        height: 100px;
+        width: 200px;
+    }
+
+    .çizgid {
+        background-color: black;
+        margin-top: 0px;
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .link {
+    }
+
+    .danger {
+        height: 20px;
+        width: 20px;
+    }
+
+    .görselsonuc {
+        width: 250px;
+        height: 200px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    }
+
+        .görselsonuc:hover {
+            width: 300px;
+            height: 450px;
+        }
+
+    .gorsel {
+        max-width: 80%;
+        max-height: 80%;
+        background-color: #F9F9FA;
+    }
+    #GörselArama {
+        text-align: center;
+    }
+    #GorselSonuclar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hesap {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    .üstkısım {
+    }
+
+    .sonuclar {
+        margin-left: 80px;
+        color: #000000;
+        margin-top: 40px;
+    }
+
+    .sonuc {
+        height: 100px;
+        width: 600px;
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+
+        .sonuc:hover {
+            background-color: cornsilk;
+        }
+
+    .arama2 {
+        background-color: white;
+        width: 530px;
+        height: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: 100px;
+        margin-top: 10px;
+        padding: 5px 5px 10px 10px;
+    }
+
+    .textbox {
+        Width: 450px;
+    }
+
+    #arama_çubugu2:focus {
+        outline: none;
+    }
+
+    .Button1 {
+        vertical-align: middle;
+    }
+
+        .Button1:focus {
+            outline: none;
+        }
+
+    .web {
+        height: 32px;
+        width: 78px;
+        position: absolute;
+        top: 70px;
+        margin-left: 100px;
+        float: left;
+    }
+
+        .web:focus {
+            outline: none;
+        }
+
+    .görsel {
+        height: 32px;
+        width: 78px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 160px;
+    }
+
+        .görsel:focus {
+            outline: none;
+        }
+
+    .sözlük {
+        height: 32px;
+        width: 78px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 230px;
+    }
+
+        .sözlük:focus {
+            outline: none;
+        }
+
+    .müzik {
+        height: 32px;
+        width: 78px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 300px;
+    }
+
+        .müzik:focus {
+            outline: none;
+        }
+
+    .akademik {
+        height: 32px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 330px;
+    }
+
+        .akademik:focus {
+            outline: none;
+        }
+
+    .feedback {
+        height: 32px;
+        width: 92px;
+        margin-top: 10px;
+        position: absolute;
+        top: 60px;
+        left: 370px;
+    }
+
+        .feedback:focus {
+            outline: none;
+        }
+
+    .image {
+        Height: 60px;
+        Width: 60px;
+        margin-left: 20px;
+        margin-right: 10px;
+        float: left;
+        position: absolute;
+        top: 0px;
+    }
+
+        .image:focus {
+            outline: none;
+        }
+
+
+    .webarama {
+    }
+
+    .label {
+        margin-left: 65px;
+    }
+
+    .panelimage {
+        float: left;
+        width: 100px;
+        height: 110px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .panel {
+        height: 120px;
+        width: 500px;
+        margin-left: 80px;
+        margin-top: 15px;
+    }
+
+    .sözlüköneri {
+        min-height: 100px;
+        max-width: 500px;
+        margin-left: 80px;
+        overflow: hidden;
+    }
+
+    .ınfoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .ınfo {
+        max-width: 500px;
+        max-height: 250px;
+        background-color: #F9F9FA;
+        float: right;
+        margin-right: 40px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .searchsuggest {
+        width: 500px;
+        height: 250px;
+        background-color: blanchedalmond;
+        float: right;
+        margin-right: 40px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .iletişim {
+        width: 500px;
+        height: 335px;
+        background-color: antiquewhite;
+        margin-left: 80px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+    }
+
+    #Mail {
+        width: 200px;
+    }
+
+    #Deneyim {
+        height: 150px;
+        width: 300px;
+    }
+
+    #Gönder {
+        width: 80px;
+        height: 30px;
+        float: right;
+    }
+
+    .çizgid {
+        background-color: black;
+        margin-top: 0px;
+        width: 600px;
+        margin-left: 0px;
+    }
+
+    .link {
+    }
+
+    .danger {
+        height: 20px;
+        width: 20px;
+    }
+
+    .görselsonuc {
+        width: 400px;
+        height: 300px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    }
+
+        .görselsonuc:hover {
+            width: 500px;
+            height: 450px;
+        }
+
+    .gorsel {
+        max-width: 80%;
+        max-height: 80%;
+        background-color: white;
+    }
+
+}

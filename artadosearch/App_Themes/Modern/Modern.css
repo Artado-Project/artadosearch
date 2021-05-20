@@ -1,0 +1,17 @@
+﻿body {
+    background: url('../../Icons/mountains-4737080_1920.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+
+    body {
+        background: url('../../Icons/mountains-4737080_1920.png') no-repeat center center fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+    }
+}
