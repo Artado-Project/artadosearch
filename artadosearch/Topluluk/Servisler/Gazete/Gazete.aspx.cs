@@ -20,7 +20,9 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
     {
         try
         {
-            SqlConnection baglanti = new SqlConnection(@"Data Source = 188.121.44.212; Initial Catalog = artado; Persist Security Info = True; User ID = arda; pwd = ardam1425; MultipleActiveResultSets = True");
+            string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+
+            SqlConnection baglanti = new SqlConnection(admin);
             int mailsembol;
             mailsembol = arama_çubugu.Text.IndexOf("@");
             if (arama_çubugu.Text.EndsWith(".com") || mailsembol >= 0)
@@ -39,7 +41,7 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
             }
 
         }
-        catch(Exception hata)
+        catch (Exception hata)
         {
             Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/İletişim'>başka platformlardan<a/> bildirebilirsiniz.";
         }

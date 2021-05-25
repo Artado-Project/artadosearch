@@ -21,7 +21,9 @@ public partial class DestekVeri : System.Web.UI.Page
     {
         try
         {
-            SqlConnection baglanti = new SqlConnection(@"Data Source=188.121.44.212;Initial Catalog=artado;Persist Security Info=True;User ID=arda;pwd=ardam1425;MultipleActiveResultSets=True");
+            string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+
+            SqlConnection baglanti = new SqlConnection(admin);
 
             if (baglanti.State == ConnectionState.Closed)
                 baglanti.Open();
@@ -33,14 +35,14 @@ public partial class DestekVeri : System.Web.UI.Page
 
 
         }
-        catch(Exception hata)
+        catch (Exception hata)
         {
             SonucMesajı.Text = "Upss! Bir hata oldu. Merak etme! Bunu düzeltiyoruz.";
         }
     }
 
 
-   
+
 }
 
 
