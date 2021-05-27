@@ -11,7 +11,9 @@ public partial class url : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        SqlConnection baglanti2 = new SqlConnection(@"Data Source=188.121.44.212;Initial Catalog=artado;Persist Security Info=True;User ID=arda;pwd=ardam1425;MultipleActiveResultSets=True");
+        string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+
+        SqlConnection baglanti2 = new SqlConnection(admin);
         baglanti2.Open();
         string aramaID = Request.QueryString["Link"];
         SqlCommand komut = new SqlCommand();
