@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="BizeKatılın.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/Icons/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Özgür İnternet'e hoşgeldin!</title>
@@ -34,7 +35,7 @@
                 <h4>Chrome ve diğer tarayıcılar için:</h4>
                 <h4>Ayarlar > Arama Motoru > Arama Motorlarını Yönet > Artado > Üç noktaya tıklayın > Varsayılan yap</h4>
                 <h4>Mozilla Firefox için:</h4>
-                <h4>Artado Search <a href="/Anasayfa">ana sayfasına</a> gidin > Üst tarafta yer alan adres çubuğundaki üç noktaya tıklayın > Arama Motoru ekle</h4>
+                <h4>Artado Search <a href="/Home">ana sayfasına</a> gidin > Üst tarafta yer alan adres çubuğundaki üç noktaya tıklayın > Arama Motoru ekle</h4>
                 <h4>Daha sonra Seçenekler sayfasına gidin > Arama > Varsayılan arama motoru > Artado'yu seçin</h4>
             <br />
             </div>

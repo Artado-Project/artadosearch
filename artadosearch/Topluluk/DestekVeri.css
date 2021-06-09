@@ -1,6 +1,5 @@
 ﻿body {
-    background: url('../mountains-55067_640.png') no-repeat center center fixed;
-    background-size: cover;
+    background-color: #16213e;
     color: white;
 }
 
@@ -14,8 +13,7 @@
         margin-top: 50px;
     }
     .sonucekle {
-        background-color: black;
-        width: 300px;
+        background-color: #16213e;
         padding: 20px 20px 20px 20px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
@@ -40,7 +38,7 @@
     }
 
     .sonucekle {
-        background-color: black;
+        background-color: #16213e;
         width: 300px;
         padding: 20px 20px 20px 20px;
         border-top-left-radius: 20px;

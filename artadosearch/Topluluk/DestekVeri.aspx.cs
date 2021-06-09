@@ -35,14 +35,14 @@ public partial class DestekVeri : System.Web.UI.Page
 
 
         }
-        catch (Exception hata)
+        catch(Exception hata)
         {
             SonucMesajı.Text = "Upss! Bir hata oldu. Merak etme! Bunu düzeltiyoruz.";
         }
     }
 
 
-
+   
 }
 
 

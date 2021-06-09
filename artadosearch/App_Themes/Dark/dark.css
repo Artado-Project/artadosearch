@@ -1,0 +1,37 @@
+﻿body {
+    background: #1a1a2e;
+    color: white;
+}
+
+
+@media screen and (min-width: 600px) {
+    .arama {
+        background-color: #1e5f74;
+        width: 580px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .arama {
+        background-color: #1e5f74;
+        width: 300px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
+    }
+}

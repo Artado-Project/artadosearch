@@ -52,25 +52,31 @@
             <br />
             <br />
 
+            <h3>Açık Kaynak</h3>
+            Artado Search ve diğer bir çok servisimiz açık kaynak kodludur. Böylece topluluktaki insanlar servislerimizin gelişmesinde katkıda bulunabilmektedir. Açık kaynak olmamızın en büyük avantajı kullanıcı gizliliğini koruduğumuzu göstermesidir. 
+            <br />
+            <br />
+
             <h3>Sadelik ve Tasarım</h3>
             Artado Search size en iyi şekilde hizmet etmek için sade bir şekilde tasarlanmış ve seçilebilir 4 tema eklenmiştir. Varsayılan Tema, Modern Temadır fakat siz isterseniz Klasik,Karanlık veya Mozaik Temayı seçebilirsiniz. Seçtiğiniz Tema yaklaşık 24 saat(bazı durumlarda daha az) boyunca sizin varsayılan temanız olur. 24 saat sonra varsayılan tema yine Modern Tema olur isterseniz temanızı tekrar değiştirebilirsiniz.
             <br />
             <br />
 
-            <h3>Yerlilik</h3>
-            Not: Normalde Artado Search'ın yerli olmasıyla değil kalitesi ile öne çıkmasını istiyoruz ama yalan haberler ve iftiraları engellemek için bu kısmı yazmak gerektiğine karar verdik.
-            <br />
-            <br />
-            Artado Search tamamen Arda Tahtacı tarafından tasarlanmış,programlanmış ve yayınlanmıştır. Türkiye'de geliştirilmiştir. Sunuclar farklı ülkededir ama zaten önemli bir kişisel veri toplamadığımızdan bunun fazla önemi yoktur. Artado Search kar amacı ile yapılmamıştır. Arama kısmı dışında(arama kısmında hiç bir şekilde reklam yoktur.) koyulan reklamlar giderleri karşılayabilmek içindir.
-            <br />
-            <br />
-            Artado Search'ın kendi veri tabanı ve kendi interneti tarayan bot hizmetleri vardır. (Botlar aktif değildir. Bot servisi geliştirilmektedir. Bu sürede başka bir sistem tarafından kendi veri tabanımızı büyütmekteyiz. Bu sistemde tarafımızca yazılmıştır.)  Sadece Ek Sonuçlar kısmında aradığınızı kendi sonuçlarımızda bulamazsanız diye başka arama motorlarından veriler çekilir.
+            <h3>Tamamıyla Kendi Verimiz</h3>
+            Artado Search'ın kendi veri tabanı ve kendi interneti tarayan bot hizmetleri vardır. Botlarımız internette gezer ve sonuçları veri tabanına kaydeder. Botlarımız, siteleri belli kriterlere göre puanlayarak veri tabanımıza kaydetmektedir.
             <br />
             <br />
 
             <h3>Hedeflerimiz</h3>
-            İlk iki yıl(2021-2022) Türkiye Arama Motoru pazarında %0.5 veya altı bir paya ulaşmayı hedefliyoruz. Sonraki bir yıl ise %0.5 ve %1 arası bir pazar hedefimiz var. 2024 ile 2026 yıllarında %5 pay üstü hedefimiz var. 2026'dan 2030'a kadar Türkiye pazarının en az yarısını almayı hedefliyoruz. 2030'a kadar Türkiye kendi arama motorunu dünyaya pazarlayabilecek konuma gelmesini hedefliyoruz. Türkiye pazarından sonra Avrupa'da %10 civarı Azerbaycan'da ise %40 paya ulaşmak hedefimiz. 
-           <asp:Panel ID="Panel2" runat="server" CssClass="ads">
+            Bizim en büyük hedefimiz interneti herkesin özgürce bilgi alışverişi yapabildiği, kişisel verilere saygı duyulan ve fikirlerin herhangi bir sansüre maruz bırakılmadan ifade edilebildiği bir yer haline getirmektir. Bu amaç üzerinde yazılımlar ve servisler geliştiririz. Geliştirdiğimiz bir çok servis açık kaynak kodludur. Böylece toplulukta ki insanlarda yazılımların ve servislerin gelişmesinde katkı gösterebilir.
+            <br />
+            <br />
+
+            <h3>Özel Teşekkür</h3>
+            Aratdo Search geliştirme sürecinde yaptığı katkılardan dolayı İsmail Şenönder'e ve projenin ilerleyişi sürecinde bana en büyük desteği sunan Artado Topluluğu'na teşekkür ederim. 
+            <br />
+            <br />
+            <asp:Panel ID="Panel2" runat="server" CssClass="ads">
                 <asp:Label ID="Label2" runat="server" Text="Reklam Alanı"></asp:Label>
             </asp:Panel>
             <br />

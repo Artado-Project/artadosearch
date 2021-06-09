@@ -26,7 +26,32 @@
 
         <div class="içerik">
             <h2>Güncelleme Notları</h2>
-            <h5>Gelen öneriler üzerine böyle bir sayfa açmaya karar verdik. Blog tamamen açılana kadar bu sayfadan güncellemeler ile nelerin eklendiği yazılacaktır. Önerileriniz için teşekkür ederiz sizin sayenizde her gün daha çok gelişiyoruz.</h5>
+            <h5>Gelen öneriler üzerine böyle bir sayfa açmaya karar verdim. Blog tamamen açılana kadar bu sayfadan güncellemeler ile nelerin eklendiği yazılacaktır. Önerileriniz için teşekkür ederiz sizin sayenizde her gün daha çok gelişiyoruz.</h5>
+            <br />
+            <h3>31 Mayıs ve Haziran Güncellemesi - 06.06.2021</h3>
+            Artado Search 1 yaşına girdi bu yüzden büyük yenilemeler yapıldı (31 Mayıs 2021). 
+            <br />31 Mayıs'ta yayınladığım güncelleme biraz eksikti bu yüzden bir kaç gün boyunca eksikleri giderdim. 6 Haziran'da yayınladığım son güncelleme ile 31 Mayıs güncellemesinin eksikleri giderildi ve yeni şeyler eklendi.
+            <br />
+            <br />
+            -Sıralama filtreleri eklendi.
+            <br />
+            -Bilgi kutuları ve bilgi sonuçlarının sayısı artırıldı. 
+            <br />
+            -Karanlık tema yenilendi ve varsayılan tema oldu.
+            <br />
+            -Artado Forum açıldı.
+            <br />
+            -Sesle ve görselle arama teknolojileri üzerinde çalışıyorum. Tam bitmediğinden dolayı bu özellikler yayınlanmadı.
+            <br />
+            -Yeni arama algoritmaları üzerinde çalışıyorum. Onlarda yakında bitecek.
+            <br />
+            -Forum açıldığından dolayı burayı güncellemeyi bırakmayı düşünüyorum. Fakat burayı bir arşiv olarak kullanabilirim.
+            <br />
+            -Tasarım hataları giderildi.
+            <br />
+            -Artado Photon(web tarayıcısı) için bekleme listesi oluşturuldu. Listeye katılarak Artado Photon'u ilk deneyenlerden biri olabilirsiniz. Katılmak için <a href="/Photon">buraya tıklayın.</a>
+            <br />
+            <br />
             <br />
             <h3>Nisan-Mayıs Güncellemesi - 08.05.2021</h3>
             Genellikle burayı çok uzun sürelerde güncelliyorum. Buraya yazdığım güncellemeler 1-2 ay içinde yayınlanan güncellemelerdir.

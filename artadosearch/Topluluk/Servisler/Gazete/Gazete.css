@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: white;
+    background-color: #F9F9FA;
     font-family: Bahnschrift;
 }
 
@@ -7,17 +7,71 @@
 @media screen and (min-width: 480px) {
 
     .açılış {
-        height: 300px;
-        margin-top: 100px;
-        font-family: Bahnschrift;
         text-align: center;
+        height: 150px;
+    }
+
+    .panel {
+        background-color: #1a1a2e;
+        max-width: 1000px;
+        max-height: 500px;
+        margin-left: 150px;
+        margin-top: 20px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        overflow: hidden;
+    }
+
+    .button2 {
+        background-color: #16213e;
+        color: white;
+        float: right;
+        margin-right: 50px;
+        margin-top: 40px;
+        border-style: none;
+        width: 100px;
+        height: 50px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: large;
     }
 
     .image {
-        height: 100px;
-        width: 500px;
-        margin-top: 50px;
+        width: 145px;
+        height: 50px;
+        margin-top: 30px;
+        float: left;
+        margin-left: 30px;
     }
+
+    .arama {
+        background-color:white;
+        width: 580px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
+        border-style:solid;
+    }
+
+    #arama_çubugu {
+        Height: 29px;
+        Width: 550px;
+    }
+
+        #arama_çubugu:focus {
+            outline: none;
+        }
 
     .textbox {
         margin-left: 0px;
@@ -26,6 +80,17 @@
         Width: 575px;
     }
 
+    .button {
+        background-color: white;
+        float: left;
+        margin-left: 150px;
+        margin-top: 40px;
+        color: #517BBA;
+        border-style: none;
+        max-width: 200px;
+        font-size: larger;
+        color: #517BBA;
+    }
 
     .açıklama {
         background-color: #517BBA;
@@ -56,10 +121,13 @@
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        width: 150px;
-        height: 50px;
-        background-color: #517BBA;
+        max-width: 250px;
+        min-height: 50px;
+        background: #FC466B; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         font-family: Bahnschrift;
+        padding: 10px 10px 10px 10px;
     }
 }
 
@@ -67,16 +135,17 @@
 @media screen and (min-width: 100px) and (max-width: 480px) {
 
     .açılış {
-        height: 300px;
-        margin-top: 0px;
-        font-family: Bahnschrift;
         text-align: center;
+        height: 150px;
     }
 
     .image {
-        height: 80px;
-        width: 300px;
-        margin-top: 50px;
+        width: 145px;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left:auto;
+        margin-right:auto;
     }
 
     .textbox {
@@ -86,6 +155,37 @@
         Width: 250px;
     }
 
+    .arama {
+        background-color: white;
+        width: 300px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    #arama_çubugu {
+        width: 280px;
+        Height: 29px;
+    }
+
+        #arama_çubugu:focus {
+            outline: none;
+        }
+
+    .button {
+        background-color: white;
+        color: #517BBA;
+        border-style: none;
+        max-width: 200px;
+        font-size: larger;
+        color: #517BBA;
+    }
 
     .açıklama {
         background-color: #517BBA;
@@ -115,9 +215,13 @@
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        width: 150px;
-        height: 50px;
-        background-color: #517BBA;
         font-family: Bahnschrift;
+        max-width: 250px;
+        min-height: 50px;
+        background: #FC466B; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        font-family: Bahnschrift;
+        padding: 10px 10px 10px 10px;
     }
 }

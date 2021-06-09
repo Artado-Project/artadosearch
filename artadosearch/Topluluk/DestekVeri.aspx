@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="DestekVeri.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/Icons/favicon.ico" />
     <link href="/bootstrap-4.5.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="DestekVeri.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Artado Search Topluluk</title>
@@ -20,10 +20,7 @@
         </div>
 
         <div class="sonucekle">
-            <asp:TextBox ID="TextBox1" runat="server" placeholder="Ad Soyad"></asp:TextBox>
-            <br />
-            <asp:TextBox ID="TextBox2" runat="server" placeholder="E-Posta"></asp:TextBox>
-            <asp:TextBox ID="TextBox3" runat="server" placeholder="URL girin"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" placeholder="URL girin" Width="250px"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" Text="Gönder" OnClick="Button1_Click1" />

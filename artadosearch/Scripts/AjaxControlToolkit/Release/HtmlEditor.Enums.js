@@ -1,0 +1,1 @@
+Type.registerNamespace("Sys.Extended.UI.HtmlEditor"),Sys.Extended.UI.HtmlEditor.ActiveModeType=function(){},Sys.Extended.UI.HtmlEditor.ActiveModeType.prototype={Design:0,Html:1,Preview:2},Sys.Extended.UI.HtmlEditor.ActiveModeType_checkValue=function(e){return e>=0&&e<=2},Sys.Extended.UI.HtmlEditor.ActiveModeType.registerEnum("Sys.Extended.UI.HtmlEditor.ActiveModeType",!0);

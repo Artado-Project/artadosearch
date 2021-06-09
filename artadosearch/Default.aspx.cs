@@ -10,20 +10,45 @@ using System.Web.Routing;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
+using SpeechLib;
 
 public partial class _Default : System.Web.UI.Page
 {
     public string lang;
+    public string theme;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        Label12.Visible = true;
+        string con = System.Configuration.ConfigurationManager.ConnectionStrings["con"].ConnectionString.ToString();
+        SqlConnection baglanti = new SqlConnection(con);
+        baglanti.Open();
+        string sorgu2 = "SELECT top 1 KelimeID FROM arda.Arananlar order by KelimeID desc";
+        int aranan;
+        SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
+        aranan = (int)komut2.ExecuteScalar();
+        string sorgu5 = "SELECT top 1 ID FROM arda.Sonuçlar order by ID desc";
+        int date;
+        SqlCommand komut3 = new SqlCommand(sorgu5, baglanti);
+        date = (int)komut3.ExecuteScalar();
+        string sorgu3 = "SELECT top 1 InfoID FROM arda.Infos order by InfoID desc";
+        int detail;
+        SqlCommand komut4 = new SqlCommand(sorgu3, baglanti);
+        detail = (int)komut4.ExecuteScalar();
+        Label12.Text = "2020 yılından itibaren " + aranan + " aramaya " + date + " sonuç ve " + detail + " bilgi sonucu ile yanıt verildi.";
+
         Kontrol.Visible = false;
 
         komutlar.Visible = false;
 
+        Araçlar.Visible = false;
+
         Panel3.Visible = true;
 
+        Ses.Visible = false;
+
         string hata = Request.QueryString["hata"];
+        string empty = Request.QueryString["empty"];
 
         if (hata == "true")
         {
@@ -31,21 +56,21 @@ public partial class _Default : System.Web.UI.Page
             Label5.Text = "Upss! Araman çok uzun. Lütfen tekrar dene.";
             Label5.ForeColor = System.Drawing.Color.Red; 
         }
-
-        string empty = Request.QueryString["empty"];
-
-        if (empty == "true")
+        else if (empty == "true")
         {
             Label5.Visible = true;
             Label5.Text = "Boş arama yaptınız!";
             Label5.ForeColor = System.Drawing.Color.Red;
         }
-
-        if (arama_çubugu.Text.StartsWith("<"))
+        else if (arama_çubugu.Text.StartsWith("<"))
         {
             Label5.Visible = true;
             Label5.Text = "Tehlikeli arama yaptınız!";
             Label5.ForeColor = System.Drawing.Color.Red;
+        }
+        else
+        {
+            Panel3.Visible = false;
         }
 
         HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
@@ -166,7 +191,6 @@ public partial class _Default : System.Web.UI.Page
         base.InitializeCulture();
     }
 
-    private static string theme;
     protected void Page_PreInit(object sender, EventArgs e)
     {
         HttpCookie cookie = HttpContext.Current.Request.Cookies["Theme"];
@@ -176,7 +200,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            Page.Theme = "Klasik";
+            Page.Theme = "Dark";
         }
 
 
@@ -192,7 +216,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            Page.Theme = "Klasik";
+            Page.Theme = "Dark";
         }
     }
 
@@ -266,15 +290,26 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("/Donate");
     }
 
+    public void listener_Reco(int StreamNumber, object StreamPosition, SpeechRecognitionType RecognitionType, ISpeechRecoResult Result)
+    {
+        string heard = Result.PhraseInfo.GetText(0, -1, true);
+        Text.Text = heard;
+    }
+
     protected void Voice_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("/Asistan/Home");
+        Panel3.Visible = true;
+        Label5.Visible = true;
+        Label5.Text = "Bu özellik çok yakında aktif olacaktır.";
+        Label5.ForeColor = System.Drawing.Color.Red;
     }
 
     protected void Command_Click(object sender, ImageClickEventArgs e)
     {
         komutlar.Visible = true;
         Panel3.Visible = false;
+        Araçlar.Visible = false;
+        Label12.Visible = false;
     }
 
     protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
@@ -392,6 +427,14 @@ public partial class _Default : System.Web.UI.Page
             Server.Transfer(Request.Path);
         }
         Response.Redirect("/");
+    }
+
+    protected void Tools_Click(object sender, ImageClickEventArgs e)
+    {
+        komutlar.Visible = false;
+        Label12.Visible = false;
+        Panel3.Visible = false;
+        Araçlar.Visible = true;
     }
 }
 

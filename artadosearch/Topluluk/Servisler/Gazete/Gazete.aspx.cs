@@ -41,9 +41,34 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
             }
 
         }
-        catch (Exception hata)
+        catch(Exception hata)
         {
             Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/İletişim'>başka platformlardan<a/> bildirebilirsiniz.";
         }
+    }
+
+    protected void Anasayfa_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/ArtadoSoft/Home");
+    }
+
+    protected void Hakkımızda_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/About");
+    }
+
+    protected void İletişim_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Contact");
+    }
+
+    protected void Blog_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Forum");
+    }
+
+    protected void DestekOl_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/Support");
     }
 }

@@ -2,6 +2,9 @@
 
 body {
     background-color: #F9F9FA;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .çizgi {
@@ -16,14 +19,14 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-    .üstkısım{
+    .üstkısım {
 
     }
 
     .sonuclar {
-        margin-left: 115px;
+        margin-left: 110px;
         color: #000000;
-        margin-top: 40px;
+        margin-top: 10px;
     }
 
     .sonuc {
@@ -63,7 +66,7 @@ body {
     }
 
     .textbox {
-        Width: 450px;
+        Width: 470px;
     }
 
     #arama_çubugu2:focus {
@@ -98,10 +101,12 @@ body {
         }
     .sözlük {
         height: 32px;
+        min-width: 40px;
         margin-top: 10px;
         position: absolute;
         top: 60px;
-        left: 230px;
+        left: 220px;
+        text-align: center;
     }
         .sözlük:focus {
             outline: none;
@@ -186,13 +191,15 @@ body {
         max-width: 120px;
         max-height: 150px;
         padding: 10px 10px 10px 10px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .ınfo {
+        position: sticky;
+        top: 20px;
         max-width: 500px;
         max-height: 300px;
         background-color: #F9F9FA;
@@ -289,6 +296,12 @@ body {
     .hesap {
         margin-left: 115px;
     }
+
+    .footer {
+        margin-top:50px;
+        text-align:center;
+        height:50px;
+    }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
@@ -310,13 +323,13 @@ body {
 
     .arama2 {
         background-color: #F9F9FA;
-        width: 280px;
+        width: 260px;
         height: 50px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        margin-left: 70px;
+        margin-left: 75px;
         margin-top: 20px;
         padding: 8px 8px;
     }
@@ -434,7 +447,7 @@ body {
 
     .sonuclar {
         color: #000000;
-        margin-top: 40px;
+        margin-top: 5px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -577,6 +590,12 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+        height: 80px;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -584,7 +603,7 @@ body {
     }
 
     .sonuclar {
-        margin-left: 80px;
+        margin-left: 100px;
         color: #000000;
         margin-top: 40px;
     }
@@ -742,7 +761,7 @@ body {
     .panel {
         height: 120px;
         width: 500px;
-        margin-left: 80px;
+        margin-left: 100px;
         margin-top: 15px;
     }
 
@@ -854,4 +873,10 @@ body {
         background-color: white;
     }
 
+
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+        height: 80px;
+    }
 }

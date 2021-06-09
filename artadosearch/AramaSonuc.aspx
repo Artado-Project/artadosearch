@@ -9,16 +9,17 @@
         <link rel="shortcut icon" href="/Icons/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Artado Search - Reklamsız ve Sade Arama Motoru</title>
+    <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <div style= "margin-bottom:20px" class="üstkısım">
             <asp:Panel ID="Panel2" runat="server" CssClass="arama2" BorderStyle="Outset">
-                 <asp:TextBox ID="arama_çubugu2" runat="server" CssClass="textbox" BorderStyle="None" TextMode="Search" ValidateRequestMode="Disabled" ></asp:TextBox>
+                 <asp:TextBox ID="arama_çubugu2" runat="server" CssClass="textbox" BorderStyle="None" TextMode="Search" ValidateRequestMode="Disabled" MaxLength="100"></asp:TextBox>
         <asp:ImageButton ID="Search" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
-         <asp:ImageButton ID="Voice" runat="server" Height="29px" CssClass="Button1" ImageUrl="~/voice-search.png" Width="19px"  BorderStyle="None"/>
+         <%--<asp:ImageButton ID="Voice" runat="server" Height="29px" CssClass="Button1" ImageUrl="~/voice-search.png" Width="19px"  BorderStyle="None"/>--%>
                 </asp:Panel>
             <asp:ImageButton ID="Image1" runat="server" CssClass="image" ImageUrl="Icons/android-chrome-192x192.png" OnClick="Image1_Click1"  /> 
             <br />
@@ -34,8 +35,14 @@
 
         <div style="margin-left:50px;">
             <asp:Label ID="Label1" runat="server" Text="Label" CssClass="label"></asp:Label>
+            <br />
+            <asp:Label ID="Label12" runat="server" Text="Sırala: " CssClass="label"></asp:Label>
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+                <asp:ListItem Text="Alakaya göre" Value="Puan"></asp:ListItem>                    
+                <asp:ListItem Text="En eski" Value="Alaka"></asp:ListItem>
+                <asp:ListItem Text="En yeni" Value="Tarih"></asp:ListItem>
+            </asp:DropDownList>
         </div>
-
 
         <asp:Panel ID="Panel3" runat="server" BorderStyle="Groove" class="iletişim">
             <asp:Label ID="İletişimBaşlık" runat="server" Text="Teşekkür ederiz!" Font-Size="Larger" Font-Bold="true" ForeColor="#517BBA"></asp:Label>
@@ -50,7 +57,7 @@
             <asp:Label ID="Sonuc" runat="server" Text="" Font-Size="Small" Font-Bold="true"></asp:Label>
             </asp:Panel>
 
-            <asp:Panel ID="Panel1" runat="server" BorderStyle="Outset" CssClass="panel">
+        <asp:Panel ID="Panel1" runat="server" BorderStyle="Outset" CssClass="panel">
                 <asp:Image ID="Image2" runat="server" CssClass="panelimage"/>
                 <asp:Label ID="Ad" runat="server" Text="" Font-Bold="true"></asp:Label>
                 <br />
@@ -59,7 +66,7 @@
                 <asp:Label ID="Doğum" runat="server" Text=""></asp:Label>
             </asp:Panel>
 
-         <asp:Panel ID="Panel4" runat="server" CssClass="ınfo" BorderStyle="Groove">
+        <asp:Panel ID="Panel4" runat="server" CssClass="ınfo" BorderStyle="Groove">
             <asp:DataList ID="InfoBox" runat="server">
                 <ItemTemplate>
                         <asp:Label ID="title" runat="server" Text='<%# Eval("InfoTitle") %>' Font-Size="Larger" Font-Bold="true"></asp:Label>
@@ -68,12 +75,12 @@
                         <br />
                         <asp:Label ID="Label8" runat="server" Text='<%# Eval("Info") %>' Font-Size="Medium"></asp:Label>
                         <br /> 
-                        <a href='<%# Eval("InfoLink") %>' target="_blank"><asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
+                        <a href='<%# Eval("InfoLink") %>' target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
                 </ItemTemplate>
             </asp:DataList>
         </asp:Panel>
 
-         <asp:Panel ID="HavaDurumu" runat="server" CssClass="ınfo" BorderStyle="Groove"> 
+       <asp:Panel ID="HavaDurumu" runat="server" CssClass="ınfo" BorderStyle="Groove"> 
              <asp:DropDownList ID="Ülkeler" runat="server" AutoPostBack="True">
                  <asp:ListItem>Türkiye</asp:ListItem>
                  <asp:ListItem>İngiltere</asp:ListItem>
@@ -293,8 +300,7 @@
              <asp:Label ID="Batış" runat="server" Text='' Font-Size="Medium"></asp:Label>
         </asp:Panel>
 
-        <!--Sözlük Öneri-->
-       <asp:Panel ID="Panel6" runat="server" CssClass="sözlüköneri" BorderStyle="None">
+        <asp:Panel ID="Panel6" runat="server" CssClass="sözlüköneri" BorderStyle="None">
             <asp:DataList ID="SozlukOneri" runat="server">
                 <ItemTemplate>
                    <asp:Panel ID="Sonuclar" runat="server">
@@ -307,8 +313,7 @@
             </asp:DataList>
         </asp:Panel>
 
-       <!--IP Adresi-->
-       <asp:Panel ID="IPPanel" runat="server" CssClass="sözlüköneri" BorderStyle="None">
+        <asp:Panel ID="IPPanel" runat="server" CssClass="sözlüköneri" BorderStyle="None">
             <asp:Label ID="title" runat="server" Text='<%$Resources:Default, IP %>' Font-Size="Larger" Font-Bold="true"></asp:Label> 
             <br />
             <br />
@@ -316,96 +321,115 @@
             <asp:Label ID="Label9" runat="server" Text='<%$Resources:Default, Uyarı %>' Font-Size="Small"></asp:Label>
         </asp:Panel>
 
-        <!--Hesap Makinesi-->
-        <asp:Panel ID="Panel5" runat="server" GroupingText="Hesap Makinesi" CssClass="hesap"
-            Width="280px">
-            <table class="style1">
-                <tr>
-                    <td colspan="4">
-                        <asp:TextBox ID="TextBox1" runat="server" Height="60px" Width="250px"
-                            CssClass="kutu"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button16" runat="server" Height="60px" Text="C" Width="60px" OnClick="Button16_Click"  />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button10" runat="server" Height="60px" 
-                            Text="/" Width="60px" OnClick="B10_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button11" runat="server" Height="60px" 
-                            Text="*" Width="60px" OnClick="B11_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button12" runat="server" Height="60px" 
-                            Text="-" Width="60px" OnClick="B12_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button7" runat="server" Height="60px" 
-                            Text="7" Width="60px" OnClick="B7_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button8" runat="server" Height="60px" 
-                            Text="8" Width="60px" OnClick="B8_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button9" runat="server" Height="60px" 
-                            Text="9" Width="60px" OnClick="B9_Click" />
-                    </td>
-                    <td rowspan="2">
-                        <asp:Button ID="Button13" runat="server" Height="120px" 
-                            Text="+" Width="60px" OnClick="B13_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button4" runat="server" Height="60px" 
-                            Text="4" Width="60px" OnClick="B4_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button5" runat="server" Height="60px" 
-                            Text="5" Width="60px" OnClick="B5_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button6" runat="server" Height="60px" 
-                            Text="6" Width="60px" OnClick="B6_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button1" runat="server" Height="60px" 
-                            Text="1" Width="60px" OnClick="B1_Click1" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button2" runat="server" Height="60px" 
-                            Text="2" Width="60px" OnClick="B2_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button3" runat="server" Height="60px" 
-                            Text="3" Width="60px" OnClick="B3_Click" />
-                    </td>
-                    <td rowspan="2">
-                        <asp:Button ID="Button14" runat="server" Height="120px"
-                            Text="=" Width="60px" OnClick="B14_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <asp:Button ID="Button15" runat="server" Height="60px" 
-                            Text="0" Width="199px" OnClick="B15_Click" />
-                    </td>
-                </tr>
-            </table>
-        </asp:Panel>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                   <asp:Panel ID="Panel5" runat="server" GroupingText="Hesap Makinesi" CssClass="hesap"
+                        Width="280px">
+                        <table class="style1">
+                            <tr>
+                                <td colspan="4">
+                                    <asp:TextBox ID="TextBox1" runat="server" Height="60px" Width="250px"
+                                        CssClass="kutu"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button16" runat="server" Height="60px" Text="C" Width="60px" OnClick="Button16_Click"  />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button10" runat="server" Height="60px" 
+                                        Text="/" Width="60px" OnClick="B10_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button11" runat="server" Height="60px" 
+                                        Text="*" Width="60px" OnClick="B11_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button12" runat="server" Height="60px" 
+                                        Text="-" Width="60px" OnClick="B12_Click" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button7" runat="server" Height="60px" 
+                                        Text="7" Width="60px" OnClick="B7_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button8" runat="server" Height="60px" 
+                                        Text="8" Width="60px" OnClick="B8_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button9" runat="server" Height="60px" 
+                                        Text="9" Width="60px" OnClick="B9_Click" />
+                                </td>
+                                <td rowspan="2">
+                                    <asp:Button ID="Button13" runat="server" Height="120px" 
+                                        Text="+" Width="60px" OnClick="B13_Click" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button4" runat="server" Height="60px" 
+                                        Text="4" Width="60px" OnClick="B4_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button5" runat="server" Height="60px" 
+                                        Text="5" Width="60px" OnClick="B5_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button6" runat="server" Height="60px" 
+                                        Text="6" Width="60px" OnClick="B6_Click" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button ID="Button1" runat="server" Height="60px" 
+                                        Text="1" Width="60px" OnClick="B1_Click1" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button2" runat="server" Height="60px" 
+                                        Text="2" Width="60px" OnClick="B2_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button3" runat="server" Height="60px" 
+                                        Text="3" Width="60px" OnClick="B3_Click" />
+                                </td>
+                                <td rowspan="2">
+                                    <asp:Button ID="Button14" runat="server" Height="120px"
+                                        Text="=" Width="60px" OnClick="B14_Click" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <asp:Button ID="Button15" runat="server" Height="60px" 
+                                        Text="0" Width="199px" OnClick="B15_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button3" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button4" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button5" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button6" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button7" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button8" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button9" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button10" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button11" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button12" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button13" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button14" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button15" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="Button16" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
 
-
-        <!--Web Arama-->
-        <div class="sonuclar">
-             <asp:Panel ID="WebArama" runat="server" class="webarama">
+            <!--Web Arama-->
+             <asp:Panel ID="WebArama" runat="server" class="sonuclar">
             <asp:Repeater runat="server" ID="rptAramaSonuclari" OnItemCommand="rptAramaSonuclari_ItemCommand">
                 <ItemTemplate> 
                     <asp:Panel ID="Sonuclar" runat="server" CssClass="sonuc">
@@ -413,11 +437,12 @@
                             <asp:Label ID="Label11" runat="server" Text="Popüler" Font-Size="Small"></asp:Label>
                             <br />
                         </asp:Panel>
+                        <asp:Image ID="Image4" runat="server" ImageUrl='<%# Eval("favicon") %>' CssClass="danger"/>
                         <a href="url.aspx?Link=<%# Eval("Link") %>" rel="nofollow"> <asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> &nbsp;
                         <a href="https://www.translatetheweb.com/?ref=SERP&br=ro&mkt=tr-TR&dl=en&lp=Auto_TR&a=<%# Eval("Link") %>" rel="nofollow" target="_blank"> <asp:Label ID="Label6" runat="server" Text='Bu sayfayı çevir' Font-Size="Small"></asp:Label></a> <br/>
                         <asp:Image ID="danger" runat="server" ImageUrl="/tehlıke.png" CssClass="danger"/>
                         <asp:Label ID="Link" runat="server" FontSize="Small" Text='<%# Eval("Link") %>' Font-Size="Small" CssClass="linktxt" ForeColor="Green"></asp:Label> <br />
-                        <asp:Label ID="Label3" runat="server" FontSize="Small" Text='<%# Eval("Content1") %>' Font-Size="Small"></asp:Label><br />
+                        <asp:Label ID="Content" runat="server" FontSize="Small" Text='<%# Eval("Content1") %>' Font-Size="Small"></asp:Label><br />
                    </asp:Panel>
                 </ItemTemplate>
             </asp:Repeater> 
@@ -431,10 +456,8 @@
                  </asp:Panel>
                 </div>
                  </asp:Panel>
-                 </div>
 
-
-        <!--Görsel Arama-->
+         <!--Görsel Arama-->
             <asp:Panel ID="GörselArama" runat="server" class="webarama">
                 <asp:DataList runat="server" ID="GorselSonuclar">
                     <ItemTemplate> 
@@ -446,26 +469,23 @@
                 </asp:DataList>
                    </asp:Panel>
 
-
         <!--Sözlük Arama-->
-        <div class="sonuclar">
-              <asp:Panel ID="SözlükArama" runat="server" class="webarama">
+        <asp:Panel ID="SözlükArama" runat="server" class="sonuclar">
                 <asp:Repeater runat="server" ID="sözlüksonuc" OnItemCommand="rptAramaSonuclari_ItemCommand">
                 <ItemTemplate> 
                     <asp:Panel ID="Sonuclar" runat="server" CssClass="sonuc">
                         <%# Eval("Kelime") %> <br />
                         <%# Eval("Anlam") %><br />
-                        <a href="https://nedirara.com/" target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text="Kaynak: Nedirara.com" Font-Size="Small"/></a>
+                        <asp:Label ID="Label3" runat="server" Text='Kaynak: ' Font-Size="Small"/>
+                        <a href="<%# Eval("Kaynak") %>" target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text='<%# Eval("Kaynak") %>' Font-Size="Small"/></a>
                    </asp:Panel>
                 </ItemTemplate>
             </asp:Repeater> 
                    </asp:Panel>
-        </div>
             
 
         <!--Film Arama-->
-            <div class="sonuclar">
-                <asp:Panel ID="MüzikArama" runat="server" class="webarama">
+        <asp:Panel ID="MüzikArama" runat="server" class="sonuclar">
                 <asp:Repeater runat="server" ID="Filmler" OnItemCommand="rptAramaSonuclari_ItemCommand">
                 <ItemTemplate> 
                     <asp:Panel ID="Sonuclar" runat="server" CssClass="sonuc">
@@ -478,12 +498,10 @@
                 </ItemTemplate>
             </asp:Repeater> 
           </asp:Panel>
-            </div>
 
 
         <!--Akademik Arama-->
-          <div class="sonuclar">
-             <asp:Panel ID="Makaleler" runat="server" class="webarama">
+             <asp:Panel ID="Makaleler" runat="server" class="sonuclar">
             <asp:Repeater runat="server" ID="AkademikSonuçlar" OnItemCommand="rptAramaSonuclari_ItemCommand">
                 <ItemTemplate> 
                     <asp:Panel ID="Sonuclar" runat="server" CssClass="akademiksonuc">
@@ -505,13 +523,22 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:HyperLink ID="HyperLink4" runat="server">Sonraki Sayfa</asp:HyperLink>
                  </asp:Panel>
-                 </div>
-
+           </div>
             </asp:Panel> 
-        </div>
-
-	<div class="footer">
-	</div>
+        <footer class="page-footer">
+	            <div class="footer">
+                    <hr class="çizgi"/>
+                    <a href="/About" style="text-decoration:none;"><asp:Label ID="Label6" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="/Contact" style="text-decoration:none;"><asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, İletişim %>"></asp:Label></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="/Manifest" style="text-decoration:none;"><asp:Label ID="Manifest" runat="server" Text="<%$Resources:Default, Manifesto %>"></asp:Label></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="/Forum" style="text-decoration:none;"><asp:Label ID="Label8" runat="server" Text="<%$Resources:Default, Blog %>"></asp:Label></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="/Photon" style="text-decoration:none;"><asp:Label ID="Label13" runat="server" Text="Artado Photon"></asp:Label></a>
+	            </div>
+            </footer>
     </form>
 </body>
 </html>

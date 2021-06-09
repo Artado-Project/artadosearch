@@ -15,32 +15,31 @@ body {
     width:10px;
 }
 
-
-
 @media screen and (min-width: 600px) {
     .orta {
         text-align: center;
     }
     .auto-style1 {
-        width: 350px;
-        height: 100px;
+        width: 431px;
+        height: 140px;
         margin-top: 130px;
     }
     .arama {
         background-color: #F9F9FA;
         width: 580px;
-        height: 45px;
+        min-height: 45px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
         padding: 8px 8px 8px 8px;
     }
     #arama_çubugu {
         Height: 29px;
-        Width: 460px;
+        Width: 490px;
     }
         #arama_çubugu:focus {
             outline: none;
@@ -51,6 +50,7 @@ body {
         .Button1:focus {
             outline: none;
         }
+
     .asistan {
         width: 350px;
         background-color: #F9F9FA;
@@ -133,6 +133,7 @@ body {
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
+        text-decoration: none;
     }
 
     .kapat {
@@ -147,7 +148,7 @@ body {
 
     .komutlar {
         background-color: white;
-        Width: 540px;
+        max-Width: 540px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         margin-left: auto;
@@ -156,14 +157,19 @@ body {
         height: 280px;
     }
 
-    .komuttxt{
-        float:left;
-        margin-left:10px;
-        margin-top:10px;
+    .araçlar {
+        background-color: white;
+        max-Width: 540px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        height: 280px;
     }
 
     .komut1 {
-        float: right;
+        float: left;
         width: 200px;
         margin-bottom: 10px;
     }
@@ -186,9 +192,9 @@ body {
         text-align: center;
     }
     .auto-style1 {
-        width: 250px;
-        height: 80px;
-        margin-top: 120px;
+        width: 290px;
+        height: 90px;
+        margin-top: 150px;
     }
     .arama {
         background-color: white;
@@ -200,10 +206,11 @@ body {
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
         padding: 8px 5px 5px 5px;
     }
     #arama_çubugu {
-        width: 180px;
+        width: 200px;
         Height: 29px;
     }
         #arama_çubugu:focus {
@@ -216,6 +223,7 @@ body {
         .Button1:focus {
             outline: none;
         }
+
     .asistan {
         width: 200px;
         background-color: white;
@@ -345,6 +353,17 @@ body {
         padding: 8px 8px 8px 8px;
         height: 280px;
         overflow: scroll;
+    }
+
+    .araçlar {
+        background-color: white;
+        max-Width: 250px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 8px 8px 8px 8px;
+        height: 280px;
     }
 
     .komuttxt {

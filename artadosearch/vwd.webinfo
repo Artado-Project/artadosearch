@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.speechlib" ID="{C866CA3A-32F7-11D2-9602-00C04F8EE628}\5.4\0"/>
+  </comReferences>
+</VisualWebDeveloper>

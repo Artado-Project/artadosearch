@@ -73,6 +73,11 @@
             Specifies what type of quote the data should be wrapped in
             </summary>
         </member>
+        <member name="P:HtmlAgilityPack.HtmlAttribute.InternalQuoteType">
+            <summary>
+            Specifies what type of quote the data should be wrapped in (internal to keep backward compatibility)
+            </summary>
+        </member>
         <member name="P:HtmlAgilityPack.HtmlAttribute.StreamPosition">
             <summary>
             Gets the stream position of this attribute in the document, relative to the start of the document.
@@ -124,6 +129,19 @@
         <member name="F:HtmlAgilityPack.AttributeValueQuote.DoubleQuote">
             <summary>
             A double quote mark "
+            </summary>
+        </member>
+        <member name="F:HtmlAgilityPack.AttributeValueQuote.None">
+            <summary>
+            No quote mark
+            </summary>
+        </member>
+        <member name="F:HtmlAgilityPack.AttributeValueQuote.WithoutValue">
+            <summary>Without the value such as '&lt;span readonly&gt;'</summary>
+        </member>
+        <member name="F:HtmlAgilityPack.AttributeValueQuote.Initial">
+            <summary>
+            The initial value (current value)
             </summary>
         </member>
         <member name="T:HtmlAgilityPack.HtmlAttributeCollection">
@@ -416,6 +434,9 @@
             <summary>
             Defines if attribute value output must be optimized (not bound with double quotes if it is possible). Default is false.
             </summary>
+        </member>
+        <member name="F:HtmlAgilityPack.HtmlDocument.GlobalAttributeValueQuote">
+            <summary>Defines the global attribute value quote. When specified, it will always win.</summary>
         </member>
         <member name="F:HtmlAgilityPack.HtmlDocument.OptionOutputOriginalCase">
             <summary>
@@ -1062,6 +1083,14 @@
             <param name="html">The HTML text.</param>
             <returns>The newly created node instance.</returns>
         </member>
+        <member name="M:HtmlAgilityPack.HtmlNode.CreateNode(System.String,System.Action{HtmlAgilityPack.HtmlDocument})">
+            <summary>
+            Creates an HTML node from a string representing literal HTML.
+            </summary>
+            <param name="html">The HTML text.</param>
+            <param name="htmlDocumentBuilder">The HTML Document builder.</param>
+            <returns>The newly created node instance.</returns>
+        </member>
         <member name="M:HtmlAgilityPack.HtmlNode.IsCDataElement(System.String)">
             <summary>
             Determines if an element node is a CDATA element node.
@@ -1345,6 +1374,18 @@
         <member name="M:HtmlAgilityPack.HtmlNode.RemoveAllIDforNode(HtmlAgilityPack.HtmlNode)">
             <summary>Removes all id for node described by node.</summary>
             <param name="node">The node.</param>
+        </member>
+        <member name="M:HtmlAgilityPack.HtmlNode.MoveChild(HtmlAgilityPack.HtmlNode)">
+            <summary>Move a node already associated and append it to this node instead.</summary>
+            <param name="child">The child node to move.</param>
+        </member>
+        <member name="M:HtmlAgilityPack.HtmlNode.MoveChildren(HtmlAgilityPack.HtmlNodeCollection)">
+            <summary>Move a children collection already associated and append it to this node instead.</summary>
+            <param name="children">The children collection already associated to move to another node.</param>
+        </member>
+        <member name="M:HtmlAgilityPack.HtmlNode.RemoveChildren(HtmlAgilityPack.HtmlNodeCollection)">
+            <summary>Removes the children collection for this node.</summary>
+            <param name="oldChildren">The old children collection to remove.</param>
         </member>
         <member name="M:HtmlAgilityPack.HtmlNode.RemoveChild(HtmlAgilityPack.HtmlNode)">
             <summary>
@@ -1815,6 +1856,9 @@
             Initialize the HtmlNodeCollection with the base parent node
             </summary>
             <param name="parentnode">The base node of the collection</param>
+        </member>
+        <member name="P:HtmlAgilityPack.HtmlNodeCollection.ParentNode">
+            <summary>Gets the parent node associated to the collection.</summary>
         </member>
         <member name="P:HtmlAgilityPack.HtmlNodeCollection.Item(HtmlAgilityPack.HtmlNode)">
             <summary>
