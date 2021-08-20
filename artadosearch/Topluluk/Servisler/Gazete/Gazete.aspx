@@ -29,7 +29,7 @@
             <br />
             <br />
             <asp:Panel ID="Normal" runat="server" CssClass="arama" BorderStyle="Solid">
-                <asp:TextBox ID="arama_çubugu" placeholder="E-posta" runat="server" TextMode="Search" BackColor="white" BorderStyle="None" AutoCompleteType="Search" MaxLength="100" ValidateRequestMode="Disabled"></asp:TextBox>
+                <asp:TextBox ID="arama_çubugu" placeholder="E-posta" runat="server" TextMode="Email" BackColor="white" BorderStyle="None" AutoCompleteType="Search" MaxLength="100" ValidateRequestMode="Disabled"></asp:TextBox>
             </asp:Panel>
            <br />
             <asp:Button ID="Button1" runat="server"  style="margin-left: 0px; margin-top: 0px" Text="Bekleme listesine kayıt ol"  BorderStyle="None" OnClick="Button1_Click"  CssClass="Button1" ForeColor="White" Font-Size="Large" />

@@ -13,10 +13,10 @@
 <body>
     <form id="form1" runat="server">
         <div class="açılış">
-            <asp:Image ID="Image" runat="server" ImageUrl="~/AdsızBlog.png" CssClass="image" />
+            <asp:Label ID="Label2" runat="server" Text=":(" Font-Bold="true" Font-Size="X-Large" width="500px"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Üzgünüz bu sayfa şu anda aktif değildir. Yakında tekrar geliniz. ArtadoSearch hakkında haberleri ilk olarak almak için Gazetemize abone olabilirsiniz." Font-Bold="true" Font-Size="X-Large" width="500px"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Üzgünüz bu servisimiz hala geliştirme aşamasındadır. Lütfen daha sonra tekrar gelin." Font-Bold="true" Font-Size="X-Large" width="500px"></asp:Label>
         </div>
     </form>
 </body>

@@ -17,14 +17,13 @@ using System.Web.Routing;
 using System.Web.Mvc;
 using System.Text;
 using System.Net.Http;
-using RestSharp;
 using System.Security.Policy;
 using System.Xml;
 using Newtonsoft.Json;
 using System.Xml.Linq;
 using System.Threading;
 using System.Globalization;
-
+using Google.Cloud.Translation.V2;
 
 public partial class AramaSonuc : System.Web.UI.Page
 {
@@ -44,6 +43,9 @@ public partial class AramaSonuc : System.Web.UI.Page
 
     public void Start()
     {
+        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
+        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+
         SqlConnection baglanti = new SqlConnection(con);
         SqlConnection conadmin = new SqlConnection(admn);
         
@@ -56,12 +58,22 @@ public partial class AramaSonuc : System.Web.UI.Page
 
         string aranan = Request.QueryString["i"];
 
+        if (aranan == null)
+        {
+            aranan = Request.QueryString["q"];
+            if (aranan == null)
+            {
+                aranan = Request.QueryString["p"];
+            }
+            Response.Redirect("search?i=" + aranan + "&page=1");
+        }
+
         //Google Araması
         int google;
         google = aranan.ToLower().IndexOf(".g");
 
         //Reddit Araması
-        int reddit;
+        int reddit; 
         reddit = aranan.ToLower().IndexOf(".r");
 
         //Instagram Araması
@@ -96,7 +108,7 @@ public partial class AramaSonuc : System.Web.UI.Page
         int q;
         q = aranan.ToLower().IndexOf(".q");
 
-        if(google >= 0|| reddit >= 0 || insta >= 0 || yt >= 0 || ddg >= 0 || eksi >= 0 || t >= 0 || y >= 0 || q >= 0 || wiki >= 0)
+        if(aranan.StartsWith(".g") || aranan.StartsWith(".r") || aranan.StartsWith(".i") || aranan.StartsWith(".yt") || aranan.StartsWith(".ddg") || aranan.StartsWith(".eksi") || aranan.StartsWith(".t") || aranan.StartsWith(".y") || aranan.StartsWith(".q") || aranan.StartsWith(".wiki"))
         {
             if (google >= 0)
             {
@@ -150,6 +162,494 @@ public partial class AramaSonuc : System.Web.UI.Page
             }
         }
 
+        string[] s;
+        aranan = aranan.Replace(", ", "").Replace(": ", "").Replace(". ", "").Replace("; ", "").Replace(" için ", "").Replace(" ile ", "").Replace("'", " ");
+        s = aranan.Split(' ');
+
+        Results.Visible = true;
+        DropDownList2.Items.FindByValue("Google").Enabled = true;
+        DropDownList2.Items.FindByValue("Artado").Enabled = true;
+        DropDownList2.Items.FindByValue("Bing").Enabled = true;
+        DropDownList2.Items.FindByValue("Yahoo").Enabled = true;
+        DropDownList2.Items.FindByValue("Github").Enabled = true;
+        DropDownList2.Items.FindByValue("Scholar").Enabled = true;
+        DropDownList2.Items.FindByValue("Base").Enabled = true;
+
+        try
+        {
+            if (DropDownList2.SelectedValue == "Artado")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = true;
+                Filtre.Visible = true;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                PageSelect.Visible = true;
+                Text.Visible = true;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = false;
+
+                //Web arama
+                if (WebArama.Visible == true && rptAramaSonuclari.Visible == true)
+                {
+                    foreach (string kelime in s)
+                    {
+                        if (DropDownList1.SelectedValue == "Alaka")
+                        {
+                            SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like @aranan or Content1 Like @aranan or Keywords Like @aranan", baglanti);
+                            adp.SelectCommand.Parameters.Add(new SqlParameter
+                            {
+                                ParameterName = "@aranan",
+                                Value = "%" + kelime + "%",
+                            });
+                            DataTable dt = new DataTable();
+                            adp.Fill(dt);
+                            pds.DataSource = dt.DefaultView;
+                            pds.AllowPaging = true;
+                            pds.PageSize = 10;
+                            int currentPage;
+                            if (Request.QueryString["page"] != null)
+                            {
+                                currentPage = Int32.Parse(Request.QueryString["page"]);
+                                if (currentPage < 1)
+                                {
+                                    currentPage = 1;
+                                }
+                            }
+                            else
+                            {
+                                currentPage = 1;
+                            }
+                            pds.CurrentPageIndex = currentPage - 1;
+                            Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
+                            if (currentPage <= 1)
+                            {
+                                HyperLink1.Visible = false;
+                            }
+                            if (!pds.IsFirstPage)
+                            {
+                                HyperLink1.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                            }
+                            if (!pds.IsLastPage)
+                            {
+                                HyperLink2.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+                            }
+                            rptAramaSonuclari.DataSource = pds;
+                            rptAramaSonuclari.DataBind();
+                        }
+                        else if (DropDownList1.SelectedValue == "Puan")
+                        {
+                            SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like @aranan or Content1 Like @aranan or Keywords Like @aranan order by Rank desc", baglanti);
+                            adp.SelectCommand.Parameters.Add(new SqlParameter
+                            {
+                                ParameterName = "@aranan",
+                                Value = "%" + kelime + "%",
+                            });
+                            DataTable dt = new DataTable();
+                            adp.Fill(dt);
+                            pds.DataSource = dt.DefaultView;
+                            pds.AllowPaging = true;
+                            pds.PageSize = 10;
+                            int currentPage;
+                            if (Request.QueryString["page"] != null)
+                            {
+                                currentPage = Int32.Parse(Request.QueryString["page"]);
+                            }
+                            else
+                            {
+                                currentPage = 1;
+                            }
+                            pds.CurrentPageIndex = currentPage - 1;
+                            Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
+                            if (!pds.IsFirstPage)
+                            {
+                                HyperLink1.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                            }
+                            if (!pds.IsLastPage)
+                            {
+                                HyperLink2.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+                            }
+                            rptAramaSonuclari.DataSource = pds;
+                            rptAramaSonuclari.DataBind();
+                        }
+                        else
+                        {
+                            SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like @aranan or Content1 Like @aranan or Keywords Like @aranan", baglanti);
+                            adp.SelectCommand.Parameters.Add(new SqlParameter
+                            {
+                                ParameterName = "@aranan",
+                                Value = "%" + kelime + "%",
+                            });
+                            DataTable dt = new DataTable();
+                            adp.Fill(dt);
+                            pds.DataSource = dt.DefaultView;
+                            pds.AllowPaging = true;
+                            pds.PageSize = 10;
+                            int currentPage;
+                            if (Request.QueryString["page"] != null)
+                            {
+                                currentPage = Int32.Parse(Request.QueryString["page"]);
+                            }
+                            else
+                            {
+                                currentPage = 1;
+                            }
+                            pds.CurrentPageIndex = currentPage - 1;
+                            Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
+                            if (!pds.IsFirstPage)
+                            {
+                                HyperLink1.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                            }
+                            if (!pds.IsLastPage)
+                            {
+                                HyperLink2.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+                            }
+                            rptAramaSonuclari.DataSource = pds;
+                            rptAramaSonuclari.DataBind();
+                        }
+                    }
+                }
+            }
+            else if (DropDownList2.SelectedValue == "Google")
+            {
+                Google.Visible = true;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = true;
+                OtherResults.Visible = false;
+            }
+            else if (DropDownList2.SelectedValue == "Bing")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 1;
+                }
+                string bing = "https://www.bing.com/search?q=" + aranan + "&form=QBLH&sp=-1&pq=artado&sc=8-6&qs=n&sk=&cvid=18B13EF8F7574FF399FA1D87305FADEE&first=" + currentPage;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(bing.Trim());
+                request.Referer = "https://www.bing.com/?cc=tr";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                int results1 = htmlText.IndexOf("<ol id=\"b_results\">".ToLower()) + 19;
+                int results2 = htmlText.Substring(results1).IndexOf("</ol>");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage <= 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else if (DropDownList2.SelectedValue == "Yahoo")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://search.yahoo.com/search?p=" + aranan + "&b=" + currentPage + 0;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "https://search.yahoo.com/search?p=";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("https://search.yahoo.com/search?p=", "/search?i=");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                try
+                {
+                    int results1 = htmlText.IndexOf("<div id=\"results\"><style type=\"text/css\">") + 0;
+                    int results2 = htmlText.Substring(results1).IndexOf("</div></div><div id=\"right\"></div>");
+                    string resulttext = htmlText.Substring(results1, results2);
+                    ResultsTxt.Text = resulttext;
+                }
+                catch
+                {
+                    int results1 = htmlText.IndexOf("<div id=\"left\">") + 0;
+                    int results2 = htmlText.Substring(results1).IndexOf("</ol></div>");
+                    string resulttext = htmlText.Substring(results1, results2);
+                    ResultsTxt.Text = resulttext;
+                }
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else if (DropDownList2.SelectedValue == "Github")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://github.com/search?p=" + currentPage + "&q=" + aranan + "&type=Repositories";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://github.com/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<ul class=\"repo-list\">") + 22;
+                int results2 = htmlText.Substring(results1).IndexOf("</ul>");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else if (DropDownList2.SelectedValue == "Scholar")
+            {
+                if (cookielang != null && cookielang.Value != null)
+                {
+                    if (cookielang.Value == "en-AU")
+                    {
+                        ScholarFiltre.SelectedValue = "az";
+                    }
+                    else if (cookielang.Value == "en-BZ")
+                    {
+                        ScholarFiltre.SelectedValue = "ba";
+                    }
+                    else
+                    {
+                        ScholarFiltre.SelectedValue = cookielang.Value;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        ScholarFiltre.SelectedValue = lang;
+                    }
+                    catch
+                    {
+                        ScholarFiltre.SelectedValue = "en-US";
+                    }
+                }
+
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://scholar.google.com/scholar?start=" + currentPage + "&q=" + aranan + "&hl=" + ScholarFiltre.SelectedValue;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://scholar.google.com/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<div id=\"gs_res_ccl_mid\">") + 25;
+                int results2 = htmlText.Substring(results1).IndexOf("</div><div id=\"gs_res_ccl_bot\">");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else if (DropDownList2.SelectedValue == "Base")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://www.base-search.net/Search/Results?lookfor=" + aranan + "&type=all&page=" + currentPage;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://www.base-search.net/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<div id=\"hit-list\">") + 19;
+                int results2 = htmlText.Substring(results1).IndexOf("<div class=\"row\" id=\"all-hits-export-row\">");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+        }
+        catch
+        {
+            Google.Visible = false;
+            rptAramaSonuclari.Visible = false;
+            Filtre.Visible = false;
+            PageSelect.Visible = false;
+            Text.Visible = false;
+            GoogleImage.Visible = false;
+            ResultsTxt.Visible = true;
+            ResultsTxt.Text = "Upps! Bir hata oluştu.<br/><br/> Upps! Something went wrong.<br/><br/> Opps! Etwas ist schief gelaufen.<br/><br/> Oups! Quelque chose s'est mal passé.<br/><br/> Ой! Что-то пошло не так.<br/><br/> 出问题了。";
+        }
+
         WebArama.Visible = true;
         Panel3.Visible = true;
         Panel4.Visible = true;
@@ -161,12 +661,6 @@ public partial class AramaSonuc : System.Web.UI.Page
         Panel3.Visible = false;
         Makaleler.Visible = false;
 
-        //Aranan kelime sınırı
-        if (aranan.Length >= 100)
-        {
-            Response.Redirect("Home?hata=true");
-        }
-
         //Boş Arama engelleme
         if (aranan == "")
         {
@@ -174,194 +668,375 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
 
         Page.Title = aranan + " - Artado Search";
+        arama_çubugu2.Attributes.Add("Value", aranan);
 
         watch.Start();
 
-        //Web arama
-        string[] s;
-        aranan = aranan.Replace(",", "").Replace(":", "").Replace(".", "").Replace(";", "").Replace("için", "").Replace("ile", "");
-        s = aranan.Split(' ');
-        if (WebArama.Visible == true)
-        {
-            foreach (string kelime in s)
-            {
-                if (DropDownList1.SelectedValue == "Alaka")
-                {
-                    SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like '%" + kelime + "%' or Content1 Like '%" + kelime + "%'", baglanti);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    pds.DataSource = dt.DefaultView;
-                    pds.AllowPaging = true;
-                    pds.PageSize = 10;
-                    int currentPage;
-                    if (Request.QueryString["page"] != null)
-                    {
-                        currentPage = Int32.Parse(Request.QueryString["page"]);
-                    }
-                    else
-                    {
-                        currentPage = 1;
-                    }
-                    pds.CurrentPageIndex = currentPage - 1;
-                    Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
-                    if (!pds.IsFirstPage)
-                    {
-                        HyperLink1.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage - 1);
-                    }
-                    if (!pds.IsLastPage)
-                    {
-                        HyperLink2.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage + 1);
-                    }
-                    rptAramaSonuclari.DataSource = pds;
-                    rptAramaSonuclari.DataBind();
-                }
-                else if(DropDownList1.SelectedValue == "Puan")
-                {
-                    SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like '%" + kelime + "%' or Content1 Like '%" + kelime + "%' order by Rank desc", baglanti);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    pds.DataSource = dt.DefaultView;
-                    pds.AllowPaging = true;
-                    pds.PageSize = 10;
-                    int currentPage;
-                    if (Request.QueryString["page"] != null)
-                    {
-                        currentPage = Int32.Parse(Request.QueryString["page"]);
-                    }
-                    else
-                    {
-                        currentPage = 1;
-                    }
-                    pds.CurrentPageIndex = currentPage - 1;
-                    Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
-                    if (!pds.IsFirstPage)
-                    {
-                        HyperLink1.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage - 1);
-                    }
-                    if (!pds.IsLastPage)
-                    {
-                        HyperLink2.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage + 1);
-                    }
-                    rptAramaSonuclari.DataSource = pds;
-                    rptAramaSonuclari.DataBind();
-                }
-                else 
-                {
-                    SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Sonuçlar where Title Like '%" + aranan + "%' or Content1 Like '%" + aranan + "%' order by ID desc", baglanti);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    pds.DataSource = dt.DefaultView;
-                    pds.AllowPaging = true;
-                    pds.PageSize = 10;
-                    int currentPage;
-                    if (Request.QueryString["page"] != null)
-                    {
-                        currentPage = Int32.Parse(Request.QueryString["page"]);
-                    }
-                    else
-                    {
-                        currentPage = 1;
-                    }
-                    pds.CurrentPageIndex = currentPage - 1;
-                    Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
-                    if (!pds.IsFirstPage)
-                    {
-                        HyperLink1.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage - 1);
-                    }
-                    if (!pds.IsLastPage)
-                    {
-                        HyperLink2.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage + 1);
-                    }
-                    rptAramaSonuclari.DataSource = pds;
-                    rptAramaSonuclari.DataBind();
-                }
-            }
-        }
+        int sonuçlar = rptAramaSonuclari.Items.Count * pds.PageCount;
 
         //Sözlük Öneri
         foreach (string kelime in s)
         {
-            int ek;
-            ek = kelime.ToLower().IndexOf("ler");
             PagedDataSource pdssoz = new PagedDataSource();
-
-            if (ek >= 0)
+            SqlDataAdapter adpsoz = new SqlDataAdapter("select *, Anlam from arda.Sözlük where Kelime Like @aranan", baglanti);
+            adpsoz.SelectCommand.Parameters.Add(new SqlParameter
             {
-                string yenikelime = kelime.Substring(0, kelime.Length - 3);
-
-                SqlDataAdapter adpsoz = new SqlDataAdapter("select *, Anlam from arda.Sözlük where Kelime Like '%" + yenikelime + "%'", baglanti);
-                DataTable dtınfo = new DataTable();
-                adpsoz.Fill(dtınfo);
-                pdssoz.DataSource = dtınfo.DefaultView;
-                pdssoz.AllowPaging = true;
-                pdssoz.PageSize = 1;
-                SozlukOneri.DataSource = pdssoz;
-                SozlukOneri.DataBind();
-            }
-            else
-            {
-                SqlDataAdapter adpsoz = new SqlDataAdapter("select *, Anlam from arda.Sözlük where Kelime Like '%" + kelime + "%'", baglanti);
-                DataTable dtınfo = new DataTable();
-                adpsoz.Fill(dtınfo);
-                pdssoz.DataSource = dtınfo.DefaultView;
-                pdssoz.AllowPaging = true;
-                pdssoz.PageSize = 1;
-                SozlukOneri.DataSource = pdssoz;
-                SozlukOneri.DataBind();
-            }
+                ParameterName = "@aranan",
+                Value = "%" + kelime + "%",
+            });
+            DataTable dtınfo = new DataTable();
+            adpsoz.Fill(dtınfo);
+            pdssoz.DataSource = dtınfo.DefaultView;
+            pdssoz.AllowPaging = true;  
+            pdssoz.PageSize = 1;
+            SozlukOneri.DataSource = pdssoz;
+            SozlukOneri.DataBind();
         }
         if (SozlukOneri.Items.Count == 0)
         {
             Panel6.Visible = false;
         }
 
-        //Bilgi Kutusu Arama
-        PagedDataSource pdsinfo = new PagedDataSource();
+        //Showcase
         foreach (string kelime in s)
         {
-            int ek;
-            ek = kelime.ToLower().IndexOf("ler");
-
-            if (ek >= 0)
+            PagedDataSource pdssoz = new PagedDataSource();
+            SqlDataAdapter adpsoz = new SqlDataAdapter("select * from arda.Ürünler where Title Like @aranan or Source Like @aranan", baglanti);
+            adpsoz.SelectCommand.Parameters.Add(new SqlParameter
             {
-                string yenikelime = kelime.Substring(0, kelime.Length - 3);
+                ParameterName = "@aranan",
+                Value = "%" + kelime + "%",
+            });
+            DataTable dtınfo = new DataTable();
+            adpsoz.Fill(dtınfo);
+            pdssoz.DataSource = dtınfo.DefaultView;
+            pdssoz.AllowPaging = true;
+            pdssoz.PageSize = 10;
+            Ürünler.DataSource = pdssoz;
+            Ürünler.DataBind();
+        }
+        if (Ürünler.Items.Count < 3)
+        {
+            Showcase.Visible = false;
+        }
+        Ürünler.RepeatColumns = 20;
 
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from arda.Infos where InfoTitle Like '%" + yenikelime + "%'", baglanti);
-                DataTable dtınfo = new DataTable();
-                adpınfo.Fill(dtınfo);
-                pdsinfo.DataSource = dtınfo.DefaultView;
-                pdsinfo.AllowPaging = true;
-                pdsinfo.PageSize = 1;
-                InfoBox.DataSource = pdsinfo;
-                InfoBox.DataBind();
+        //Bilgi Kutusu Arama
+        PagedDataSource pdsinfo = new PagedDataSource();
+        if (pds.IsFirstPage)
+        {
+            if (cookielang != null && cookielang.Value != null)
+            {
+                if (cookielang.Value == "tr-TR")
+                {
+                    PagedDataSource pdssoz = new PagedDataSource();
+                    SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='tr'", baglanti);
+                    adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@aranan",
+                        Value = "%" + aranan + "%",
+                    });
+                    DataTable dtınfo = new DataTable();
+                    adpınfo.Fill(dtınfo);
+                    pdsinfo.DataSource = dtınfo.DefaultView;
+                    pdsinfo.AllowPaging = true;
+                    pdsinfo.PageSize = 1;
+                    InfoBox.DataSource = pdsinfo;
+                    InfoBox.DataBind();
+
+                    if(InfoBox.Items.Count > 0)
+                    {
+                        //Bilgi Kutusu Onay Yazısı
+                        Label onaytxt = InfoBox.Items[0].FindControl("OnayTxt") as Label;
+                        Label title = InfoBox.Items[0].FindControl("title") as Label;
+                        Panel onaypanel = InfoBox.Items[0].FindControl("Onay") as Panel;
+                        SqlCommand sqlcmd = new SqlCommand("select Onay from dbo.Infos where InfoTitle=@aranan", baglanti);
+                        sqlcmd.Parameters.AddWithValue("@aranan", title.Text);
+                        if (baglanti.State == ConnectionState.Closed)
+                        {
+                            baglanti.Open();
+                        }
+                        string onay = sqlcmd.ExecuteScalar().ToString();
+                        if (baglanti.State.ToString() == "Open")
+                        {
+                            baglanti.Close();
+                            SqlConnection.ClearPool(baglanti);
+                        }
+
+                        if (onay == "Waiting")
+                        {
+                            onaypanel.Visible = true;
+                            onaytxt.Text = "Bu bilgi kutusu daha onaylanmadı.";
+                        }
+                        else
+                        {
+                            onaypanel.Visible = false;
+                        }
+                    }
+                }
+                else
+                {
+                    PagedDataSource pdssoz = new PagedDataSource();
+                    SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='en'", baglanti);
+                    adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@aranan",
+                        Value = "%" + aranan + "%",
+                    });
+                    DataTable dtınfo = new DataTable();
+                    adpınfo.Fill(dtınfo);
+                    pdsinfo.DataSource = dtınfo.DefaultView;
+                    pdsinfo.AllowPaging = true;
+                    pdsinfo.PageSize = 1;
+                    InfoBox.DataSource = pdsinfo;
+                    InfoBox.DataBind();
+
+                    if(InfoBox.Items.Count > 0)
+                    {
+                        //Bilgi Kutusu Onay Yazısı
+                        Label onaytxt = InfoBox.Items[0].FindControl("OnayTxt") as Label;
+                        Label title = InfoBox.Items[0].FindControl("title") as Label;
+                        Panel onaypanel = InfoBox.Items[0].FindControl("Onay") as Panel;
+                        SqlCommand sqlcmd = new SqlCommand("select Onay from dbo.Infos where InfoTitle=@aranan", baglanti);
+                        sqlcmd.Parameters.AddWithValue("@aranan", title.Text);
+                        if (baglanti.State == ConnectionState.Closed)
+                        {
+                            baglanti.Open();
+                        }
+                        string onay = sqlcmd.ExecuteScalar().ToString();
+                        if (baglanti.State.ToString() == "Open")
+                        {
+                            baglanti.Close();
+                            SqlConnection.ClearPool(baglanti);
+                        }
+
+                        if (onay == "Waiting")
+                        {
+                            onaypanel.Visible = true;
+                            onaytxt.Text = "This infobox has not been confirmed yet.";
+                        }
+                        else
+                        {
+                            onaypanel.Visible = false;
+                        }
+                    }
+                }
             }
             else
             {
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from arda.Infos where InfoTitle Like '%" + aranan + "%'", baglanti);
+                if (lang == "tr".ToLower())
+                {
+                    PagedDataSource pdssoz = new PagedDataSource();
+                    SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='tr'", baglanti);
+                    adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@aranan",
+                        Value = "%" + aranan + "%",
+                    });
+                    DataTable dtınfo = new DataTable();
+                    adpınfo.Fill(dtınfo);
+                    pdsinfo.DataSource = dtınfo.DefaultView;
+                    pdsinfo.AllowPaging = true;
+                    pdsinfo.PageSize = 1;
+                    InfoBox.DataSource = pdsinfo;
+                    InfoBox.DataBind();
+
+                    if (InfoBox.Items.Count > 0)
+                    {
+                        //Bilgi Kutusu Onay Yazısı
+                        Label onaytxt = InfoBox.Items[0].FindControl("OnayTxt") as Label;
+                        Label title = InfoBox.Items[0].FindControl("title") as Label;
+                        Panel onaypanel = InfoBox.Items[0].FindControl("Onay") as Panel;
+                        SqlCommand sqlcmd = new SqlCommand("select Onay from dbo.Infos where InfoTitle=@aranan", baglanti);
+                        sqlcmd.Parameters.AddWithValue("@aranan", title.Text);
+                        if (baglanti.State == ConnectionState.Closed)
+                        {
+                            baglanti.Open();
+                        }
+                        string onay = sqlcmd.ExecuteScalar().ToString();
+                        if (baglanti.State.ToString() == "Open")
+                        {
+                            baglanti.Close();
+                            SqlConnection.ClearPool(baglanti);
+                        }
+
+                        if (onay == "Waiting")
+                        {
+                            onaypanel.Visible = true;
+                            onaytxt.Text = "Bu bilgi kutusu daha onaylanmadı.";
+                        }
+                        else
+                        {
+                            onaypanel.Visible = false;
+                        }
+                    }
+                }
+                else
+                {
+                    PagedDataSource pdssoz = new PagedDataSource();
+                    SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='en'", baglanti);
+                    adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                    {
+                        ParameterName = "@aranan",
+                        Value = "%" + aranan + "%",
+                    });
+                    DataTable dtınfo = new DataTable();
+                    adpınfo.Fill(dtınfo);
+                    pdsinfo.DataSource = dtınfo.DefaultView;
+                    pdsinfo.AllowPaging = true;
+                    pdsinfo.PageSize = 1;
+                    InfoBox.DataSource = pdsinfo;
+                    InfoBox.DataBind();
+
+                    if(InfoBox.Items.Count > 0)
+                    {
+                        //Bilgi Kutusu Onay Yazısı
+                        Label onaytxt = InfoBox.Items[0].FindControl("OnayTxt") as Label;
+                        Label title = InfoBox.Items[0].FindControl("title") as Label;
+                        Panel onaypanel = InfoBox.Items[0].FindControl("Onay") as Panel;
+                        SqlCommand sqlcmd = new SqlCommand("select Onay from dbo.Infos where InfoTitle=@aranan", baglanti);
+                        sqlcmd.Parameters.AddWithValue("@aranan", title.Text);
+                        if (baglanti.State == ConnectionState.Closed)
+                        {
+                            baglanti.Open();
+                        }
+                        string onay = sqlcmd.ExecuteScalar().ToString();
+                        if (baglanti.State.ToString() == "Open")
+                        {
+                            baglanti.Close();
+                            SqlConnection.ClearPool(baglanti);
+                        }
+
+                        if (onay == "Waiting")
+                        {
+                            onaypanel.Visible = true;
+                            onaytxt.Text = "This infobox has not been confirmed yet.";
+                        }
+                        else
+                        {
+                            onaypanel.Visible = false;
+                        }
+                    }
+                }
+            }
+            if (InfoBox.Items.Count == 0)
+            {
+                Panel4.Visible = false;
+            }
+        }
+        else
+        {
+            Panel4.Visible = false;
+        }
+
+        if (pds.IsFirstPage && Panel4.Visible == true)
+        {
+            Label title = InfoBox.Items[0].FindControl("title") as Label;
+            Suggestions.RepeatColumns = 3;
+            if (cookielang != null && cookielang.Value != null)
+            {
+                PagedDataSource pdssoz = new PagedDataSource();
+                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and where not InfoTitle='" + title.Text + "'", baglanti);
+                adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@aranan",
+                    Value = "%" + aranan + "%",
+                });
                 DataTable dtınfo = new DataTable();
                 adpınfo.Fill(dtınfo);
                 pdsinfo.DataSource = dtınfo.DefaultView;
                 pdsinfo.AllowPaging = true;
-                pdsinfo.PageSize = 1;
-                InfoBox.DataSource = pdsinfo;
-                InfoBox.DataBind();
+                pdsinfo.PageSize = 3;
+                Suggestions.DataSource = pdsinfo;
+                Suggestions.DataBind();
+                if (Suggestions.Items.Count == 0)
+                {
+                    Panel10.Visible = false;
+                }
+            }
+            else
+            {
+                PagedDataSource pdssoz = new PagedDataSource();
+                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and not InfoTitle='" + title.Text + "'", baglanti);
+                adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@aranan",
+                    Value = "%" + aranan + "%",
+                });
+                DataTable dtınfo = new DataTable();
+                adpınfo.Fill(dtınfo);
+                pdsinfo.DataSource = dtınfo.DefaultView;
+                pdsinfo.AllowPaging = true;
+                pdsinfo.PageSize = 3;
+                Suggestions.DataSource = pdsinfo;
+                Suggestions.DataBind();
+                if (Suggestions.Items.Count == 0)
+                {
+                    Panel10.Visible = false;
+                }
+            }
+            if (Suggestions.Items.Count <= 3)
+            {
+                Panel10.Visible = false;
             }
         }
-        if (InfoBox.Items.Count == 0)
+        else
         {
-            Panel4.Visible = false;
+            Panel10.Visible = false;
+        }
+
+        //Haberler
+        foreach (string kelime in s)
+        {
+            PagedDataSource pdssoz = new PagedDataSource();
+            SqlDataAdapter adpsoz = new SqlDataAdapter("select * from arda.News where Title Like @aranan order by Date desc", baglanti);
+            adpsoz.SelectCommand.Parameters.Add(new SqlParameter
+            {
+                ParameterName = "@aranan",
+                Value = "%" + kelime + "%",
+            });
+            DataTable dtınfo = new DataTable();
+            adpsoz.Fill(dtınfo);
+            pdssoz.DataSource = dtınfo.DefaultView;
+            pdssoz.AllowPaging = true;
+            pdssoz.PageSize = 1;
+            News_Results.DataSource = pdssoz;
+            News_Results.DataBind();
+        }
+        if (News_Results.Items.Count == 0)
+        { 
+            News.Visible = false;
         }
 
         //Arananı veritabanına kaydediyor
         string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
 
-        SqlConnection baglantiistek = new SqlConnection(admin);
-        if (baglantiistek.State == ConnectionState.Closed)
-            baglantiistek.Open();
-        string istek = "insert into arda.Arananlar(Kelime) values (@Kelime)";
-        SqlCommand komut = new SqlCommand(istek, baglantiistek);
-        komut.Parameters.AddWithValue("@Kelime", aranan);
-        komut.ExecuteNonQuery();
+        if (cookielang != null && cookielang.Value != null)
+        {
+            SqlConnection baglantiistek = new SqlConnection(admin);
+            if (baglantiistek.State == ConnectionState.Closed)
+                baglantiistek.Open();
+            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date) values (@Kelime, @Lang, @Date)";
+            SqlCommand komut = new SqlCommand(istek, baglantiistek);
+            komut.Parameters.AddWithValue("@Kelime", "[anon]");
+            komut.Parameters.AddWithValue("@Lang", cookielang.Value);
+            komut.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
+            komut.ExecuteNonQuery();
+            baglantiistek.Close();
+        }
+        else
+        {
+            SqlConnection baglantiistek = new SqlConnection(admin);
+            if (baglantiistek.State == ConnectionState.Closed)
+                baglantiistek.Open();
+            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date) values (@Kelime, @Lang, @Date)";
+            SqlCommand komut = new SqlCommand(istek, baglantiistek);
+            komut.Parameters.AddWithValue("@Kelime", "[anon]");
+            komut.Parameters.AddWithValue("@Lang", lang);
+            komut.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
+            komut.ExecuteNonQuery();
+            baglantiistek.Close();
+        }
 
         int dolar;
         dolar = aranan.Trim().ToLower().IndexOf("dolar");
@@ -499,195 +1174,509 @@ public partial class AramaSonuc : System.Web.UI.Page
             IPPanel.Visible = false;
         }
 
-
-        int hava = aranan.ToLower().IndexOf("hava durumu");
+        int hava = aranan.ToLower().IndexOf("hava");
+        int hava2 = aranan.ToLower().IndexOf("weather");
+        int hava3 = aranan.ToLower().IndexOf("wetter");
+        int hava4 = aranan.ToLower().IndexOf("conditions météorologiques");
+        int hava5 = aranan.ToLower().IndexOf("Погода");
+        int hava6 = aranan.ToLower().IndexOf("天气");
         if (hava >= 0)
         {
             string api = "2f0a475faa72b7ade6066d6279ee5ca5";
-            if (Ülkeler.Text == "Türkiye")
-            {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerTR.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
 
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerEN.Visible = false;
-                İllerTR.Visible = true;
-                İllerFR.Visible = false;
-                İllerDE.Visible = false;
-                İllerAZ.Visible = false;
-                İllerKKTC.Visible = false;
+            var ipAddress = string.Empty;
+            if (HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
+            {
+                ipAddress = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
             }
-            else if (Ülkeler.Text == "İngiltere")
+            else if (HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"] != null && HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"].Length != 0)
             {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerEN.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerTR.Visible = false;
-                İllerEN.Visible = true;
-                İllerFR.Visible = false;
-                İllerDE.Visible = false;
-                İllerAZ.Visible = false;
-                İllerKKTC.Visible = false;
+                ipAddress = HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"];
             }
-            else if (Ülkeler.Text == "Fransa")
+            else if (HttpContext.Current.Request.UserHostAddress.Length != 0)
             {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerFR.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerTR.Visible = false;
-                İllerEN.Visible = false;
-                İllerFR.Visible = true;
-                İllerDE.Visible = false;
-                İllerAZ.Visible = false;
-                İllerKKTC.Visible = false;
+                ipAddress = HttpContext.Current.Request.UserHostName;
             }
-            else if (Ülkeler.Text == "Fransa")
-            {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerDE.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
 
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerTR.Visible = false;
-                İllerEN.Visible = false;
-                İllerFR.Visible = false;
-                İllerDE.Visible = true;
-                İllerAZ.Visible = false;
-                İllerKKTC.Visible = false;
+            string location = "http://api.ipinfodb.com/v3/ip-city/?key=827d056c355bcb601ce33da0280d1e8e583a0cc6b213e06908cc15844f64a9bb&ip=" + ipAddress + "&format=xml";
+            XmlTextReader oku = new XmlTextReader(location);
+            try
+            {
+                if (oku.Read())
+                {
+                    if (oku.NodeType == XmlNodeType.Element)
+                    {
+                        switch (oku.Name)
+                        {
+                            case "regionName":
+                                City.Text = Convert.ToString(oku.ReadString());
+                                break;
+                        }
+                    }
+                }
+                oku.Close();
             }
-            else if (Ülkeler.Text == "Azerbaycan")
+            catch
             {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerAZ.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerTR.Visible = false;
-                İllerEN.Visible = false;
-                İllerFR.Visible = false;
-                İllerDE.Visible = false;
-                İllerAZ.Visible = true;
-                İllerKKTC.Visible = false;
+                City.Text = "Istanbul";
             }
-            else if (Ülkeler.Text == "KKTC")
-            {
-                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerKKTC.Text + "&mode=xml&lang=tr&units=metric&appid=" + api;
-                XDocument Hava = XDocument.Load(havabaglanti);
-                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                SıcaklıkTxt.Text = sicaklik + " ºC";
-                DurumTxt.Text = durum;
-                Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
 
-                Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                Batış.Text = "Güneş Batışı :   " + sunset;
-                HavaDurumu.Visible = true;
-                İllerTR.Visible = false;
-                İllerEN.Visible = false;
-                İllerFR.Visible = false;
-                İllerDE.Visible = false;
-                İllerAZ.Visible = false;
-                İllerKKTC.Visible = true;
+            if (cookielang != null && cookielang.Value != null)
+            {
+                try
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    WeatherImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    Weathertext.Text = sicaklik + " ºC";
+                    Weathertext2.Text = durum;
+                    Feels_Like.Text = "Hissedilen Sıcaklık :  " + feels_like + "ºC";
+                }
+                catch
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    WeatherImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    Weathertext.Text = sicaklik + " ºC";
+                    Weathertext2.Text = durum;
+                    Feels_Like.Text = "Hissedilen Sıcaklık :  " + feels_like + "ºC";
+                    City.Text = "Istanbul";
+                }
+            }
+            else
+            {
+                try
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    WeatherImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    Weathertext.Text = sicaklik + " ºC";
+                    Weathertext2.Text = durum;
+                    Feels_Like.Text = "Hissedilen Sıcaklık :  " + feels_like + "ºC";
+                }
+                catch
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    WeatherImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    Weathertext.Text = sicaklik + " ºC";
+                    Weathertext2.Text = durum;
+                    Feels_Like.Text = "Hissedilen Sıcaklık :  " + feels_like + "ºC";
+                    City.Text = "Istanbul";
+                }
+            }
+
+            if (cookielang != null && cookielang.Value != null)
+            {
+                if (Ülkeler.Text == "Türkiye")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerTR.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerEN.Visible = false;
+                    İllerTR.Visible = true;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "İngiltere")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerEN.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = true;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Fransa")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerFR.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = true;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Almanya")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerDE.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = true;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Azerbaycan")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerAZ.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = true;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "KKTC")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerKKTC.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = true;
+                }
+            }
+            else
+            {
+                if (Ülkeler.Text == "Türkiye")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerTR.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerEN.Visible = false;
+                    İllerTR.Visible = true;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "İngiltere")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerEN.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = true;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Fransa")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerFR.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = true;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Almanya")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerDE.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = true;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "Azerbaycan")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerAZ.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = true;
+                    İllerKKTC.Visible = false;
+                }
+                else if (Ülkeler.Text == "KKTC")
+                {
+                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + İllerKKTC.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                    XDocument Hava = XDocument.Load(havabaglanti);
+                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                    SıcaklıkTxt.Text = sicaklik + " ºC";
+                    DurumTxt.Text = durum;
+                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
+                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
+                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
+
+                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
+                    Batış.Text = "Güneş Batışı :   " + sunset;
+                    HavaDurumu.Visible = true;
+                    İllerTR.Visible = false;
+                    İllerEN.Visible = false;
+                    İllerFR.Visible = false;
+                    İllerDE.Visible = false;
+                    İllerAZ.Visible = false;
+                    İllerKKTC.Visible = true;
+                }
             }
         }
         else
         {
             HavaDurumu.Visible = false;
+            Panel8.Visible = false;
         }
 
         if (Panel1.Visible == true)
         {
             Panel6.Visible = false;
         }
+
+        //int translate;
+        //translate = aranan.IndexOf("çeviri");
+        //if (translate >= 0)
+        //{
+        //    Translate.Visible = true;
+        //}
+        //else
+        //{
+
+        //}
+        Translate.Visible = false;
+
+        
 
         Web.ForeColor = System.Drawing.Color.BlueViolet;
         Web.Font.Bold = true;
@@ -757,11 +1746,6 @@ public partial class AramaSonuc : System.Web.UI.Page
             baglanti2.Close();
         }
 
-        arama_çubugu2.Attributes.Add("Value", aranan);
-        int sonuçlar = rptAramaSonuclari.Items.Count * pds.PageCount;
-        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
-
-        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
         if (cookielang != null && cookielang.Value != null)
         {
             if (cookielang.Value == "tr-TR")
@@ -962,7 +1946,6 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
         watch.Stop();
         baglanti.Close();
-        baglantiistek.Close();
 
         for (int i = 0; i < rptAramaSonuclari.Items.Count; i++)
         {
@@ -1108,277 +2091,60 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+    public void Image()
     {
-        Start();
-    }
-    protected override void InitializeCulture()
-    {
-        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
-
-        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
-        if (cookielang != null && cookielang.Value != null)
-        {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
-        }
-        else
-        {
-            if (lang == "tr".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
-
-                Page.MetaDescription = "Artado Search Türkiye - Yerli, Reklamsız, Gizliliğe Önem Veren, Güvenli ve Sade Tasarımlı Arama Motoru";
-            }
-            else if (lang == "en".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-
-                Page.MetaDescription = "Artado Search - Anonymous and secure search engine";
-            }
-            else if (lang == "fr".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
-
-                Page.MetaDescription = "Artado Search France - Moteur de recherche anonyme et sécurisé";
-            }
-            else if (lang == "de".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
-
-                Page.MetaDescription = "Artado Search Deutschland - Anonyme und sichere Suchmaschine";
-            }
-            else if (lang == "az".ToLower() || lang == "Lt-az".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-AU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-AU");
-
-                Page.MetaDescription = "Artado Search Azerbaijan - Anonim və təhlükəsiz axtarış sistemi";
-            }
-            else if (lang == "it".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("it-IT");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("it-IT");
-
-                Page.MetaDescription = "Artado Search Italy - Motore di ricerca anonimo e sicuro";
-            }
-            else if (lang == "ru".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
-
-                Page.MetaDescription = "Artado Search Russia - анонимная и безопасная поисковая система";
-            }
-            else if (lang == "zh".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CHS");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CHS");
-
-                Page.MetaDescription = "Artado Search China - 匿名和安全的搜索引擎";
-            }
-            else if (lang == "es".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
-
-                Page.MetaDescription = "Artado Search Spain - Buscador anónimo y seguro";
-            }
-            else if (lang == "pz".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-PT");
-
-                Page.MetaDescription = "Artado Search Portugal - Motor de pesquisa anónimo e seguro";
-            }
-            else if (lang == "ko".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ko-KR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ko-KR");
-
-                Page.MetaDescription = "Artado Search 대한민국 - 익명의 안전한 검색 엔진";
-            }
-            else if (lang == "ja".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-
-                Page.MetaDescription = "Artado Search Japan - 匿名で安全な検索エンジン";
-            }
-            else if (lang == "hu".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("hu-HU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("hu-HU");
-
-                Page.MetaDescription = "Artado Search Hungary - Névtelen és biztonságos kereső";
-            }
-            else if (lang == "bg".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("bg-BG");
-
-                Page.MetaDescription = "Artado Search Bulgaria - Анонимна и сигурна търсачка";
-            }
-            else if (lang == "bs".ToLower())
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-BZ");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-BZ");
-
-                Page.MetaDescription = "Artado Search Bosna i Hercegovina - Anonimna i sigurna pretraživač";
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-
-                Page.MetaDescription = "Anonymous and secure search engine";
-            }
-
-        }
-        base.InitializeCulture();
-    }
-
-    protected void Page_PreInit(object sender, EventArgs e)
-    {
-        theme2 = Request.QueryString["theme"];
-        if (theme2 == "Modern" || theme2 == "Sanatçı")
-        {
-            Page.Theme = "Klasik";
-        }
-        else if ((theme2 != null) && (theme2.Length != 0))
-        {
-            Page.Theme = theme2;
-        }
-        else
-        {
-            Page.Theme = "Dark";
-        }
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        int sharp = arama_çubugu2.Text.IndexOf("#");
-        int ok1 = arama_çubugu2.Text.IndexOf("<");
-        int ok2 = arama_çubugu2.Text.IndexOf(">");
-
-        string schange = arama_çubugu2.Text.Replace("#", "%23");
-        string okc1 = arama_çubugu2.Text.Replace("<", "%3C");
-        string okc2 = arama_çubugu2.Text.Replace(">", "gt;");
-
-        if (ok1 >= 0)
-        {
-            Response.Redirect("/search?i=" + okc1.Trim() + "&theme=" + Page.Theme + "&page=" + 1);
-        }
-        else if (ok2 >= 0)
-        {
-            Response.Redirect("/search?i=" + schange.Trim() + "&theme=" + Page.Theme + "&page=" + 1);
-        }
-        else if (sharp >= 0)
-        {
-            Response.Redirect("/search?i=" + schange.Trim() + "&theme=" + Page.Theme + "&page=" + 1);
-        }
-        else //1.15
-        {
-            Response.Redirect("/search?i=" + arama_çubugu2.Text.Trim() + "&theme=" + Page.Theme + "&page=" + 1);
-        }
-    }
-
-
-
-    protected void rptAramaSonuclari_ItemCommand(object source, RepeaterCommandEventArgs e)
-    {
-        Response.Redirect("url.aspx");
-    }
-
-    protected void Gönder_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            int mailsembol;
-            mailsembol = Mail.Text.IndexOf("@");
-            if (Mail.Text.EndsWith(".com") || mailsembol >= 0)
-            {
-                //Geri Bildirimi veritabanına kaydediyor
-                SqlConnection baglantiistek = new SqlConnection(con);
-                if (baglantiistek.State == ConnectionState.Closed)
-                    baglantiistek.Open();
-                string istek = "insert into Feedbacks(MailAdress, Feedback) values (@MailAdress,@Feedback)";
-                SqlCommand komut = new SqlCommand(istek, baglantiistek);
-                komut.Parameters.AddWithValue("@MailAdress", Mail.Text);
-                komut.Parameters.AddWithValue("@Feedback", Deneyim.InnerText);
-                komut.ExecuteNonQuery();
-
-                Sonuc.Text = "<br/>" + "Geri bildiriminiz için teşekkür ederiz.";
-            }
-            else
-            {
-                Sonuc.Text = "E-postanızı kontrol ediniz.";
-            }
-
-        }
-        catch (Exception hata)
-        {
-            Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/İletişim'>başka platformlardan<a/> bildirebilirsiniz.";
-        }
-    }
-
-    protected void Image1_Click1(object sender, ImageClickEventArgs e)
-    {
-        Response.Redirect("/");
-    }
-
-    protected void Web_Click(object sender, EventArgs e)
-    {
-        Start();
-    }
-
-    protected void Görsel_Click(object sender, EventArgs e)
-    {
+        Results.Visible = true;
         //Görsel Arama
         SqlConnection baglanti = new SqlConnection(con);
         string aranan = Request.QueryString["i"];
+        if (aranan == null)
+        {
+            aranan = Request.QueryString["q"];
+            if (aranan == null)
+            {
+                aranan = Request.QueryString["p"];
+            }
+            Response.Redirect("search?i=" + aranan + "&page=1");
+        }
         string[] s;
-        aranan = aranan.Replace(",", "").Replace(":", "").Replace(".", "").Replace(";", "").Replace("için", "").Replace("ile", "");
+        aranan = aranan.Replace(", ", "").Replace(": ", "").Replace(". ", "").Replace("; ", "").Replace(" için ", "").Replace(" ile ", "");
         s = aranan.Split(' ');
 
-        foreach (string kelime in s)
+        //Boş Arama engelleme
+        if (aranan == "")
         {
-            int ek;
-            ek = kelime.ToLower().IndexOf("ler");
-
-            if (ek >= 0)
-            {
-                string yenikelime = kelime.Substring(0, kelime.Length - 3);
-
-                SqlDataAdapter adpgorsel = new SqlDataAdapter("select *, GörselLink from arda.Görseller where GorselTitle Like '%" + yenikelime + "%'", baglanti);
-                DataTable dtgorsel = new DataTable();
-                adpgorsel.Fill(dtgorsel);
-                GorselSonuclar.DataSource = dtgorsel;
-                GorselSonuclar.DataBind();
-            }
-            else
-            {
-                SqlDataAdapter adpgorsel = new SqlDataAdapter("select *, GörselLink from arda.Görseller where GorselTitle Like '%" + kelime + "%'", baglanti);
-                DataTable dtgorsel = new DataTable();
-                adpgorsel.Fill(dtgorsel);
-                GorselSonuclar.DataSource = dtgorsel;
-                GorselSonuclar.DataBind();
-            }
+            Response.Redirect("Home?empty=true");
         }
-        if (Request.Browser.IsMobileDevice == true)
+
+        arama_çubugu2.Attributes.Add("Value", aranan);
+        Page.Title = aranan + " - Artado Search";
+
+        DropDownList2.Items.FindByValue("Google").Enabled = true;
+        DropDownList2.Items.FindByValue("Artado").Enabled = true;
+        DropDownList2.Items.FindByValue("Bing").Enabled = false;
+        DropDownList2.Items.FindByValue("Yahoo").Enabled = false;
+        DropDownList2.Items.FindByValue("Github").Enabled = false;
+        DropDownList2.Items.FindByValue("Scholar").Enabled = false;
+        DropDownList2.Items.FindByValue("Base").Enabled = false;
+
+        if (DropDownList2.SelectedValue == "Artado")
         {
-            GorselSonuclar.RepeatColumns = 1;
+            GoogleImage.Visible = false;
+            GorselSonuclar.Visible = true;
+        }
+        else if (DropDownList2.SelectedValue == "Google")
+        {
+            GorselSonuclar.Visible = false;
+            GoogleImage.Visible = true;
         }
         else
         {
-            GorselSonuclar.RepeatColumns = 5;
+            GorselSonuclar.Visible = false;
+            GoogleImage.Visible = true;
+            DropDownList2.SelectedValue = "Google";
         }
-
-        GörselArama.Visible = true;
         WebArama.Visible = false;
+        GörselArama.Visible = true;
         MüzikArama.Visible = false;
         SözlükArama.Visible = false;
         Panel3.Visible = false;
@@ -1387,6 +2153,30 @@ public partial class AramaSonuc : System.Web.UI.Page
         Panel6.Visible = false;
         Makaleler.Visible = false;
         HavaDurumu.Visible = false;
+        Translate.Visible = false;
+        Panel1.Visible = false;
+        IPPanel.Visible = false;
+        Google.Visible = false;
+
+        if (GorselSonuclar.Visible == true)
+        {
+            foreach (string kelime in s)
+            {
+                SqlDataAdapter adpgorsel = new SqlDataAdapter("select *, GörselLink from dbo.Görseller where GorselTitle Like '%" + kelime + "%'", baglanti);
+                DataTable dtgorsel = new DataTable();
+                adpgorsel.Fill(dtgorsel);
+                GorselSonuclar.DataSource = dtgorsel;
+                GorselSonuclar.DataBind();
+            }
+            if (Request.Browser.IsMobileDevice == true)
+            {
+                GorselSonuclar.RepeatColumns = 1;
+            }
+            else
+            {
+                GorselSonuclar.RepeatColumns = 5;
+            }
+        }
 
         Web.ForeColor = System.Drawing.Color.LightBlue;
         Web.Font.Bold = false;
@@ -1543,11 +2333,256 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
     }
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Start();
+    }
+    protected override void InitializeCulture()
+    {
+        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
+
+        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+        if (cookielang != null && cookielang.Value != null)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
+        }
+        else
+        {
+            if (lang == "tr".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
+
+                Page.MetaDescription = "Artado Search Türkiye - Yerli, Reklamsız, Gizliliğe Önem Veren, Güvenli ve Sade Tasarımlı Arama Motoru";
+            }
+            else if (lang == "en".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
+                Page.MetaDescription = "Artado Search - Anonymous and secure search engine";
+            }
+            else if (lang == "fr".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
+
+                Page.MetaDescription = "Artado Search France - Moteur de recherche anonyme et sécurisé";
+            }
+            else if (lang == "de".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
+
+                Page.MetaDescription = "Artado Search Deutschland - Anonyme und sichere Suchmaschine";
+            }
+            else if (lang == "az".ToLower() || lang == "Lt-az".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-AU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-AU");
+
+                Page.MetaDescription = "Artado Search Azerbaijan - Anonim və təhlükəsiz axtarış sistemi";
+            }
+            else if (lang == "it".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("it-IT");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("it-IT");
+
+                Page.MetaDescription = "Artado Search Italy - Motore di ricerca anonimo e sicuro";
+            }
+            else if (lang == "ru".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+
+                Page.MetaDescription = "Artado Search Russia - анонимная и безопасная поисковая система";
+            }
+            else if (lang == "zh".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CHS");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CHS");
+
+                Page.MetaDescription = "Artado Search China - 匿名和安全的搜索引擎";
+            }
+            else if (lang == "es".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
+
+                Page.MetaDescription = "Artado Search Spain - Buscador anónimo y seguro";
+            }
+            else if (lang == "pz".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-PT");
+
+                Page.MetaDescription = "Artado Search Portugal - Motor de pesquisa anónimo e seguro";
+            }
+            else if (lang == "ko".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ko-KR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ko-KR");
+
+                Page.MetaDescription = "Artado Search 대한민국 - 익명의 안전한 검색 엔진";
+            }
+            else if (lang == "ja".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+
+                Page.MetaDescription = "Artado Search Japan - 匿名で安全な検索エンジン";
+            }
+            else if (lang == "hu".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("hu-HU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("hu-HU");
+
+                Page.MetaDescription = "Artado Search Hungary - Névtelen és biztonságos kereső";
+            }
+            else if (lang == "bg".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("bg-BG");
+
+                Page.MetaDescription = "Artado Search Bulgaria - Анонимна и сигурна търсачка";
+            }
+            else if (lang == "bs".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-BZ");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-BZ");
+
+                Page.MetaDescription = "Artado Search Bosna i Hercegovina - Anonimna i sigurna pretraživač";
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
+                Page.MetaDescription = "Anonymous and secure search engine";
+            }
+
+        }
+        base.InitializeCulture();
+    }
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        System.Web.HttpCookie cookie = HttpContext.Current.Request.Cookies["Theme"];
+        if (cookie != null && cookie.Value != null)
+        {
+            Page.Theme = cookie.Value;
+        }
+        else
+        {
+            Page.Theme = "Dark";
+        }
+
+        System.Web.HttpCookie cookie2 = HttpContext.Current.Request.Cookies["Results"];
+        if (cookie2 != null && cookie2.Value != null)
+        {
+            DropDownList2.SelectedValue = cookie2.Value;
+        }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        int sharp = arama_çubugu2.Text.IndexOf("#");
+        int ok1 = arama_çubugu2.Text.IndexOf("<");
+        int ok2 = arama_çubugu2.Text.IndexOf(">");
+
+        string schange = arama_çubugu2.Text.Replace("#", "%23");
+        string okc1 = arama_çubugu2.Text.Replace("<", "%3C");
+        string okc2 = arama_çubugu2.Text.Replace("'", " ");
+
+        if (ok1 >= 0)
+        {
+            Response.Redirect("/search?i=" + okc1.Trim());
+        }
+        else if (ok2 >= 0)
+        {
+            Response.Redirect("/search?i=" + schange.Trim());
+        }
+        else if (sharp >= 0)
+        {
+            Response.Redirect("/search?i=" + schange.Trim());
+        }
+        else
+        {
+            Response.Redirect("/search?i=" + arama_çubugu2.Text.Trim());
+        }
+    }
+
+
+
+    protected void rptAramaSonuclari_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        Response.Redirect("url.aspx");
+    }
+
+    protected void Gönder_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int mailsembol;
+            mailsembol = Mail.Text.IndexOf("@");
+            if (Mail.Text.EndsWith(".com") || mailsembol >= 0)
+            {
+                //Geri Bildirimi veritabanına kaydediyor
+                SqlConnection baglantiistek = new SqlConnection(con);
+                if (baglantiistek.State == ConnectionState.Closed)
+                    baglantiistek.Open();
+                string istek = "insert into Feedbacks(MailAdress, Feedback) values (@MailAdress,@Feedback)";
+                SqlCommand komut = new SqlCommand(istek, baglantiistek);
+                komut.Parameters.AddWithValue("@MailAdress", Mail.Text);
+                komut.Parameters.AddWithValue("@Feedback", Deneyim.InnerText);
+                komut.ExecuteNonQuery();
+
+                Sonuc.Text = "<br/>" + "Geri bildiriminiz için teşekkür ederiz.";
+            }
+            else
+            {
+                Sonuc.Text = "E-postanızı kontrol ediniz.";
+            }
+
+        }
+        catch (Exception hata)
+        {
+            Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/İletişim'>başka platformlardan<a/> bildirebilirsiniz.";
+        }
+    }
+
+    protected void Image1_Click1(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("/");
+    }
+
+    protected void Web_Click(object sender, EventArgs e)
+    {
+        Start();
+    }
+
+    protected void Görsel_Click(object sender, EventArgs e)
+    {
+        Image();
+    }
+
     protected void Sözlük_Click(object sender, EventArgs e)
     {
+        Results.Visible = false;
+
         //Sözlük Arama
         SqlConnection baglanti = new SqlConnection(con);
         string aranan = Request.QueryString["i"];
+        if (aranan == null)
+        {
+            aranan = Request.QueryString["q"];
+            if (aranan == null)
+            {
+                aranan = Request.QueryString["p"];
+            }
+            Response.Redirect("search?i=" + aranan + "&page=1");
+        }
         string[] s;
         aranan = aranan.Replace(",", "").Replace(":", "").Replace(".", "").Replace(";", "").Replace("için", "").Replace("ile", "");
         s = aranan.Split(' ');
@@ -1745,36 +2780,31 @@ public partial class AramaSonuc : System.Web.UI.Page
 
     protected void Müzik_Click(object sender, EventArgs e)
     {
+        Results.Visible = false;
+
         //Film Arama
         SqlConnection baglanti = new SqlConnection(con);
         string aranan = Request.QueryString["i"];
+        if (aranan == null)
+        {
+            aranan = Request.QueryString["q"];
+            if (aranan == null)
+            {
+                aranan = Request.QueryString["p"];
+            }
+            Response.Redirect("search?i=" + aranan + "&page=1");
+        }
         string[] s;
         aranan = aranan.Replace(",", "").Replace(":", "").Replace(".", "").Replace(";", "").Replace("için", "").Replace("ile", "");
         s = aranan.Split(' ');
 
         foreach (string kelime in s)
         {
-            int ek;
-            ek = kelime.ToLower().IndexOf("ler");
-
-            if (ek >= 0)
-            {
-                string yenikelime = kelime.Substring(0, kelime.Length - 3);
-
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select * from arda.Films where Name Like '%" + yenikelime + "%' or Actors Like '%" + yenikelime + "%'", baglanti);
-                DataTable dtınfo = new DataTable();
-                adpınfo.Fill(dtınfo);
-                Filmler.DataSource = dtınfo;
-                Filmler.DataBind();
-            }
-            else
-            {
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select * from arda.Films where Name Like '%" + kelime + "%' or Actors Like '%" + kelime + "%'", baglanti);
-                DataTable dtınfo = new DataTable();
-                adpınfo.Fill(dtınfo);
-                Filmler.DataSource = dtınfo;
-                Filmler.DataBind();
-            }
+            SqlDataAdapter adpınfo = new SqlDataAdapter("select * from dbo.Films where Name Like '%" + kelime + "%' or Actors Like '%" + kelime + "%'", baglanti);
+            DataTable dtınfo = new DataTable();
+            adpınfo.Fill(dtınfo);
+            Filmler.DataSource = dtınfo;
+            Filmler.DataBind();
         }
 
         SözlükArama.Visible = false;
@@ -2102,14 +3132,27 @@ public partial class AramaSonuc : System.Web.UI.Page
 
     protected void Akademik_Click(object sender, EventArgs e)
     {
+        Results.Visible = true;
+
+        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
+        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+
         //Akademik Arama
         SqlConnection baglanti = new SqlConnection(con);
         string aranan = Request.QueryString["i"];
+        if (aranan == null)
+        {
+            aranan = Request.QueryString["q"];
+            if (aranan == null)
+            {
+                aranan = Request.QueryString["p"];
+            }
+            Response.Redirect("search?i=" + aranan + "&page=1");
+        }
         string[] s;
         aranan = aranan.Replace(",", "").Replace(":", "").Replace(".", "").Replace(";", "").Replace("için", "").Replace("ile", "");
         s = aranan.Split(' ');
         PagedDataSource pdsakademik = new PagedDataSource();
-
         foreach (string kelime in s)
         {
             int ek;
@@ -2120,7 +3163,7 @@ public partial class AramaSonuc : System.Web.UI.Page
                 string yenikelime = kelime.Substring(0, kelime.Length - 3);
 
                 //Makale Arama
-                SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Articles where Title Like '%" + yenikelime + "%' or Description Like '%" + yenikelime + "%' order by Rank desc", baglanti);
+                SqlDataAdapter adp = new SqlDataAdapter("select *, Title from dbo.Articles where Title Like '%" + yenikelime + "%' or Description Like '%" + yenikelime + "%' order by Rank desc", baglanti);
                 DataTable dt = new DataTable();
                 pdsakademik.DataSource = dt.DefaultView;
                 pdsakademik.AllowPaging = true;
@@ -2128,7 +3171,7 @@ public partial class AramaSonuc : System.Web.UI.Page
                 int currentPage;
                 if (Request.QueryString["page"] != null)
                 {
-                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                    currentPage = Int32.Parse(Request.QueryString["mpage"]);
                 }
                 else
                 {
@@ -2138,11 +3181,11 @@ public partial class AramaSonuc : System.Web.UI.Page
                 Label5.Text = "Sayfa: " + currentPage + " / " + pdsakademik.PageCount;
                 if (!pdsakademik.IsFirstPage)
                 {
-                    HyperLink3.NavigateUrl = "arama?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage - 1);
+                    HyperLink3.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&mpage=" + (currentPage - 1);
                 }
                 if (!pdsakademik.IsLastPage)
                 {
-                    HyperLink4.NavigateUrl = "arama?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage + 1);
+                    HyperLink4.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&mpage=" + (currentPage + 1);
                 }
                 AkademikSonuçlar.DataSource = pdsakademik;
                 AkademikSonuçlar.DataBind();
@@ -2150,7 +3193,7 @@ public partial class AramaSonuc : System.Web.UI.Page
             else
             {
                 //Makale Arama
-                SqlDataAdapter adp = new SqlDataAdapter("select *, Title from arda.Articles where Title Like '%" + kelime + "%' or Description Like '%" + kelime + "%' order by Rank desc", baglanti);
+                SqlDataAdapter adp = new SqlDataAdapter("select *, Title from dbo.Articles where Title Like '%" + kelime + "%' or Description Like '%" + kelime + "%' order by Rank desc", baglanti);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
                 pdsakademik.DataSource = dt.DefaultView;
@@ -2159,7 +3202,7 @@ public partial class AramaSonuc : System.Web.UI.Page
                 int currentPage;
                 if (Request.QueryString["page"] != null)
                 {
-                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                    currentPage = Int32.Parse(Request.QueryString["mpage"]);
                 }
                 else
                 {
@@ -2169,32 +3212,258 @@ public partial class AramaSonuc : System.Web.UI.Page
                 Label5.Text = "Sayfa: " + currentPage + " / " + pdsakademik.PageCount;
                 if (!pdsakademik.IsFirstPage)
                 {
-                    HyperLink3.NavigateUrl = "arama?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage - 1);
+                    HyperLink3.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&mpage=" + (currentPage - 1);
                 }
                 if (!pdsakademik.IsLastPage)
                 {
-                    HyperLink4.NavigateUrl = "arama?i=" + aranan + "&theme=" + Page.Theme + "&page=" + (currentPage + 1);
+                    HyperLink4.NavigateUrl = "search?i=" + aranan + "&theme=" + Page.Theme + "&mpage=" + (currentPage + 1);
                 }
                 AkademikSonuçlar.DataSource = pdsakademik;
                 AkademikSonuçlar.DataBind();
             }
         }
+        try
+        {
+            DropDownList2.Items.FindByValue("Google").Enabled = false;
+            DropDownList2.Items.FindByValue("Bing").Enabled = false;
+            DropDownList2.Items.FindByValue("Yahoo").Enabled = false;
+            DropDownList2.Items.FindByValue("Github").Enabled = false;
+            if (DropDownList2.SelectedValue == "Artado")
+            {
+                SözlükArama.Visible = false;
+                GörselArama.Visible = false;
+                WebArama.Visible = false;
+                MüzikArama.Visible = false;
+                Panel3.Visible = false;
+                Panel4.Visible = false;
+                Panel5.Visible = false;
+                Panel6.Visible = false;
+                Makaleler.Visible = true;
+                HavaDurumu.Visible = false;
+            }
+            else if (DropDownList2.SelectedValue == "Scholar")
+            {
+                if (cookielang != null && cookielang.Value != null)
+                {
+                    if (cookielang.Value == "en-AU")
+                    {
+                        ScholarFiltre.SelectedValue = "az";
+                    }
+                    else if (cookielang.Value == "en-BZ")
+                    {
+                        ScholarFiltre.SelectedValue = "ba";
+                    }
+                    else
+                    {
+                        ScholarFiltre.SelectedValue = cookielang.Value;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        ScholarFiltre.SelectedValue = lang;
+                    }
+                    catch
+                    {
+                        ScholarFiltre.SelectedValue = "en-US";
+                    }
+                }
 
-        SözlükArama.Visible = false;
-        GörselArama.Visible = false;
-        WebArama.Visible = false;
-        MüzikArama.Visible = false;
-        Panel3.Visible = false;
-        Panel4.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
-        Makaleler.Visible = true;
-        HavaDurumu.Visible = false;
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://scholar.google.com/scholar?start=" + currentPage + "&q=" + aranan + "&hl=" + ScholarFiltre.SelectedValue;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://scholar.google.com/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<div id=\"gs_res_ccl_mid\">") + 25;
+                int results2 = htmlText.Substring(results1).IndexOf("</div><div id=\"gs_res_ccl_bot\">");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else if (DropDownList2.SelectedValue == "Base")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://www.base-search.net/Search/Results?lookfor=" + aranan + "&type=all&page=" + currentPage;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://www.base-search.net/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<div id=\"hit-list\">") + 19;
+                int results2 = htmlText.Substring(results1).IndexOf("<div class=\"row\" id=\"all-hits-export-row\">");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+            else
+            {
+                DropDownList2.SelectedValue = "Base";
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = true;
+                DropDownList1.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                Sort.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 0;
+                }
+                string github = "https://www.base-search.net/Search/Results?lookfor=" + aranan + "&type=all&page=" + currentPage;
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(github.Trim());
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                string a = "href=\"/";
+                int href = htmlText.IndexOf(a);
+                while (href >= 0)
+                {
+                    htmlText = htmlText.Replace("\"/", "\"https://www.base-search.net/");
+                    if (a.Length < htmlText.Length)
+                    {
+                        href = htmlText.IndexOf(a, a.Length);
+                    }
+                    else
+                    {
+                        href = -1;
+                    }
+                }
+                int results1 = htmlText.IndexOf("<div id=\"hit-list\">") + 19;
+                int results2 = htmlText.Substring(results1).IndexOf("<div class=\"row\" id=\"all-hits-export-row\">");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage < 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+            }
+        }
+        catch
+        {
+            Google.Visible = false;
+            rptAramaSonuclari.Visible = false;
+            Filtre.Visible = false;
+            PageSelect.Visible = false;
+            Text.Visible = false;
+            GoogleImage.Visible = false;
+            ResultsTxt.Visible = true;
+            ResultsTxt.Text = "Upps! Bir hata oluştu.<br/><br/> Upps! Something went wrong.<br/><br/> Opps! Etwas ist schief gelaufen.<br/><br/> Oups! Quelque chose s'est mal passé.<br/><br/> Ой! Что-то пошло не так.<br/><br/> 出问题了。";
+        }
 
         Web.ForeColor = System.Drawing.Color.LightBlue;
         Web.Font.Bold = false;
 
-        Görsel.ForeColor = System.Drawing.Color.LightBlue;
+        Görsel.ForeColor = System.Drawing.Color.LightBlue; 
         Görsel.Font.Bold = false;
 
         Sözlük.ForeColor = System.Drawing.Color.LightBlue;
@@ -2207,10 +3476,8 @@ public partial class AramaSonuc : System.Web.UI.Page
         Akademik.Font.Bold = true;
 
         //int sonuçlar = AkademikSonuçlar.Items.Count * pdsakademik.Count;
-        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
 
         int sonuçlar = AkademikSonuçlar.Items.Count;
-        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
         if (cookielang != null && cookielang.Value != null)
         {
             if (cookielang.Value == "tr-TR")
@@ -2344,6 +3611,36 @@ public partial class AramaSonuc : System.Web.UI.Page
             {
                 Label1.Text = sonuçlar + " results found in " + watch.Elapsed.Seconds + " second";
             }
+        }
+    }
+
+    protected void Button17_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        HttpCookie old = HttpContext.Current.Request.Cookies["Results"];
+        if (old != null && old.Value != null)
+        {
+            old.Expires = DateTime.UtcNow.AddDays(-1);
+            Response.Cookies.Add(old);
+            Session.Abandon();
+
+            HttpCookie cookie = new HttpCookie("Results");
+            cookie.Value = DropDownList2.SelectedValue;
+            cookie.Expires = DateTime.UtcNow.AddDays(360);
+            Response.Cookies.Add(cookie);
+            Page.Response.Redirect(Page.Request.Url.ToString());
+        }
+        else
+        {
+            HttpCookie cookie = new HttpCookie("Results");
+            cookie.Value = DropDownList2.SelectedValue;
+            cookie.Expires = DateTime.UtcNow.AddDays(360);
+            Response.Cookies.Add(cookie);
+            Page.Response.Redirect(Page.Request.Url.ToString());
         }
     }
 }

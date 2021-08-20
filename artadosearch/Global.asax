@@ -14,7 +14,7 @@
         url.MapPageRoute("updates", "Updates", "~/Topluluk/Servisler/Home/Updates.aspx");
         url.MapPageRoute("add", "AddResult", "~/Topluluk/DestekVeri.aspx");
         url.MapPageRoute("command", "Commands", "~/Topluluk/Tanıtım/OzelKomutlar.aspx");
-        url.MapPageRoute("blog", "Blog", "~/Topluluk/Servisler/Yakında/Soon.aspx");
+        url.MapPageRoute("blog", "Soon", "~/Topluluk/Servisler/Yakında/Soon.aspx");
         url.MapPageRoute("photon", "Photon", "~/Topluluk/Servisler/Gazete/Gazete.aspx");
         url.MapPageRoute("mail", "Mail", "~/Topluluk/Servisler/Mail/Mail.aspx");
         url.MapPageRoute("mailabout", "Mail/Hakkımızda", "~/Topluluk/Servisler/Mail/Mail_About.aspx");
@@ -29,6 +29,10 @@
         url.MapPageRoute("privacy", "Privacy", "~/Topluluk/Servisler/Home/Privacy.aspx");
         url.MapPageRoute("forum", "Forum", "~/Topluluk/Forum/Forum.aspx");
         url.MapPageRoute("bot", "Bot", "~/ArtadoBot/Bot.aspx");
+        url.MapPageRoute("settings", "Settings", "~/Settings.aspx");
+        url.MapPageRoute("accounts", "Account", "~/Topluluk/MyAccount/Default.aspx");
+        url.MapPageRoute("proxy", "Proxy", "~/Topluluk/Proxy/Default.aspx");
+        url.MapPageRoute("proxyback", "Proxy/Run", "~/Topluluk/Proxy/Proxy_Back.aspx");
     }
 
     void Application_Start(object sender, EventArgs e)

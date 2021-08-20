@@ -9,7 +9,7 @@
     <link href="/bootstrap-4.5.3-dist/css/bootstrap.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Hakkımızda - Artado Search</title>
+    <title>About Us - Artado Search</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,68 +17,62 @@
             <asp:Image ID="Image" runat="server" ImageUrl="../../../IMG_074.png" CssClass="image" />
             <br />
             <br />
-            <asp:Button ID="Anasayfa" runat="server" Text="Anasayfa" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Anasayfa_Click"/>
-            <asp:Button ID="Hakkımızda" runat="server" Text="Hakkımızda" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Hakkımızda_Click"/>
-            <asp:Button ID="İletişim" runat="server" Text="İletişim" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="İletişim_Click"/>
-            <asp:Button ID="Blog" runat="server" Text="Blog" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Blog_Click"/>
-            <asp:Button ID="DestekOl" runat="server" Text="Destek Ol" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="DestekOl_Click"/>
+            <asp:Button ID="Anasayfa" runat="server" Text="Artado Search" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Anasayfa_Click"/>
+            <asp:Button ID="Hakkımızda" runat="server" Text="<%$Resources:Default, Hakkımızda %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Hakkımızda_Click"/>
+            <asp:Button ID="İletişim" runat="server" Text="<%$Resources:Default, İletişim %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="İletişim_Click"/>
+            <asp:Button ID="Blog" runat="server" Text="<%$Resources:Default, Blog %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Blog_Click"/>
+            <asp:Button ID="DestekOl" runat="server" Text="<%$Resources:Default, Destek %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="DestekOl_Click"/>
         </div>
 
         <div class="içerik">
-            <h2>Hakkımızda</h2>
-            2018 yılında Arda Tahtacı tarafından kurulan Artado Software, hem mobil hem de bilgisayar platformlarında oyun, uygulama ve yazılım geliştiren Türkiye merkezli bir topluluktur. Artado Software, bir çok projesi ile interneti daha iyi bir yer haline getirmek için çabalamaktadır. Biz internetin özgür, anonim ve gizliliğe saygılı bir ortam olması için çabalıyoruz. Artado sadece bir kişi tarafından kurulan bir kurum değildir. Artado bir topluluktur ve topluluk ile birlikte gelişen yazılımlar üretmektedir. 
+            <div style="background-color:antiquewhite; padding: 5px 5px 5px 5px; border-top-left-radius: 5px;  border-top-right-radius: 5px;   border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                <asp:Label ID="Label2" runat="server" Text="<%$Resources:Default, Dikkat %>" Font-Bold="true"></asp:Label> 
+            </div>
+            <br />
+            <asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, Hakkımızda %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label1" runat="server" Text="<%$Resources:Default, Hakkımızda1 %>"></asp:Label> 
             <br />
             <br />
 
 
-            <h3 >Artado Search Hakkında</h3>
-            Artado Search sizi reklamsız ve en güvenli şekilde bilgiye ulaştırmayı hedefler. Artado Search geliştirilmeye 2020 Mayıs ayında başlanmış, 2020 sonuna doğruda test aşamasına geçmiştir. Artado Search, Artado Manifestosunu tanır ve ona göre hareket etmektedir. Kullanıcıların gizliliğine, özgürlüğüne ve anonimliğine saygı duyar ve onu korur.
+            <asp:Label ID="Label3" runat="server" Text="<%$Resources:Default, ArtadoSearch %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label12" runat="server" Text="<%$Resources:Default, Hakkımızda2 %>"></asp:Label> 
             <br />
             <br />
 
 
-            <h3>Rahatsız Edici Reklamlar Yok!</h3>
-            Artado Search'de sizi takip eden ve aramanızı engelleyen reklamlar yok. Sadece organik sonuçlar var.
-            <br />
-            <br />
-            Peki kazançımızı nereden kazanıyoruz? 
-            <br />
-            Kazançlarımızı bu sayfada olduğu gibi göze batmayan reklamlar ve ek servsiler ile kazanıyoruz. Bu servislerin belli bir gideri olduğundan dolayı bunları yapmak zorundayız ama arama kısmında hiç bir şekilde reklam yoktur ve asla olmayacaktır.
+            <asp:Label ID="Label4" runat="server" Text="<%$Resources:Default, Reklam %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label13" runat="server" Text="<%$Resources:Default, Hakkımızda3 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Gizlilik, Güvenlik ve Toplanan Veriler</h3>
-            Artado Search'de hareketleriniz izlenmez ve hareketlerinizi izleyenler engellenir. Artado Search'de sizin bize verdiğiniz kişisel veriler(E-posta bilgileri) dışında hiç bir kişisel veri toplanmaz. Sadece aradığınız veriler toplanır ve isimsiz şekilde veri tabanlarımızda saklanır. Bu veriyi toplamamızın tek amacı arama sonuçlarının kalitesini arttırmaktır.
+            <asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Gizlilik %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label14" runat="server" Text="<%$Resources:Default, Hakkımızda4 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Açık Kaynak</h3>
-            Artado Search ve diğer bir çok servisimiz açık kaynak kodludur. Böylece topluluktaki insanlar servislerimizin gelişmesinde katkıda bulunabilmektedir. Açık kaynak olmamızın en büyük avantajı kullanıcı gizliliğini koruduğumuzu göstermesidir. 
+            <asp:Label ID="Label6" runat="server" Text="<%$Resources:Default, Açık %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label15" runat="server" Text="<%$Resources:Default, Hakkımızda5 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Sadelik ve Tasarım</h3>
-            Artado Search size en iyi şekilde hizmet etmek için sade bir şekilde tasarlanmış ve seçilebilir 4 tema eklenmiştir. Varsayılan Tema, Modern Temadır fakat siz isterseniz Klasik,Karanlık veya Mozaik Temayı seçebilirsiniz. Seçtiğiniz Tema yaklaşık 24 saat(bazı durumlarda daha az) boyunca sizin varsayılan temanız olur. 24 saat sonra varsayılan tema yine Modern Tema olur isterseniz temanızı tekrar değiştirebilirsiniz.
+            <asp:Label ID="Label7" runat="server" Text="<%$Resources:Default, Özelleştirebilme %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label16" runat="server" Text="<%$Resources:Default, Hakkımızda6 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Tamamıyla Kendi Verimiz</h3>
-            Artado Search'ın kendi veri tabanı ve kendi interneti tarayan bot hizmetleri vardır. Botlarımız internette gezer ve sonuçları veri tabanına kaydeder. Botlarımız, siteleri belli kriterlere göre puanlayarak veri tabanımıza kaydetmektedir.
+            <asp:Label ID="Label8" runat="server" Text="<%$Resources:Default, Sonuçlar %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label17" runat="server" Text="<%$Resources:Default, Hakkımızda7 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Hedeflerimiz</h3>
-            Bizim en büyük hedefimiz interneti herkesin özgürce bilgi alışverişi yapabildiği, kişisel verilere saygı duyulan ve fikirlerin herhangi bir sansüre maruz bırakılmadan ifade edilebildiği bir yer haline getirmektir. Bu amaç üzerinde yazılımlar ve servisler geliştiririz. Geliştirdiğimiz bir çok servis açık kaynak kodludur. Böylece toplulukta ki insanlarda yazılımların ve servislerin gelişmesinde katkı gösterebilir.
+            <asp:Label ID="Label9" runat="server" Text="<%$Resources:Default, Hedefler %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label18" runat="server" Text="<%$Resources:Default, Hakkımızda8 %>"></asp:Label> 
             <br />
             <br />
 
-            <h3>Özel Teşekkür</h3>
-            Aratdo Search geliştirme sürecinde yaptığı katkılardan dolayı İsmail Şenönder'e ve projenin ilerleyişi sürecinde bana en büyük desteği sunan Artado Topluluğu'na teşekkür ederim. 
-            <br />
-            <br />
-            <asp:Panel ID="Panel2" runat="server" CssClass="ads">
-                <asp:Label ID="Label2" runat="server" Text="Reklam Alanı"></asp:Label>
-            </asp:Panel>
+            <asp:Label ID="Label11" runat="server" Text="<%$Resources:Default, Özel Teşekkür %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+            <asp:Label ID="Label19" runat="server" Text="<%$Resources:Default, Hakkımızda9 %>"></asp:Label> 
             <br />
             <br />
             <br />

@@ -2,7 +2,11 @@
 
 body {
     background-color: white;
-    font-family: Bahnschrift;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .container {
@@ -12,17 +16,24 @@ body {
 
 .çizgi {
     background-color: black;
-    width:10px;
+    margin-top: 0px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 @media screen and (min-width: 600px) {
     .orta {
         text-align: center;
+        width:700px;
+        margin-left:auto;
+        margin-right:auto;
     }
     .auto-style1 {
-        width: 431px;
+        min-width: 431px;
         height: 140px;
-        margin-top: 130px;
+        margin-top: 100px;
     }
     .arama {
         background-color: #F9F9FA;
@@ -36,6 +47,7 @@ body {
         margin-right: auto;
         margin-top: 20px;
         padding: 8px 8px 8px 8px;
+        border-style:solid !important;
     }
     #arama_çubugu {
         Height: 29px;
@@ -44,6 +56,7 @@ body {
         #arama_çubugu:focus {
             outline: none;
         }
+
     .Button1 {
         vertical-align:middle;
     }
@@ -78,19 +91,37 @@ body {
     }
         .ayarlar:focus {
             outline: none;
+            
         }
-    .oturum {
-        width: 100px;
+    .login {
         height: 35px;
-        float: right;
+        float: left;
         margin-top: 0px;
         position: absolute;
         top: 10px;
-        right: 280px;
+        left: 20px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        background-color: #2F4F7C !important;
+        color: white !important
+    }
+
+    #ProfilePic {
+        height: 35px;
+        width: 35px;
+        float: left;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+        background-color: transparent !important;
+        color: white !important
     }
 
     .destek {
@@ -121,20 +152,23 @@ body {
 
     .kontrol {
         width: 250px;
-        height: 500px;
+        height: 100%;
         float: right;
         margin-top: 0px;
         position: absolute;
-        top: 50px;
-        right: 10px;
+        top: 0px;
+        right: 0px;
         text-align: left;
         padding: 15px 15px 15px 15px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
         text-decoration: none;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+        overflow:scroll;
+        border-style:none !important
     }
+        .kontrol::-webkit-scrollbar {
+            display: none;
+        }
 
     .kapat {
         width: 25px;
@@ -165,7 +199,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         padding: 8px 8px 8px 8px;
-        height: 280px;
+        height: 100px;
     }
 
     .komut1 {
@@ -185,6 +219,53 @@ body {
         .komut2:focus {
             outline: none;
         }
+
+    .right {
+        width: 400px;
+        max-height: 300px;
+        background-color: #F9F9FA;
+        float: right;
+        margin-right: 200px;
+        margin-top: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .left {
+        max-width: 500px;
+        max-height: 300px;
+        background-color: #F9F9FA;
+        float: left;
+        margin-left: 200px;
+        margin-top: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .ınfoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+        height: 50px;
+    }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
@@ -194,7 +275,7 @@ body {
     .auto-style1 {
         width: 290px;
         height: 90px;
-        margin-top: 150px;
+        margin-top: 100px;
     }
     .arama {
         background-color: white;
@@ -207,7 +288,8 @@ body {
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
-        padding: 8px 5px 5px 5px;
+        padding: 5px 5px 5px 5px;
+        border-style: solid !important
     }
     #arama_çubugu {
         width: 200px;
@@ -236,7 +318,6 @@ body {
         padding: 8px 8px 8px 8px;
         margin-top: 100px;
     }
-
 
     .des1 {
         background-color: #517BBA;
@@ -273,19 +354,35 @@ body {
             outline: none;
         }
 
-    .oturum {
-        width: 80px;
+    .login {
         height: 35px;
-        float: right;
+        float: left;
         margin-top: 0px;
         position: absolute;
         top: 10px;
-        right: 100px;
+        left: 20px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        font-size: small;
+        background-color: #2F4F7C !important;
+        color: white !important
+    }
+
+    #ProfilePic {
+        height: 35px;
+        width: 35px;
+        float: left;
+        margin-top: 0px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+        background-color: transparent !important;
+        color: white !important
     }
 
     .destek {
@@ -319,19 +416,16 @@ body {
     .kontrol {
         background-color: white;
         width: 200px;
-        height: 450px;
+        height: 100%;
         float: right;
         margin-top: 0px;
         position: absolute;
-        top: 50px;
-        right: 10px;
+        top: 0px;
+        right: 0px;
         text-align: left;
         padding: 15px 15px 15px 15px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
         overflow: scroll;
+        border-style: none !important
     }
 
     .kapat {
@@ -382,6 +476,53 @@ body {
         width: 200px;
         margin-bottom: 10px;
         height:50px;
+    }
+
+    .right {
+        max-width: 330px;
+        min-height: 210px;
+        background-color: #F9F9FA;
+        margin-left: auto;
+        margin-right: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .left {
+        max-width: 330px;
+        max-height: 350px;
+        background-color: #F9F9FA;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px 10px 10px 10px;
+        overflow: hidden;
+    }
+
+    .ınfoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+        height: 50px;
     }
 }
 

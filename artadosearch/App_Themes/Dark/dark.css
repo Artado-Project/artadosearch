@@ -3,6 +3,36 @@
     color: white;
 }
 
+.kontrol {
+    background-color: black !important
+}
+
+.arama {
+    background-color: #1a1a2e !important
+}
+
+.gsc-cursor-next-page {
+    color: white !important
+}
+
+.gsc-control-cse {
+    border-style: none !important
+}
+
+.gsc-cursor {
+    color: white !important
+}
+
+.link {
+    background-color: #16213E;
+    padding: 5px 8px 8px 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 
 @media screen and (min-width: 600px) {
     .arama {
