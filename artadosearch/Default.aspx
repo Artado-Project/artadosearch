@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <link href="text.css" rel="stylesheet" media="screen"/>
-<link href="/bootstrap-4.5.3-dist/css/bootstrap.css" rel="stylesheet" />
+<link href="bootstrap-4.5.3-dist/css/bootstrap.css" rel="stylesheet" />
 <link rel="shortcut icon" href="/Icons/favicon.ico" />
 <script type="text/javascript" src="/js/default.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -15,30 +15,35 @@
 <link rel="apple-touch-startup-image" href="/Icons/apple-touch-icon.png"/>
 <link rel="icon" sizes="192x192" href="/Icons/android-chrome-192x192.png"/>
 <meta name="theme-color" content="#517BBA"/>
-<link rel="search" type="application/opensearchdescription+xml" title="Artado Search" href="/opensearch.xml"/>
+<link rel="search" type="application/opensearchdescription+xml" title="Artado Search" href="https://www.artadosearch.com/opensearch.xml"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <link rel="manifest" href="js/manifest.json"/>
+<link href="https://www.artadosearch.com/" rel="canonical"/>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
 <meta name="keywords" content="arama, arama motoru, yerli, artado, gizlilik, milli, türk yapımı, güvenli, sade, reklamsız, reklamsız arama motoru, search, search engine, privacy, security, türkiye" />
+<meta name="description" content="Open Source, Safe and Anonymous Search Engine" />
+<meta property="og:title" content="Artado Search" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.artadosearch.com" />
+<meta property="og:description" name="description" class="swiftype" content="Open Source, Safe and Anonymous Search Engine"/>
 <title>Artado Search</title>
 </head>
-<body style="-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+<body id="bdy1" runat="server" style="-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
 <form id="form1" runat="server">
 
-<!--Arda Tahtacı tarafından tasarlanmış,programlanmış ve yayınlanmıştır.-->
+<!--Arda Tahtacı tarafından tasarlanmış ve programlanmıştır.-->
 
-<div style="width:800px" class="container">
-</div>
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
+<div style="min-height:98%">
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 <ContentTemplate> 
-<asp:Panel ID="Arama" runat="server">
-<div id="arama" class="orta">
-<img alt="" class="auto-style1" src="Icons/artado_searchv2.png"  />
+<div id="arama" class="orta"> 
+<asp:Panel ID="Panel1" runat="server" BackColor="Transparent">
+<asp:Image ID="Image1" runat="server" CssClass="auto-style1"/>
 <asp:Panel ID="Normal" runat="server" CssClass="arama" BorderStyle="Outset">
-<asp:TextBox ID="arama_çubugu" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" autofocus AutoCompleteType="Search" MaxLength="100" ValidateRequestMode="Disabled"></asp:TextBox>
+<asp:TextBox ID="arama_çubugu" type="search" name="s" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" autofocus AutoCompleteType="Search" MaxLength="100" ValidateRequestMode="Disabled"></asp:TextBox>
 <asp:ImageButton ID="Search" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
 <asp:ImageButton ID="Tools" runat="server" Height="30px" CssClass="Button1" ImageUrl="~/tools.png" Width="30px" BorderStyle="None" OnClick="Tools_Click" />   
 </asp:Panel>
@@ -46,8 +51,6 @@
 <asp:Label ID="Text" runat="server" Text="Konuşun"></asp:Label>
 <asp:ImageButton ID="SearchVoice" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
 </asp:Panel>
-<div />
-<asp:Label ID="Label12" runat="server" Text="Label" Font-Size="Small"></asp:Label>
 </asp:Panel>
 
 <asp:Panel ID="Araçlar" runat="server" CssClass="araçlar" Visible="false">
@@ -147,13 +150,21 @@
 </div>
 </asp:Panel>
 
-<asp:Panel ID="Panel3" runat="server" CssClass="asistan" BorderStyle="Outset">
-<asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, altmetin %>" ForeColor="#517BBA" Font-Size="Small" Font-Bold="true"></asp:Label>
-</asp:Panel>
+<br />
+<br />
+<asp:Label ID="Label12" runat="server" Text="Label" Font-Size="Small"></asp:Label>
+</div>
+</ContentTemplate>
+<Triggers>
+<asp:AsyncPostBackTrigger ControlID="ImageButton1" EventName="Click" />
+<asp:AsyncPostBackTrigger ControlID="Command" EventName="Click" />
+</Triggers>
+</asp:UpdatePanel>
 
 <asp:ImageButton ID="ImageButton13" runat="server" ImageUrl="~/Icons/burger_icon.png" CssClass="ayarlar" OnClick="ImageButton1_Click"/>
+<asp:ImageButton ID="ProfilePic" runat="server" CssClass="login" OnClick="ProfilePic_Click"/>
 <asp:Button ID="Button1" runat="server" Text="<%$Resources:Default, Destek %>"  CssClass="destek" ForeColor="Black" BackColor="Transparent" BorderStyle="None" OnClick="Button3_Click"/>
-<asp:Button ID="Button2" runat="server" Text="<%$Resources:Default, arama %>"  CssClass="search_engine" ForeColor="Black" BackColor="Transparent" BorderStyle="None" OnClick="Button4_Click" />
+<asp:Button ID="Button2" runat="server" Text="<%$Resources:Default, Oturum %>"  CssClass="login" ForeColor="Black" BackColor="SkyBlue" BorderStyle="None" OnClick="Button2_Click1"/>
 
 <asp:Panel ID="Kontrol" runat="server" CssClass="kontrol" BorderStyle="Outset" BackColor="black">
 <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/indir (7).png" CssClass="kapat" OnClick="ImageButton2_Click"/>
@@ -187,13 +198,13 @@
 </asp:DropDownList>
 <br />
 <br />
-<a href="/AddResult" style="text-decoration:none;"><asp:Label ID="Label3" runat="server" Text="<%$Resources:Default, Sonuç %>" ></asp:Label></a>
+<a href="/Settings" style="text-decoration:none;"><asp:Label ID="Label6" runat="server" Text="<%$Resources:Default, Ayarlar %>"></asp:Label></a>
 <br />
 <br />
-<a href="/About" style="text-decoration:none;"><asp:Label ID="Label6" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
+<a href="/AddResult" style="text-decoration:none;"><asp:Label ID="Label3" runat="server" Text="<%$Resources:Default, Sonuç %>"></asp:Label></a>
 <br />
 <br />
-<a href="/Contact" style="text-decoration:none;"><asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, İletişim %>"></asp:Label></a>
+<a href="/About" style="text-decoration:none;"><asp:Label ID="Label24" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
 <br />
 <br />
 <a href="/Manifest" style="text-decoration:none;"><asp:Label ID="Manifest" runat="server" Text="<%$Resources:Default, Manifesto %>"></asp:Label></a>
@@ -206,13 +217,215 @@
 <br />
 <br />
 <a href="/Updates" style="text-decoration:none;"><asp:Label ID="Label11" runat="server" Text="<%$Resources:Default, Güncelleme %>"></asp:Label></a>
+<br />
+<br />
+<a href="/Privacy" style="text-decoration:none;"><asp:Label ID="Label25" runat="server" Text="<%$Resources:Default, Politika %>"></asp:Label></a>
+<br />
+<br />
+<a href="https://github.com/ardatdev/artadosearch-source" style="text-decoration:none;"><asp:Label ID="Label16" runat="server" Text="Github"></asp:Label></a>
 </asp:Panel>
-</ContentTemplate>
-<Triggers>
-<asp:AsyncPostBackTrigger ControlID="ImageButton1" EventName="Click" />
-<asp:AsyncPostBackTrigger ControlID="Command" EventName="Click" />
-</Triggers>
-</asp:UpdatePanel>
+
+    <style>
+        @media screen and (min-width: 600px) {
+            .shortcut1 {
+                float: left;
+                margin-right: 50px;
+                margin-left: 150px;
+                margin-bottom: 20px;
+                text-decoration: none;
+            }
+
+            .shortcut2 {
+                float: left;
+                margin-right: 50px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+
+            .shortcut3 {
+                float: left;
+                margin-right: 50px;
+                margin-right: 150px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+        }
+
+        @media screen and (min-width: 100px) and (max-width: 600px) {
+            .shortcut1 {
+                float: left;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+
+            .shortcut2 {
+                float: left;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+
+            .shortcut3 {
+                float: left;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+
+            #shortcuts{
+                text-align:center;
+                margin-right:auto;
+                margin-left:auto;
+                width:240px;
+            }
+        }
+    </style>
+
+<div id="shortcuts" runat="server" class="orta" style="text-decoration:none">
+    <a href="/BlankApp" class="shortcut1">
+        <img src="/Icons/Blank/Blank_Mini.jpg" style="width:50px; height:50px;"/><br />
+        Blank
+    </a>
+    <a href="/Soon" class="shortcut2">
+        <img src="/Icons/Journal/Journal_Mini.jpg" style="width:50px; height:50px;"/><br />
+        Journal
+    </a>
+    <a href="/Soon" class="shortcut2">
+        <img src="/Icons/Beyt/beyt_icon.png" style="width:50px; height:50px;"/><br />
+        Beyt<br />
+        Messenger
+    </a>
+    <a href="/Proxy" class="shortcut3">
+        <img src="/Icons/Proxy/Proxy_icon.png" style="width:40px; height:50px;"/><br />
+        Proxy
+    </a>
+    <a href="/Soon" class="shortcut1">
+        <img src="/Icons/Maps/maps_icon.png" style="width:50px; height:50px;"/><br />
+        Haritalar
+    </a>
+    <a href="/Soon" class="shortcut2">
+        <img src="/Icons/Videos/Videos_icon.png" style="width:50px; height:50px;"/><br />
+        Videos
+    </a>
+    <a href="/Soon" class="shortcut2">
+        <img src="/Icons/beemail/beemail_icon.png" style="width:50px; height:50px;"/><br />
+        BeeMail
+    </a>
+    <a href="/Soon" class="shortcut3">
+        <img src="/Icons/Network/Network_icon.png" style="width:50px; height:50px;"/><br />
+        Network
+    </a>
+</div>
+    
+<asp:Panel ID="Journal" runat="server">
+    <script type="text/javascript">
+        var d, h, m, s, animate;
+
+        function init() {
+            d = new Date();
+            h = d.getHours();
+            m = d.getMinutes();
+            s = d.getSeconds();
+            clock();
+        };
+
+        function clock() {
+            s++;
+            if (s == 60) {
+                s = 0;
+                m++;
+                if (m == 60) {
+                    m = 0;
+                    h++;
+                    if (h == 24) {
+                        h = 0;
+                    }
+                }
+            }
+            $('sec', s);
+            $('min', m);
+            $('hr', h);
+            animate = setTimeout(clock, 1000);
+        };
+
+        function $(id, val) {
+            if (val < 10) {
+                val = '0' + val;
+            }
+            document.getElementById(id).innerHTML = val;
+        };
+
+        window.onload = init;
+
+    </script>
+<asp:Panel ID="Time" runat="server" CssClass="left">
+    <asp:Label ID="Label22" runat="server" Text="<%$Resources:Default, Saat %>" Font-Size="Large"></asp:Label>
+    <br />
+    <div style="font-size:x-large">
+            <span id="hr">00</span>
+    <span> : </span>
+    <span id="min">00</span>
+    <span> : </span>
+    <span id="sec">00</span>
+    </div>
+</asp:Panel>
+
+<asp:Panel ID="HavaDurumu" runat="server" CssClass="right" BorderStyle="Groove"> 
+<asp:Label ID="City" runat="server" Text='' Font-Size="Large"></asp:Label>
+<br />
+<asp:Image ID="HavaImg" runat="server" CssClass="ınfoimage" Width="100px" Height="100px"/>
+<asp:Label ID="SıcaklıkTxt" runat="server" Text='' Font-Size="Larger" Font-Bold="true"></asp:Label>&nbsp;
+<asp:Label ID="DurumTxt" runat="server" Text='' Font-Size="Medium"></asp:Label>
+<br />
+<asp:Label ID="Min" runat="server" Text='' Font-Size="Medium"></asp:Label>
+<br />
+<asp:Label ID="Max" runat="server" Text='' Font-Size="Medium"></asp:Label>
+<br />
+<asp:Label ID="Hissedilen" runat="server" Text='' Font-Size="Medium"></asp:Label>
+<br />
+<asp:Label ID="Doğuş" runat="server" Text='' Font-Size="Medium"></asp:Label>
+<br />
+<asp:Label ID="Batış" runat="server" Text='' Font-Size="Medium"></asp:Label>
+</asp:Panel>
+<asp:Panel ID="Panel4" runat="server" CssClass="left" BorderStyle="Groove">
+<asp:Label ID="Label17" runat="server" Text="<%$Resources:Default, Bilgi Kutusu %>" Font-Size="Large"></asp:Label>
+<asp:DataList ID="InfoBox" runat="server">
+<ItemTemplate>
+<asp:Label ID="title" runat="server" Text='<%# Eval("InfoTitle") %>' Font-Size="Larger" Font-Bold="true"></asp:Label>
+<asp:Image ID="Pic" runat="server" src='<%# Eval("Pic") %>' CssClass="ınfoimage"/>
+<br />
+<asp:Label ID="Label17" runat="server" Text='<%# Eval("Category") %>' Font-Size="Small"></asp:Label>
+<br />
+<br />
+<asp:Label ID="Label8" runat="server" Text='<%# Eval("Info") %>' Font-Size="Medium"></asp:Label>
+<br /> 
+<a href='<%# Eval("InfoLink") %>' target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
+</ItemTemplate>
+</asp:DataList>
+</asp:Panel>
+<asp:Panel ID="ShortManifest" runat="server" CssClass="right" BorderStyle="Groove"> 
+<asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, Manifesto1 %>" Font-Bold="true" Font-Size="Large"></asp:Label><br />
+<asp:Label ID="Label23" runat="server" Text="<%$Resources:Default, Manifesto2 %>"></asp:Label>
+</asp:Panel>
+</asp:Panel>
+</div>
+
+
+<footer class="page-footer" id="footer" runat="server">
+	<div class="footer">
+        <hr class="çizgi"/>
+        <a href="/About" style="text-decoration:none;"><asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/Contact" style="text-decoration:none;"><asp:Label ID="Label18" runat="server" Text="<%$Resources:Default, İletişim %>"></asp:Label></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/Manifest" style="text-decoration:none;"><asp:Label ID="Label19" runat="server" Text="<%$Resources:Default, Manifesto %>"></asp:Label></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/Forum" style="text-decoration:none;"><asp:Label ID="Label20" runat="server" Text="<%$Resources:Default, Blog %>"></asp:Label></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/Photon" style="text-decoration:none;"><asp:Label ID="Label21" runat="server" Text="Artado Photon"></asp:Label></a>
+	</div>
+</footer>
 </form>
 </body>
 </html>

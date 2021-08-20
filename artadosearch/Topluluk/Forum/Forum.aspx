@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link href="/bootstrap-4.5.3-dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="Forum.css" rel="stylesheet" />
-<link rel="shortcut icon" href="/Icons/favicon.ico" />
+<link rel="shortcut icon" href="https://www.artadosearch.com/Icons/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Artado Forum</title>
@@ -17,8 +17,7 @@
         <div class="açılış">
             <asp:ImageButton ID="ImageButton1" runat="server" CssClass="image" OnClick="ImageButton1_Click" ImageUrl="/Icons/android-chrome-192x192.png" />
             <asp:Panel ID="LogIn" runat="server">
-                <asp:Button ID="Button2" runat="server" Text="Giriş Yap" class="button2" OnClick="Button2_Click" BorderStyle="None"/>
-                <asp:Button ID="Button3" runat="server" Text="Kayıt Ol" class="button2" OnClick="Button3_Click" BorderStyle="None"/>
+                <asp:Button ID="Button2" runat="server" Text="<%$Resources:Default, Oturum %>" class="button2" OnClick="Button2_Click" BorderStyle="None"/>
             </asp:Panel>
             <asp:HyperLink ID="Label3" runat="server" Text='' Font-Size="Small" ForeColor="White"></asp:HyperLink>
         </div>
@@ -35,23 +34,6 @@
             <asp:Button ID="Button5" runat="server" Text="Paylaş" BackColor="#1a1a2e" ForeColor="White" OnClick="Button5_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="iptal" runat="server" Text="İptal" BackColor="#1a1a2e" ForeColor="White" OnClick="iptal_Click"/>
             <asp:Label ID="Label5" runat="server" Text='' Font-Size="Small"></asp:Label>
-        </asp:Panel>
-
-        <asp:Panel ID="Kayıt" runat="server" CssClass="panel">
-            <asp:TextBox ID="TextBox1" runat="server" placeholder="Kullanıcı adı (maks. 10)" BackColor="Transparent" Width="300px" ForeColor="White" MaxLength="10" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox><br /><br />
-            <asp:TextBox ID="TextBox2" runat="server" placeholder="Şifre (maks. 20)" BackColor="Transparent" Width="300px" ForeColor="White" MaxLength="20" TextMode="Password" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox> <br /><br />
-            <asp:TextBox ID="BioText" runat="server" placeholder="Biyografi (maks. 50)" BackColor="Transparent" Width="300px" ForeColor="White" MaxLength="50" TextMode="MultiLine" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button6" runat="server" Text="Kayıt ol" BackColor="#1a1a2e" ForeColor="White" OnClick="Button6_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button7" runat="server" Text="İptal" BackColor="#1a1a2e" ForeColor="White" OnClick="Button7_Click" />
-            <asp:Label ID="Uyarı" runat="server" Text='' Font-Size="Small"></asp:Label>
-        </asp:Panel>
-
-        <asp:Panel ID="In" runat="server" CssClass="panel">
-            <asp:TextBox ID="TextBox3" runat="server" placeholder="Kullanıcı adı (maks. 10)" BackColor="Transparent" Width="300px" ForeColor="White" MaxLength="10" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox><br /><br />
-            <asp:TextBox ID="TextBox4" runat="server" placeholder="Şifre (maks. 20)" BackColor="Transparent" Width="300px" ForeColor="White" MaxLength="20" TextMode="Password" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox> &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button8" runat="server" Text="Giriş Yap" BackColor="#1a1a2e" ForeColor="White" OnClick="Button8_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button9" runat="server" Text="İptal" BackColor="#1a1a2e" ForeColor="White" OnClick="Button9_Click"/>
-            <asp:Label ID="Label4" runat="server" Text='' Font-Size="Small"></asp:Label>
         </asp:Panel>
 
         <asp:Panel ID="SorularPanel" runat="server">
@@ -125,9 +107,25 @@
 
         <asp:Panel ID="Profil" runat="server" CssClass="panel">
             <asp:Label ID="User" runat="server" Text="" Font-Size="Large"></asp:Label><br />
-            <asp:Label ID="JoinDate" runat="server" Text='' Font-Size="Small"></asp:Label><br />
             <asp:Label ID="Bio" runat="server" Text="" Font-Size="Medium"></asp:Label>
         </asp:Panel>
+
+        <asp:Repeater ID="Profil_Questions" runat="server">
+                <ItemTemplate>
+                    <div class="panel" style="width:800px; max-height:115px;">
+                        <div style="float:right;">
+                            <asp:Label ID="View" runat="server" Text='Görüntülenme: ' Font-Size="Small"></asp:Label>
+                            <asp:Label ID="View2" runat="server" Text='<%# Eval("Views") %>' Font-Size="Small"></asp:Label><br />
+                            <asp:Label ID="Answers" runat="server" Text='Cevap: ' Font-Size="Small"></asp:Label>
+                            <asp:Label ID="Answers2" runat="server" Text='<%# Eval("Answers") %>' Font-Size="Small"></asp:Label>
+                        </div>
+                        <a href='/Forum?id=<%# Eval("ID") %>'><asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> <br />
+                        <a href='/Forum?userid=<%# Eval("UserID") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
+                        <asp:Label ID="Date" runat="server" Text='<%# Eval("Date") %>' Font-Size="Small"></asp:Label><br />
+                        <asp:Label ID="Detail" runat="server" Text='<%# Eval("Detail") %>' Font-Size="Small"></asp:Label>    
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
     </form>
 </body>
 </html>

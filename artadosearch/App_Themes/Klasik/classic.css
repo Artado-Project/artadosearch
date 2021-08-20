@@ -16,8 +16,83 @@
     margin-left: auto;
     margin-right: auto;
     padding: 5px 5px 5px 5px;
+    border-color: lightgrey !important;
 }
 
+.arama2, .panel2 {
+    border-color: lightgrey !important;
+}
+
+.link {
+    background-color: lightgrey !important;
+    padding: 5px 8px 8px 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.gs-webResult .gs-snippet, .gs-visibleUrl, .gs-fileFormatType {
+    color: black !important
+}
+
+.gsc-cursor-next-page {
+    color: black !important
+}
+
+.gsc-cursor-page {
+    color: black !important
+}
+
+.gsc-control-cse {
+    border-style: none !important
+}
+
+.vitrin {
+    background-color: lightgrey;
+    height: 320px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100vw;
+}
+
+#scroll::-webkit-scrollbar {
+    background-color: white;
+}
+
+#scroll::-webkit-scrollbar-track {
+    background-color: lightgrey;
+}
+
+#scroll::-webkit-scrollbar-thumb {
+    background-color:grey;
+    width: 20px;
+}
+
+.ürün {
+    width: 150px;
+    height: 250px;
+    background-color:transparent !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.ürün_image {
+    max-width: 80%;
+    max-height: 50%;
+}
+
+.ürün_txt {
+    max-height: 50px;
+    overflow: hidden;
+}
 
 @media screen and (min-width: 100px) and (max-width: 480px) {
     .arama {

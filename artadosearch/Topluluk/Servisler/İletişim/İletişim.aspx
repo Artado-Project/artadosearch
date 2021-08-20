@@ -26,33 +26,34 @@
         </div>
 
         <div class="içerik">
+            <div style="background-color:antiquewhite; padding: 5px 5px 5px 5px; border-top-left-radius: 5px;  border-top-right-radius: 5px;   border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                <asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Dikkat %>" Font-Bold="true"></asp:Label> 
+            </div>
+            <br />
             <h2>İletişim adreslerimiz</h2>
             <br /> 
             Bize sosyal medya üzerinden ulaşabilir ve projelerimiz hakkında son haberlere ulaşabilirsiniz. 
             <br />
             <br />
-            <a href="https://www.instagram.com/artadosoftware/">Instagram hesabımız</a>
+            <a href="https://www.instagram.com/artadosoftware/">Instagram</a>
             <br />
             <br />
-            <a href="https://twitter.com/ArtadoL">Twitter hesabımız</a>
+            <a href="https://twitter.com/ArtadoL">Twitter</a>
             <br />
             <br />
-            <a href="https://www.facebook.com/profile.php?id=100053288294778">Facebook hesabımız</a>
+            <a href="https://www.facebook.com/profile.php?id=100053288294778">Facebook</a>
             <br />
             <br />
-            <a href="https://www.reddit.com/r/ArtadoSearch/">Subreddit adresimiz</a>
-            <br />
-            <br />
-            <br />
-            <a href="https://discord.gg/baj29VBkfp">Discord Sunucumuz</a>
-            <br />
-            <a href="mailto:artadoyazilim@gmail.com">E-posta Adresimiz</a>
+            <a href="https://www.reddit.com/r/ArtadoSearch/">Subreddit</a>
             <br />
             <br />
             <br />
-             <asp:Panel ID="Panel1" runat="server" CssClass="ads">
-                <asp:Label ID="Label1" runat="server" Text="Reklam Alanı"></asp:Label>
-            </asp:Panel>
+            <a href="https://discord.gg/baj29VBkfp">Discord</a>
+            <br />
+            <a href="mailto:artadosoftware@protonmail.com">E-mail</a>
+            <br />
+            <br />
+            <br />
             <br />
             <br />
             <br />

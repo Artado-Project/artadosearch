@@ -120,6 +120,9 @@
   <data name="Akademik" xml:space="preserve">
     <value>Akademik</value>
   </data>
+  <data name="Alakaya" xml:space="preserve">
+    <value>Alakaya göre</value>
+  </data>
   <data name="Almanca" xml:space="preserve">
     <value>Almanca</value>
   </data>
@@ -132,8 +135,44 @@
   <data name="Arama_çubuğu" xml:space="preserve">
     <value>İnterneti Keşfet!</value>
   </data>
+  <data name="Aranan" xml:space="preserve">
+    <value>Aranan</value>
+  </data>
+  <data name="Aranan2" xml:space="preserve">
+    <value>Aranan = Aradıklarınız veritabanına '[anon]' şeklinde sansürlenerek kaydedilir.</value>
+  </data>
+  <data name="Arkaplan" xml:space="preserve">
+    <value>Arka Plan</value>
+  </data>
+  <data name="Arkaplan2" xml:space="preserve">
+    <value>Arka Plan Resmi</value>
+  </data>
+  <data name="Arkaplan3" xml:space="preserve">
+    <value>Arka plana istediğiniz resmi koyabilirsiniz. Boş bırakarak arka planı sıfırlayabilirsiniz.</value>
+  </data>
+  <data name="Arkaplan4" xml:space="preserve">
+    <value>Arka plana koymak istediğiniz görselin bağlantısını girin.</value>
+  </data>
+  <data name="Artado 2" xml:space="preserve">
+    <value>Sadece "Diğer Sonuçlar" bölümünü görürsünüz.</value>
+  </data>
+  <data name="Artado1" xml:space="preserve">
+    <value>Sonuçlar:</value>
+  </data>
+  <data name="ArtadoSearch" xml:space="preserve">
+    <value>Artado Search Hakkında</value>
+  </data>
+  <data name="Ayarlar" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
   <data name="AzeriTR" xml:space="preserve">
     <value>Azeri Türkçesi</value>
+  </data>
+  <data name="Açık" xml:space="preserve">
+    <value>Açık Kaynak</value>
+  </data>
+  <data name="Bilgi Kutusu" xml:space="preserve">
+    <value>En Son Eklenen Bilgi Kutusu</value>
   </data>
   <data name="Blog" xml:space="preserve">
     <value>Forum</value>
@@ -144,17 +183,44 @@
   <data name="Bulgarca" xml:space="preserve">
     <value>Bulgarca</value>
   </data>
+  <data name="De" xml:space="preserve">
+    <value>Almanya</value>
+  </data>
   <data name="Destek" xml:space="preserve">
     <value>Bağış Yap</value>
   </data>
+  <data name="Dikkat" xml:space="preserve">
+    <value>Dikkat! Bu sayfa tüm dillere çevrilmemiştir.</value>
+  </data>
+  <data name="Dil2" xml:space="preserve">
+    <value>Dil = Artado Search'ı kullandığınız dil.</value>
+  </data>
+  <data name="Diğer" xml:space="preserve">
+    <value>Diğer Sonuçlar</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Üzgünüz! Şu anda bir sorun yaşıyoruz. Az sonra Artado tekrar aktif olacak.</value>
+  </data>
+  <data name="Eski" xml:space="preserve">
+    <value>En eski</value>
+  </data>
   <data name="Film" xml:space="preserve">
     <value>Film</value>
+  </data>
+  <data name="Fr" xml:space="preserve">
+    <value>Fransa</value>
   </data>
   <data name="Fransızca" xml:space="preserve">
     <value>Fransızca</value>
   </data>
   <data name="Gazete" xml:space="preserve">
     <value>Gazete</value>
+  </data>
+  <data name="Gizlilik" xml:space="preserve">
+    <value>Gizlilik ve Toplanan Veriler</value>
+  </data>
+  <data name="Gökkuşağı" xml:space="preserve">
+    <value>Gökkuşağı</value>
   </data>
   <data name="Görsel" xml:space="preserve">
     <value>Görsel</value>
@@ -165,14 +231,56 @@
   <data name="Hakkımızda" xml:space="preserve">
     <value>Hakkımızda</value>
   </data>
+  <data name="Hakkımızda1" xml:space="preserve">
+    <value>2018 yılında Arda Tahtacı tarafından kurulan Artado Software, hem mobil hem de bilgisayar platformlarında oyun, uygulama ve yazılım geliştiren Türkiye merkezli bir topluluktur. Artado Software, bir çok projesi ile interneti daha iyi bir yer haline getirmek için çabalamaktadır. Biz internetin özgür, anonim ve gizliliğe saygılı bir ortam olması için çabalıyoruz. Artado sadece bir kişi tarafından kurulan bir kurum değildir. Artado bir topluluktur ve topluluk ile birlikte gelişen yazılımlar üretmektedir.</value>
+  </data>
+  <data name="Hakkımızda2" xml:space="preserve">
+    <value>Artado Search sizi reklamsız ve en güvenli şekilde bilgiye ulaştırmayı hedefler. Artado Search geliştirilmeye 2020 Mayıs ayında başlanmış, 2020 sonuna doğruda test aşamasına geçmiştir. Artado Search, Artado Manifestosunu tanır ve ona göre hareket etmektedir. Kullanıcıların gizliliğine, özgürlüğüne ve anonimliğine saygı duyar ve onu korur.</value>
+  </data>
+  <data name="Hakkımızda3" xml:space="preserve">
+    <value>Artado Search'de sizi takip eden ve aramanızı engelleyen reklamlar yok. Sadece organik sonuçlar var.</value>
+  </data>
+  <data name="Hakkımızda4" xml:space="preserve">
+    <value>Artado Search, gizliliğinize önem verir. Artado Search'de hareketleriniz izlenmez ve hareketlerinizi izleyenler engellenir. Artado Search arattığınız kelimeleri toplamaz. Sadece Artado Search'ı hangi dilde kullandığınızı çevirilerimizi geliştirmek için toplarız. Toplanan veriler tamamen anonimdir. Hiç bir şekilde kimliğinizi belirleyemeyiz. </value>
+  </data>
+  <data name="Hakkımızda5" xml:space="preserve">
+    <value>Artado Search ve diğer bir çok servisimiz açık kaynak kodludur. Böylece topluluktaki insanlar servislerimizin gelişmesinde katkıda bulunabilmektedir.</value>
+  </data>
+  <data name="Hakkımızda6" xml:space="preserve">
+    <value>Artado Search'de istediğiniz gibi ana sayfanızı özelleştirebilirsiniz.</value>
+  </data>
+  <data name="Hakkımızda7" xml:space="preserve">
+    <value>Artado Search'ın kendi veri tabanı ve kendi interneti tarayan bot hizmetleri vardır. Botlarımız internette gezer ve sonuçları veri tabanına kaydeder. Botlarımız, siteleri belli kriterlere göre puanlayarak veri tabanımıza kaydetmektedir. Kendi sonuçlarımızın yanında diğer arama motorlarının sonuçlarını da kullanıcıya sunarız. Böylece kendi sonuçlarımızı geliştirirken kullanıcılara kaliteli bir hizmet sunabiliriz.</value>
+  </data>
+  <data name="Hakkımızda8" xml:space="preserve">
+    <value>Bizim en büyük hedefimiz interneti herkesin özgürce bilgi alışverişi yapabildiği, kişisel verilere saygı duyulan ve fikirlerin herhangi bir sansüre maruz bırakılmadan ifade edilebildiği bir yer haline getirmektir. Bu amaç üzerinde yazılımlar ve servisler geliştiririz. Geliştirdiğimiz bir çok servis açık kaynak kodludur. Böylece toplulukta ki insanlarda yazılımların ve servislerin gelişmesinde katkı gösterebilir.</value>
+  </data>
+  <data name="Hakkımızda9" xml:space="preserve">
+    <value>Artado Search geliştirme sürecinde yaptığı katkılardan dolayı İsmail Şenönder'e, projenin ilerleyişi sürecinde bana en büyük desteği sunan aileme ve Artado Topluluğu'na teşekkür ederim.</value>
+  </data>
+  <data name="Hedefler" xml:space="preserve">
+    <value>Hedeflerimiz</value>
+  </data>
+  <data name="ID1" xml:space="preserve">
+    <value>ID = Kaçıncı arama olduğunu gösterir.</value>
+  </data>
   <data name="IP" xml:space="preserve">
     <value>IP adresiniz:</value>
+  </data>
+  <data name="Islam" xml:space="preserve">
+    <value>İslam</value>
   </data>
   <data name="Japonca" xml:space="preserve">
     <value>Japonca</value>
   </data>
+  <data name="Journal" xml:space="preserve">
+    <value>Ana sayfadaki hava durumu, saat gibi bölümleri kapatabilir veya açabilirsiniz.</value>
+  </data>
   <data name="Karanlık" xml:space="preserve">
     <value>Karanlık</value>
+  </data>
+  <data name="Kaynaklar" xml:space="preserve">
+    <value>Kaynaklar</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Kazak Türkçesi</value>
@@ -192,6 +300,15 @@
   <data name="Lang" xml:space="preserve">
     <value>Diller: </value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Logo2" xml:space="preserve">
+    <value>Logoyu özelleştirin</value>
+  </data>
+  <data name="Logo3" xml:space="preserve">
+    <value>İstediğiniz logoyu seçebilirisiniz.</value>
+  </data>
   <data name="Macarca" xml:space="preserve">
     <value>Macarca</value>
   </data>
@@ -201,14 +318,53 @@
   <data name="Manifesto" xml:space="preserve">
     <value>Manifesto</value>
   </data>
+  <data name="Manifesto1" xml:space="preserve">
+    <value>Artado Manifestosu</value>
+  </data>
+  <data name="Manifesto2" xml:space="preserve">
+    <value>Biz herkesin özgürce bilgi alışverişi yapabildiği, kişisel verilere saygı duyulan ve fikirlerin herhangi bir sansüre maruz bırakılmadan ifade edilebildiği bir interneti savunuyoruz.</value>
+  </data>
   <data name="Modern" xml:space="preserve">
     <value>Modern</value>
+  </data>
+  <data name="Old" xml:space="preserve">
+    <value>Eski Logo</value>
+  </data>
+  <data name="Oturum" xml:space="preserve">
+    <value>Oturum Aç</value>
+  </data>
+  <data name="Politika" xml:space="preserve">
+    <value>Gizlilik Politikası</value>
+  </data>
+  <data name="Politika1" xml:space="preserve">
+    <value>Artado sizin hiç bir kişisel verinizi toplamamaktadır. Peki kişisel veriden kastımız nedir? Bize göre kişisel veri sizin IP adresinizi, coğrafi konumunuz, tarayıcınız ve işletim sisteminiz hakkında veriler, sitede veya uygulamada geçirdiğiniz süre bilgileri ve yaptığınız aramalar gibi sizin için bir profil oluşturacak veya kim olduğunuzu belirleyecek verilerdir. Bu yüzden bu verileri ve buna benzer hiç bir veriyi toplamamaktayız.</value>
+  </data>
+  <data name="Politika2" xml:space="preserve">
+    <value>Peki ne tarz veriler topluyoruz?</value>
+  </data>
+  <data name="Politika3" xml:space="preserve">
+    <value>Biz sadece Artado'yu kullandığınız dili çevirilerimizi geliştirmek için topluyoruz. Artado'da her yaptığınız arama veri tabanına anonim olarak kaydedilir. Yani sizin ne arattığınızı görmeyiz. Sadece Artado'yu hangi dilde kullandığınızı görürüz. Mesela Artado üzerinden 'Müzik' araması yapalım. Veri tabanında kaydedilen veri şöyledir:</value>
+  </data>
+  <data name="Politika4" xml:space="preserve">
+    <value>Bilgilerinizi 3. taraflar ile paylaşıyor muyuz?</value>
+  </data>
+  <data name="Politika5" xml:space="preserve">
+    <value>Hayır. 3. taraf şahıslar/yazılımlar ile bir veri paylaşmıyoruz. Zaten elimizde paylaşabileceğimiz pek bir veri yok.</value>
   </data>
   <data name="Portekizce" xml:space="preserve">
     <value>Portekizce</value>
   </data>
+  <data name="Reklam" xml:space="preserve">
+    <value>Rahatsız Edici Reklamlar Yok!</value>
+  </data>
+  <data name="Renkli" xml:space="preserve">
+    <value>Renkli</value>
+  </data>
   <data name="Rusça" xml:space="preserve">
     <value>Rusça</value>
+  </data>
+  <data name="Saat" xml:space="preserve">
+    <value>Saat</value>
   </data>
   <data name="Sanatçı" xml:space="preserve">
     <value>Sanatçı</value>
@@ -216,8 +372,14 @@
   <data name="Sonuç" xml:space="preserve">
     <value>Sonuç Ekle</value>
   </data>
+  <data name="Sonuçlar" xml:space="preserve">
+    <value>Kendi Sonuçlarımız ve Diğer Arama Motorlarının Sonuçları</value>
+  </data>
   <data name="Sözlük" xml:space="preserve">
     <value>  Bilgi</value>
+  </data>
+  <data name="Sırala" xml:space="preserve">
+    <value>Sırala:</value>
   </data>
   <data name="Sırpça" xml:space="preserve">
     <value>Sırpça</value>
@@ -225,11 +387,17 @@
   <data name="Tema" xml:space="preserve">
     <value>Temalar: </value>
   </data>
+  <data name="Tr" xml:space="preserve">
+    <value>Türkiye</value>
+  </data>
   <data name="Türkmen Türkçesi" xml:space="preserve">
     <value>Türkmen Türkçesi</value>
   </data>
   <data name="Türkçe" xml:space="preserve">
     <value>Türkçe</value>
+  </data>
+  <data name="Uk" xml:space="preserve">
+    <value>Britanya</value>
   </data>
   <data name="Ukranyaca" xml:space="preserve">
     <value>Ukraynaca</value>
@@ -237,14 +405,44 @@
   <data name="Uyarı" xml:space="preserve">
     <value>Merak etmeyin! Bu verileri kaydedilmiyor.</value>
   </data>
+  <data name="Uygula" xml:space="preserve">
+    <value>Uygula</value>
+  </data>
   <data name="Uygurca" xml:space="preserve">
     <value>Uygur Türkçesi</value>
+  </data>
+  <data name="Varsayılan" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="Varsayılan1" xml:space="preserve">
+    <value>Varsayılan Ayarlar</value>
+  </data>
+  <data name="Varsayılan2" xml:space="preserve">
+    <value>Varsayılan ayarlara dön.</value>
+  </data>
+  <data name="Varsayılan3" xml:space="preserve">
+    <value>Varsayılana dön</value>
+  </data>
+  <data name="Yeni" xml:space="preserve">
+    <value>En yeni</value>
+  </data>
+  <data name="Çerezler1" xml:space="preserve">
+    <value>Çerezler</value>
+  </data>
+  <data name="Çerezler2" xml:space="preserve">
+    <value>Çerezleri sadece özelleştirme ayarları için kullanırız. Yani ayarlardan arka planı veya logoyu değiştirme gibi ayarlarda çerezleri kullanırız.</value>
   </data>
   <data name="Çince" xml:space="preserve">
     <value>Çince</value>
   </data>
   <data name="Özbek Türkçesi" xml:space="preserve">
     <value>Özbek Türkçesi</value>
+  </data>
+  <data name="Özel Teşekkür" xml:space="preserve">
+    <value>Özel Teşekkür</value>
+  </data>
+  <data name="Özelleştirebilme" xml:space="preserve">
+    <value>Özelleştirebilme</value>
   </data>
   <data name="İletişim" xml:space="preserve">
     <value>İletişim</value>

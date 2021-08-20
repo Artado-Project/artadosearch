@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,6 +12,9 @@ using System.Web.UI.WebControls;
 public partial class Topluluk_Forum_Forum : System.Web.UI.Page
 {
     string con = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+    string con2 = System.Configuration.ConfigurationManager.ConnectionStrings["admin2"].ConnectionString.ToString();
+
+    string username2;
 
     PagedDataSource pds = new PagedDataSource();
     DataTable dt = new DataTable();
@@ -18,27 +23,20 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Post.Visible = false;
-        Kayıt.Visible = false;
-        In.Visible = false;
         Soru.Visible = false;
         Yanıt.Visible = false;
 
         SqlConnection baglanti = new SqlConnection(con);
-
-        if (baglanti.State.ToString() == "Open")
-        {
-            baglanti.Close();
-        }
-        else
-        {
-            baglanti.Open();
-        }
+        SqlConnection baglanti2 = new SqlConnection(con2);
+        baglanti.Open();
+        baglanti2.Open();
 
         string ID = Request.QueryString["ID"];
 
         string UserID = Request.QueryString["UserID"];  
 
-        string UsernameID = Request.QueryString["User"];  
+        string UsernameID = Request.QueryString["User"];
+
 
         if (ID != null)
         {
@@ -86,16 +84,16 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             answer = (int)komut6.ExecuteScalar();
             Answers.Text = answer + " cevap";
 
-            SqlDataAdapter adpanswer = new SqlDataAdapter("select * from arda.Answers where QID='"+ ID + "'", baglanti);
+            SqlDataAdapter adpanswer = new SqlDataAdapter("select * from dbo.Answers where QID='"+ ID + "'", baglanti);
             DataTable dta = new DataTable();
             adpanswer.Fill(dta);
             pds.DataSource = dta.DefaultView;
             pds.AllowPaging = true;
             pds.PageSize = 10;
             int acurrentPage;
-            if (Request.QueryString["page"] != null)
+            if (Request.QueryString["answers"] != null)
             {
-                acurrentPage = Int32.Parse(Request.QueryString["page"]);
+                acurrentPage = Int32.Parse(Request.QueryString["answers"]);
             }
             else
             {
@@ -105,14 +103,16 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             Label1.Text = "Sayfa: " + acurrentPage + " / " + pds.PageCount;
             if (!pds.IsFirstPage)
             {
-                HyperLink3.NavigateUrl = "forum?page=" + (acurrentPage - 1);
+                HyperLink3.NavigateUrl = "/forum?id=" + ID + "&answers=" + (acurrentPage - 1);
             }
             if (!pds.IsLastPage)
             {
-                HyperLink4.NavigateUrl = "forum?page=" + (acurrentPage + 1);
+                HyperLink4.NavigateUrl = "/forum?id=" + ID + "&answers=" + (acurrentPage + 1);
             }
             Cevaplar.DataSource = pds;
             Cevaplar.DataBind();
+
+            Page.Title = title;
         }
         else 
         {
@@ -121,17 +121,20 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
 
         if (old != null && old.Value != null)
         {
+            string sorgu24 = "SELECT Username FROM dbo.Users where PassID='" + old.Value + "' ";
+            SqlCommand komut42 = new SqlCommand(sorgu24, baglanti2);
+            username2 = (string)komut42.ExecuteScalar();
+
             LogIn.Visible = false;
             Button1.Visible = true;
             Button4.Visible = true;
             Label3.Visible = true;
-            Label3.Text = "Hoşgeldin " + old.Value;
-            string sorgu2 = "SELECT UserID FROM arda.Users where Username='" + old.Value + "' ";
-            int username;
-            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
-            username = (int)komut2.ExecuteScalar();
-            Label3.NavigateUrl = "/forum?userid=" + username;
-            baglanti.Close();
+            Label3.Text = "Hoşgeldin " + username2;
+            string sorgu2 = "SELECT UserID FROM dbo.Users where PassID=" + old.Value + "";
+            int userid;
+            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti2);
+            userid = (int)komut2.ExecuteScalar();
+            Label3.NavigateUrl = "/forum?userid=" + userid;
         }
         else
         {
@@ -145,50 +148,42 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             Profil.Visible = true;
             Soru.Visible = false;
             SorularPanel.Visible = false;
-            baglanti.Open();
-            string sorgu2 = "SELECT Username FROM arda.Users where UserID='" + UserID + "' ";
+            string sorgu2 = "SELECT Username FROM dbo.Users where UserID='" + UserID + "' ";
             string username;
-            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
+            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti2);
             username = (string)komut2.ExecuteScalar();
             User.Text = username;
 
-            string sorgu5 = "SELECT Date FROM arda.Users where UserID='" + UserID + "' ";
-            string date;
-            SqlCommand komut3 = new SqlCommand(sorgu5, baglanti);
-            date = (string)komut3.ExecuteScalar();
-            JoinDate.Text = date + " tarihinde foruma katıldı.";
-
-            string sorgu3 = "SELECT Bio FROM arda.Users where UserID='" + UserID + "' ";
+            string sorgu3 = "SELECT Bio FROM dbo.Users where UserID='" + UserID + "' ";
             string detail;
-            SqlCommand komut4 = new SqlCommand(sorgu3, baglanti);
+            SqlCommand komut4 = new SqlCommand(sorgu3, baglanti2);
             detail = (string)komut4.ExecuteScalar();
             Bio.Text = detail;
-            baglanti.Close();
+
+            Page.Title = username + " - Kullanıcı";
+
+            SqlDataAdapter adp2 = new SqlDataAdapter("select * from arda.Questions where Username='" + username + "' order by ID desc", baglanti);
+            DataTable dt2 = new DataTable();
+            adp2.Fill(dt2);
+            Profil_Questions.DataSource = dt2;
+            Profil_Questions.DataBind();
         }
         else if (UsernameID != null)
         {
             Profil.Visible = true;
             Soru.Visible = false;
             SorularPanel.Visible = false;
-            baglanti.Open();
-            string sorgu2 = "SELECT Username FROM arda.Users where Username='" + UsernameID + "' ";
+            string sorgu2 = "SELECT Username FROM dbo.Users where Username='" + UsernameID + "' ";
             string username;
             SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
             username = (string)komut2.ExecuteScalar();
             User.Text = username;
 
-            string sorgu5 = "SELECT Date FROM arda.Users where Username='" + UsernameID + "' ";
-            string date;
-            SqlCommand komut3 = new SqlCommand(sorgu5, baglanti);
-            date = (string)komut3.ExecuteScalar();
-            JoinDate.Text = date + " tarihinde foruma katıldı.";
-
-            string sorgu3 = "SELECT Bio FROM arda.Users where Username='" + UsernameID + "' ";
+            string sorgu3 = "SELECT Bio FROM dbo.Users where Username='" + UsernameID + "' ";
             string detail;
             SqlCommand komut4 = new SqlCommand(sorgu3, baglanti);
             detail = (string)komut4.ExecuteScalar();
             Bio.Text = detail;
-            baglanti.Close();
         }
         else
         {
@@ -214,16 +209,121 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
         Label2.Text = "Sayfa: " + currentPage + " / " + pds.PageCount;
         if (!pds.IsFirstPage)
         {
-            HyperLink1.NavigateUrl = "forum?page=" + (currentPage - 1);
+            HyperLink1.NavigateUrl = "/forum?page=" + (currentPage - 1);
         }
         if (!pds.IsLastPage)
         {
-            HyperLink2.NavigateUrl = "forum?page=" + (currentPage + 1);
+            HyperLink2.NavigateUrl = "/forum?page=" + (currentPage + 1);
         }
         Sorular.DataSource = pds;
         Sorular.DataBind();
+        if (baglanti.State.ToString() == "Open")
+        {
+            baglanti.Close();
+            SqlConnection.ClearPool(baglanti);
+        }
+        if (baglanti2.State.ToString() == "Open")
+        {
+            baglanti2.Close();
+            SqlConnection.ClearPool(baglanti2);
+        }
+    }
 
-        baglanti.Close();
+    protected override void InitializeCulture()
+    {
+        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
+        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+
+        if (cookielang != null && cookielang.Value != null)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
+        }
+        else
+        {
+            if (lang == "tr".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
+            }
+            else if (lang == "en".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            }
+            else if (lang == "fr".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
+            }
+            else if (lang == "de".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
+            }
+            else if (lang == "az".ToLower() || lang == "Lt-az".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-AU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-AU");
+            }
+            else if (lang == "it".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("it-IT");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("it-IT");
+            }
+            else if (lang == "ru".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+            }
+            else if (lang == "zh".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CHS");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CHS");
+            }
+            else if (lang == "es".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
+            }
+            else if (lang == "pz".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-PT");
+            }
+            else if (lang == "ko".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ko-KR");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ko-KR");
+            }
+            else if (lang == "ja".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+            }
+            else if (lang == "hu".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("hu-HU");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("hu-HU");
+            }
+            else if (lang == "bg".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("bg-BG");
+            }
+            else if (lang == "bs".ToLower())
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-BZ");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-BZ");
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            }
+
+        }
+        base.InitializeCulture();
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -233,17 +333,11 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        In.Visible = true;
-        Kayıt.Visible = false;
-        Post.Visible = false;
-        Soru.Visible = false;
-        SorularPanel.Visible = false;
-        Button1.Visible = false;
+        Response.Redirect("/Account?mode=register&url=/Forum");
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        Kayıt.Visible = true;
         Post.Visible = false;
         Soru.Visible = false;
         SorularPanel.Visible = false;
@@ -272,68 +366,11 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
 
     protected void Button7_Click(object sender, EventArgs e)
     {
-        Kayıt.Visible = false;
-    }
-
-    protected void Button6_Click(object sender, EventArgs e)
-    {
-        SqlConnection baglanti = new SqlConnection(con);
-        baglanti.Open();
-        SqlCommand control = new SqlCommand("select * from arda.Users where Username='" + TextBox1.Text + "'", baglanti);
-        SqlDataReader reading = control.ExecuteReader();
-
-        if (reading.Read())
-        {
-            Uyarı.Text = "Bu kullanıcı adı alınmış.";
-        }
-        else
-        {
-            HttpCookie cookie = new HttpCookie("id");
-            cookie.Value = TextBox1.Text;
-            cookie.Expires = DateTime.UtcNow.AddDays(360);
-            Response.Cookies.Add(cookie);
-            Label3.Visible = true;
-            Label3.Text = "Hoşgeldin " + cookie.Value;
-            string istek = "insert into arda.Users(Username, Password, Bio, Date) values (@Username, @Password, @Bio, @Date)";
-            SqlCommand cmd = new SqlCommand(istek, baglanti);
-            cmd.Parameters.AddWithValue("@Username", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@Password", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@Bio", BioText.Text);
-            cmd.Parameters.AddWithValue("@Date", DateTime.UtcNow.ToString());
-            cmd.ExecuteNonQuery();
-            Response.Redirect("/Forum");
-        }
-        baglanti.Close();
-    }
-
-    protected void Button8_Click(object sender, EventArgs e)
-    {
-        SqlConnection baglanti = new SqlConnection(con);
-        baglanti.Open();
-        SqlCommand control = new SqlCommand("select * from arda.Users where Username='" + TextBox3.Text + "' and Password='"+ TextBox4.Text +"'", baglanti);
-        SqlDataReader reading = control.ExecuteReader();
-
-        if (reading.Read())
-        {
-            HttpCookie cookie = new HttpCookie("id");
-            cookie.Value = TextBox3.Text;
-            cookie.Expires = DateTime.UtcNow.AddDays(360);
-            Response.Cookies.Add(cookie);
-            Label3.Visible = true;
-            Label3.Text = "Hoşgeldin " + cookie.Value;
-        }
-        else
-        {
-            In.Visible = true;
-            Label4.Text = "Kullanıcı adı veya şifre yanlış!";
-        }
-        baglanti.Close();
-        Response.Redirect("/Forum");
     }
 
     protected void Button9_Click(object sender, EventArgs e)
     {
-        In.Visible = false;
+
     }
 
     protected void Button5_Click(object sender, EventArgs e)
@@ -346,24 +383,41 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
         else
         {
             SqlConnection baglanti = new SqlConnection(con);
-            baglanti.Open();
+            SqlConnection baglanti2 = new SqlConnection(con2);
+            if (baglanti.State == ConnectionState.Closed)
+            {
+                baglanti.Open();
+            }
+            if (baglanti2.State == ConnectionState.Closed)
+            {
+                baglanti2.Open();
+            }
 
-            string sorgu2 = "SELECT UserID FROM arda.Users where Username='" + old.Value + "' ";
+            string sorgu2 = "SELECT UserID FROM dbo.Users where PassID='" + old.Value + "' ";
             int username;
-            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
+            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti2);
             username = (int)komut2.ExecuteScalar();
 
             string istek = "insert into arda.Questions(Title, Detail, Username, Date, Answers, Views, UserID) values (@Title, @Detail, @Username, @Date, @Answers, @Views, @UserID)";
             SqlCommand cmd = new SqlCommand(istek, baglanti);
             cmd.Parameters.AddWithValue("@Title", TitleText.Text);
             cmd.Parameters.AddWithValue("@Detail", TextBox5.Text);
-            cmd.Parameters.AddWithValue("@Username", old.Value);
-            cmd.Parameters.AddWithValue("@Date", DateTime.UtcNow.ToString());
+            cmd.Parameters.AddWithValue("@Username", username2);
+            cmd.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
             cmd.Parameters.AddWithValue("@Answers", 0);
             cmd.Parameters.AddWithValue("@Views", 0);
             cmd.Parameters.AddWithValue("@UserID", username);
             cmd.ExecuteNonQuery();
-            baglanti.Close();
+            if (baglanti.State.ToString() == "Open")
+            {
+                baglanti.Close();
+                SqlConnection.ClearPool(baglanti);
+            }
+            if (baglanti2.State.ToString() == "Open")
+            {
+                baglanti2.Close();
+                SqlConnection.ClearPool(baglanti2);
+            }
             Response.Redirect("/Forum");
         }
     }
@@ -378,24 +432,41 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
         else
         {
             SqlConnection baglanti = new SqlConnection(con);
-            baglanti.Open();
+            SqlConnection baglanti2 = new SqlConnection(con2);
+            if (baglanti2.State == ConnectionState.Closed)
+            {
+                baglanti2.Open();
+            }
+            if (baglanti.State == ConnectionState.Closed)
+            {
+                baglanti.Open();
+            }
 
-            string sorgu2 = "SELECT UserID FROM arda.Users where Username='" + old.Value + "' ";
+            string sorgu2 = "SELECT UserID FROM dbo.Users where PassID='" + old.Value + "' ";
             int username;
-            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
+            SqlCommand komut2 = new SqlCommand(sorgu2, baglanti2);
             username = (int)komut2.ExecuteScalar();
 
-            string istek = "insert into arda.Answers(QID, Username, Date, Answer) values (@QID, @Username, @Date, @Answer)";
+            string istek = "insert into dbo.Answers(QID, Username, Date, Answer) values (@QID, @Username, @Date, @Answer)";
             SqlCommand cmd = new SqlCommand(istek, baglanti);
             cmd.Parameters.AddWithValue("@QID", ID);
-            cmd.Parameters.AddWithValue("@Username", old.Value);
-            cmd.Parameters.AddWithValue("@Date", DateTime.UtcNow.ToString());
+            cmd.Parameters.AddWithValue("@Username", username2);
+            cmd.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
             cmd.Parameters.AddWithValue("@Answer", TextBox7.Text);
             cmd.ExecuteNonQuery();
 
             SqlCommand cmd2 = new SqlCommand("update arda.Questions set Answers+=1 where ID='" + ID + "'", baglanti);
             cmd2.ExecuteNonQuery();
-            baglanti.Close();
+            if (baglanti.State.ToString() == "Open")
+            {
+                baglanti.Close();
+                SqlConnection.ClearPool(baglanti);
+            }
+            if (baglanti2.State.ToString() == "Open")
+            {
+                baglanti2.Close();
+                SqlConnection.ClearPool(baglanti2);
+            }
             Response.Redirect("Forum?id=" + ID);
         }
     }
@@ -403,5 +474,15 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
     protected void Button11_Click(object sender, EventArgs e)
     {
         Yanıt.Visible = false;
+    }
+
+    protected void Close_Click(object sender, EventArgs e)
+    {
+        old.Expires = DateTime.UtcNow.AddDays(-1);
+        Response.Cookies.Add(old);
+        LogIn.Visible = true;
+        Button1.Visible = false;
+        Button4.Visible = false;
+        Label3.Visible = false;
     }
 }

@@ -17,17 +17,48 @@
             <asp:Image ID="Image" runat="server" ImageUrl="../../../IMG_074.png" CssClass="image" />
             <br />
             <br />
-            <asp:Button ID="Anasayfa" runat="server" Text="Anasayfa" BackColor="Black" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Anasayfa_Click"/>
-            <asp:Button ID="Hakkımızda" runat="server" Text="Hakkımızda" BackColor="Black" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Hakkımızda_Click"/>
-            <asp:Button ID="İletişim" runat="server" Text="İletişim" BackColor="Black" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="İletişim_Click"/>
-            <asp:Button ID="Blog" runat="server" Text="Blog" BackColor="Black" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Blog_Click"/>
-            <asp:Button ID="DestekOl" runat="server" Text="Destek Ol" BackColor="Black" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="DestekOl_Click"/>
+            <asp:Button ID="Anasayfa" runat="server" Text="Artado Search" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Anasayfa_Click"/>
+            <asp:Button ID="Hakkımızda" runat="server" Text="<%$Resources:Default, Hakkımızda %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Hakkımızda_Click"/>
+            <asp:Button ID="İletişim" runat="server" Text="<%$Resources:Default, İletişim %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="İletişim_Click"/>
+            <asp:Button ID="Blog" runat="server" Text="<%$Resources:Default, Blog %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="Blog_Click"/>
+            <asp:Button ID="DestekOl" runat="server" Text="<%$Resources:Default, Destek %>" BackColor="Transparent" BorderStyle="None" ForeColor="White" Font-Size="Large" CssClass="button" OnClick="DestekOl_Click"/>
         </div>
 
         <div class="içerik">
-            <h2>Güncelleme Notları</h2>
-            <h5>Gelen öneriler üzerine böyle bir sayfa açmaya karar verdim. Blog tamamen açılana kadar bu sayfadan güncellemeler ile nelerin eklendiği yazılacaktır. Önerileriniz için teşekkür ederiz sizin sayenizde her gün daha çok gelişiyoruz.</h5>
+            <div style="background-color:antiquewhite; padding: 5px 5px 5px 5px; border-top-left-radius: 5px;  border-top-right-radius: 5px;   border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                <asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Dikkat %>" Font-Bold="true"></asp:Label> 
+            </div>
             <br />
+            <h2>Güncelleme Notları</h2>
+            <div id="beta" style="margin-bottom:100px;margin-top:20px;">
+                <h3>Artado Beta 1.1 Güncellemesi - 20 Ağustos 2021</h3>
+                Sonunda beklenen Beta 1.1 güncellemesini yayınladık. Bu güncelleme ile arama servisimiz neredeyse tamamlandı ve gerçekten bir ekosistem oluşturmaya başladık.
+                Her geçen gün daha çok gelişiyoruz. Bu gidişle 2022 ortalarında Beta sürecinden çıkıp tam sürüm haline gelmeyi planlıyoruz. Tabi bu arama ve bir kaç servis için geçerli. Diğer servislerimiz belli bir süre daha beta sürecinde kalabilir.
+                Bu güncelleme ile eklenenler kısaca şöyle; arayüz güncellendi, kısayollar eklendi, diğer arama motorlarının sonuçları eklendi, My Account sistemi kullanıcılara sunuldu, ArtadoBot beta test sürecine geçti ve arama dışındaki diğer servislerimiz de geliştirilmeye başlandı.
+                <br />
+                <br />
+                <h5>Diğer Arama Motorlarının Sonuçları</h5>
+                Belki de bu güncelleme ile eklenen en iyi özellik bu olabilir. Çünkü bu özellik sayesinde 7 arama motorunun veya sitenin -Github bir arama motoru değil- sonuçlarını gizliliğinizi kaybetmeden ve rahatsız edici, sonuçları bozan reklamlara maruz kalmadan görüntüleyebiliryosunuz. Bu özellik bir proxy ve reklam engelleyicinin karışımı gibi bir şey. Gelin nasıl çalıştığına bakalım.
+                <br />
+                <br />
+                <img src="../../../images/Update_image1.png" />
+                <br />
+                <br />
+                Yukarda gördüğünüz gibi bir arama yapıyorsunuz ve hangi arama motorunun sonuçlarını görmek istediğinizi seçiyorsunuz. Siz bunlardan birini seçince Artado o arama motoruna anonim bir istek yolluyor ve sonuçları alıyor. Sonra aldığı sonuçlardan reklamları görünmez yapıp kullanıcıya sunuyor. Reklamlar, CSS ile görünmez yapılıyor. Yaptığı istek tamamen anonim olduğundan kişiselleştirilmiş sonuçları almıyorsunuz. Bu özellik Google ve Artado sonuçları için geçerli değildir. Google sonuçları için Google'ın CSE teknolojisi kullanılıyor. Artado sonuçları ise direk kendi veri tabanımızdan geliyor.
+                <br />
+                <br />
+                <h5>Artado My Account</h5>
+                Artado My Account hala tüm dilleri desteklemiyor. Şu anda sadece Türkçe desteği var. My Account sayesinde tüm Artado servislerini ve My Account servisini kullanan 3. parti parti servisleri tek hesap ile kullanabileceksiniz. My Account'da hiç bir veriniz izinsiz bir şekilde hiç bir 3. parti servise veya kişiye verilmez. Kullanıcıların şifreleri, şifreleme algoritması ile şifrelenerek kaydedilir.
+                <br />
+                <br />
+                <h5>Kısayollar</h5>
+                Ana sayfaya artık kısayollar eklendi. Bu kısayolların amacı diğer servislerimizi de tanıtmak ve sadece bir arama motoru değil bir ekosistem kurmaya çalıştığımızı göstermek. Şu anda sadece Proxy servisi çalışıyor fakat diğer servislerin çoğu kullanıma hazır veya temelleri tamamlandı.
+                Bitmemiş bir servisi kullanıcıya sunmak istemediğimden bir yakında sayfası oluşturdum. Çok yakında o servislerinde açıldığını göreceksiniz.
+                <br />
+                <br />
+                Bu yeniliklerin yanında ArtadoBot ve bahsetmediğim bir kaç özellik daha var. ArtadoBot hala tamamen bitmedi ama bitmeye çok yaklaştı. Çalışır durumda fakat yeterli değil. Onunla ilgili haberleri de ilerde paylaşacağım. Takipte kalın!
+            </div>
+
             <h3>31 Mayıs ve Haziran Güncellemesi - 06.06.2021</h3>
             Artado Search 1 yaşına girdi bu yüzden büyük yenilemeler yapıldı (31 Mayıs 2021). 
             <br />31 Mayıs'ta yayınladığım güncelleme biraz eksikti bu yüzden bir kaç gün boyunca eksikleri giderdim. 6 Haziran'da yayınladığım son güncelleme ile 31 Mayıs güncellemesinin eksikleri giderildi ve yeni şeyler eklendi.
