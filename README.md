@@ -11,4 +11,4 @@ Can I publish what I have done with this source code?
 -Yes, you can but you have to publish with source code and you have to give attribution.
 
 If you have questions contact with me
-E-mail: ardam1425@gmail.com
+E-mail: arda@artadosearch.com
