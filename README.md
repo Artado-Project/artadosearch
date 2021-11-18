@@ -1,4 +1,4 @@
-# artadosearch-source-v0.1
+# Artado Search Beta 1.2 Version
 
 Lastest version of Artado Search(www.artadosearch.com) Source Code
 
