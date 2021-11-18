@@ -1,6 +1,6 @@
 # Artado Search Beta 1.2 Version
 
-Lastest version of Artado Search(www.artadosearch.com) Source Code
+Artado Search Beta Version 1.2 Source Code 
 
 What can I do with this? 
 - You can develop the repo
