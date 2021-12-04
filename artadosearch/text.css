@@ -31,30 +31,32 @@ body::-webkit-scrollbar {
         margin-right:auto;
     }
     .auto-style1 {
-        min-width: 431px;
-        height: 140px;
-        margin-top: 100px;
+        min-width:200px;
+        max-width:400px;
+        max-height:250px;
+        margin-top:100px;
     }
     .arama {
         background-color: #F9F9FA;
         width: 580px;
-        min-height: 45px;
+        height: 45px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
         padding: 8px 8px 8px 8px;
         border-style:solid !important;
     }
+
     #arama_çubugu {
         Height: 29px;
         Width: 490px;
     }
         #arama_çubugu:focus {
             outline: none;
+            background-color: transparent !important
         }
 
     .Button1 {
@@ -273,8 +275,9 @@ body::-webkit-scrollbar {
         text-align: center;
     }
     .auto-style1 {
-        width: 290px;
-        height: 90px;
+        min-width: 100px;
+        max-width: 300px;
+        max-height: 200px;
         margin-top: 100px;
     }
     .arama {
@@ -287,7 +290,6 @@ body::-webkit-scrollbar {
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 20px;
         padding: 5px 5px 5px 5px;
         border-style: solid !important
     }

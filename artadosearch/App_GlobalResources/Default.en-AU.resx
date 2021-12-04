@@ -237,6 +237,9 @@
   <data name="Modern" xml:space="preserve">
     <value>Müasir</value>
   </data>
+  <data name="Night" xml:space="preserve">
+    <value>Gecə</value>
+  </data>
   <data name="Oturum" xml:space="preserve">
     <value>Daxil ol</value>
   </data>

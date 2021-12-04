@@ -136,22 +136,22 @@
     <value>Entdecken Sie das Internet!</value>
   </data>
   <data name="Aranan" xml:space="preserve">
-    <value>Searched</value>
+    <value>Gesucht</value>
   </data>
   <data name="Aranan2" xml:space="preserve">
-    <value>Searched = Your search is censored in the database as '[anon]'.</value>
+    <value>Gesucht = Ihre Suche wird in der Datenbank als '[anon]' zensiert.</value>
   </data>
   <data name="Arkaplan" xml:space="preserve">
-    <value>Background</value>
+    <value>Hintergrund</value>
   </data>
   <data name="Arkaplan2" xml:space="preserve">
-    <value>Background Image</value>
+    <value>Hintergrundbild</value>
   </data>
   <data name="Arkaplan3" xml:space="preserve">
-    <value>You can put any picture you want in the background. You can reset the background by leaving it blank.</value>
+    <value>Sie können ein beliebiges Bild in den Hintergrund stellen. Sie können den Hintergrund zurücksetzen, indem Sie ihn leer lassen.</value>
   </data>
   <data name="Arkaplan4" xml:space="preserve">
-    <value>Enter the link of the image you want to put in the background.</value>
+    <value>Geben Sie den Link des Bildes ein, das Sie in den Hintergrund einfügen möchten.</value>
   </data>
   <data name="Artado 2" xml:space="preserve">
     <value>Sie sehen nur den Abschnitt "Andere Ergebnisse".</value>
@@ -160,13 +160,13 @@
     <value>Ergebnisse: </value>
   </data>
   <data name="ArtadoSearch" xml:space="preserve">
-    <value>About Artado Search</value>
+    <value>Über die Artado Search</value>
   </data>
   <data name="Ayarlar" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
   <data name="Ayarlar1" xml:space="preserve">
-    <value>Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="AzeriTR" xml:space="preserve">
     <value>Aserbaidschanisch</value>
@@ -184,7 +184,7 @@
     <value>Bulgarisch</value>
   </data>
   <data name="De" xml:space="preserve">
-    <value>Germany</value>
+    <value>Deuschland</value>
   </data>
   <data name="Destek" xml:space="preserve">
     <value>Spenden</value>
@@ -193,10 +193,10 @@
     <value>Beachtung! Diese Seite wurde nicht in alle Sprachen übersetzt.</value>
   </data>
   <data name="Dil2" xml:space="preserve">
-    <value>Language = The language in which you use Artado Search.</value>
+    <value>Sprache = Die Sprache, in der Sie Artado Search verwenden.</value>
   </data>
   <data name="Diğer1" xml:space="preserve">
-    <value>Other Results</value>
+    <value>Andere Ergebnisse</value>
   </data>
   <data name="Down" xml:space="preserve">
     <value>Entschuldigung! Wir haben derzeit ein Problem. Artado wird bald wieder aktiv sein.</value>
@@ -217,10 +217,10 @@
     <value>Zeitung</value>
   </data>
   <data name="Gizlilik" xml:space="preserve">
-    <value>Privacy</value>
+    <value>Privatsphäre</value>
   </data>
   <data name="Gökkuşağı" xml:space="preserve">
-    <value>Pride</value>
+    <value>Stolz</value>
   </data>
   <data name="Görsel" xml:space="preserve">
     <value>Bild</value>
@@ -232,37 +232,37 @@
     <value>Über Uns</value>
   </data>
   <data name="Hakkımızda1" xml:space="preserve">
-    <value>Founded by Arda Tahtacı in 2018, Artado Software is a Turkey-based community that develops applications and software on both mobile and computer platforms. Artado Software strives to make the internet a better place with its many projects. We strive to make the internet a free, anonymous and confidential environment. Artado is not just an institution founded by one person. Artado is a community and produces software that evolves with the community.</value>
+    <value>Artado Software wurde 2018 von Arda Tahtacı gegründet und ist eine in der Türkei ansässige Community, die Anwendungen und Software sowohl auf mobilen als auch auf Computerplattformen entwickelt. Artado Software ist mit seinen vielen Projekten bestrebt, das Internet zu einem besseren Ort zu machen. Wir bemühen uns, das Internet zu einer freien, anonymen und vertraulichen Umgebung zu machen. Artado ist nicht nur eine Institution, die von einer Person gegründet wurde. Artado ist eine Community und produziert Software, die sich mit der Community entwickelt.</value>
   </data>
   <data name="Hakkımızda2" xml:space="preserve">
-    <value>Artado Search aims to provide you with ad-free and safest information. Artado Search started to be developed in May 2020 and entered the testing phase towards the end of 2020. Artado Search recognizes the Artado Manifest and acts accordingly. It respects and protects users' privacy, freedom and anonymity.</value>
+    <value>Artado Search zielt darauf ab, Ihnen werbefreie und sicherste Informationen bereitzustellen. Artado Search begann im Mai 2020 mit der Entwicklung und ging gegen Ende 2020 in die Testphase. Artado Search erkennt das Artado Manifest an und handelt entsprechend. Es respektiert und schützt die Privatsphäre, Freiheit und Anonymität der Benutzer.</value>
   </data>
   <data name="Hakkımızda3" xml:space="preserve">
-    <value>Artado Search has no ads that follow you and block your search. There are only organic results.</value>
+    <value>Artado Search hat keine Anzeigen, die Ihre Suche blockieren. Es gibt nur organische Ergebnisse.</value>
   </data>
   <data name="Hakkımızda4" xml:space="preserve">
-    <value>Artado Search cares about your privacy. In Artado Search, your movements are not tracked and those who track your movements are blocked. Artado Search does not collect the words you searched for. We only collect which language you use Artado Search to improve our translations. The collected data is completely anonymous. We cannot identify you in any way.</value>
+    <value>Artado Search kümmert sich um Ihre Privatsphäre. In Artado Search werden Ihre Bewegungen nicht verfolgt und diejenigen, die Ihre Bewegungen verfolgen, werden blockiert. Artado Search sammelt nicht die Wörter, nach denen Sie gesucht haben. Wir erfassen nur, in welcher Sprache Sie Artado Search verwenden, um unsere Übersetzungen zu verbessern. Die erhobenen Daten sind vollständig anonym. Wir können Sie in keiner Weise identifizieren.</value>
   </data>
   <data name="Hakkımızda5" xml:space="preserve">
-    <value>Artado Search and many other services are open source. In this way, people in the community can contribute to the development of our services.</value>
+    <value>Artado Search und viele andere Dienste sind Open Source. Auf diese Weise können Menschen in der Gemeinschaft zur Entwicklung unserer Dienstleistungen beitragen.</value>
   </data>
   <data name="Hakkımızda6" xml:space="preserve">
-    <value>In Artado search, you can customize your homepage as you like.</value>
+    <value>In Artado Search können Sie Ihre Startseite nach Belieben anpassen.</value>
   </data>
   <data name="Hakkımızda7" xml:space="preserve">
-    <value>Artado Search has its own database and its own web crawling bot services. Our bots surf the web and save the results in the database. Our bots score sites according to certain criteria and save them in our database. In addition to our own results, we also present the results of other search engines to the user.</value>
+    <value>Artado Search verfügt über eine eigene Datenbank und eigene Web-Crawling-Bot-Dienste. Unsere Bots surfen im Web und speichern die Ergebnisse in der Datenbank. Unsere Bots bewerten Seiten nach bestimmten Kriterien und speichern sie in unserer Datenbank. Neben unseren eigenen Ergebnissen präsentieren wir dem Nutzer auch die Ergebnisse anderer Suchmaschinen.</value>
   </data>
   <data name="Hakkımızda8" xml:space="preserve">
-    <value>Our biggest goal is to make the internet a place where everyone can freely exchange information, respect personal data and express ideas without any censorship. We develop software and services for this purpose. Many of the services we have developed are open source. In this way, it can contribute to the development of software and services for people in the community.</value>
+    <value>Unser größtes Ziel ist es, das Internet zu einem Ort zu machen, an dem jeder frei Informationen austauschen, persönliche Daten respektieren und Ideen ohne Zensur äußern kann. Dafür entwickeln wir Software und Dienstleistungen. Viele der von uns entwickelten Dienste sind Open Source. Auf diese Weise kann es zur Entwicklung von Software und Diensten für die Menschen in der Gemeinschaft beitragen.</value>
   </data>
   <data name="Hakkımızda9" xml:space="preserve">
-    <value>I would like to thank Ismail Şenönder for his contribution to the development process of Artado Search, my family and the Artado community, who have offered me the greatest support in the process of the project's progress.</value>
+    <value>Ich möchte Ismail Şenönder für seinen Beitrag zum Entwicklungsprozess von Artado Search, meiner Familie und der Artado-Community danken, die mir die größte Unterstützung im Prozess des Projektfortschritts geboten haben.</value>
   </data>
   <data name="Hedefler" xml:space="preserve">
-    <value>Our Goals</value>
+    <value>Unsere Ziele</value>
   </data>
   <data name="ID1" xml:space="preserve">
-    <value>ID = Indicates the number of requests.</value>
+    <value>ID = Gibt die Anzahl der Anfragen an.</value>
   </data>
   <data name="IP" xml:space="preserve">
     <value>Ihre IP-Adresse:</value>
@@ -271,13 +271,13 @@
     <value>Japanisch</value>
   </data>
   <data name="Journal" xml:space="preserve">
-    <value>You can turn off or on sections such as weather and clock on the home page.</value>
+    <value>Sie können Abschnitte wie Wetter und Uhr auf der Startseite deaktivieren oder aktivieren.</value>
   </data>
   <data name="Karanlık" xml:space="preserve">
     <value>Dunkel</value>
   </data>
   <data name="Kaynaklar1" xml:space="preserve">
-    <value>Resources</value>
+    <value>Ressourcen</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Kasachisch</value>
@@ -301,10 +301,10 @@
     <value>Logo</value>
   </data>
   <data name="Logo2" xml:space="preserve">
-    <value>Customize logo</value>
+    <value>Logo anpassen</value>
   </data>
   <data name="Logo3" xml:space="preserve">
-    <value>You can choose any logo you want.</value>
+    <value>Sie können ein beliebiges Logo auswählen.</value>
   </data>
   <data name="Macarca" xml:space="preserve">
     <value>Ungarisch</value>
@@ -324,14 +324,17 @@
   <data name="Modern" xml:space="preserve">
     <value>Modern</value>
   </data>
+  <data name="Night" xml:space="preserve">
+    <value>Nacht</value>
+  </data>
   <data name="Old" xml:space="preserve">
-    <value>Old Logo</value>
+    <value>Altes Logo</value>
   </data>
   <data name="Oturum" xml:space="preserve">
     <value>Einloggen</value>
   </data>
   <data name="Politika" xml:space="preserve">
-    <value>Privacy Policy</value>
+    <value>Datenschutz-Bestimmungen</value>
   </data>
   <data name="Politika1" xml:space="preserve">
     <value>Artado does not collect any of your personal data. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or determine who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data.</value>
@@ -355,7 +358,7 @@
     <value>No Annoying Ads!</value>
   </data>
   <data name="Renkli" xml:space="preserve">
-    <value>Colourful</value>
+    <value>Bunt</value>
   </data>
   <data name="Rusça" xml:space="preserve">
     <value>Russisch</value>
@@ -370,13 +373,13 @@
     <value>Ergebnis Hinzufügen</value>
   </data>
   <data name="Sonuçlar" xml:space="preserve">
-    <value>Our Results and Results of Other Search Engines</value>
+    <value>Unsere Ergebnisse und Ergebnisse anderer Suchmaschinen</value>
   </data>
   <data name="Sözlük" xml:space="preserve">
     <value>Info</value>
   </data>
   <data name="Sırala" xml:space="preserve">
-    <value>Sort by:</value>
+    <value>Sortieren nach:</value>
   </data>
   <data name="Sırpça" xml:space="preserve">
     <value>Serbisch</value>
@@ -385,7 +388,7 @@
     <value>Themen: </value>
   </data>
   <data name="Tr" xml:space="preserve">
-    <value>Turkey</value>
+    <value>Türkei</value>
   </data>
   <data name="Türkmen Türkçesi" xml:space="preserve">
     <value>Turkmenen</value>
@@ -403,31 +406,31 @@
     <value>Keine Sorge! Diese Daten werden nicht gespeichert.</value>
   </data>
   <data name="Uygula" xml:space="preserve">
-    <value>Apply</value>
+    <value>Bestätigung</value>
   </data>
   <data name="Uygurca" xml:space="preserve">
     <value>Uigur</value>
   </data>
   <data name="Varsayılan" xml:space="preserve">
-    <value>Default</value>
+    <value>Standard</value>
   </data>
   <data name="Varsayılan1" xml:space="preserve">
-    <value>Default Settings</value>
+    <value>Standardeinstellungen</value>
   </data>
   <data name="Varsayılan2" xml:space="preserve">
-    <value>Return to default settings.</value>
+    <value>Kehren Sie zu den Standardeinstellungen zurück.</value>
   </data>
   <data name="Varsayılan3" xml:space="preserve">
-    <value>Apply</value>
+    <value>Bestätigung</value>
   </data>
   <data name="Yeni" xml:space="preserve">
     <value>Neueste</value>
   </data>
   <data name="Çerezler1" xml:space="preserve">
-    <value>Cookies</value>
+    <value>Kekse</value>
   </data>
   <data name="Çerezler2" xml:space="preserve">
-    <value>We use cookies only for customization settings. That is, we use cookies in settings such as changing the background or logo from the settings.</value>
+    <value>Wir verwenden Cookies nur für Anpassungseinstellungen. Das heißt, wir verwenden Cookies in Einstellungen wie dem Ändern des Hintergrunds oder des Logos aus den Einstellungen.</value>
   </data>
   <data name="Çince" xml:space="preserve">
     <value>Chinesisch</value>
@@ -436,10 +439,10 @@
     <value>Usbekisch</value>
   </data>
   <data name="Özel Teşekkür" xml:space="preserve">
-    <value>Special Thanks</value>
+    <value>Besonderer Dank</value>
   </data>
   <data name="Özelleştirebilme" xml:space="preserve">
-    <value>Customization</value>
+    <value>Anpassung</value>
   </data>
   <data name="İletişim" xml:space="preserve">
     <value>Kontakt</value>

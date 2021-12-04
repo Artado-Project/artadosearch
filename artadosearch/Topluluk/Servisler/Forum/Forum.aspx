@@ -19,18 +19,28 @@
             <asp:Panel ID="LogIn" runat="server">
                 <asp:Button ID="Button2" runat="server" Text="<%$Resources:Default, Oturum %>" class="button2" OnClick="Button2_Click" BorderStyle="None"/>
             </asp:Panel>
-            <asp:HyperLink ID="Label3" runat="server" Text='' Font-Size="Small" ForeColor="White"></asp:HyperLink>
+            <asp:HyperLink ID="Label3" runat="server" Text='' Font-Size="Small"></asp:HyperLink>
         </div>
 
         <div class="panel" style="color:white; margin-top:20px;">
             <h6>Merhaba, Artado Forum'a hoşgeldin! Burada Artado ürünleri için görüş ve önerilerinizi yazabilir, yaşadığınız sorunları bildirebilirsiniz.</h6> 
         </div>
 
-        <asp:Button ID="Button1" runat="server" Text="Gönderi Oluştur" BackColor="#1a1a2e" CssClass="panel" BorderStyle="None" ForeColor="white" OnClick="Button1_Click1"/>
+        <div id="div">
+            <asp:Button ID="Button1" runat="server" Text="Gönderi Oluştur" BackColor="#1a1a2e" CssClass="panel" BorderStyle="None" ForeColor="white" OnClick="Button1_Click1"/>
+        </div>
 
-        <asp:Panel ID="Post" runat="server" CssClass="panel">
+       <div id="ad">
+            Ads
+        </div>
+
+        <asp:Panel ID="Post" runat="server" CssClass="panel" style="color:black">
             <asp:TextBox ID="TitleText" runat="server" placeholder="Başlık" BackColor="Transparent" Width="300px" ForeColor="White" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox><br /><br />
-            <asp:TextBox ID="TextBox5" runat="server" placeholder="Bir şeyler yaz..." BackColor="Transparent" Width="300px" ForeColor="White" TextMode="MultiLine" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
+            <script src="/topluluk/servisler/forum/editor.js" type="text/javascript"></script>
+            <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+            <textarea id="editortxt" runat="server" style="width:90%; height:400px;" validaterequestmode="Disabled"></textarea>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button5" runat="server" Text="Paylaş" BackColor="#1a1a2e" ForeColor="White" OnClick="Button5_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="iptal" runat="server" Text="İptal" BackColor="#1a1a2e" ForeColor="White" OnClick="iptal_Click"/>
             <asp:Label ID="Label5" runat="server" Text='' Font-Size="Small"></asp:Label>
@@ -39,15 +49,15 @@
         <asp:Panel ID="SorularPanel" runat="server">
             <asp:Repeater ID="Sorular" runat="server">
                 <ItemTemplate>
-                    <div class="panel" style="width:800px; max-height:115px;">
+                    <div class="panel" style="width:700px; max-height:150px;">
                         <div style="float:right;">
                             <asp:Label ID="View" runat="server" Text='Görüntülenme: ' Font-Size="Small"></asp:Label>
                             <asp:Label ID="View2" runat="server" Text='<%# Eval("Views") %>' Font-Size="Small"></asp:Label><br />
                             <asp:Label ID="Answers" runat="server" Text='Cevap: ' Font-Size="Small"></asp:Label>
                             <asp:Label ID="Answers2" runat="server" Text='<%# Eval("Answers") %>' Font-Size="Small"></asp:Label>
                         </div>
-                        <a href='/Forum?id=<%# Eval("ID") %>'><asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> <br />
-                        <a href='/Forum?userid=<%# Eval("UserID") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
+                        <a href='/Forum/posts/<%# Eval("ID") %>'><asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> <br />
+                        <a href='/Forum/users/<%# Eval("Username") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
                         <asp:Label ID="Date" runat="server" Text='<%# Eval("Date") %>' Font-Size="Small"></asp:Label><br />
                         <asp:Label ID="Detail" runat="server" Text='<%# Eval("Detail") %>' Font-Size="Small"></asp:Label>    
                     </div>
@@ -75,10 +85,16 @@
                 <asp:Label ID="Date" runat="server" Text="" Font-Size="Small"></asp:Label><br />
                 <asp:Label ID="Detail" runat="server" Text="" Font-Size="Medium"></asp:Label>
             </div>
-            <asp:Button ID="Button4" runat="server" Text="Cevapla" BackColor="#1a1a2e" OnClick="Button4_Click" CssClass="panel" BorderStyle="None" ForeColor="white"></asp:Button>
+            <div id="div2">
+              <asp:Button ID="Button4" runat="server" Text="Cevapla" BackColor="#1a1a2e" OnClick="Button4_Click" CssClass="panel" BorderStyle="None" ForeColor="white"></asp:Button>
+            </div>
 
             <asp:Panel ID="Yanıt" runat="server" CssClass="panel">
-                <asp:TextBox ID="TextBox7" runat="server" placeholder="Bir şeyler yaz..." BackColor="Transparent" Width="300px" ForeColor="White" TextMode="MultiLine" ValidateRequestMode="Enabled" ViewStateMode="Enabled"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
+                <script src="/topluluk/servisler/forum/editor.js" type="text/javascript"></script>
+                <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+                <textarea id="editortxt2" runat="server" style="width:50%" validaterequestmode="Disabled"></textarea>
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button10" runat="server" Text="Paylaş" BackColor="#1a1a2e" ForeColor="White" OnClick="Button10_Click"/>&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button11" runat="server" Text="İptal" BackColor="#1a1a2e" ForeColor="White" OnClick="Button11_Click"/>
                 <asp:Label ID="Label6" runat="server" Text='' Font-Size="Small"></asp:Label>
@@ -87,7 +103,7 @@
             <asp:Repeater ID="Cevaplar" runat="server">
                 <ItemTemplate>
                     <asp:Panel ID="Panel1" runat="server" CssClass="panel">
-                        <a href='/Forum?user=<%# Eval("Username") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
+                        <a href='/Forum/users/<%# Eval("Username") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
                         <asp:Label ID="Date" runat="server" Text='<%# Eval("Date") %>' Font-Size="Small"></asp:Label><br />
                         <asp:Label ID="Detail" runat="server" Text='<%# Eval("Answer") %>' Font-Size="Small"></asp:Label>  
                     </asp:Panel>
@@ -112,20 +128,39 @@
 
         <asp:Repeater ID="Profil_Questions" runat="server">
                 <ItemTemplate>
-                    <div class="panel" style="width:800px; max-height:115px;">
+                    <div class="panel" style="width:700px; max-height:150px;">
                         <div style="float:right;">
                             <asp:Label ID="View" runat="server" Text='Görüntülenme: ' Font-Size="Small"></asp:Label>
                             <asp:Label ID="View2" runat="server" Text='<%# Eval("Views") %>' Font-Size="Small"></asp:Label><br />
                             <asp:Label ID="Answers" runat="server" Text='Cevap: ' Font-Size="Small"></asp:Label>
                             <asp:Label ID="Answers2" runat="server" Text='<%# Eval("Answers") %>' Font-Size="Small"></asp:Label>
                         </div>
-                        <a href='/Forum?id=<%# Eval("ID") %>'><asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> <br />
-                        <a href='/Forum?userid=<%# Eval("UserID") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
+                        <a href='/Forum/posts/<%# Eval("ID") %>'><asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>' Font-Size="Large"></asp:Label></a> <br />
+                        <a href='/Forum/users/<%# Eval("UserID") %>'><asp:Label ID="Username" runat="server" Text='<%# Eval("Username") %>' Font-Size="Small"></asp:Label></a> &nbsp&nbsp&nbsp
                         <asp:Label ID="Date" runat="server" Text='<%# Eval("Date") %>' Font-Size="Small"></asp:Label><br />
                         <asp:Label ID="Detail" runat="server" Text='<%# Eval("Detail") %>' Font-Size="Small"></asp:Label>    
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+
+        <div id="ad2">
+            Ads
+        </div>
+
+        <footer class="page-footer" style="margin-top:100px;">
+	        <div class="footer">
+                <hr class="çizgi"/>
+                <a href="/About" style="text-decoration:none;"><asp:Label ID="Label4" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/Contact" style="text-decoration:none;"><asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, İletişim %>"></asp:Label></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/Manifest" style="text-decoration:none;"><asp:Label ID="Manifest" runat="server" Text="<%$Resources:Default, Manifesto %>"></asp:Label></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/Forum" style="text-decoration:none;"><asp:Label ID="Label8" runat="server" Text="<%$Resources:Default, Blog %>"></asp:Label></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/Photon" style="text-decoration:none;"><asp:Label ID="Label13" runat="server" Text="Artado Photon"></asp:Label></a>
+	        </div>
+         </footer>
     </form>
 </body>
 </html>

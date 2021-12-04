@@ -1,0 +1,164 @@
+﻿body {
+    background: #181818;
+    color: white;
+    margin: 0;
+}
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: black;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+.kontrol {
+    background-color: black !important
+}
+
+.arama {
+    background-color: #121212 !important
+}
+
+.gsc-cursor-next-page {
+    color: white !important
+}
+
+.gsc-control-cse {
+    border-style: none !important
+}
+
+.gsc-cursor {
+    color: white !important
+}
+
+.link {
+    background-color: #121212;
+    padding: 5px 8px 8px 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.üstkısım {
+    background-color: #121212;
+}
+
+.vitrin {
+    background-color: #121212;
+    height: 320px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 98vw;
+}
+
+#scroll::-webkit-scrollbar {
+    background-color: #121212;
+}
+
+#scroll::-webkit-scrollbar-track {
+    background-color: #222222;
+}
+
+#scroll::-webkit-scrollbar-thumb {
+    background-color: black;
+    width: 20px;
+}
+
+
+.ürün {
+    width: 150px;
+    height: 250px;
+    background-color: transparent !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.ürün_image {
+    max-width: 80%;
+    max-height: 50%;
+}
+
+.ürün_txt {
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.arama2, .top_search {
+    background-color: #181818 !important
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #121212 inset !important;
+    -webkit-text-fill-color: white !important
+}
+
+
+.açılış, .panel, .Panel1, .photon_news {
+    background-color: #121212 !important
+}
+
+#editortxt, #editortxt2{
+    color:white !important
+}
+
+@media screen and (min-width: 600px) {
+    .arama {
+        background-color: #121212;
+        width: 580px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        border-style:none !important;
+        padding: 8px 8px 8px 8px;
+    }
+
+        .arama:hover {
+            background-color: #010203 !important;
+            transition: 300ms;
+        }
+
+    #arama_çubugu:hover {
+        background-color: #010203 !important;
+        transition: 300ms;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .arama {
+        background-color: #121212;
+        width: 300px;
+        height: 45px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 5px 5px 5px 5px;
+    }
+}

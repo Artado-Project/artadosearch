@@ -48,9 +48,9 @@
             <br />
             <br />
             <br />
-            <a href="https://discord.gg/baj29VBkfp">Discord</a>
+            <a href="https://discord.gg/UCRWwU5BfP">Discord</a>
             <br />
-            <a href="mailto:artadosoftware@protonmail.com">E-mail</a>
+            <a href="mailto:arda@artadosearch.com">E-mail</a>
             <br />
             <br />
             <br />

@@ -30,7 +30,7 @@
 
         <div style= "margin-bottom:20px" class="üstkısım">
             <asp:Panel ID="Panel2" runat="server" CssClass="arama2" BorderStyle="Outset">
-                 <asp:TextBox ID="arama_çubugu2" runat="server" CssClass="textbox" BorderStyle="None" TextMode="Search" ValidateRequestMode="Disabled" MaxLength="100"></asp:TextBox>
+                 <asp:TextBox ID="arama_çubugu2" runat="server" CssClass="textbox" BorderStyle="None" TextMode="Search" ValidateRequestMode="Disabled"></asp:TextBox>
         <asp:ImageButton ID="Search" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
                 </asp:Panel>
             <asp:ImageButton ID="Image1" runat="server" CssClass="image" ImageUrl="Icons/android-chrome-192x192.png" OnClick="Image1_Click1"  /> 
@@ -41,8 +41,9 @@
             <asp:Button ID="Sözlük" runat="server" Text="<%$Resources:Default, Sözlük %>" CssClass="sözlük" BorderStyle="None" BackColor="Transparent" OnClick="Sözlük_Click"/>
             <asp:Button ID="Müzik" runat="server" Text="<%$Resources:Default, Film %>" CssClass="müzik" BorderStyle="None" BackColor="Transparent" OnClick="Müzik_Click"/>
             <asp:Button ID="Akademik" runat="server" Text="<%$Resources:Default, Akademik %>" CssClass="akademik" BorderStyle="None" BackColor="Transparent" OnClick="Akademik_Click"/>
-                <hr class="çizgi"/>
              </div>
+
+        <div id="con"> </div>
 
         <div id="Showcase" runat="server" class="vitrin">
             <asp:Label ID="Label12" runat="server" Text="Vitrin" Font-Size="X-Large" Font-Bold="true"></asp:Label>&nbsp;
@@ -64,7 +65,7 @@
             </div>
             <br />
         </div>
-
+        <div style="height:20px;"></div>
         <div id="News" runat="server">
             <asp:Label ID="Label4" runat="server" Text='Haberler' Font-Size="X-Large"></asp:Label>
             <asp:Repeater ID="News_Results" runat="server">
@@ -533,7 +534,7 @@
             <br />
         </asp:Panel>
 
-        <div id="Filtre_Main" style="margin-left:50px;">
+        <div id="Filtre_Main" style="margin-left:50px; margin-top:10px;">
             <div id="Results" runat="server" style="display: inline">
                 <asp:Label ID="Label15" runat="server" Text="<%$Resources:Default, Artado1 %>" CssClass="label"></asp:Label> &nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
@@ -541,14 +542,15 @@
                     <asp:ListItem Value="Artado">Artado</asp:ListItem>
                     <asp:ListItem Value="Bing">Bing</asp:ListItem>
                     <asp:ListItem Value="Yahoo">Yahoo</asp:ListItem>
+                    <asp:ListItem Value="Baidu">Baidu</asp:ListItem>
                     <asp:ListItem Value="Github">Github</asp:ListItem>
                     <asp:ListItem Value="Scholar">Google Scholar</asp:ListItem>
                     <asp:ListItem Value="Base">BASE</asp:ListItem>
                 </asp:DropDownList>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div id="Filtre" runat="server" style="display: inline">
-                <asp:Label ID="Sort" runat="server" Text="<%$Resources:Default, Sırala %>"></asp:Label> 
+            <div id="Filtre" runat="server">
+                <asp:Label ID="Sort" runat="server" Text="<%$Resources:Default, Sırala %>" CssClass="label"></asp:Label> 
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
                     <asp:ListItem Text="<%$Resources:Default, Alakaya %>" Value="Puan"></asp:ListItem>                    
                     <asp:ListItem Text="<%$Resources:Default, Eski %>" Value="Alaka"></asp:ListItem>
@@ -572,7 +574,7 @@
                     <asp:ListItem Text="<%$Resources:Default, Bulgarca %>" Value="bg-BG"></asp:ListItem>
                     <asp:ListItem Text="<%$Resources:Default, Boşnakça %>" Value="en-BZ"></asp:ListItem>
                 </asp:DropDownList>
-            </div><br/>
+            </div>
             <asp:Panel ID="Text" runat="server">
                 <asp:Label ID="Label1" runat="server" Text="Label" CssClass="label"></asp:Label> <br />
             </asp:Panel>
@@ -609,8 +611,10 @@
                        </asp:Panel>
                     </ItemTemplate>
                 </asp:Repeater> 
-                 <script async src="https://cse.google.com/cse.js?cx=160e826a9c5ebe821"></script>
-                 <div class="gcse-searchresults-only" runat="server" id="Google"></div>
+                 <div id="Google" runat="server">
+                     <script async src="https://cse.google.com/cse.js?cx=160e826a9c5ebe821"></script>
+                     <div class="gcse-searchresults-only" enablehistory="false" runat="server"></div>
+                 </div>
 
                  <div id="OtherResults" runat="server">
                      <asp:Label ID="ResultsTxt" runat="server" Text="Label"></asp:Label>

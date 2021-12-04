@@ -18,7 +18,7 @@ public partial class url : System.Web.UI.Page
         string aramaID = Request.QueryString["Link"];
         SqlCommand komut = new SqlCommand();
         komut.Connection = baglanti2;
-        komut.CommandText = "update Sonuçlar set Rank+=5 where Link='" + aramaID + "'";
+        komut.CommandText = "update arda.Sonuçlar set Rank+=5 where Link='" + aramaID + "'";
         komut.ExecuteNonQuery();
         Response.Redirect(aramaID);
     }

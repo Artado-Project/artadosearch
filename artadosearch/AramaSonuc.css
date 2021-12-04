@@ -2,15 +2,13 @@
 
 body {
     background-color: #F9F9FA;
-    min-height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
+    margin: 0 0;
+    transform-origin: 0 0
 }
 
-.çizgi {
-    background-color: black;
-    margin-top: 0px;
+body::marker{
+    display:none !important;
 }
 
 .gsc-above-wrapper-area td {
@@ -254,7 +252,7 @@ body {
 
 .gs-result .gs-image, .gs-result .gs-promotion-image {
     vertical-align: middle;
-    border: 1px solid #fff !important
+    border: 1px solid #fff !important;
 }
 
 .gs-promotion-image-box, .gs-image-box.gs-web-image-box.gs-web-image-box-portrait, .gs-image-box.gs-web-image-box.gs-web-image-box-landscape {
@@ -311,15 +309,15 @@ body {
 }
 
 .gs-webResult.gs-result a.gs-title:link, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b {
-    color: royalblue !important
+    color: dodgerblue !important
 }
 
     .gs-webResult.gs-result a.gs-title:link b {
-        color: mediumblue !important
+        color: royalblue !important
     }
 
 .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b {
-    color: mediumblue !important
+    color: royalblue !important
 }
 
 .gs-webResult div.gs-visibleUrl {
@@ -720,7 +718,7 @@ body {
     font-size: large
 }
 
-.b_algo h3, .gs_ri h3 {
+.b_algo h3, .gs_ri h3, .cnt h3, .col-xs-11 h2 {
     font-size: large
 }
 
@@ -760,8 +758,12 @@ body {
     display: none !important
 }
 
-.gs_fl, .list-unstyled, .pull-right, .record-panel input, .ads, .searchCenterTopAds, .searchCenterBottomAds, .searchBottom, .b_ad {
+.gs_fl, .list-unstyled, .CommerceDeal, .pull-right, .record-panel input, .ads, .searchCenterTopAds, .searchCenterBottomAds, .searchBottom, .d-ib .b_ad, .hidden, .compCardList, .sys_news_videos, .sys_news_auto, .Video, .bingnews, .d-ib, .p-abs, .t-0, .l-0, .lh-20, .fc-obsidian, .wr-bw, .ls-n, .pb-4 {
     display: none !important
+}
+
+.ls-05, .fz-20, .lh-26, .td-hu, .tc, .va-bot, .mxw-100p {
+    display: block !important
 }
 
 .backplate {
@@ -769,7 +771,15 @@ body {
 }
 
 @media screen and (min-width: 600px) {
+    #con{
+        height:110px;
+    }
     .üstkısım {
+        height: 110px;
+        width: 100vw;
+        position: fixed;
+        top: 0px;
+        z-index: 99;
     }
 
     .sonuclar {
@@ -792,7 +802,7 @@ body {
 
     .gsc-results {
         background-color: transparent !important;
-        min-width: 600px !important
+        min-width: 600px !important;
     }
 
     .gsc-result {
@@ -800,7 +810,7 @@ body {
         max-width: 600px !important
     }
 
-    .b_algo, .gs_ri, .algo, .bingrelqa, .va-top {
+    .b_algo, .gs_ri, .algo, .bingrelqa, .va-top, .cnt, .mt0 {
         min-height: 20px;
         width: 600px;
         margin-bottom: 10px;
@@ -816,7 +826,7 @@ body {
         padding: 5px 5px 5px 5px;
     }
 
-    .link-gruen {
+    .link1 {
         margin-left: 20px;
     }
 
@@ -1024,10 +1034,10 @@ body {
 
     .ınfo {
         position: sticky;
-        top: 20px;
+        top: 120px;
         max-width: 500px;
         max-height: 400px;
-        background-color: #F9F9FA;
+        background-color: transparent !important;
         float: right;
         margin-right: 40px;
         border-top-left-radius: 20px;
@@ -1211,8 +1221,16 @@ body {
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
+    #con {
+        height: 120px
+    }
+
     .üstkısım {
-        margin-top: 20px;
+        height: 120px;
+        width: 100vw;
+        position: fixed;
+        top: 0px;
+        z-index: 99;
     }
 
     .image {
@@ -1433,19 +1451,6 @@ body {
         height: 100px
     }
 
-    #Filtre_Main {
-        height:30px;
-        overflow: scroll;
-        overflow-x: scroll;
-        margin-left:0px !important;
-        padding:5px 5px 5px 5px;
-    }
-
-    #Filtre {
-        width: 500px;
-        height: 30px;
-    }
-
     #Results{
         margin-left:20px;
     }
@@ -1470,6 +1475,11 @@ body {
         width: 330px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 10px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 
     .sözlüköneri {
@@ -1494,9 +1504,10 @@ body {
     .ınfo {
         max-width: 330px;
         min-height: 210px;
-        background-color: #F9F9FA;
+        background-color: transparent !important;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 10px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;

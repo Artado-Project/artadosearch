@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.artadosearch.com/opensearch.xml" title="Artado Search"/>
 <link href="text.css" rel="stylesheet" media="screen"/>
 <link href="bootstrap-4.5.3-dist/css/bootstrap.css" rel="stylesheet" />
 <link rel="shortcut icon" href="/Icons/favicon.ico" />
@@ -22,11 +23,16 @@
 <link href="https://www.artadosearch.com/" rel="canonical"/>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
 <meta name="keywords" content="arama, arama motoru, yerli, artado, gizlilik, milli, türk yapımı, güvenli, sade, reklamsız, reklamsız arama motoru, search, search engine, privacy, security, türkiye" />
-<meta name="description" content="Open Source, Safe and Anonymous Search Engine" />
+<meta name="description" content="Open Source, Private and Anonymous Search Engine" />
 <meta property="og:title" content="Artado Search" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.artadosearch.com" />
-<meta property="og:description" name="description" class="swiftype" content="Open Source, Safe and Anonymous Search Engine"/>
+<meta property="og:description" name="description" class="swiftype" content="Open Source, Private and Anonymous Search Engine"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Artado Search" />
+<meta name="twitter:description" content="Open Source, Private and Anonymous Search Engine" />
+<meta name="twitter:url" content="https://www.artadosearch.com/" />
+<meta name="twitter:image" content="https://www.artadosearch.com/Icons/privacy.jpg" />
 <title>Artado Search</title>
 </head>
 <body id="bdy1" runat="server" style="-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
@@ -38,14 +44,23 @@
 </asp:ScriptManager>
 <div style="min-height:98%">
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+<Triggers>
+<asp:AsyncPostBackTrigger ControlID="ImageButton1" EventName="Click" />
+<asp:AsyncPostBackTrigger ControlID="ProfilePic" EventName="Click" />
+<asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+<asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+<asp:AsyncPostBackTrigger ControlID="DropDownList1" EventName="SelectedIndexChanged" />
+<asp:AsyncPostBackTrigger ControlID="DropDownList2" EventName="SelectedIndexChanged" />
+<asp:AsyncPostBackTrigger ControlID="Command" EventName="Click" />
+</Triggers>
 <ContentTemplate> 
 <div id="arama" class="orta"> 
 <asp:Panel ID="Panel1" runat="server" BackColor="Transparent">
 <asp:Image ID="Image1" runat="server" CssClass="auto-style1"/>
-<asp:Panel ID="Normal" runat="server" CssClass="arama" BorderStyle="Outset">
-<asp:TextBox ID="arama_çubugu" type="search" name="s" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" autofocus AutoCompleteType="Search" MaxLength="100" ValidateRequestMode="Disabled"></asp:TextBox>
-<asp:ImageButton ID="Search" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
-<asp:ImageButton ID="Tools" runat="server" Height="30px" CssClass="Button1" ImageUrl="~/tools.png" Width="30px" BorderStyle="None" OnClick="Tools_Click" />   
+<asp:Panel ID="Normal" runat="server" CssClass="arama" BorderStyle="Outset" style="margin-top:0px; margin-bottom:10px;">
+<asp:TextBox ID="arama_çubugu" type="search" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" autofocus AutoCompleteType="Search" ValidateRequestMode="Disabled"></asp:TextBox>
+<asp:ImageButton ID="Search" runat="server" Height="35px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.svg" Width="35px"  BorderStyle="None"/>
+<asp:ImageButton ID="Tools" runat="server" Height="30px" CssClass="Button1" ImageUrl="~/tools.png" Width="30px" BorderStyle="None" OnClick="Tools_Click" />
 </asp:Panel>
 <asp:Panel ID="Ses" runat="server" CssClass="arama" BorderStyle="Outset">
 <asp:Label ID="Text" runat="server" Text="Konuşun"></asp:Label>
@@ -81,11 +96,11 @@
 
 <!--DuckDuckGo Arama Komut-->
 <div class="komut1">  
-<asp:ImageButton ID="ImageButton1" runat="server" style="width:40px; height:40px; float:left; outline:none;" ImageUrl="DDG-icon_256x256.png" OnClick="ImageButton3_Click" />
+<asp:ImageButton ID="ImageButton13" runat="server" style="width:40px; height:40px; float:left; outline:none;" ImageUrl="DDG-icon_256x256.png" OnClick="ImageButton3_Click" />
 <asp:Label ID="Label4" runat="server" Text=".ddg" Font-Bold="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
 <asp:Label ID="Label32" runat="server" Text="DuckDuckGo" Font-Italic="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
 </div>
-               
+        
 <!--Google Arama Komut-->
 <div class="komut2"> 
 <asp:ImageButton ID="ImageButton14" runat="server" style="width:40px; height:40px; float:left; outline:none;" ImageUrl="178-1783296_g-transparent-circle-google-logo.png" OnClick="ImageButton4_Click" />&nbsp;&nbsp;&nbsp;
@@ -94,7 +109,7 @@
 </div>
 
 <!--Youtube Arama Komut-->
-<div class="komut2"> 
+<div class="komut2">
 <asp:ImageButton ID="ImageButton15" runat="server" style="width:40px; height:30px; float:left; outline:none;" ImageUrl="1024px-YouTube_full-color_icon_(2017).png" OnClick="ImageButton5_Click" />&nbsp;&nbsp;&nbsp;
 <asp:Label ID="Label35" runat="server" Text=".yt" Font-Bold="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
 <asp:Label ID="Label36" runat="server" Text="Youtube" Font-Italic="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
@@ -115,7 +130,7 @@
 </div>
 
 <!--Ekşi Sözlük Arama Komut-->
-<div class="komut1"> 
+<div class="komut1">
 <asp:ImageButton ID="ImageButton18" runat="server" style="width:40px; height:40px; float:left; outline:none;" ImageUrl="ilogo_fbv2.png" OnClick="ImageButton8_Click" />&nbsp;&nbsp;&nbsp;
 <asp:Label ID="Label41" runat="server" Text=".eksi" Font-Bold="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
 <asp:Label ID="Label42" runat="server" Text="Ekşi Sözlük" Font-Italic="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
@@ -149,39 +164,33 @@
 <asp:Label ID="Label50" runat="server" Text="Quora" Font-Italic="true" Font-Size="Small" ForeColor="#517BBA" CssClass="öneritxt"></asp:Label>
 </div>
 </asp:Panel>
-
-<br />
 <br />
 <asp:Label ID="Label12" runat="server" Text="Label" Font-Size="Small"></asp:Label>
 </div>
-</ContentTemplate>
-<Triggers>
-<asp:AsyncPostBackTrigger ControlID="ImageButton1" EventName="Click" />
-<asp:AsyncPostBackTrigger ControlID="Command" EventName="Click" />
-</Triggers>
-</asp:UpdatePanel>
 
-<asp:ImageButton ID="ImageButton13" runat="server" ImageUrl="~/Icons/burger_icon.png" CssClass="ayarlar" OnClick="ImageButton1_Click"/>
+<%--<input type="image" src="/Icons/burger_icon.png" class="ayarlar" onclick="Show()"/>--%>
+<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Icons/burger_icon.png" CssClass="ayarlar" OnClick="ImageButton1_Click"/>
 <asp:ImageButton ID="ProfilePic" runat="server" CssClass="login" OnClick="ProfilePic_Click"/>
 <asp:Button ID="Button1" runat="server" Text="<%$Resources:Default, Destek %>"  CssClass="destek" ForeColor="Black" BackColor="Transparent" BorderStyle="None" OnClick="Button3_Click"/>
 <asp:Button ID="Button2" runat="server" Text="<%$Resources:Default, Oturum %>"  CssClass="login" ForeColor="Black" BackColor="SkyBlue" BorderStyle="None" OnClick="Button2_Click1"/>
 
-<asp:Panel ID="Kontrol" runat="server" CssClass="kontrol" BorderStyle="Outset" BackColor="black">
+<div id="Kontrol" runat="server" class="kontrol">
 <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/indir (7).png" CssClass="kapat" OnClick="ImageButton2_Click"/>
 <asp:Label ID="Label7" runat="server" Text="<%$Resources:Default, Kontrol %>" ForeColor="#517BBA" ></asp:Label>
 <br />
 <br />
 <asp:Label ID="Label1" runat="server" Text="<%$Resources:Default, Tema %>" ForeColor="#517BBA"></asp:Label>
 <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
-<asp:ListItem Text="<%$Resources:Default, Karanlık %>" Value="Dark"></asp:ListItem>                     
+<asp:ListItem Text="<%$Resources:Default, Night %>" Value="Night"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, Klasik %>" Value="Klasik"></asp:ListItem>
+<asp:ListItem Text="<%$Resources:Default, Karanlık %>" Value="Dark"></asp:ListItem>
 </asp:DropDownList>
 <br />
 <br />
 <asp:Label ID="Label2" runat="server" Text="<%$Resources:Default, Lang %>" ForeColor="#517BBA"></asp:Label>
-<asp:DropDownList ID="ddlanguage" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-<asp:ListItem Text="<%$Resources:Default, Türkçe %>" Value="tr-TR"></asp:ListItem>
+<asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
 <asp:ListItem Text="<%$Resources:Default, İngilizce %>" Value="en-US"></asp:ListItem>
+<asp:ListItem Text="<%$Resources:Default, Türkçe %>" Value="tr-TR"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, Fransızca %>" Value="fr-FR"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, Almanca %>" Value="de-DE"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, AzeriTR %>" Value="en-AU"></asp:ListItem>
@@ -195,6 +204,19 @@
 <asp:ListItem Text="<%$Resources:Default, Macarca %>" Value="hu-HU"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, Bulgarca %>" Value="bg-BG"></asp:ListItem>
 <asp:ListItem Text="<%$Resources:Default, Boşnakça %>" Value="en-BZ"></asp:ListItem>
+</asp:DropDownList>
+<br />
+<br />
+<asp:Label ID="Label18" runat="server" Text="<%$Resources:Default, Artado1 %>" ForeColor="#517BBA"></asp:Label> &nbsp;&nbsp;
+<asp:DropDownList ID="DropDownList3" runat="server" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="True">
+<asp:ListItem Value="Google">Google</asp:ListItem>
+<asp:ListItem Value="Artado">Artado</asp:ListItem>
+<asp:ListItem Value="Bing">Bing</asp:ListItem>
+<asp:ListItem Value="Yahoo">Yahoo</asp:ListItem>
+<asp:ListItem Value="Baidu">Baidu</asp:ListItem>
+<asp:ListItem Value="Github">Github</asp:ListItem>
+<asp:ListItem Value="Scholar">Google Scholar</asp:ListItem>
+<asp:ListItem Value="Base">BASE</asp:ListItem>
 </asp:DropDownList>
 <br />
 <br />
@@ -223,8 +245,9 @@
 <br />
 <br />
 <a href="https://github.com/ardatdev/artadosearch-source" style="text-decoration:none;"><asp:Label ID="Label16" runat="server" Text="Github"></asp:Label></a>
-</asp:Panel>
-
+</div>
+</ContentTemplate>
+</asp:UpdatePanel>
     <style>
         @media screen and (min-width: 600px) {
             .shortcut1 {
@@ -252,72 +275,26 @@
         }
 
         @media screen and (min-width: 100px) and (max-width: 600px) {
-            .shortcut1 {
-                float: left;
-                margin-right: 20px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-
-            .shortcut2 {
-                float: left;
-                margin-right: 20px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-
-            .shortcut3 {
-                float: left;
-                margin-right: 20px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-
             #shortcuts{
                 text-align:center;
                 margin-right:auto;
                 margin-left:auto;
-                width:240px;
+                max-width:330px;
+            }
+
+            #shortcuts a{
+                float: left;
+                margin-right: 18px;
+                margin-bottom: 20px;
+                text-decoration: none
+            }
+            #shortcuts1{
+                text-align:center;
+                margin-left:25px;
             }
         }
     </style>
 
-<div id="shortcuts" runat="server" class="orta" style="text-decoration:none">
-    <a href="/BlankApp" class="shortcut1">
-        <img src="/Icons/Blank/Blank_Mini.jpg" style="width:50px; height:50px;"/><br />
-        Blank
-    </a>
-    <a href="/Soon" class="shortcut2">
-        <img src="/Icons/Journal/Journal_Mini.jpg" style="width:50px; height:50px;"/><br />
-        Journal
-    </a>
-    <a href="/Soon" class="shortcut2">
-        <img src="/Icons/Beyt/beyt_icon.png" style="width:50px; height:50px;"/><br />
-        Beyt<br />
-        Messenger
-    </a>
-    <a href="/Proxy" class="shortcut3">
-        <img src="/Icons/Proxy/Proxy_icon.png" style="width:40px; height:50px;"/><br />
-        Proxy
-    </a>
-    <a href="/Soon" class="shortcut1">
-        <img src="/Icons/Maps/maps_icon.png" style="width:50px; height:50px;"/><br />
-        Haritalar
-    </a>
-    <a href="/Soon" class="shortcut2">
-        <img src="/Icons/Videos/Videos_icon.png" style="width:50px; height:50px;"/><br />
-        Videos
-    </a>
-    <a href="/Soon" class="shortcut2">
-        <img src="/Icons/beemail/beemail_icon.png" style="width:50px; height:50px;"/><br />
-        BeeMail
-    </a>
-    <a href="/Soon" class="shortcut3">
-        <img src="/Icons/Network/Network_icon.png" style="width:50px; height:50px;"/><br />
-        Network
-    </a>
-</div>
-    
 <asp:Panel ID="Journal" runat="server">
     <script type="text/javascript">
         var d, h, m, s, animate;
@@ -410,22 +387,6 @@
 </asp:Panel>
 </asp:Panel>
 </div>
-
-
-<footer class="page-footer" id="footer" runat="server">
-	<div class="footer">
-        <hr class="çizgi"/>
-        <a href="/About" style="text-decoration:none;"><asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Hakkımızda %>"></asp:Label></a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="/Contact" style="text-decoration:none;"><asp:Label ID="Label18" runat="server" Text="<%$Resources:Default, İletişim %>"></asp:Label></a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="/Manifest" style="text-decoration:none;"><asp:Label ID="Label19" runat="server" Text="<%$Resources:Default, Manifesto %>"></asp:Label></a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="/Forum" style="text-decoration:none;"><asp:Label ID="Label20" runat="server" Text="<%$Resources:Default, Blog %>"></asp:Label></a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="/Photon" style="text-decoration:none;"><asp:Label ID="Label21" runat="server" Text="Artado Photon"></asp:Label></a>
-	</div>
-</footer>
 </form>
 </body>
 </html>

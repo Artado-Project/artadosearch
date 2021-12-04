@@ -1,15 +1,58 @@
 ﻿body {
-    background: #1a1a2e;
+    background: #16213E;
     color: white;
 }
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: midnightblue;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
 
 .kontrol {
     background-color: black !important
 }
 
-.arama {
-    background-color: #1a1a2e !important
+.arama, .top_search {
+    width: 580px;
+    height: 45px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px 8px 8px 8px;
+    background-color: #161627 !important
 }
+
+    .arama:hover {
+        background-color: #1a1a2e !important;
+        transition: 300ms;
+    }
+
+#arama_çubugu:hover {
+    background-color: #1a1a2e !important;
+    transition: 300ms;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1a1a2e inset !important;
+    -webkit-text-fill-color: white !important
+}
+
 
 .gsc-cursor-next-page {
     color: white !important
@@ -23,8 +66,12 @@
     color: white !important
 }
 
+.üstkısım {
+    background-color: #1a1a2e;
+}
+
 .link {
-    background-color: #16213E;
+    background-color: #1a1a2e !important;
     padding: 5px 8px 8px 8px;
     margin-left: 10px;
     margin-top: 10px;
@@ -32,6 +79,15 @@
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.açılış, .panel, .button2, .Panel1, .photon_news {
+    background: #1a1a2e !important;
+    color: white !important
+}
+
+#editortxt, #editortxt2 {
+    color: white !important
 }
 
 @media screen and (min-width: 600px) {

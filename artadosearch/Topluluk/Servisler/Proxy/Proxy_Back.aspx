@@ -11,7 +11,6 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Web_Context" runat="server" Text="Yükleniyor"></asp:Label>
-
         </div>
     </form>
 </body>

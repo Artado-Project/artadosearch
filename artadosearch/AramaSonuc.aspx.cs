@@ -43,7 +43,8 @@ public partial class AramaSonuc : System.Web.UI.Page
 
     public void Start()
     {
-        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
+        System.Globalization.CultureInfo kultur = System.Threading.Thread.CurrentThread.CurrentUICulture;
+        string lang = kultur.TwoLetterISOLanguageName;
         System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
 
         SqlConnection baglanti = new SqlConnection(con);
@@ -64,9 +65,17 @@ public partial class AramaSonuc : System.Web.UI.Page
             if (aranan == null)
             {
                 aranan = Request.QueryString["p"];
+                if (aranan == null)
+                {
+                    aranan = Request.QueryString["ei"];
+                }
             }
             Response.Redirect("search?i=" + aranan + "&page=1");
         }
+
+        Page.Title = aranan + " - Artado Search";
+        arama_çubugu2.Attributes.Add("Value", aranan);
+        aranan = aranan.Trim();
 
         //Google Araması
         int google;
@@ -163,7 +172,6 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
 
         string[] s;
-        aranan = aranan.Replace(", ", "").Replace(": ", "").Replace(". ", "").Replace("; ", "").Replace(" için ", "").Replace(" ile ", "").Replace("'", " ");
         s = aranan.Split(' ');
 
         Results.Visible = true;
@@ -340,17 +348,63 @@ public partial class AramaSonuc : System.Web.UI.Page
                 {
                     currentPage = 1;
                 }
-                string bing = "https://www.bing.com/search?q=" + aranan + "&form=QBLH&sp=-1&pq=artado&sc=8-6&qs=n&sk=&cvid=18B13EF8F7574FF399FA1D87305FADEE&first=" + currentPage;
+                string bing = "https://www.bing.com/search?q=" + aranan + "&qs=n&sp=-1&pq=" + aranan + "&sc=8-6&sk=&cvid=E61D587280A143E4B2B331964F17D6C8&first=" + currentPage;
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(bing.Trim());
-                request.Referer = "https://www.bing.com/?cc=tr";
+                request.Referer = "https://www.bing.com/";
                 request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
                 WebResponse response = request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 string htmlText = reader.ReadToEnd();
                 reader.Close();
                 response.Close();
-                int results1 = htmlText.IndexOf("<ol id=\"b_results\">".ToLower()) + 19;
+                int results1 = htmlText.IndexOf("<ol id=\"b_results\" class=\"\">".ToLower()) + 28;
                 int results2 = htmlText.Substring(results1).IndexOf("</ol>");
+                string resulttext = htmlText.Substring(results1, results2);
+                ResultsTxt.Text = resulttext;
+
+                if (currentPage <= 1)
+                {
+                    HyperLink5.Visible = false;
+                }
+                else
+                {
+                    HyperLink5.Visible = true;
+                    HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 8);
+                }
+
+                HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 8);
+            }
+            else if (DropDownList2.SelectedValue == "Baidu")
+            {
+                Google.Visible = false;
+                rptAramaSonuclari.Visible = false;
+                Filtre.Visible = false;
+                PageSelect.Visible = false;
+                Text.Visible = false;
+                ScholarFiltre.Visible = false;
+                Lang.Visible = false;
+                GoogleImage.Visible = false;
+                OtherResults.Visible = true;
+                int currentPage;
+                if (Request.QueryString["page"] != null)
+                {
+                    currentPage = Int32.Parse(Request.QueryString["page"]);
+                }
+                else
+                {
+                    currentPage = 1;
+                }
+                string bing = "https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd=" + aranan + "&fenlei=256&rsv_pq=ef57db050000f0b2&rsv_t=88e5JBNivf%2FaSP%2F24Yg6X0RdeXzJ97dPN6DuEe69ZvM5ktzkxcvQP64Zgkc&rqlang=cn&rsv_dl=ih_1&rsv_sug3=1&rsv_enter=1&rsv_sug1=1&rsv_sug7=001&rsv_sug2=1&rsv_btype=i&rsp=1&rsv_sug9=es_2_1&rsv_sug4=2472&rsv_sug=4";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(bing.Trim());
+                request.Referer = "https://www.baidu.com/";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.58 Safari/537.36";
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string htmlText = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+                int results1 = htmlText.IndexOf("<div id=\"container\" class=\"sam_newgrid container_s\" data-w=\"1280\">".ToLower()) + 66;
+                int results2 = htmlText.Substring(results1).IndexOf("</table></div></div></div>");
                 string resulttext = htmlText.Substring(results1, results2);
                 ResultsTxt.Text = resulttext;
 
@@ -395,11 +449,11 @@ public partial class AramaSonuc : System.Web.UI.Page
                 string htmlText = reader.ReadToEnd();
                 reader.Close();
                 response.Close();
-                string a = "https://search.yahoo.com/search?p=";
+                string a = "https://search.yahoo.com/search";
                 int href = htmlText.IndexOf(a);
                 while (href >= 0)
                 {
-                    htmlText = htmlText.Replace("https://search.yahoo.com/search?p=", "/search?i=");
+                    htmlText = htmlText.Replace("https://search.yahoo.com/search", "/search");
                     if (a.Length < htmlText.Length)
                     {
                         href = htmlText.IndexOf(a, a.Length);
@@ -638,7 +692,7 @@ public partial class AramaSonuc : System.Web.UI.Page
                 HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
             }
         }
-        catch
+        catch (Exception error)
         {
             Google.Visible = false;
             rptAramaSonuclari.Visible = false;
@@ -647,7 +701,7 @@ public partial class AramaSonuc : System.Web.UI.Page
             Text.Visible = false;
             GoogleImage.Visible = false;
             ResultsTxt.Visible = true;
-            ResultsTxt.Text = "Upps! Bir hata oluştu.<br/><br/> Upps! Something went wrong.<br/><br/> Opps! Etwas ist schief gelaufen.<br/><br/> Oups! Quelque chose s'est mal passé.<br/><br/> Ой! Что-то пошло не так.<br/><br/> 出问题了。";
+            ResultsTxt.Text = "Upps! Bir hata oluştu.<br/><br/> Upps! Something went wrong.<br/><br/> Opps! Etwas ist schief gelaufen.<br/><br/> Oups! Quelque chose s'est mal passé.<br/><br/> Ой! Что-то пошло не так.<br/><br/> 出问题了。<br/><br/> Hata Mesajı: " + error;
         }
 
         WebArama.Visible = true;
@@ -666,9 +720,6 @@ public partial class AramaSonuc : System.Web.UI.Page
         {
             Response.Redirect("Home?empty=true");
         }
-
-        Page.Title = aranan + " - Artado Search";
-        arama_çubugu2.Attributes.Add("Value", aranan);
 
         watch.Start();
 
@@ -929,61 +980,62 @@ public partial class AramaSonuc : System.Web.UI.Page
             Panel4.Visible = false;
         }
 
-        if (pds.IsFirstPage && Panel4.Visible == true)
-        {
-            Label title = InfoBox.Items[0].FindControl("title") as Label;
-            Suggestions.RepeatColumns = 3;
-            if (cookielang != null && cookielang.Value != null)
-            {
-                PagedDataSource pdssoz = new PagedDataSource();
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and where not InfoTitle='" + title.Text + "'", baglanti);
-                adpınfo.SelectCommand.Parameters.Add(new SqlParameter
-                {
-                    ParameterName = "@aranan",
-                    Value = "%" + aranan + "%",
-                });
-                DataTable dtınfo = new DataTable();
-                adpınfo.Fill(dtınfo);
-                pdsinfo.DataSource = dtınfo.DefaultView;
-                pdsinfo.AllowPaging = true;
-                pdsinfo.PageSize = 3;
-                Suggestions.DataSource = pdsinfo;
-                Suggestions.DataBind();
-                if (Suggestions.Items.Count == 0)
-                {
-                    Panel10.Visible = false;
-                }
-            }
-            else
-            {
-                PagedDataSource pdssoz = new PagedDataSource();
-                SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and not InfoTitle='" + title.Text + "'", baglanti);
-                adpınfo.SelectCommand.Parameters.Add(new SqlParameter
-                {
-                    ParameterName = "@aranan",
-                    Value = "%" + aranan + "%",
-                });
-                DataTable dtınfo = new DataTable();
-                adpınfo.Fill(dtınfo);
-                pdsinfo.DataSource = dtınfo.DefaultView;
-                pdsinfo.AllowPaging = true;
-                pdsinfo.PageSize = 3;
-                Suggestions.DataSource = pdsinfo;
-                Suggestions.DataBind();
-                if (Suggestions.Items.Count == 0)
-                {
-                    Panel10.Visible = false;
-                }
-            }
-            if (Suggestions.Items.Count <= 3)
-            {
-                Panel10.Visible = false;
-            }
-        }
-        else
-        {
-            Panel10.Visible = false;
-        }
+        //if (pds.IsFirstPage && Panel4.Visible == true)
+        //{
+        //    Label title = InfoBox.Items[0].FindControl("title") as Label;
+        //    Suggestions.RepeatColumns = 3;
+        //    if (cookielang != null && cookielang.Value != null)
+        //    {
+        //        PagedDataSource pdssoz = new PagedDataSource();
+        //        SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and where not InfoTitle='" + title.Text + "'", baglanti);
+        //        adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+        //        {
+        //            ParameterName = "@aranan",
+        //            Value = "%" + aranan + "%",
+        //        });
+        //        DataTable dtınfo = new DataTable();
+        //        adpınfo.Fill(dtınfo);
+        //        pdsinfo.DataSource = dtınfo.DefaultView;
+        //        pdsinfo.AllowPaging = true;
+        //        pdsinfo.PageSize = 3;
+        //        Suggestions.DataSource = pdsinfo;
+        //        Suggestions.DataBind();
+        //        if (Suggestions.Items.Count == 0)
+        //        {
+        //            Panel10.Visible = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        PagedDataSource pdssoz = new PagedDataSource();
+        //        SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where InfoTitle Like @aranan and Lang='" + cookielang + "' or Info Like @aranan and not InfoTitle='" + title.Text + "'", baglanti);
+        //        adpınfo.SelectCommand.Parameters.Add(new SqlParameter
+        //        {
+        //            ParameterName = "@aranan",
+        //            Value = "%" + aranan + "%",
+        //        });
+        //        DataTable dtınfo = new DataTable();
+        //        adpınfo.Fill(dtınfo);
+        //        pdsinfo.DataSource = dtınfo.DefaultView;
+        //        pdsinfo.AllowPaging = true;
+        //        pdsinfo.PageSize = 3;
+        //        Suggestions.DataSource = pdsinfo;
+        //        Suggestions.DataBind();
+        //        if (Suggestions.Items.Count == 0)
+        //        {
+        //            Panel10.Visible = false;
+        //        }
+        //    }
+        //    if (Suggestions.Items.Count <= 3)
+        //    {
+        //        Panel10.Visible = false;
+        //    }
+        //}
+        //else
+        //{
+        //    Panel10.Visible = false;
+        //}
+        Panel10.Visible = false;
 
         //Haberler
         foreach (string kelime in s)
@@ -1016,11 +1068,12 @@ public partial class AramaSonuc : System.Web.UI.Page
             SqlConnection baglantiistek = new SqlConnection(admin);
             if (baglantiistek.State == ConnectionState.Closed)
                 baglantiistek.Open();
-            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date) values (@Kelime, @Lang, @Date)";
+            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date, Source) values (@Kelime, @Lang, @Date, @Source)";
             SqlCommand komut = new SqlCommand(istek, baglantiistek);
             komut.Parameters.AddWithValue("@Kelime", "[anon]");
             komut.Parameters.AddWithValue("@Lang", cookielang.Value);
             komut.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
+            komut.Parameters.AddWithValue("@Source", DropDownList2.SelectedValue);
             komut.ExecuteNonQuery();
             baglantiistek.Close();
         }
@@ -1029,11 +1082,12 @@ public partial class AramaSonuc : System.Web.UI.Page
             SqlConnection baglantiistek = new SqlConnection(admin);
             if (baglantiistek.State == ConnectionState.Closed)
                 baglantiistek.Open();
-            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date) values (@Kelime, @Lang, @Date)";
+            string istek = "insert into dbo.Arananlar(Kelime, Lang, Date, Source) values (@Kelime, @Lang, @Date, @Source)";
             SqlCommand komut = new SqlCommand(istek, baglantiistek);
             komut.Parameters.AddWithValue("@Kelime", "[anon]");
             komut.Parameters.AddWithValue("@Lang", lang);
             komut.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
+            komut.Parameters.AddWithValue("@Source", DropDownList2.SelectedValue);
             komut.ExecuteNonQuery();
             baglantiistek.Close();
         }
@@ -2335,13 +2389,62 @@ public partial class AramaSonuc : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        string botdetect = Request.UserAgent;
+        int bot = botdetect.IndexOf("bot".Trim().ToLower());
+        if (bot >= 0)
+        {
+            Response.Redirect("/");
+        }
+
+        HttpCookie old = HttpContext.Current.Request.Cookies["icon"];
+        if (old != null && old.Value != null)
+        {
+            if(old.Value == "/Icons/artado_searchv2.png")
+            {
+                Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
+            }
+            else if(old.Value == "/Icons/artado_searchv3.png")
+            {
+                Image1.ImageUrl = "/Icons/artadov3-colorful-icon.png";
+            }
+            else if (old.Value == "/Icons/LGBT/artado_searchv2_lgbt.png")
+            {
+                Image1.ImageUrl = "/Icons/LGBT/artadov3-lgbt.png";
+            }
+            else if (old.Value == "/Icons/tr/artado_searchv2_tr.png")
+            {
+                Image1.ImageUrl = "/Icons/tr/artadov3_tr2.png";
+            }
+            else if (old.Value == "/Icons/fr/artado_searchv2_fr.png")
+            {
+                Image1.ImageUrl = "/Icons/fr/artado_fr.png";
+            }
+            else if (old.Value == "/Icons/de/artado_searchv2_de.png")
+            {
+                Image1.ImageUrl = "/Icons/de/artado_de.png";
+            }
+            else if (old.Value == "/Icons/uk/artado_searchv2_uk.png")
+            {
+                Image1.ImageUrl = "/Icons/uk/artado-uk.png";
+            }
+            else if (old.Value == "/Icons/islam/islam.png")
+            {
+                Image1.ImageUrl = "/Icons/islam/artado_islam.png";
+            }
+            else if (old.Value == "/Icons/oldies/old.png")
+            {
+                Image1.ImageUrl = "/Icons/oldies/old-icon.png";
+            }
+        }
+        else
+        {
+            Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
+        }
         Start();
     }
     protected override void InitializeCulture()
     {
-        string lang = Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"].Substring(0, 2);
-
-        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+        HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
         if (cookielang != null && cookielang.Value != null)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
@@ -2349,120 +2452,91 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
         else
         {
+            System.Globalization.CultureInfo kultur = System.Threading.Thread.CurrentThread.CurrentUICulture;
+            string lang = kultur.TwoLetterISOLanguageName;
+
             if (lang == "tr".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
-
-                Page.MetaDescription = "Artado Search Türkiye - Yerli, Reklamsız, Gizliliğe Önem Veren, Güvenli ve Sade Tasarımlı Arama Motoru";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("tr-TR");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("tr-TR");
             }
             else if (lang == "en".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-
-                Page.MetaDescription = "Artado Search - Anonymous and secure search engine";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             }
             else if (lang == "fr".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
-
-                Page.MetaDescription = "Artado Search France - Moteur de recherche anonyme et sécurisé";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fr-FR");
             }
             else if (lang == "de".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
-
-                Page.MetaDescription = "Artado Search Deutschland - Anonyme und sichere Suchmaschine";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
             }
-            else if (lang == "az".ToLower() || lang == "Lt-az".ToLower())
+            else if (lang == "az".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-AU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-AU");
-
-                Page.MetaDescription = "Artado Search Azerbaijan - Anonim və təhlükəsiz axtarış sistemi";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-AU");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-AU");
             }
             else if (lang == "it".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("it-IT");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("it-IT");
-
-                Page.MetaDescription = "Artado Search Italy - Motore di ricerca anonimo e sicuro";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("it-IT");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("it-IT");
             }
             else if (lang == "ru".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
-
-                Page.MetaDescription = "Artado Search Russia - анонимная и безопасная поисковая система";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ru-RU");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
             }
             else if (lang == "zh".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CHS");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh-CHS");
-
-                Page.MetaDescription = "Artado Search China - 匿名和安全的搜索引擎";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CHS");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("zh-CHS");
             }
             else if (lang == "es".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("es-ES");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-ES");
-
-                Page.MetaDescription = "Artado Search Spain - Buscador anónimo y seguro";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-ES");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
             }
-            else if (lang == "pz".ToLower())
+            else if (lang == "pt".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-PT");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-PT");
-
-                Page.MetaDescription = "Artado Search Portugal - Motor de pesquisa anónimo e seguro";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-PT");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-PT");
             }
             else if (lang == "ko".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ko-KR");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ko-KR");
-
-                Page.MetaDescription = "Artado Search 대한민국 - 익명의 안전한 검색 엔진";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ko-KR");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ko-KR");
             }
-            else if (lang == "ja".ToLower())
+            else if (lang == "jp".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-
-                Page.MetaDescription = "Artado Search Japan - 匿名で安全な検索エンジン";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("jp-JP");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("jp-JP");
             }
             else if (lang == "hu".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("hu-HU");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("hu-HU");
-
-                Page.MetaDescription = "Artado Search Hungary - Névtelen és biztonságos kereső";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hu-HU");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("hu-HU");
             }
             else if (lang == "bg".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("bg-BG");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("bg-BG");
-
-                Page.MetaDescription = "Artado Search Bulgaria - Анонимна и сигурна търсачка";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("bg-BG");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("bg-BG");
             }
             else if (lang == "bs".ToLower())
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-BZ");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-BZ");
-
-                Page.MetaDescription = "Artado Search Bosna i Hercegovina - Anonimna i sigurna pretraživač";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-BZ");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-BZ");
             }
             else
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-
-                Page.MetaDescription = "Anonymous and secure search engine";
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             }
-
         }
+
         base.InitializeCulture();
     }
 
@@ -2475,7 +2549,7 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
         else
         {
-            Page.Theme = "Dark";
+            Page.Theme = "Night";
         }
 
         System.Web.HttpCookie cookie2 = HttpContext.Current.Request.Cookies["Results"];
@@ -3644,3 +3718,53 @@ public partial class AramaSonuc : System.Web.UI.Page
         }
     }
 }
+
+//Test Area
+
+//Yandex Results
+//else if (DropDownList2.SelectedValue == "Yandex")
+//{
+//    Google.Visible = false;
+//    rptAramaSonuclari.Visible = false;
+//    Filtre.Visible = false;
+//    PageSelect.Visible = false;
+//    Text.Visible = false;
+//    ScholarFiltre.Visible = false;
+//    Lang.Visible = false;
+//    GoogleImage.Visible = false;
+//    OtherResults.Visible = true;
+//    int currentPage;
+//    if (Request.QueryString["page"] != null)
+//    {
+//        currentPage = Int32.Parse(Request.QueryString["page"]);
+//    }
+//    else
+//    {
+//        currentPage = 0;
+//    }
+//    string bing = "https://yandex.com.tr/search/?lr=103850&text=" + aranan + "&p=" + currentPage;
+//    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(bing.Trim());
+//    request.Referer = "https://yandex.com.tr/";
+//    request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
+//    WebResponse response = request.GetResponse();
+//    StreamReader reader = new StreamReader(response.GetResponseStream());
+//    string htmlText = reader.ReadToEnd();
+//    reader.Close();
+//    response.Close();
+//    int results1 = htmlText.IndexOf("<div class=\"content i-bem\" data-bem=\"{\"content\":{\"sizes\":[{\"width\":0,\"cols\":6},{\"width\":1094,\"cols\":8},{\"width\":1186,\"cols\":10},{\"width\":1278,\"cols\":12}]}}\"><div class=\"content__left\" data-log-node=\"6j1c36\">".ToLower()) + 207;
+//    int results2 = htmlText.Substring(results1).IndexOf("sonraki</a></div></div></div>");
+//    string resulttext = htmlText.Substring(results1, results2);
+//    ResultsTxt.Text = resulttext;
+
+//    if (currentPage <= 1)
+//    {
+//        HyperLink5.Visible = false;
+//    }
+//    else
+//    {
+//        HyperLink5.Visible = true;
+//        HyperLink5.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage - 1);
+//    }
+
+//    HyperLink6.NavigateUrl = "search?i=" + aranan + "&page=" + (currentPage + 1);
+//}

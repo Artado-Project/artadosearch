@@ -4,6 +4,12 @@
     margin: 0;
 }
 
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    height: 50px;
+}
+
 @media screen and (min-width: 600px) {
 
     .açılış {
@@ -14,17 +20,26 @@
 
     .panel {
         background-color: #1a1a2e;
-        max-width: 1000px;
-        max-height: 500px;
+        width: 700px;
         margin-left: 150px;
         margin-top: 20px;
         padding: 10px 10px 10px 10px;
         border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-top-right-radius: 5px; 
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         overflow:hidden;
     }
+
+    #Post {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+    }
+
+        #Post::-webkit-scrollbar {
+            display: none;
+        }
 
     #Label3 {
         float: right;
@@ -88,6 +103,25 @@
     .içerikalt {
         text-align: center;
     }
+
+    #ad{
+        width:300px;
+        height:300px;
+        border-style:solid;
+        float:right;
+        margin-right:100px
+    }
+
+    #ad2 {
+        margin-top: 10px;
+        width: 700px;
+        height:50px;
+        margin-left: 150px;
+        margin-top: 20px;
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
@@ -100,8 +134,7 @@
 
     .panel {
         background-color: #1a1a2e;
-        max-width: 350px;
-        max-height: 500px;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
@@ -110,7 +143,11 @@
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        overflow:scroll;
+        overflow:hidden;
+    }
+
+    #Button1, #Button4 {
+        width: 90% !important
     }
 
     .image {
@@ -152,5 +189,27 @@
 
     .içerikalt {
         text-align: center;
+    }
+
+    #ad {
+        margin-top: 10px;
+        width: 90vw;
+        height: 30vh;
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #ad2 {
+        margin-top: 10px;
+        width: 90vw;
+        height: 10vh;
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #div, #div2 {
+        text-align: center !important
     }
 }
