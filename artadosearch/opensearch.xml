@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <ShortName>Artado</ShortName>
-  <Description>Open Source, Anonymous and Secure Search Engine</Description>
-  <InputEncoding>UTF-8</InputEncoding>
-  <Image width="192" height="192" type="image/x-icon">https://www.artadosearch.com/Icons/android-chrome-192x192.png</Image>
-  <Url type="text/html" method="get" template="https://www.artadosearch.com/search?i={searchTerms}"> </Url>
-  <SyndicationRight>open</SyndicationRight>
   <LongName>Artado Search</LongName>
-  <Developer>Arda Tahtacı</Developer>
+  <Description>Open Source, Anonymous and Secure Search Engine</Description>
+  <Contact>support@artadosearch.com</Contact>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://www.artadosearch.com/opensearch.xml"/>
+  <Url type="text/html" method="get" template="https://www.artadosearch.com/search?i={searchTerms}"/>
+  <Url type="application/x-suggestions+json" method="GET" template="https://tr.vuhuv.com/otos/?q={searchTerms}"/>
+  <Image width="192" height="192" type="image/icon">https://www.artadosearch.com/Icons/android-chrome-192x192.png</Image>
+  <SyndicationRight>open</SyndicationRight>
+  <Language>tr-TR</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
 </OpenSearchDescription>

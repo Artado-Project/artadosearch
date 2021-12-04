@@ -47,6 +47,12 @@
                 Yukarda gördüğünüz gibi bir arama yapıyorsunuz ve hangi arama motorunun sonuçlarını görmek istediğinizi seçiyorsunuz. Siz bunlardan birini seçince Artado o arama motoruna anonim bir istek yolluyor ve sonuçları alıyor. Sonra aldığı sonuçlardan reklamları görünmez yapıp kullanıcıya sunuyor. Reklamlar, CSS ile görünmez yapılıyor. Yaptığı istek tamamen anonim olduğundan kişiselleştirilmiş sonuçları almıyorsunuz. Bu özellik Google ve Artado sonuçları için geçerli değildir. Google sonuçları için Google'ın CSE teknolojisi kullanılıyor. Artado sonuçları ise direk kendi veri tabanımızdan geliyor.
                 <br />
                 <br />
+                <h5>Vitrin ve Haberler</h5>
+                Artado'da artık Vitrin ve Haberler bölümümüz var! Vitrin'de aramanızla ilgili ürünleri, Haberler bölümünde ise son dakika haberleri görebilirsiniz.
+                <br />
+                <br />
+                <img src="../../../images/ayakkabı%20-%20Arta.png" style="margin-bottom:50px; height:500px;"/>
+                <img src="../../../images/Haberler - Artado.png" style="margin-bottom:50px; height:500px;"/>
                 <h5>Artado My Account</h5>
                 Artado My Account hala tüm dilleri desteklemiyor. Şu anda sadece Türkçe desteği var. My Account sayesinde tüm Artado servislerini ve My Account servisini kullanan 3. parti parti servisleri tek hesap ile kullanabileceksiniz. My Account'da hiç bir veriniz izinsiz bir şekilde hiç bir 3. parti servise veya kişiye verilmez. Kullanıcıların şifreleri, şifreleme algoritması ile şifrelenerek kaydedilir.
                 <br />

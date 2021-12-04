@@ -327,6 +327,9 @@
   <data name="Modern" xml:space="preserve">
     <value>Модерен</value>
   </data>
+  <data name="Night" xml:space="preserve">
+    <value>нощ</value>
+  </data>
   <data name="Old" xml:space="preserve">
     <value>Old Logo</value>
   </data>

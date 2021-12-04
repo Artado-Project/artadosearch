@@ -40,7 +40,7 @@
                     border-bottom-right-radius: 20px;
                     margin-left: 300px;
                     padding: 5px 5px 5px 5px;
-                    border-style: solid !important
+                    border-style: solid !important;
                 }
 
                 #arama_çubugu2 {
@@ -61,6 +61,33 @@
                 #arama_çubugu{
                     width:240px !important
                 }
+
+                .top_image{
+                    height:30px;
+                    margin-left:0px
+                }
+
+                .top_search{
+                    width: 260px;
+                    height: 45px;
+                    position:fixed;
+                    top:0px;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                    margin-left: 80px;
+                    padding: 5px 5px 5px 5px;
+                    border-style: solid !important
+                }
+
+                #arama_çubugu2 {
+                    Height: 29px;
+                    width:200px !important
+                }
+                    #arama_çubugu2:focus {
+                        outline: none;
+                    }
             }
         </style>
 

@@ -27,12 +27,15 @@
         url.MapPageRoute("artado", "Welcome", "~/Topluluk/Artado/BizeKatılın.aspx");
         url.MapPageRoute("donate", "Donate", "~/Topluluk/Servisler/Home/Donate.aspx");
         url.MapPageRoute("privacy", "Privacy", "~/Topluluk/Servisler/Home/Privacy.aspx");
-        url.MapPageRoute("forum", "Forum", "~/Topluluk/Forum/Forum.aspx");
+        url.MapPageRoute("forum", "Forum", "~/Topluluk/Servisler/Forum/Forum.aspx");
+        url.MapPageRoute("forum-post", "Forum/posts/{post}", "~/Topluluk/Servisler/Forum/Forum.aspx");
+        url.MapPageRoute("forum-users", "Forum/users/{user}", "~/Topluluk/Servisler/Forum/Forum.aspx");
         url.MapPageRoute("bot", "Bot", "~/ArtadoBot/Bot.aspx");
         url.MapPageRoute("settings", "Settings", "~/Settings.aspx");
-        url.MapPageRoute("accounts", "Account", "~/Topluluk/MyAccount/Default.aspx");
-        url.MapPageRoute("proxy", "Proxy", "~/Topluluk/Proxy/Default.aspx");
-        url.MapPageRoute("proxyback", "Proxy/Run", "~/Topluluk/Proxy/Proxy_Back.aspx");
+        url.MapPageRoute("accounts", "Account", "~/Topluluk/Servisler/MyAccount/Default.aspx");
+        url.MapPageRoute("proxy", "Proxy", "~/Topluluk/Servisler/Proxy/Default.aspx");
+        url.MapPageRoute("proxyback", "Proxy/Run", "~/Topluluk/Servisler/Proxy/Proxy_Back.aspx");
+        url.MapPageRoute("beyt", "Beyt", "~/Topluluk/Servisler/Beyt/Default.aspx");
     }
 
     void Application_Start(object sender, EventArgs e)
@@ -44,12 +47,12 @@
     public void Application_BeginRequest(Object sender, EventArgs e)
     {
         // Code that runs on application startup                                                            
-        HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
-        if (cookielang != null && cookielang.Value != null)
-        {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
-        }
+        //HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+        //if (cookielang != null && cookielang.Value != null)
+        //{
+        //    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
+        //    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
+        //}
     }
 
     void Application_End(object sender, EventArgs e)

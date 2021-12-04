@@ -16,6 +16,7 @@ public partial class Topluluk_Proxy_Proxy_Back : System.Web.UI.Page
         if (url != null)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url.Trim());
+            request.UserAgent = "ArtadoBot Proxy";
             WebResponse response = request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string htmlText = reader.ReadToEnd();

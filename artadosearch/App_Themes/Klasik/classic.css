@@ -1,12 +1,24 @@
 ﻿body {
-    background-color: #F9F9FA;
+    background-color: #fff;
+    color: black !important
 }
-.çizgi {
-    background-color: black;
-}
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: lightgrey;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
 
 .arama {
-    background-color: #F9F9FA;
     width: 580px;
     height: 45px;
     border-top-left-radius: 20px;
@@ -15,12 +27,33 @@
     border-bottom-right-radius: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px 5px 5px 5px;
+    padding: 8px 8px 8px 8px;
+    border-style:none !important
+}
+
+    .arama:hover {
+        background-color: #EEEEEE !important;
+        transition: 300ms;
+    }
+
+#arama_çubugu:hover {
+    background-color: #EEEEEE !important;
+    transition: 300ms;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #F9F9FA inset !important;
+}
+
+.arama2, .panel2, .top_search {
     border-color: lightgrey !important;
 }
 
-.arama2, .panel2 {
-    border-color: lightgrey !important;
+.üstkısım {
+    background-color: #F9F9FA;
 }
 
 .link {
@@ -92,6 +125,15 @@
 .ürün_txt {
     max-height: 50px;
     overflow: hidden;
+}
+
+.açılış, .panel, .button2, .Panel1, .photon_news {
+    background: #F9F9FA !important;
+    color: black !important
+}
+
+.kontrol{
+    background-color: black!important;
 }
 
 @media screen and (min-width: 100px) and (max-width: 480px) {
