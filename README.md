@@ -1,6 +1,6 @@
-# Artado Search Beta 1.2 Version
+# Artado Search Beta 1.4 Version
 
-Artado Search Beta Version 1.2 Source Code 
+Artado Search Beta Version 1.4 Source Code 
 
 What can I do with this? 
 - You can develop the repo
