@@ -1,14 +1,9 @@
-# Artado Search Beta 1.4 Version
+# Artado Search Beta 1.4
 
-Artado Search Beta Version 1.4 Source Code 
+![artadosearch-logo](https://www.artadosearch.com/Icons/artado_searchv2.png)
 
-What can I do with this? 
-- You can develop the repo
-- You can add features
-- You can examine the repo
-
-Can I publish what I have done with this source code?
--Yes, you can but you have to publish with source code and you have to give attribution.
+Artado is open source and can show not only its own results but also the results of other search engines without ads. It works like a proxy server. You send a request to Artado and it sends an anonymous request to other search engines. Artado Search aims to provide you with ad-free and safest information. Artado Search started to be developed in May 2020 and entered the testing phase towards the end of 2020. It respects and protects users privacy, freedom and anonymity.
 
 If you have questions contact with me
+
 E-mail: arda@artadosearch.com
