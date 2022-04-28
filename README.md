@@ -1,4 +1,4 @@
-# Artado Search Beta 1.4
+# Artado Search
 
 ![artadosearch-logo](https://www.artadosearch.com/Icons/artado_searchv2.png)
 
