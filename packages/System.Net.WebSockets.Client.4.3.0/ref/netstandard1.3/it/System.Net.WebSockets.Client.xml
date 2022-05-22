@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Net.WebSockets.Client</name>
+  </assembly>
+  <members>
+    <member name="T:System.Net.WebSockets.ClientWebSocket">
+      <summary>Fornisce un client per la connessione ai servizi WebSocket.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.#ctor">
+      <summary>Crea un'istanza della classe <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.Abort">
+      <summary>Interrompe la connessione e annulla tutte le operazioni di I/O in sospeso.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>Chiude l'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" /> come operazione asincrona.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Threading.Tasks.Task" />.Oggetto dell'attività che rappresenta l'operazione asincrona.</returns>
+      <param name="closeStatus">Stato di chiusura di WebSocket.</param>
+      <param name="statusDescription">Descrizione dello stato di chiusura.</param>
+      <param name="cancellationToken">Token di annullamento utilizzato per propagare la notifica che l'operazione deve essere annullata.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>Chiude l'output per l'istanza di <see cref="T:System.Net.WebSockets.ClientWebSocket" /> come operazione asincrona.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Threading.Tasks.Task" />.Oggetto dell'attività che rappresenta l'operazione asincrona.</returns>
+      <param name="closeStatus">Stato di chiusura di WebSocket.</param>
+      <param name="statusDescription">Descrizione dello stato di chiusura.</param>
+      <param name="cancellationToken">Token di annullamento utilizzato per propagare la notifica che l'operazione deve essere annullata.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatus">
+      <summary>Ottiene il motivo per cui è stato iniziato l'handshake di chiusura nell'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Net.WebSockets.WebSocketCloseStatus" />.Motivo per cui è stato iniziato l'handshake di chiusura.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatusDescription">
+      <summary>Ottiene una descrizione del motivo per cui l'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" /> è stata chiusa.</summary>
+      <returns>Restituisca il valore <see cref="T:System.String" />.La descrizione del motivo per cui l'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" /> è stata chiusa.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.ConnectAsync(System.Uri,System.Threading.CancellationToken)">
+      <summary>Connettersi a un server WebSocket come operazione asincrona.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Threading.Tasks.Task" />.Oggetto dell'attività che rappresenta l'operazione asincrona.</returns>
+      <param name="uri">URI del server di WebSocket a cui connettersi.</param>
+      <param name="cancellationToken">Token di annullamento utilizzato per propagare la notifica che l'operazione deve essere annullata.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.Dispose">
+      <summary>Consente di liberare le risorse non gestite utilizzate dall'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.Options">
+      <summary>Ottiene le opzioni WebSocket per l'istanza di <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Net.WebSockets.ClientWebSocketOptions" />.Opzioni WebSocket per l'istanza di <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.ReceiveAsync(System.ArraySegment{System.Byte},System.Threading.CancellationToken)">
+      <summary>Ricevere i dati su <see cref="T:System.Net.WebSockets.ClientWebSocket" /> come operazione asincrona.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Threading.Tasks.Task`1" />.Oggetto dell'attività che rappresenta l'operazione asincrona.</returns>
+      <param name="buffer">Il buffer in cui ricevere la risposta.</param>
+      <param name="cancellationToken">Token di annullamento utilizzato per propagare la notifica che l'operazione deve essere annullata.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)">
+      <summary>Inviare i dati su <see cref="T:System.Net.WebSockets.ClientWebSocket" /> come operazione asincrona.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Threading.Tasks.Task" />.Oggetto dell'attività che rappresenta l'operazione asincrona.</returns>
+      <param name="buffer">Il buffer contenente il messaggio da inviare.</param>
+      <param name="messageType">Specifica se il buffer contiene testo non crittografato o in un formato binario.</param>
+      <param name="endOfMessage">Specifica se questo è l'invio asincrono finale.Impostare su true se questo è l'invio finale; in caso contrario false.</param>
+      <param name="cancellationToken">Token di annullamento utilizzato per propagare la notifica che l'operazione deve essere annullata.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.State">
+      <summary>Ottenere lo stato di WebSocket dell'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+      <returns>Restituisca il valore <see cref="T:System.Net.WebSockets.WebSocketState" />.Stato di WebSocket dell'istanza <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.SubProtocol">
+      <summary>Ottiene il sottoprotocollo WebSocket supportato per l'istanza di <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+      <returns>Restituisca il valore <see cref="T:System.String" />.Sottoprotocollo WebSocket supportato.</returns>
+    </member>
+    <member name="T:System.Net.WebSockets.ClientWebSocketOptions">
+      <summary>Opzioni da utilizzare con un oggetto <see cref="T:System.Net.WebSockets.ClientWebSocket" />.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocketOptions.AddSubProtocol(System.String)">
+      <summary>Aggiunge un sottoprotocollo da negoziare durante l'handshake di connessione WebSocket.</summary>
+      <param name="subProtocol">Sottoprotocollo WebSocket da aggiungere.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.ClientCertificates">
+      <summary>Ottiene o imposta una raccolta di certificati client.</summary>
+      <returns>Restituisce <see cref="T:System.Security.Cryptography.X509Certificates.X509CertificateCollection" />.Raccolta di certificati client.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Cookies">
+      <summary>Recupera o imposta i cookie associati alla richiesta.</summary>
+      <returns>Restituisce <see cref="T:System.Net.CookieContainer" />.I cookie associati alla richiesta.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Credentials">
+      <summary>Ottiene o imposta le informazioni sulle credenziali per il client.</summary>
+      <returns>Restituisce <see cref="T:System.Net.ICredentials" />.Informazioni sulle credenziali per il client.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.KeepAliveInterval">
+      <summary>Ottiene o imposta l'intervallo keep-alive del protocollo WebSocket in millisecondi.</summary>
+      <returns>Restituisce <see cref="T:System.TimeSpan" />.Intervallo keep-alive del protocollo WebSocket in millisecondi.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Proxy">
+      <summary>Ottiene o imposta il proxy per le richieste WebSocket.</summary>
+      <returns>Restituisce <see cref="T:System.Net.IWebProxy" />.Proxy per le richieste WebSocket.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocketOptions.SetRequestHeader(System.String,System.String)">
+      <summary>Crea un'intestazione di richiesta HTTP e il relativo valore.</summary>
+      <param name="headerName">Nome dell'intestazione HTTP.</param>
+      <param name="headerValue">Valore dell'intestazione HTTP.</param>
+    </member>
+  </members>
+</doc>

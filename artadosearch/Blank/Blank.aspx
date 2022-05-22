@@ -54,7 +54,7 @@
         <br />        
 
         <div id="test" runat="server" class="panel">
-            <asp:Label ID="testtxt" runat="server" Text="Üzgünüz! Blank hala geliştirilme aşamasındadır. Lütfen daha sonra tekrar gelin." ForeColor="White"></asp:Label>
+            <asp:Label ID="testtxt" runat="server" Text="Blank'e hoşgeldin!" ForeColor="White"></asp:Label>
         </div>
 
         <asp:Panel ID="Akış" runat="server" style="margin-bottom:50px;">

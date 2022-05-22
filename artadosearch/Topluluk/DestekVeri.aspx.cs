@@ -127,9 +127,9 @@ public partial class DestekVeri : System.Web.UI.Page
             }
             Sonuc2.Text = "Teşekkür ederiz. Sonucunuz eklenmiştir.";
         }
-        catch
+        catch(Exception hata)
         {
-            Sonuc2.Text = "Upss! Bir hata oldu. Merak etme! Her şeyi düzgün yaptığından emin ol.";
+            Sonuc2.Text = "Upss! Bir hata oldu. Merak etme! Her şeyi düzgün yaptığından emin ol." + hata;
         }
     }
 

@@ -22,16 +22,24 @@
     background-color: black !important
 }
 
-.arama, .top_search {
+.button2 {
+    background: #16213E;
+}
+
+.feedback {
+    background-color: #16213E;
+}
+
+.arama, .top_search, .arama2 {
     width: 580px;
-    height: 45px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding: 8px 8px 8px 8px;
+    padding: 2px 2px 2px 2px;
+    border: solid 1px;
     background-color: #161627 !important
 }
 
@@ -43,6 +51,10 @@
 #arama_çubugu:hover {
     background-color: #1a1a2e !important;
     transition: 300ms;
+}
+
+.weather {
+    background-color: transparent !important;
 }
 
 input:-webkit-autofill,
@@ -81,7 +93,7 @@ input:-webkit-autofill:active {
     border-bottom-right-radius: 20px;
 }
 
-.açılış, .panel, .button2, .Panel1, .photon_news {
+.açılış, .panel, .button2, .Panel1, .photon_news, .links {
     background: #1a1a2e !important;
     color: white !important
 }

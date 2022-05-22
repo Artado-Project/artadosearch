@@ -15,7 +15,16 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
 
+        //SqlConnection baglanti = new SqlConnection(admin);
+        //baglanti.Open();
+        //string sorgu = "SELECT ID FROM Downloads order by ID desc";
+        //string title;
+        //SqlCommand komut = new SqlCommand(sorgu, baglanti);
+        //title = komut.ExecuteScalar().ToString();
+        //Label4.Text = title;
+        //baglanti.Close();
     }
 
     protected override void InitializeCulture()
@@ -133,33 +142,44 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
             string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
 
             SqlConnection baglanti = new SqlConnection(admin);
+            baglanti.Open();
             int mailsembol;
             mailsembol = arama_çubugu.Text.IndexOf("@");
             if (arama_çubugu.Text.EndsWith(".com") || mailsembol >= 0)
             {
-                if (baglanti.State == ConnectionState.Closed)
-                    baglanti.Open();
-                string mailekle = "insert into MailList(Mail) values (@Mail)";
-                SqlCommand komut = new SqlCommand(mailekle, baglanti);
-                komut.Parameters.AddWithValue("@Mail", arama_çubugu.Text);
-                komut.ExecuteNonQuery();
-                Sonuc.Text = "Abone olduğunuz için teşekkür ederiz.";
+                SqlCommand cmd = new SqlCommand("select * from MailList where Mail='" + arama_çubugu.Text + "'", baglanti);
+                SqlDataReader reading = cmd.ExecuteReader();
+                if (reading.Read())
+                {
+                    Sonuc.Text = "Bu e-posta adresi ile zaten kayıt olunmuş.";
+                }
+                else
+                {
+                    if (baglanti.State == ConnectionState.Closed)
+                        baglanti.Open();
+                    string mailekle = "insert into MailList(Mail) values (@Mail)";
+                    SqlCommand komut = new SqlCommand(mailekle, baglanti);
+                    komut.Parameters.AddWithValue("@Mail", arama_çubugu.Text);
+                    komut.ExecuteNonQuery();
+                    Sonuc.Text = "Abone olduğunuz için teşekkür ederiz.";
+                }
             }
             else
             {
                 Sonuc.Text = "E-postanızı kontrol edin";
             }
+            baglanti.Close();
 
         }
         catch(Exception hata)
         {
-            Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/İletişim'>başka platformlardan<a/> bildirebilirsiniz.";
+            Sonuc.Text = "<br/>" + "Üzgünüz bir sorun oluştu. Sorunu bize <a href='https://twitter.com/intent/tweet?text=Bir%20sorunum%20var!%20@ArtadoL%20Sorun:" + hata + "'>Twitter<a/> veya <a href='/Contact'>başka platformlardan<a/> bildirebilirsiniz.";
         }
     }
 
     protected void Anasayfa_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/ArtadoSoft/Home");
+        Response.Redirect("/Home");
     }
 
     protected void Hakkımızda_Click(object sender, EventArgs e)
@@ -179,6 +199,27 @@ public partial class Topluluk_Servisler_Gazete : System.Web.UI.Page
 
     protected void DestekOl_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/Support");
+        Response.Redirect("/Donate");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        System.Globalization.CultureInfo kultur = System.Threading.Thread.CurrentThread.CurrentUICulture;
+        string lang = kultur.TwoLetterISOLanguageName;
+        string admin = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+
+        SqlConnection baglanti = new SqlConnection(admin);
+        if (baglanti.State == ConnectionState.Closed)
+            baglanti.Open();
+        string mailekle = "insert into Downloads(Lang, Date) values (@Lang, @Date)";
+        SqlCommand komut = new SqlCommand(mailekle, baglanti);
+        komut.Parameters.AddWithValue("@Lang", lang);
+        komut.Parameters.AddWithValue("@Date", DateTime.UtcNow);
+        komut.ExecuteNonQuery();
+
+        Response.ContentType = "application/exe";
+        Response.AppendHeader("Content-Disposition", "attachment; filename=Celer_Browser_Setup_1.6.0.exe");
+        Response.TransmitFile(Server.MapPath("/celer_browser/releases/v1.6.0/Celer_Browser_Setup_1.6.0.exe"));
+        Response.End();
     }
 }

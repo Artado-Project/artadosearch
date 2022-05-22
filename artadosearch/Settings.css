@@ -6,12 +6,62 @@
 
 @media screen and (min-width: 600px) {
 
-    .açılış {
-        text-align: center;
-        background-color: #1a1a2e;
-        height: 120px;
+    .üstkısım {
     }
 
+    .a_image {
+        width: 30px !important;
+        display: inline;
+    }
+
+    .image:focus {
+        outline: none;
+    }
+
+    .aramacon {
+        width: 500px !important;
+        height: 90px !important;
+    }
+
+    .aramapar {
+        position: fixed;
+        top: 10px;
+        width: 100vw;
+        z-index: 99;
+    }
+
+    .arama2 {
+        text-align: center;
+        background-color: #F9F9FA;
+        width: 500px !important;
+        height: 60px !important;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px 7px 7px 7px;
+        border-style: solid !important;
+    }
+
+    #arama_çubugu2 {
+        Height: 50px;
+        Width: 400px !important;
+    }
+
+        #arama_çubugu2:focus {
+            outline: none;
+            background-color: transparent !important
+        }
+
+    .Button1 {
+        vertical-align: middle;
+    }
+
+        .Button1:focus {
+            outline: none;
+        }
     .panel {
         background-color: #1a1a2e;
         max-width: 800px;
@@ -27,15 +77,6 @@
         overflow: hidden;
         text-align:left;
     }
-
-    #arama_çubugu {
-        Height: 29px;
-        Width: 490px;
-    }
-
-        #arama_çubugu:focus {
-            outline: none;
-        }
 
     #Label3 {
         float: right;
@@ -86,7 +127,8 @@
         border-bottom-right-radius: 10px;
         font-size: large;
         text-align: center;
-        padding: 5px 5px 5px 5px
+        padding: 5px 5px 5px 5px;
+        white-space: nowrap;
     }
 
     .button3 {
@@ -129,12 +171,63 @@
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
-    .açılış {
-        text-align: center;
-        background-color: #1a1a2e;
-        height: 150px;
-        text-align: center;
+    .üstkısım {
     }
+
+    .a_image {
+        width: 30px !important;
+        display: inline;
+    }
+
+        .image:focus {
+            outline: none;
+        }
+
+    .aramacon {
+        width: 99% !important;
+        height: 90px !important;
+    }
+
+    .aramapar {
+        position: fixed;
+        top: 10px;
+        width: 100vw;
+        z-index: 99;
+    }
+
+    .arama2 {
+        text-align: center;
+        background-color: #F9F9FA;
+        width: 350px !important;
+        height: 60px !important;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px 7px 7px 7px;
+        border-style: solid !important;
+        margin-top: 10px !important;
+    }
+
+    #arama_çubugu2 {
+        Height: 50px;
+        Width: 250px !important;
+    }
+
+        #arama_çubugu2:focus {
+            outline: none;
+            background-color: transparent !important
+        }
+
+    .Button1 {
+        vertical-align: middle;
+    }
+
+        .Button1:focus {
+            outline: none;
+        }
 
     .panel {
         background-color: #1a1a2e;

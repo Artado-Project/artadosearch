@@ -23,15 +23,22 @@
         </div>
 
         <div class="panel" style="color:white; margin-top:20px;">
-            <h6>Merhaba, Artado Forum'a hoşgeldin! Burada Artado ürünleri için görüş ve önerilerinizi yazabilir, yaşadığınız sorunları bildirebilirsiniz.</h6> 
+            <h6>Merhaba, Artado Forum'a hoşgeldin! Burada Artado ürünleri için görüş ve önerilerinizi yazabilir, yaşadığınız sorunları bildirebilir; gizlilik odaklı, açık kaynak veya yerli projeler hakkında paylaşım yapabilirsin.</h6> 
         </div>
 
         <div id="div">
             <asp:Button ID="Button1" runat="server" Text="Gönderi Oluştur" BackColor="#1a1a2e" CssClass="panel" BorderStyle="None" ForeColor="white" OnClick="Button1_Click1"/>
         </div>
 
-       <div id="ad">
-            Ads
+        <div class="links">
+            <h3>Faydalı Bağlantılar</h3>
+            <a href="/">Artado Search</a><br />
+            <a href="https://www.artado.xyz">Home</a><br />
+            <a href="https://pandor.artado.xyz">Pandor Store</a><br />
+            <a href="https://www.artadosearch.com/BlankApp">Blank</a><br />
+            <a href="https://www.artadosearch.com/Soon">Beyt</a><br />
+            <a href="https://www.artadosearch.com/Proxy">Proxy</a><br />
+            <a href="https://www.artadosearch.com/Celer">Celer Browser</a><br />
         </div>
 
         <asp:Panel ID="Post" runat="server" CssClass="panel" style="color:black">

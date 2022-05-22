@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Akademik" xml:space="preserve">
-    <value>Academic</value>
-  </data>
   <data name="Alakaya" xml:space="preserve">
     <value>Актуальность</value>
   </data>
@@ -183,8 +180,14 @@
   <data name="Bulgarca" xml:space="preserve">
     <value>болгарский</value>
   </data>
+  <data name="Celer1" xml:space="preserve">
+    <value>Celer Browser 1.6.0 Beta version released for Windows devices! Download Celer Browser and start exploring the internet freely.</value>
+  </data>
   <data name="De" xml:space="preserve">
     <value>Германия</value>
+  </data>
+  <data name="Deneyim" xml:space="preserve">
+    <value>Tell us about your experience</value>
   </data>
   <data name="Destek" xml:space="preserve">
     <value>Пожертвовать</value>
@@ -201,8 +204,20 @@
   <data name="Down" xml:space="preserve">
     <value>Простите! В настоящее время у нас возникла проблема. Артадо скоро снова будет активен.</value>
   </data>
+  <data name="Download_num" xml:space="preserve">
+    <value>downloads</value>
+  </data>
+  <data name="Download_Win" xml:space="preserve">
+    <value>Download for Windows</value>
+  </data>
   <data name="Eski" xml:space="preserve">
     <value>Самый старый</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Feedback2" xml:space="preserve">
+    <value>If you tell us what you like and don't like, you will help us to provide you with a better service.</value>
   </data>
   <data name="Film" xml:space="preserve">
     <value>Film</value>
@@ -267,6 +282,9 @@
   <data name="IP" xml:space="preserve">
     <value>Ваш IP-адрес:</value>
   </data>
+  <data name="IT" xml:space="preserve">
+    <value>IT</value>
+  </data>
   <data name="Japonca" xml:space="preserve">
     <value>Японский</value>
   </data>
@@ -278,6 +296,9 @@
   </data>
   <data name="Kaynaklar" xml:space="preserve">
     <value>Ресурсы</value>
+  </data>
+  <data name="Kayıt" xml:space="preserve">
+    <value>Sign up</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Казахский турецкий</value>
@@ -324,6 +345,15 @@
   <data name="Modern" xml:space="preserve">
     <value>Современный</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Новости</value>
+  </data>
+  <data name="Newsletter" xml:space="preserve">
+    <value>Sign Up for the Newsletter</value>
+  </data>
+  <data name="Newsletter2" xml:space="preserve">
+    <value>You can sign up for the newsletter to get the latest news about Celer Browser.</value>
+  </data>
   <data name="Night" xml:space="preserve">
     <value>ночь</value>
   </data>
@@ -337,19 +367,19 @@
     <value>Privacy Policy</value>
   </data>
   <data name="Politika1" xml:space="preserve">
-    <value>Artado does not collect any of your personal data. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or determine who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data.</value>
+    <value>Artado does not collect any of your personal data, except for legal situations. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or identify who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data. However, there may be exceptions by law in some regions, but these exceptions only affect users in that region.</value>
   </data>
   <data name="Politika2" xml:space="preserve">
     <value>So what kind of data do we collect?</value>
   </data>
   <data name="Politika3" xml:space="preserve">
-    <value>We only collect the language you use Artado to improve our translations. Every search you make on Artado is recorded anonymously in the database. So we don't see what you are looking for. We only see what language you are using Artado in. For example, let's search for 'Music' on Artado. The data recorded in the database is as follows:</value>
+    <value>We only collect data on the language you use Artado and which result source (Google, Bing etc.) you use. We collect this data to improve our platform. Every search you make on Artado is recorded anonymously in the database. So we don't see what you are looking for.</value>
   </data>
   <data name="Politika4" xml:space="preserve">
     <value>Do we share your information with 3rd parties?</value>
   </data>
   <data name="Politika5" xml:space="preserve">
-    <value>No. 3. we do not share data with parties.</value>
+    <value>No. We do not share any data with 3rd party parties/software, but the result source (Google, Bing etc.) you use through Artado may collect some of your data such as your searches. Artado acts as a proxy between result sources. Artado does not collect any of your personal data, except for legal situations, and minimizes the data you give to the results sources.</value>
   </data>
   <data name="Portekizce" xml:space="preserve">
     <value>португальский</value>
@@ -369,6 +399,9 @@
   <data name="Sanatçı" xml:space="preserve">
     <value>Художник</value>
   </data>
+  <data name="Screenshots" xml:space="preserve">
+    <value>Screenshots</value>
+  </data>
   <data name="Sonuç" xml:space="preserve">
     <value>Добавить результат</value>
   </data>
@@ -386,6 +419,12 @@
   </data>
   <data name="Tema" xml:space="preserve">
     <value>Темы:</value>
+  </data>
+  <data name="Text1" xml:space="preserve">
+    <value>Свободный. Сейф. Частный.</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Ваши поиски не сохраняются в Artado. С Artado вы становитесь полностью анонимным. Вы можете исследовать Интернет, никем не отслеживаемый.</value>
   </data>
   <data name="Tr" xml:space="preserve">
     <value>Турция</value>
@@ -422,6 +461,9 @@
   </data>
   <data name="Varsayılan3" xml:space="preserve">
     <value>Применять</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>видео</value>
   </data>
   <data name="Yeni" xml:space="preserve">
     <value>Новейшие</value>

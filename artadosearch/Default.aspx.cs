@@ -33,15 +33,150 @@ public partial class _Default : System.Web.UI.Page
         string lang = kultur.TwoLetterISOLanguageName;
         SqlConnection baglanti = new SqlConnection(con);
         SqlConnection baglanti2 = new SqlConnection(con2);
+        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
+
+        string api = "2f0a475faa72b7ade6066d6279ee5ca5";
+
+        City.Text = "Istanbul";
+
+        if (cookielang != null && cookielang.Value != null)
+        {
+            try
+            {
+                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                XDocument Hava = XDocument.Load(havabaglanti);
+                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                SıcaklıkTxt.Text = sicaklik + " ºC";
+                DurumTxt.Text = durum;
+                HavaDurumu.Visible = true;
+            }
+            catch
+            {
+                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
+                XDocument Hava = XDocument.Load(havabaglanti);
+                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                SıcaklıkTxt.Text = sicaklik + " ºC";
+                DurumTxt.Text = durum;
+                HavaDurumu.Visible = true;
+                City.Text = "Istanbul";
+            }
+        }
+        else if (lang != null)
+        {
+            try
+            {
+                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                XDocument Hava = XDocument.Load(havabaglanti);
+                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                SıcaklıkTxt.Text = sicaklik + " ºC";
+                DurumTxt.Text = durum;
+                HavaDurumu.Visible = true;
+            }
+            catch
+            {
+                string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
+                XDocument Hava = XDocument.Load(havabaglanti);
+                var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+                var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+                var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+                var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+                var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+                var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+                var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+                var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+                HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+                SıcaklıkTxt.Text = sicaklik + " ºC";
+                DurumTxt.Text = durum;
+                HavaDurumu.Visible = true;
+                City.Text = "Istanbul";
+            }
+        }
+        else
+        {
+            string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + "en" + "&units=metric&appid=" + api;
+            XDocument Hava = XDocument.Load(havabaglanti);
+            var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
+            var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
+            var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
+            var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
+            var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
+            var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
+            var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
+            var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+            HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+            SıcaklıkTxt.Text = sicaklik + " ºC";
+            DurumTxt.Text = durum;
+            HavaDurumu.Visible = true;
+            City.Text = "Istanbul";
+        }
 
         HttpCookie old = HttpContext.Current.Request.Cookies["icon"];
         if (old != null && old.Value != null)
         {
-            Image1.ImageUrl = old.Value;
+            if(old.Value == "/Icons/artado_searchv2.png")
+            {
+                Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
+            }
+            else if(old.Value == "/Icons/artado_searchv3.png")
+            {
+                Image1.ImageUrl = "/Icons/artadov3-colorful-icon.png";
+            }
+            else if (old.Value == "/Icons/LGBT/artado_searchv2_lgbt.png")
+            {
+                Image1.ImageUrl = "/Icons/LGBT/artadov3-lgbt.png";
+            }
+            else if (old.Value == "/Icons/tr/artado_searchv2_tr.png")
+            {
+                Image1.ImageUrl = "/Icons/tr/artadov3_tr2.png";
+            }
+            else if (old.Value == "/Icons/fr/artado_searchv2_fr.png")
+            {
+                Image1.ImageUrl = "/Icons/fr/artado_fr.png";
+            }
+            else if (old.Value == "/Icons/de/artado_searchv2_de.png")
+            {
+                Image1.ImageUrl = "/Icons/de/artado_de.png";
+            }
+            else if (old.Value == "/Icons/uk/artado_searchv2_uk.png")
+            {
+                Image1.ImageUrl = "/Icons/uk/artado-uk.png";
+            }
+            else if (old.Value == "/Icons/islam/islam.png")
+            {
+                Image1.ImageUrl = "/Icons/islam/artado_islam.png";
+            }
+            else if (old.Value == "/Icons/oldies/old.png")
+            {
+                Image1.ImageUrl = "/Icons/oldies/old-icon.png";
+            }
         }
         else
         {
-            Image1.ImageUrl = "/Icons/artado_searchv2.png";
+            Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
         }
 
         HttpCookie id = HttpContext.Current.Request.Cookies["id"];
@@ -69,205 +204,6 @@ public partial class _Default : System.Web.UI.Page
             bdy1.Attributes.Add("style", "background:url(" + old2.Value + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;");
         }
 
-        System.Web.HttpCookie cookie2 = HttpContext.Current.Request.Cookies["Journal"];
-        System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
-        if (cookie2 != null && cookie2.Value != null)
-        {
-            if (cookie2.Value == "true")
-            {
-                Journal.Visible = true;
-                string api = "2f0a475faa72b7ade6066d6279ee5ca5";
-
-                var ipAddress = "89.252.181.210";
-                if (HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
-                {
-                    ipAddress = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
-                }
-                else if (HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"] != null && HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"].Length != 0)
-                {
-                    ipAddress = HttpContext.Current.Request.ServerVariables["HTTP_CLIENT_IP"];
-                }
-                else if (HttpContext.Current.Request.UserHostAddress.Length != 0)
-                {
-                    ipAddress = HttpContext.Current.Request.UserHostName;
-                }
-
-                string location = "http://api.ipinfodb.com/v3/ip-city/?key=827d056c355bcb601ce33da0280d1e8e583a0cc6b213e06908cc15844f64a9bb&ip=" + ipAddress + "&format=xml";
-                XmlTextReader oku = new XmlTextReader(location);
-                try
-                {
-                    while (oku.Read())
-                    {
-                        if (oku.NodeType == XmlNodeType.Element)
-                        {
-                            switch (oku.Name)
-                            {
-                                case "regionName":
-                                    City.Text = Convert.ToString(oku.ReadString());
-                                    break;
-                            }
-                        }
-                    }
-                    oku.Close();
-                }
-                catch
-                {
-
-                }
-
-                if (cookielang != null && cookielang.Value != null)
-                {
-                    try
-                    {
-                        string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
-                        XDocument Hava = XDocument.Load(havabaglanti);
-                        var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                        var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                        var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                        var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                        var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                        var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                        var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                        var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                        HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                        SıcaklıkTxt.Text = sicaklik + " ºC";
-                        DurumTxt.Text = durum;
-                        Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                        Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                        Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                        Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                        Batış.Text = "Güneş Batışı :   " + sunset;
-                        HavaDurumu.Visible = true;
-                    }
-                    catch
-                    {
-                        string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + cookielang + "&units=metric&appid=" + api;
-                        XDocument Hava = XDocument.Load(havabaglanti);
-                        var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                        var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                        var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                        var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                        var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                        var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                        var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                        var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                        HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                        SıcaklıkTxt.Text = sicaklik + " ºC";
-                        DurumTxt.Text = durum;
-                        Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                        Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                        Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                        Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                        Batış.Text = "Güneş Batışı :   " + sunset;
-                        HavaDurumu.Visible = true;
-                        City.Text = "Istanbul";
-                    }
-                }
-                else if (lang != null)
-                {
-                    try
-                    {
-                        string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + City.Text + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
-                        XDocument Hava = XDocument.Load(havabaglanti);
-                        var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                        var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                        var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                        var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                        var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                        var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                        var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                        var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                        HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                        SıcaklıkTxt.Text = sicaklik + " ºC";
-                        DurumTxt.Text = durum;
-                        Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                        Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                        Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                        Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                        Batış.Text = "Güneş Batışı :   " + sunset;
-                        HavaDurumu.Visible = true;
-                    }
-                    catch
-                    {
-                        string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + lang + "&units=metric&appid=" + api;
-                        XDocument Hava = XDocument.Load(havabaglanti);
-                        var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                        var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                        var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                        var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                        var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                        var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                        var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                        var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                        HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                        SıcaklıkTxt.Text = sicaklik + " ºC";
-                        DurumTxt.Text = durum;
-                        Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                        Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                        Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                        Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                        Batış.Text = "Güneş Batışı :   " + sunset;
-                        HavaDurumu.Visible = true;
-                        City.Text = "Istanbul";
-                    }
-                }
-                else
-                {
-                    string havabaglanti = "http://api.openweathermap.org/data/2.5/weather?q=" + "Istanbul" + "&mode=xml&lang=" + "en" + "&units=metric&appid=" + api;
-                    XDocument Hava = XDocument.Load(havabaglanti);
-                    var sunrise = Hava.Descendants("sun").ElementAt(0).Attribute("rise").Value;
-                    var sunset = Hava.Descendants("sun").ElementAt(0).Attribute("set").Value;
-                    var sicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("value").Value;
-                    var minsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("min").Value;
-                    var maxsicaklik = Hava.Descendants("temperature").ElementAt(0).Attribute("max").Value;
-                    var feels_like = Hava.Descendants("feels_like").ElementAt(0).Attribute("value").Value;
-                    var icon = Hava.Descendants("weather").ElementAt(0).Attribute("icon").Value;
-                    var durum = Hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
-                    HavaImg.ImageUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-                    SıcaklıkTxt.Text = sicaklik + " ºC";
-                    DurumTxt.Text = durum;
-                    Min.Text = "Minimum Sıcaklık :   " + minsicaklik + "ºC";
-                    Max.Text = "Maksimum Sıcaklık :   " + maxsicaklik + "ºC";
-                    Hissedilen.Text = "Hissedilen Sıcaklık :   " + feels_like + "ºC";
-
-                    Doğuş.Text = "Güneş Doğuşu :   " + sunrise;
-                    Batış.Text = "Güneş Batışı :   " + sunset;
-                    HavaDurumu.Visible = true;
-                    City.Text = "Istanbul";
-                }
-
-                if (baglanti != null)
-                {
-                    //Bilgi Kutusu Arama
-                    PagedDataSource pdsinfo = new PagedDataSource();
-                    SqlDataAdapter adpınfo = new SqlDataAdapter("select *, InfoLink from dbo.Infos where Onay='Approved' order by InfoID desc", baglanti);
-                    DataTable dtınfo = new DataTable();
-                    adpınfo.Fill(dtınfo);
-                    pdsinfo.DataSource = dtınfo.DefaultView;
-                    pdsinfo.AllowPaging = true;
-                    pdsinfo.PageSize = 1;
-                    InfoBox.DataSource = pdsinfo;
-                    InfoBox.DataBind();
-                    if (InfoBox.Items.Count == 0)
-                    {
-                        Panel4.Visible = false;
-                    }
-                }
-            }
-            else
-            {
-                Journal.Visible = false;
-            }
-        }
-        else
-        {
-            Journal.Visible = false;
-        }
-
         Label12.Visible = false;
 
         Kontrol.Attributes.Add("style", "display: none;");
@@ -276,7 +212,22 @@ public partial class _Default : System.Web.UI.Page
 
         Araçlar.Visible = false;
 
-        Ses.Visible = false;
+        ////Google CSE without direct connection to Google in client-side
+        //string hourpath = Server.MapPath("/hour.txt");
+        //string hourMinute = DateTime.Now.ToString("HH");
+
+        //HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://localhost:52941/hour.txt".Trim());
+        //WebResponse response = request.GetResponse();
+        //StreamReader reader = new StreamReader(response.GetResponseStream());
+        //string hour = reader.ReadToEnd();
+
+        //int lastcheck = Convert.ToInt16(hour);
+        //int now = Convert.ToInt16(hourMinute);
+
+        //if (lastcheck + 3 < now)
+        //    cse();
+        //else
+        //    File.WriteAllText(hourpath, hourMinute);
     }
 
     protected override void InitializeCulture()
@@ -388,30 +339,52 @@ public partial class _Default : System.Web.UI.Page
         HttpCookie old = HttpContext.Current.Request.Cookies["icon"];
         if (old != null && old.Value != null)
         {
-            Image1.ImageUrl = old.Value;
+            if (old.Value == "/Icons/artado_searchv2.png")
+            {
+                Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
+            }
+            else if (old.Value == "/Icons/artado_searchv3.png")
+            {
+                Image1.ImageUrl = "/Icons/artadov3-colorful-icon.png";
+            }
+            else if (old.Value == "/Icons/LGBT/artado_searchv2_lgbt.png")
+            {
+                Image1.ImageUrl = "/Icons/LGBT/artadov3-lgbt.png";
+            }
+            else if (old.Value == "/Icons/tr/artado_searchv2_tr.png")
+            {
+                Image1.ImageUrl = "/Icons/tr/artadov3_tr2.png";
+            }
+            else if (old.Value == "/Icons/fr/artado_searchv2_fr.png")
+            {
+                Image1.ImageUrl = "/Icons/fr/artado_fr.png";
+            }
+            else if (old.Value == "/Icons/de/artado_searchv2_de.png")
+            {
+                Image1.ImageUrl = "/Icons/de/artado_de.png";
+            }
+            else if (old.Value == "/Icons/uk/artado_searchv2_uk.png")
+            {
+                Image1.ImageUrl = "/Icons/uk/artado-uk.png";
+            }
+            else if (old.Value == "/Icons/islam/islam.png")
+            {
+                Image1.ImageUrl = "/Icons/islam/artado_islam.png";
+            }
+            else if (old.Value == "/Icons/oldies/old.png")
+            {
+                Image1.ImageUrl = "/Icons/oldies/old-icon.png";
+            }
         }
         else
         {
-            Image1.ImageUrl = "/Icons/artado_searchv2.png";
+            Image1.ImageUrl = "/Icons/android-chrome-192x192.png";
         }
 
         HttpCookie old2 = HttpContext.Current.Request.Cookies["background"];
         if (old2 != null && old2.Value != null)
         {
             bdy1.Attributes.Add("style", "background:url(" + old2.Value + "); background-size:cover; background-repeat:no-repeat; background-position: center;");
-        }
-
-        System.Web.HttpCookie cookie2 = HttpContext.Current.Request.Cookies["Journal"];
-        if (cookie2 != null && cookie2.Value != null)
-        {
-            if (cookie2.Value == "true")
-            {
-                Journal.Visible = false;
-            }
-            else
-            {
-                Journal.Visible = true;
-            }
         }
 
         HttpCookie cookie = HttpContext.Current.Request.Cookies["Theme"];
@@ -424,7 +397,7 @@ public partial class _Default : System.Web.UI.Page
             Page.Theme = "Night";
         }
 
-        System.Web.HttpCookie cookie3 = HttpContext.Current.Request.Cookies["Results"];
+        System.Web.HttpCookie cookie3 = HttpContext.Current.Request.Cookies["WebResults"];
         if (cookie3 != null && cookie3.Value != null)
         {
             DropDownList3.SelectedValue = cookie3.Value;
@@ -596,12 +569,6 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("/Donate");
     }
 
-    public void listener_Reco(int StreamNumber, object StreamPosition, SpeechRecognitionType RecognitionType, ISpeechRecoResult Result)
-    {
-        string heard = Result.PhraseInfo.GetText(0, -1, true);
-        Text.Text = heard;
-    }
-
     protected void Voice_Click(object sender, ImageClickEventArgs e)
     {
         Label12.Visible = true;
@@ -740,14 +707,14 @@ public partial class _Default : System.Web.UI.Page
 
     protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
     {
-        HttpCookie old = HttpContext.Current.Request.Cookies["Results"];
+        HttpCookie old = HttpContext.Current.Request.Cookies["WebResults"];
         if (old != null && old.Value != null)
         {
             old.Expires = DateTime.UtcNow.AddDays(-1);
             Response.Cookies.Add(old);
             Session.Abandon();
 
-            HttpCookie cookie = new HttpCookie("Results");
+            HttpCookie cookie = new HttpCookie("WebResults");
             cookie.Value = DropDownList3.SelectedValue;
             cookie.Expires = DateTime.UtcNow.AddDays(360);
             Response.Cookies.Add(cookie);
@@ -755,13 +722,46 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            HttpCookie cookie = new HttpCookie("Results");
+            HttpCookie cookie = new HttpCookie("WebResults");
             cookie.Value = DropDownList3.SelectedValue;
             cookie.Expires = DateTime.UtcNow.AddDays(360);
             Response.Cookies.Add(cookie);
             Page.Response.Redirect(Page.Request.Url.ToString());
         }
     }
+
+
+    //Google CSE without direct connection to Google in client-side
+    public void cse()
+    {
+        string googlecse = "https://cse.google.com/cse.js?cx=160e826a9c5ebe821";
+        HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(googlecse.Trim());
+        WebResponse response = request.GetResponse();
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        string js = reader.ReadToEnd();
+        string newjs = js.Replace("https://www.google.com/cse/static/element/%{versionDir}%{versionSlash}cse_element__%{lang}.js", "/js/google_cse.js");
+        string path = Server.MapPath(@"/js/google.js");
+        File.WriteAllText(path, newjs);
+
+        string hourpath = Server.MapPath("/hour.txt");
+        string hourMinute = DateTime.Now.ToString("HH");
+
+        HttpWebRequest request2 = (HttpWebRequest)HttpWebRequest.Create("http://localhost:52941/hour.txt".Trim());
+        WebResponse response2 = request2.GetResponse();
+        StreamReader reader2 = new StreamReader(response2.GetResponseStream());
+        string hour = reader2.ReadToEnd();
+
+        int lastcheck = Convert.ToInt16(hour);
+        int now = Convert.ToInt16(hourMinute);
+
+        if (lastcheck >= 24)
+        {
+            File.WriteAllText(hourpath, "0");
+        }
+        else
+        {
+            File.WriteAllText(hourpath, hourMinute);
+        }
+        
+    }
 }
-
-

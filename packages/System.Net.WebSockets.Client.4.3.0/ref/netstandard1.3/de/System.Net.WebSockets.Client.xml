@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Net.WebSockets.Client</name>
+  </assembly>
+  <members>
+    <member name="T:System.Net.WebSockets.ClientWebSocket">
+      <summary>Stellt einen Client für die Verbindung mit WebSocket-Dienstleistungen bereit.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.#ctor">
+      <summary>Erstellt eine Instanz der <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Klasse.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.Abort">
+      <summary>Bricht die Verbindung ab und bricht alle ausstehenden EA-Vorgänge ab.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>Schließen Sie die <see cref="T:System.Net.WebSockets.ClientWebSocket" /> Instanz als einen asynchronen Vorgang.</summary>
+      <returns>Gibt <see cref="T:System.Threading.Tasks.Task" /> zurück.Das Aufgabenobjekt, das den asynchronen Vorgang darstellt.</returns>
+      <param name="closeStatus">Der WebSocket-Abschlussstatus.</param>
+      <param name="statusDescription">Benutzerfreundliche Beschreibung des Status "Schließen".</param>
+      <param name="cancellationToken">Eine Abbruchtoken das verwendet werden kann, um eine Benachrichtigung dazu zu verteilen, dass der Vorgang abgebrochen werden soll.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>Schließen Sie die Ausgaben für die <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz als asynchroner Vorgang.</summary>
+      <returns>Gibt <see cref="T:System.Threading.Tasks.Task" /> zurück.Das Aufgabenobjekt, das den asynchronen Vorgang darstellt.</returns>
+      <param name="closeStatus">Der WebSocket-Abschlussstatus.</param>
+      <param name="statusDescription">Benutzerfreundliche Beschreibung des Status "Schließen".</param>
+      <param name="cancellationToken">Eine Abbruchtoken das verwendet werden kann, um eine Benachrichtigung dazu zu verteilen, dass der Vorgang abgebrochen werden soll.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatus">
+      <summary>Ruft den Grund ab, warum der Schließen-Handshake auf der <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz initiiert wurde.</summary>
+      <returns>Gibt <see cref="T:System.Net.WebSockets.WebSocketCloseStatus" /> zurück.Der Grund, weshalb der Abschluss-Handshake initiiert wurde.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.CloseStatusDescription">
+      <summary>Ruft eine Beschreibung des Grunds ab, warum die <see cref="T:System.Net.WebSockets.ClientWebSocket" /> Instanz geschlossen wurde.</summary>
+      <returns>Gibt <see cref="T:System.String" /> zurück.Die Beschreibung des Grunds, warum die <see cref="T:System.Net.WebSockets.ClientWebSocket" /> Instanz geschlossen wurde.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.ConnectAsync(System.Uri,System.Threading.CancellationToken)">
+      <summary>Stellen Sie eine Verbindung mit einem WebSocket-Server als asynchroner Vorgang her.</summary>
+      <returns>Gibt <see cref="T:System.Threading.Tasks.Task" /> zurück.Das Aufgabenobjekt, das den asynchronen Vorgang darstellt.</returns>
+      <param name="uri">Der URI des WebSocket-Servers, mit dem eine Verbindung hergestellt wird.</param>
+      <param name="cancellationToken">Eine Abbruchtoken das verwendet werden kann, um eine Benachrichtigung dazu zu verteilen, dass der Vorgang abgebrochen werden soll.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.Dispose">
+      <summary>Gibt die vom <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz verwendeten nicht verwalteten Ressourcen frei.</summary>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.Options">
+      <summary>Ruft die WebSocket-Optionen für die <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz ab.</summary>
+      <returns>Gibt <see cref="T:System.Net.WebSockets.ClientWebSocketOptions" /> zurück.Die WebSocket-Optionen für die <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.ReceiveAsync(System.ArraySegment{System.Byte},System.Threading.CancellationToken)">
+      <summary>Empfangen von Daten auf <see cref="T:System.Net.WebSockets.ClientWebSocket" /> als asynchroner Vorgang.</summary>
+      <returns>Gibt <see cref="T:System.Threading.Tasks.Task`1" /> zurück.Das Aufgabenobjekt, das den asynchronen Vorgang darstellt.</returns>
+      <param name="buffer">Der Puffer, der die Antwort empfangen muss.</param>
+      <param name="cancellationToken">Eine Abbruchtoken das verwendet werden kann, um eine Benachrichtigung dazu zu verteilen, dass der Vorgang abgebrochen werden soll.</param>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)">
+      <summary>Senden von Daten auf <see cref="T:System.Net.WebSockets.ClientWebSocket" /> als asynchroner Vorgang.</summary>
+      <returns>Gibt <see cref="T:System.Threading.Tasks.Task" /> zurück.Das Aufgabenobjekt, das den asynchronen Vorgang darstellt.</returns>
+      <param name="buffer">Der Puffer, der die zu sendende Meldung enthält.</param>
+      <param name="messageType">Gibt an, ob der Puffer im Klartext ist oder in einem binären Format.</param>
+      <param name="endOfMessage">Gibt an, ob dies die letzte asynchrone Sendung ist.Festgelegt auf true, wenn dies der letzte Sendevorgang ist, andernfalls false.</param>
+      <param name="cancellationToken">Eine Abbruchtoken das verwendet werden kann, um eine Benachrichtigung dazu zu verteilen, dass der Vorgang abgebrochen werden soll.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.State">
+      <summary>Den WebSocket Zustand der <see cref="T:System.Net.WebSockets.ClientWebSocket" /> Instanz abrufen.</summary>
+      <returns>Gibt <see cref="T:System.Net.WebSockets.WebSocketState" /> zurück.Der WebSocket Zustand der <see cref="T:System.Net.WebSockets.ClientWebSocket" /> Instanz</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocket.SubProtocol">
+      <summary>Ruft das unterstützte WebSocket-Unterprotokoll für die <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Instanz ab.</summary>
+      <returns>Gibt <see cref="T:System.String" /> zurück.Das unterstützte WebSocket-Unterprotokoll.</returns>
+    </member>
+    <member name="T:System.Net.WebSockets.ClientWebSocketOptions">
+      <summary>Optionen, die mit einem <see cref="T:System.Net.WebSockets.ClientWebSocket" />-Objekt verwendet werden.</summary>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocketOptions.AddSubProtocol(System.String)">
+      <summary>Fügt ein Unterprotokoll hinzu, das während des WebSocket-Verbindungshandshakes ausgehandelt werden soll.</summary>
+      <param name="subProtocol">Das hinzuzufügende WebSocketunterprotokoll.</param>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.ClientCertificates">
+      <summary>Ruft eine Auflistung der clientseitige Zertifikate ab oder legt sie fest.</summary>
+      <returns>Gibt <see cref="T:System.Security.Cryptography.X509Certificates.X509CertificateCollection" /> zurück.Eine Auflistung clientseitiger Zertifikate.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Cookies">
+      <summary>Ruft die der Anforderung zugeordneten Cookies ab oder legt diese fest.</summary>
+      <returns>Gibt <see cref="T:System.Net.CookieContainer" /> zurück.Die mit dieser Anforderung verknüpften Cookies.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Credentials">
+      <summary>Ruft die Anmeldungsinformationen für den Client ab oder legt diese fest.</summary>
+      <returns>Gibt <see cref="T:System.Net.ICredentials" /> zurück.Die Anmeldeinformationen für den Client.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.KeepAliveInterval">
+      <summary>Ruft das WebSocket-Protokoll-Keep-Alive-Intervall in Millisekunden ab oder legt es fest.</summary>
+      <returns>Gibt <see cref="T:System.TimeSpan" /> zurück.Das WebSocket-Protokoll-Keep-Alive-Intervall in Millisekunden.</returns>
+    </member>
+    <member name="P:System.Net.WebSockets.ClientWebSocketOptions.Proxy">
+      <summary>Ruft Proxy für WebSocket-Anforderungen ab oder legt diese fest.</summary>
+      <returns>Gibt <see cref="T:System.Net.IWebProxy" /> zurück.Der Proxy für WebSocket-Anforderungen.</returns>
+    </member>
+    <member name="M:System.Net.WebSockets.ClientWebSocketOptions.SetRequestHeader(System.String,System.String)">
+      <summary>Erstellt einen HTTP-Anforderungsheader und seinen Wert.</summary>
+      <param name="headerName">Der Name des HTTP-Headers.</param>
+      <param name="headerValue">Der Wert des HTTP-Headers.</param>
+    </member>
+  </members>
+</doc>

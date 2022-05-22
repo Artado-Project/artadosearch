@@ -104,6 +104,19 @@
         text-align: center;
     }
 
+    .links {
+        width: 300px;
+        height: 300px;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        float: right;
+        margin-right: 100px;
+        background-color: #1a1a2e;
+    }
+
     #ad{
         width:300px;
         height:300px;
@@ -189,6 +202,21 @@
 
     .içerikalt {
         text-align: center;
+    }
+
+    .links {
+        margin-top: 10px;
+        width: 90vw;
+        height: 40vh;
+        padding: 10px 10px 10px 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #1a1a2e;
+        overflow:scroll;
     }
 
     #ad {

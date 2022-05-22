@@ -37,17 +37,6 @@
             <asp:Label ID="Label3" runat="server" Text="<%$Resources:Default, Politika3 %>"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label4" runat="server" Text="ID"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label5" runat="server" Text="<%$Resources:Default, Aranan %>"></asp:Label>&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label6" runat="server" Text="<%$Resources:Default, Lang %>"></asp:Label><br />
-            <img src="/Icons/ss.png"/>
-            <br />
-            <br />
-            <asp:Label ID="Label7" runat="server" Text="<%$Resources:Default, ID1 %>"></asp:Label>
-            <br />
-            <asp:Label ID="Label8" runat="server" Text="<%$Resources:Default, Aranan2 %>"></asp:Label>
-            <br />
-            <asp:Label ID="Label9" runat="server" Text="<%$Resources:Default, Dil2 %>"></asp:Label>
-            <br />
-            <br />
             <asp:Label ID="Label11" runat="server" Text="<%$Resources:Default, Politika4 %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
             <asp:Label ID="Label12" runat="server" Text="<%$Resources:Default, Politika5 %>"></asp:Label> 
             <br />

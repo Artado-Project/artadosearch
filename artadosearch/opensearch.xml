@@ -6,7 +6,6 @@
   <Contact>support@artadosearch.com</Contact>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://www.artadosearch.com/opensearch.xml"/>
   <Url type="text/html" method="get" template="https://www.artadosearch.com/search?i={searchTerms}"/>
-  <Url type="application/x-suggestions+json" method="GET" template="https://tr.vuhuv.com/otos/?q={searchTerms}"/>
   <Image width="192" height="192" type="image/icon">https://www.artadosearch.com/Icons/android-chrome-192x192.png</Image>
   <SyndicationRight>open</SyndicationRight>
   <Language>tr-TR</Language>

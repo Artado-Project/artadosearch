@@ -159,6 +159,12 @@
   <data name="Bulgarca" xml:space="preserve">
     <value>Bolqar</value>
   </data>
+  <data name="Celer1" xml:space="preserve">
+    <value>Celer Browser 1.6.0 Beta versiyonunu Windows cihazlar için yayınlandı! Celer Browseri Windows üçün yüklə və interneti sərbəstcə kəşf etməyə başlayın!</value>
+  </data>
+  <data name="Deneyim" xml:space="preserve">
+    <value>Tell us about your experience</value>
+  </data>
   <data name="Destek" xml:space="preserve">
     <value>Bağış Yap</value>
   </data>
@@ -170,6 +176,18 @@
   </data>
   <data name="Down" xml:space="preserve">
     <value>Bağışlayın! Hazırda problem yaşayırıq. Artado tezliklə yenidən aktiv olacaq.</value>
+  </data>
+  <data name="Download_num" xml:space="preserve">
+    <value>indirmeler</value>
+  </data>
+  <data name="Download_Win" xml:space="preserve">
+    <value>Windows üçün yükle</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Feedback2" xml:space="preserve">
+    <value>If you tell us what you like and don't like, you will help us to provide you with a better service.</value>
   </data>
   <data name="Film" xml:space="preserve">
     <value>Film</value>
@@ -195,11 +213,17 @@
   <data name="IP" xml:space="preserve">
     <value>IP adresiniz:</value>
   </data>
+  <data name="IT" xml:space="preserve">
+    <value>IT</value>
+  </data>
   <data name="Japonca" xml:space="preserve">
     <value>Yapon</value>
   </data>
   <data name="Karanlık" xml:space="preserve">
     <value>Qaranlıq</value>
+  </data>
+  <data name="Kayıt" xml:space="preserve">
+    <value>Qeydiyyatdan keç</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Qazax Türkcəsi</value>
@@ -237,6 +261,15 @@
   <data name="Modern" xml:space="preserve">
     <value>Müasir</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Xəbərlər</value>
+  </data>
+  <data name="Newsletter" xml:space="preserve">
+    <value>Xəbər bülleteninə yazıl</value>
+  </data>
+  <data name="Newsletter2" xml:space="preserve">
+    <value>Celer Browser haqqında ən son xəbərləri əldə etmək üçün bülletenə yazıla bilərsiniz.</value>
+  </data>
   <data name="Night" xml:space="preserve">
     <value>Gecə</value>
   </data>
@@ -244,22 +277,22 @@
     <value>Daxil ol</value>
   </data>
   <data name="Politika" xml:space="preserve">
-    <value>Privacy Policy</value>
+    <value>Gizlilik Politikası</value>
   </data>
   <data name="Politika1" xml:space="preserve">
-    <value>Artado does not collect any of your personal data. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or determine who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data.</value>
+    <value>Artado yasal durumlar hariç sizin hiç bir kişisel verinizi toplamamaktadır. Peki kişisel veriden kastımız nedir? Bize göre kişisel veri sizin IP adresiniz, coğrafi konumunuz, tarayıcınız ve işletim sisteminiz hakkında veriler, sitede veya uygulamada geçirdiğiniz süre bilgileri ve yaptığınız aramalar gibi sizin için bir profil oluşturacak veya kim olduğunuzu belirleyecek verilerdir. Bu yüzden bu verileri ve buna benzer hiç bir veriyi toplamamaktayız. Fakat yasalar gereği bazı bölgelerde istisnalar olabilir ancak bu istisnalar sadece o bölgedeki kullanıcıları etkiler.</value>
   </data>
   <data name="Politika2" xml:space="preserve">
-    <value>So what kind of data do we collect?</value>
+    <value>Peki ne tarz veriler topluyoruz?</value>
   </data>
   <data name="Politika3" xml:space="preserve">
-    <value>We only collect the language you use Artado to improve our translations. Every search you make on Artado is recorded anonymously in the database. So we don't see what you are looking for. We only see what language you are using Artado in. For example, let's search for 'Music' on Artado. The data recorded in the database is as follows:</value>
+    <value>Biz sadece Artado'yu kullandığınız dili ve hangi sonuç kaynağını (Google, Bing vs.) kullandığınıza dair veriyi topluyoruz. Bu verileri platformumuzu geliştirmek için toplarız. Artado'da her yaptığınız arama veri tabanına anonim olarak kaydedilir. Yani sizin ne arattığınızı görmeyiz.</value>
   </data>
   <data name="Politika4" xml:space="preserve">
-    <value>Do we share your information with 3rd parties?</value>
+    <value>Bilgilerinizi 3. taraflar ile paylaşıyor muyuz?</value>
   </data>
   <data name="Politika5" xml:space="preserve">
-    <value>No. 3. we do not share data with parties.</value>
+    <value>Hayır. Biz 3. taraf şahıslar/yazılımlar ile bir veri paylaşmıyoruz fakat Artado üzerinden kullandığınız sonuç kaynağı(Google, Bing vs.) sizin aramalarınız gibi bazı verilerinizi toplayabilir. Artado sonuç kaynakları arasında bir vekil sunucu görevi görür. Artado yasal durumlar haricinde sizin hiç bir kişisel verinizi toplamaz ve sonuç kaynaklarına verdiğiniz veriyi minimuma indirir.</value>
   </data>
   <data name="Portekizce" xml:space="preserve">
     <value>Portuqal</value>
@@ -273,6 +306,9 @@
   <data name="Sanatçı" xml:space="preserve">
     <value>Sənətçi</value>
   </data>
+  <data name="Screenshots" xml:space="preserve">
+    <value>Ekran Görüntüleri</value>
+  </data>
   <data name="Sonuç" xml:space="preserve">
     <value>Nəticə əlavə edin</value>
   </data>
@@ -284,6 +320,12 @@
   </data>
   <data name="Tema" xml:space="preserve">
     <value>Temalar: </value>
+  </data>
+  <data name="Text1" xml:space="preserve">
+    <value>Özgür. Güvenli. Gizli.</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Artado'da aramalarınız kaydedilmez. Kimse sizin kim olduğunuzu bilemez. Artado ile tamamen anonim olursunuz. Hiç kimse tarafından takip edilmeden interneti keşfedebilirsiniz.</value>
   </data>
   <data name="Türkmen Türkçesi" xml:space="preserve">
     <value>Türkmən Türkcəsi</value>
@@ -299,6 +341,9 @@
   </data>
   <data name="Uygurca" xml:space="preserve">
     <value>Uyğur</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
   </data>
   <data name="Çerezler1" xml:space="preserve">
     <value>Cookies</value>

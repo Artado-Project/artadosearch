@@ -186,8 +186,14 @@
   <data name="Bulgarca" xml:space="preserve">
     <value>български</value>
   </data>
+  <data name="Celer1" xml:space="preserve">
+    <value>Celer Browser 1.6.0 Бета версия, пусната за устройства с Windows! Изтеглете Celer Browser и започнете да изследвате интернет свободно.</value>
+  </data>
   <data name="De" xml:space="preserve">
     <value>Germany</value>
+  </data>
+  <data name="Deneyim" xml:space="preserve">
+    <value>Tell us about your experience</value>
   </data>
   <data name="Destek" xml:space="preserve">
     <value>Дарете</value>
@@ -204,8 +210,20 @@
   <data name="Down" xml:space="preserve">
     <value>Съжалявам! В момента изпитваме проблем. Artado скоро ще бъде активен отново.</value>
   </data>
+  <data name="Download_num" xml:space="preserve">
+    <value>намаляване</value>
+  </data>
+  <data name="Download_Win" xml:space="preserve">
+    <value>Изтеглете за Windows</value>
+  </data>
   <data name="Eski" xml:space="preserve">
     <value>Най-старите</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Feedback2" xml:space="preserve">
+    <value>If you tell us what you like and don't like, you will help us to provide you with a better service.</value>
   </data>
   <data name="Film" xml:space="preserve">
     <value>Филм</value>
@@ -270,6 +288,9 @@
   <data name="IP" xml:space="preserve">
     <value>Вашият IP адрес:</value>
   </data>
+  <data name="IT" xml:space="preserve">
+    <value>IT</value>
+  </data>
   <data name="Japonca" xml:space="preserve">
     <value>Японски</value>
   </data>
@@ -281,6 +302,9 @@
   </data>
   <data name="Kaynaklar" xml:space="preserve">
     <value>Resources</value>
+  </data>
+  <data name="Kayıt" xml:space="preserve">
+    <value>Регистрирайте се</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Казахски</value>
@@ -327,6 +351,15 @@
   <data name="Modern" xml:space="preserve">
     <value>Модерен</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Новини</value>
+  </data>
+  <data name="Newsletter" xml:space="preserve">
+    <value>Регистрирайте се за бюлетин за новини</value>
+  </data>
+  <data name="Newsletter2" xml:space="preserve">
+    <value>Можете да се запишете за бюлетина, за да получите последните новини за Celer Browser.</value>
+  </data>
   <data name="Night" xml:space="preserve">
     <value>нощ</value>
   </data>
@@ -340,19 +373,19 @@
     <value>Privacy Policy</value>
   </data>
   <data name="Politika1" xml:space="preserve">
-    <value>Artado does not collect any of your personal data. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or determine who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data.</value>
+    <value>Artado does not collect any of your personal data, except for legal situations. So what do we mean by personal data? In our opinion, personal data is data that will create a profile for you or identify who you are, such as your IP address, geographic location, data about your browser and operating system, time spent on the site or application, and searches you make. Therefore, we do not collect this data or any similar data. However, there may be exceptions by law in some regions, but these exceptions only affect users in that region.</value>
   </data>
   <data name="Politika2" xml:space="preserve">
     <value>So what kind of data do we collect?</value>
   </data>
   <data name="Politika3" xml:space="preserve">
-    <value>We only collect the language you use Artado to improve our translations. Every search you make on Artado is recorded anonymously in the database. So we don't see what you are looking for. We only see what language you are using Artado in. For example, let's search for 'Music' on Artado. The data recorded in the database is as follows:</value>
+    <value>We only collect data on the language you use Artado and which result source (Google, Bing etc.) you use. We collect this data to improve our platform. Every search you make on Artado is recorded anonymously in the database. So we don't see what you are looking for.</value>
   </data>
   <data name="Politika4" xml:space="preserve">
     <value>Do we share your information with 3rd parties?</value>
   </data>
   <data name="Politika5" xml:space="preserve">
-    <value>No. 3. we do not share data with parties.</value>
+    <value>No. We do not share any data with 3rd party parties/software, but the result source (Google, Bing etc.) you use through Artado may collect some of your data such as your searches. Artado acts as a proxy between result sources. Artado does not collect any of your personal data, except for legal situations, and minimizes the data you give to the results sources.</value>
   </data>
   <data name="Portekizce" xml:space="preserve">
     <value>Португалски</value>
@@ -372,6 +405,9 @@
   <data name="Sanatçı" xml:space="preserve">
     <value>Художник</value>
   </data>
+  <data name="Screenshots" xml:space="preserve">
+    <value>Скрийншота</value>
+  </data>
   <data name="Sonuç" xml:space="preserve">
     <value>Добавяне на резултат</value>
   </data>
@@ -389,6 +425,12 @@
   </data>
   <data name="Tema" xml:space="preserve">
     <value>Теми:</value>
+  </data>
+  <data name="Text1" xml:space="preserve">
+    <value>Безплатно. безопасно. Скрит.</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Вашите търсения не се записват в Artado. С Artado ставате напълно анонимен. Можете да изследвате интернет, без да бъдете проследявани от никого.</value>
   </data>
   <data name="Tr" xml:space="preserve">
     <value>Turkey</value>
@@ -425,6 +467,9 @@
   </data>
   <data name="Varsayılan3" xml:space="preserve">
     <value>Apply</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Видео</value>
   </data>
   <data name="Yeni" xml:space="preserve">
     <value>Най-новият</value>

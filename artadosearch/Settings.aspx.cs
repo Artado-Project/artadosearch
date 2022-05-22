@@ -42,6 +42,49 @@ public partial class Settings : System.Web.UI.Page
         base.InitializeCulture();
     }
 
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        System.Web.HttpCookie cookie = HttpContext.Current.Request.Cookies["Theme"];
+        if (cookie != null && cookie.Value != null)
+        {
+            Page.Theme = cookie.Value;
+        }
+        else
+        {
+            Page.Theme = "Night";
+        }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string type = Request.QueryString["type"];
+
+        int sharp = arama_çubugu2.Text.IndexOf("#");
+        int ok1 = arama_çubugu2.Text.IndexOf("<");
+        int ok2 = arama_çubugu2.Text.IndexOf(">");
+
+        string schange = arama_çubugu2.Text.Replace("#", "%23");
+        string okc1 = arama_çubugu2.Text.Replace("<", "%3C");
+        string okc2 = arama_çubugu2.Text.Replace("'", " ");
+
+        if (ok1 >= 0)
+        {
+            Response.Redirect("/search?i=" + okc1.Trim() + "&type=" + type);
+        }
+        else if (ok2 >= 0)
+        {
+            Response.Redirect("/search?i=" + schange.Trim() + "&type=" + type);
+        }
+        else if (sharp >= 0)
+        {
+            Response.Redirect("/search?i=" + schange.Trim() + "&type=" + type);
+        }
+        else
+        {
+            Response.Redirect("/search?i=" + arama_çubugu2.Text.Trim() + "&type=" + type);
+        }
+    }
+
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("/");

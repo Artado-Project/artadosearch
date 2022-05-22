@@ -183,8 +183,14 @@
   <data name="Bulgarca" xml:space="preserve">
     <value>Bulgarca</value>
   </data>
+  <data name="Celer1" xml:space="preserve">
+    <value>Celer Browser 1.6.0 Beta versiyonu Windows cihazlar için yayınlandı! Celer Browser'ı indirin ve interneti özgürce keşfetmeye başlayın.</value>
+  </data>
   <data name="De" xml:space="preserve">
     <value>Almanya</value>
+  </data>
+  <data name="Deneyim" xml:space="preserve">
+    <value>Deneyiminizi anlatın</value>
   </data>
   <data name="Destek" xml:space="preserve">
     <value>Bağış Yap</value>
@@ -201,8 +207,20 @@
   <data name="Down" xml:space="preserve">
     <value>Üzgünüz! Şu anda bir sorun yaşıyoruz. Az sonra Artado tekrar aktif olacak.</value>
   </data>
+  <data name="Download_num" xml:space="preserve">
+    <value>indirme</value>
+  </data>
+  <data name="Download_Win" xml:space="preserve">
+    <value>Windows için indir</value>
+  </data>
   <data name="Eski" xml:space="preserve">
     <value>En eski</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Geri Bildirim</value>
+  </data>
+  <data name="Feedback2" xml:space="preserve">
+    <value>Bize neleri beğenip neleri beğenmediğinizi anlatırsanız size daha iyi bir hizmet sunmamızda katkı sağlarsınız.</value>
   </data>
   <data name="Film" xml:space="preserve">
     <value>Film</value>
@@ -270,6 +288,9 @@
   <data name="Islam" xml:space="preserve">
     <value>İslam</value>
   </data>
+  <data name="IT" xml:space="preserve">
+    <value>Bilişim</value>
+  </data>
   <data name="Japonca" xml:space="preserve">
     <value>Japonca</value>
   </data>
@@ -281,6 +302,9 @@
   </data>
   <data name="Kaynaklar" xml:space="preserve">
     <value>Kaynaklar</value>
+  </data>
+  <data name="Kayıt" xml:space="preserve">
+    <value>Kayıt ol</value>
   </data>
   <data name="Kazakça" xml:space="preserve">
     <value>Kazak Türkçesi</value>
@@ -327,6 +351,15 @@
   <data name="Modern" xml:space="preserve">
     <value>Modern</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Haberler</value>
+  </data>
+  <data name="Newsletter" xml:space="preserve">
+    <value>Haber Bültenine Kaydolun</value>
+  </data>
+  <data name="Newsletter2" xml:space="preserve">
+    <value>Celer Browser hakkında en son haberlere ulaşmak için haber bültenine kaydolabilirsiniz.</value>
+  </data>
   <data name="Night" xml:space="preserve">
     <value>Gece</value>
   </data>
@@ -340,19 +373,19 @@
     <value>Gizlilik Politikası</value>
   </data>
   <data name="Politika1" xml:space="preserve">
-    <value>Artado sizin hiç bir kişisel verinizi toplamamaktadır. Peki kişisel veriden kastımız nedir? Bize göre kişisel veri sizin IP adresinizi, coğrafi konumunuz, tarayıcınız ve işletim sisteminiz hakkında veriler, sitede veya uygulamada geçirdiğiniz süre bilgileri ve yaptığınız aramalar gibi sizin için bir profil oluşturacak veya kim olduğunuzu belirleyecek verilerdir. Bu yüzden bu verileri ve buna benzer hiç bir veriyi toplamamaktayız.</value>
+    <value>Artado yasal durumlar hariç sizin hiç bir kişisel verinizi toplamamaktadır. Peki kişisel veriden kastımız nedir? Bize göre kişisel veri sizin IP adresiniz, coğrafi konumunuz, tarayıcınız ve işletim sisteminiz hakkında veriler, sitede veya uygulamada geçirdiğiniz süre bilgileri ve yaptığınız aramalar gibi sizin için bir profil oluşturacak veya kim olduğunuzu belirleyecek verilerdir. Bu yüzden bu verileri ve buna benzer hiç bir veriyi toplamamaktayız. Fakat yasalar gereği bazı bölgelerde istisnalar olabilir ancak bu istisnalar sadece o bölgedeki kullanıcıları etkiler.</value>
   </data>
   <data name="Politika2" xml:space="preserve">
     <value>Peki ne tarz veriler topluyoruz?</value>
   </data>
   <data name="Politika3" xml:space="preserve">
-    <value>Biz sadece Artado'yu kullandığınız dili çevirilerimizi geliştirmek için topluyoruz. Artado'da her yaptığınız arama veri tabanına anonim olarak kaydedilir. Yani sizin ne arattığınızı görmeyiz. Sadece Artado'yu hangi dilde kullandığınızı görürüz. Mesela Artado üzerinden 'Müzik' araması yapalım. Veri tabanında kaydedilen veri şöyledir:</value>
+    <value>Biz sadece Artado'yu kullandığınız dili ve hangi sonuç kaynağını (Google, Bing vs.) kullandığınıza dair veriyi topluyoruz. Bu verileri platformumuzu geliştirmek için toplarız. Artado'da her yaptığınız arama veri tabanına anonim olarak kaydedilir. Yani sizin ne arattığınızı görmeyiz.</value>
   </data>
   <data name="Politika4" xml:space="preserve">
     <value>Bilgilerinizi 3. taraflar ile paylaşıyor muyuz?</value>
   </data>
   <data name="Politika5" xml:space="preserve">
-    <value>Hayır. 3. taraf şahıslar/yazılımlar ile bir veri paylaşmıyoruz. Zaten elimizde paylaşabileceğimiz pek bir veri yok.</value>
+    <value>Hayır. Biz 3. taraf şahıslar/yazılımlar ile bir veri paylaşmıyoruz fakat Artado üzerinden kullandığınız sonuç kaynağı(Google, Bing vs.) sizin aramalarınız gibi bazı verilerinizi toplayabilir. Artado sonuç kaynakları arasında bir vekil sunucu görevi görür. Artado yasal durumlar haricinde sizin hiç bir kişisel verinizi toplamaz ve sonuç kaynaklarına verdiğiniz veriyi minimuma indirir.</value>
   </data>
   <data name="Portekizce" xml:space="preserve">
     <value>Portekizce</value>
@@ -372,6 +405,9 @@
   <data name="Sanatçı" xml:space="preserve">
     <value>Sanatçı</value>
   </data>
+  <data name="Screenshots" xml:space="preserve">
+    <value>Ekran Görüntüleri</value>
+  </data>
   <data name="Sonuç" xml:space="preserve">
     <value>Sonuç Ekle</value>
   </data>
@@ -379,7 +415,7 @@
     <value>Kendi Sonuçlarımız ve Diğer Arama Motorlarının Sonuçları</value>
   </data>
   <data name="Sözlük" xml:space="preserve">
-    <value>  Bilgi</value>
+    <value>Bilgi</value>
   </data>
   <data name="Sırala" xml:space="preserve">
     <value>Sırala:</value>
@@ -389,6 +425,12 @@
   </data>
   <data name="Tema" xml:space="preserve">
     <value>Temalar: </value>
+  </data>
+  <data name="Text1" xml:space="preserve">
+    <value>Özgür. Güvenli. Gizli.</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Artado'da aramalarınız kaydedilmez. Kimse sizin kim olduğunuzu bilemez. Artado ile tamamen anonim olursunuz. Hiç kimse tarafından takip edilmeden interneti keşfedebilirsiniz.</value>
   </data>
   <data name="Tr" xml:space="preserve">
     <value>Türkiye</value>
@@ -425,6 +467,9 @@
   </data>
   <data name="Varsayılan3" xml:space="preserve">
     <value>Varsayılana dön</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
   </data>
   <data name="Yeni" xml:space="preserve">
     <value>En yeni</value>

@@ -15,7 +15,8 @@
         url.MapPageRoute("add", "AddResult", "~/Topluluk/DestekVeri.aspx");
         url.MapPageRoute("command", "Commands", "~/Topluluk/Tanıtım/OzelKomutlar.aspx");
         url.MapPageRoute("blog", "Soon", "~/Topluluk/Servisler/Yakında/Soon.aspx");
-        url.MapPageRoute("photon", "Photon", "~/Topluluk/Servisler/Gazete/Gazete.aspx");
+        url.MapPageRoute("photon", "Celer", "~/Topluluk/Servisler/Gazete/Gazete.aspx");
+        url.MapPageRoute("photonapp", "Photon/Home", "~/Topluluk/Servisler/PhotonApp/App.aspx");
         url.MapPageRoute("mail", "Mail", "~/Topluluk/Servisler/Mail/Mail.aspx");
         url.MapPageRoute("mailabout", "Mail/Hakkımızda", "~/Topluluk/Servisler/Mail/Mail_About.aspx");
         url.MapPageRoute("games", "Games", "~/Topluluk/Servisler/Home/Games.aspx");
@@ -53,6 +54,8 @@
         //    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookielang.Value);
         //    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookielang.Value);
         //}
+
+        HttpContext.Current.Response.AddHeader("x-frame-options", "DENY");
     }
 
     void Application_End(object sender, EventArgs e)

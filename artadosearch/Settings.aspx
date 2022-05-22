@@ -14,8 +14,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="açılış">
-            <asp:ImageButton ID="ImageButton1" runat="server" CssClass="image" ImageUrl="/Icons/android-chrome-192x192.png" OnClick="ImageButton1_Click" />
+        <div style= "margin-bottom:20px" class="üstkısım">
+            <div class="aramacon">
+                <div class="aramapar">
+                    <asp:Panel ID="Normal" runat="server" CssClass="arama2" BorderStyle="Outset" style="margin-top:0px; margin-bottom:10px;">
+                    <a href="/"><img id="Image1" runat="server" src="Icons/android-chrome-192x192.png" class="a_image" /></a>
+                    <asp:TextBox ID="arama_çubugu2" type="search" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" AutoCompleteType="Search" ValidateRequestMode="Disabled"></asp:TextBox>
+                    <asp:ImageButton ID="Search" runat="server" Height="35px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.svg" Width="35px"  BorderStyle="None"/>
+                    </asp:Panel>
+                </div>
+            </div>
         </div>
         <asp:Panel ID="Post" runat="server" CssClass="panel">
             <asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, Logo %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />

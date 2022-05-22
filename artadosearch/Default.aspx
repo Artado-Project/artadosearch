@@ -22,8 +22,8 @@
 <link rel="manifest" href="js/manifest.json"/>
 <link href="https://www.artadosearch.com/" rel="canonical"/>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
-<meta name="keywords" content="arama, arama motoru, yerli, artado, gizlilik, milli, türk yapımı, güvenli, sade, reklamsız, reklamsız arama motoru, search, search engine, privacy, security, türkiye" />
-<meta name="description" content="Open Source, Private and Anonymous Search Engine" />
+<meta name="keywords" content="arama, arama motoru, yerli, artado, gizlilik, milli, türk yapımı, güvenli, açık kaynak, reklamsız, reklamsız arama motoru, search, search engine, privacy, security, tarayıcı, browser, celer" />
+<meta name="description" content="Open Source, Private and Customizable Search Engine" />
 <meta property="og:title" content="Artado Search" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.artadosearch.com" />
@@ -40,9 +40,66 @@
 
 <!--Arda Tahtacı tarafından tasarlanmış ve programlanmıştır.-->
 
+<div class="top">
+        <script type="text/javascript">
+            var d, h, m, s, animate;
+            function init() {
+                d = new Date();
+                h = d.getHours();
+                m = d.getMinutes();
+                s = d.getSeconds();
+                clock();
+            };
+            function clock() {
+                s++;
+                if (s == 60) {
+                    s = 0;
+                    m++;
+                    if (m == 60) {
+                        m = 0;
+                        h++;
+                        if (h == 24) {
+                            h = 0;
+                        }
+                    }
+                }
+                $('sec', s);
+                $('min', m);
+                $('hr', h);
+                animate = setTimeout(clock, 1000);
+            };
+            function $(id, val) {
+                if (val < 10) {
+                    val = '0' + val;
+                }
+                document.getElementById(id).innerHTML = val;
+            };
+            window.onload = init;
+        </script>
+<asp:Panel ID="Time" runat="server" CssClass="left" BackColor="Transparent">
+    <asp:Label ID="Label22" runat="server" Text="<%$Resources:Default, Saat %>" Font-Size="Large"></asp:Label>
+    <br />
+    <div style="font-size:x-large">
+            <span id="hr">00</span>
+    <span> : </span>
+    <span id="min">00</span>
+    <span> : </span>
+    <span id="sec">00</span>
+    </div>
+</asp:Panel>
+
+<asp:Panel ID="HavaDurumu" runat="server" CssClass="right"> 
+<asp:Label ID="City" runat="server" Text='' Font-Size="Large"></asp:Label>
+<br />
+<asp:Image ID="HavaImg" runat="server" CssClass="ınfoimage" Width="100px" Height="100px"/>
+<asp:Label ID="SıcaklıkTxt" runat="server" Text='' Font-Size="Larger" Font-Bold="true"></asp:Label>&nbsp;
+<asp:Label ID="DurumTxt" runat="server" Text='' Font-Size="Medium"></asp:Label>
+</asp:Panel>
+</div>
+
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
-<div style="min-height:98%">
+<div>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 <Triggers>
 <asp:AsyncPostBackTrigger ControlID="ImageButton1" EventName="Click" />
@@ -56,15 +113,10 @@
 <ContentTemplate> 
 <div id="arama" class="orta"> 
 <asp:Panel ID="Panel1" runat="server" BackColor="Transparent">
-<asp:Image ID="Image1" runat="server" CssClass="auto-style1"/>
 <asp:Panel ID="Normal" runat="server" CssClass="arama" BorderStyle="Outset" style="margin-top:0px; margin-bottom:10px;">
+<asp:Image ID="Image1" runat="server" CssClass="auto-style1"/>
 <asp:TextBox ID="arama_çubugu" type="search" placeholder="<%$Resources:Default, Arama_çubuğu %>" runat="server" TextMode="Search"  BorderStyle="None" autofocus AutoCompleteType="Search" ValidateRequestMode="Disabled"></asp:TextBox>
 <asp:ImageButton ID="Search" runat="server" Height="35px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.svg" Width="35px"  BorderStyle="None"/>
-<asp:ImageButton ID="Tools" runat="server" Height="30px" CssClass="Button1" ImageUrl="~/tools.png" Width="30px" BorderStyle="None" OnClick="Tools_Click" />
-</asp:Panel>
-<asp:Panel ID="Ses" runat="server" CssClass="arama" BorderStyle="Outset">
-<asp:Label ID="Text" runat="server" Text="Konuşun"></asp:Label>
-<asp:ImageButton ID="SearchVoice" runat="server" Height="29px" OnClick="Button1_Click" CssClass="Button1" ImageUrl="~/search.png" Width="29px"  BorderStyle="None"/>
 </asp:Panel>
 </asp:Panel>
 
@@ -213,10 +265,7 @@
 <asp:ListItem Value="Artado">Artado</asp:ListItem>
 <asp:ListItem Value="Bing">Bing</asp:ListItem>
 <asp:ListItem Value="Yahoo">Yahoo</asp:ListItem>
-<asp:ListItem Value="Baidu">Baidu</asp:ListItem>
-<asp:ListItem Value="Github">Github</asp:ListItem>
-<asp:ListItem Value="Scholar">Google Scholar</asp:ListItem>
-<asp:ListItem Value="Base">BASE</asp:ListItem>
+<asp:ListItem Value="Petal">Petal Search</asp:ListItem>
 </asp:DropDownList>
 <br />
 <br />
@@ -235,7 +284,7 @@
 <a href="/Forum" style="text-decoration:none;"><asp:Label ID="Label8" runat="server" Text="<%$Resources:Default, Blog %>"></asp:Label></a>
 <br />
 <br />
-<a href="/Photon" style="text-decoration:none;"><asp:Label ID="Label9" runat="server" Text="Artado Photon"></asp:Label></a>
+<a href="/Celer" style="text-decoration:none;"><asp:Label ID="Label9" runat="server" Text="Celer Browser"></asp:Label></a>
 <br />
 <br />
 <a href="/Updates" style="text-decoration:none;"><asp:Label ID="Label11" runat="server" Text="<%$Resources:Default, Güncelleme %>"></asp:Label></a>
@@ -248,144 +297,13 @@
 </div>
 </ContentTemplate>
 </asp:UpdatePanel>
-    <style>
-        @media screen and (min-width: 600px) {
-            .shortcut1 {
-                float: left;
-                margin-right: 50px;
-                margin-left: 150px;
-                margin-bottom: 20px;
-                text-decoration: none;
-            }
 
-            .shortcut2 {
-                float: left;
-                margin-right: 50px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-
-            .shortcut3 {
-                float: left;
-                margin-right: 50px;
-                margin-right: 150px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-        }
-
-        @media screen and (min-width: 100px) and (max-width: 600px) {
-            #shortcuts{
-                text-align:center;
-                margin-right:auto;
-                margin-left:auto;
-                max-width:330px;
-            }
-
-            #shortcuts a{
-                float: left;
-                margin-right: 18px;
-                margin-bottom: 20px;
-                text-decoration: none
-            }
-            #shortcuts1{
-                text-align:center;
-                margin-left:25px;
-            }
-        }
-    </style>
-
-<asp:Panel ID="Journal" runat="server">
-    <script type="text/javascript">
-        var d, h, m, s, animate;
-
-        function init() {
-            d = new Date();
-            h = d.getHours();
-            m = d.getMinutes();
-            s = d.getSeconds();
-            clock();
-        };
-
-        function clock() {
-            s++;
-            if (s == 60) {
-                s = 0;
-                m++;
-                if (m == 60) {
-                    m = 0;
-                    h++;
-                    if (h == 24) {
-                        h = 0;
-                    }
-                }
-            }
-            $('sec', s);
-            $('min', m);
-            $('hr', h);
-            animate = setTimeout(clock, 1000);
-        };
-
-        function $(id, val) {
-            if (val < 10) {
-                val = '0' + val;
-            }
-            document.getElementById(id).innerHTML = val;
-        };
-
-        window.onload = init;
-
-    </script>
-<asp:Panel ID="Time" runat="server" CssClass="left">
-    <asp:Label ID="Label22" runat="server" Text="<%$Resources:Default, Saat %>" Font-Size="Large"></asp:Label>
-    <br />
-    <div style="font-size:x-large">
-            <span id="hr">00</span>
-    <span> : </span>
-    <span id="min">00</span>
-    <span> : </span>
-    <span id="sec">00</span>
+    <div style="text-align: center; margin-top: 20px;">
+        <asp:Label ID="Title" CssClass="Title" runat="server" Text="<%$Resources:Default, Text1 %>" Font-Size="X-Large" Font-Bold="true"></asp:Label><br />
+        <div class="Desc">
+            <asp:Label ID="Desc" runat="server" Text="<%$Resources:Default, Text2 %>" Font-Size="Large"></asp:Label>
+        </div>
     </div>
-</asp:Panel>
-
-<asp:Panel ID="HavaDurumu" runat="server" CssClass="right" BorderStyle="Groove"> 
-<asp:Label ID="City" runat="server" Text='' Font-Size="Large"></asp:Label>
-<br />
-<asp:Image ID="HavaImg" runat="server" CssClass="ınfoimage" Width="100px" Height="100px"/>
-<asp:Label ID="SıcaklıkTxt" runat="server" Text='' Font-Size="Larger" Font-Bold="true"></asp:Label>&nbsp;
-<asp:Label ID="DurumTxt" runat="server" Text='' Font-Size="Medium"></asp:Label>
-<br />
-<asp:Label ID="Min" runat="server" Text='' Font-Size="Medium"></asp:Label>
-<br />
-<asp:Label ID="Max" runat="server" Text='' Font-Size="Medium"></asp:Label>
-<br />
-<asp:Label ID="Hissedilen" runat="server" Text='' Font-Size="Medium"></asp:Label>
-<br />
-<asp:Label ID="Doğuş" runat="server" Text='' Font-Size="Medium"></asp:Label>
-<br />
-<asp:Label ID="Batış" runat="server" Text='' Font-Size="Medium"></asp:Label>
-</asp:Panel>
-<asp:Panel ID="Panel4" runat="server" CssClass="left" BorderStyle="Groove">
-<asp:Label ID="Label17" runat="server" Text="<%$Resources:Default, Bilgi Kutusu %>" Font-Size="Large"></asp:Label>
-<asp:DataList ID="InfoBox" runat="server">
-<ItemTemplate>
-<asp:Label ID="title" runat="server" Text='<%# Eval("InfoTitle") %>' Font-Size="Larger" Font-Bold="true"></asp:Label>
-<asp:Image ID="Pic" runat="server" src='<%# Eval("Pic") %>' CssClass="ınfoimage"/>
-<br />
-<asp:Label ID="Label17" runat="server" Text='<%# Eval("Category") %>' Font-Size="Small"></asp:Label>
-<br />
-<br />
-<asp:Label ID="Label8" runat="server" Text='<%# Eval("Info") %>' Font-Size="Medium"></asp:Label>
-<br /> 
-<a href='<%# Eval("InfoLink") %>' target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
-</ItemTemplate>
-</asp:DataList>
-</asp:Panel>
-<asp:Panel ID="ShortManifest" runat="server" CssClass="right" BorderStyle="Groove"> 
-<asp:Label ID="Label10" runat="server" Text="<%$Resources:Default, Manifesto1 %>" Font-Bold="true" Font-Size="Large"></asp:Label><br />
-<asp:Label ID="Label23" runat="server" Text="<%$Resources:Default, Manifesto2 %>"></asp:Label>
-</asp:Panel>
-</asp:Panel>
 </div>
 </form>
 </body>

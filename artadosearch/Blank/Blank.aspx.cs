@@ -32,9 +32,8 @@ public partial class Blank_Blank : System.Web.UI.Page
         }
         else
         {
-            Akış.Visible = false;
+            Akış.Visible = true;
             Keşfet.Visible = false;
-            Kullanıcı.Visible = false;
             Kullanıcı.Visible = false;
         }
 
@@ -102,6 +101,7 @@ public partial class Blank_Blank : System.Web.UI.Page
             try
             {
                 SqlConnection baglanti = new SqlConnection(admin);
+                baglanti.Open();
                 string sorgu2 = "SELECT UserID FROM dbo.Users where PassID='" + old.Value + "' ";
                 int username;
                 SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
@@ -111,11 +111,9 @@ public partial class Blank_Blank : System.Web.UI.Page
                 SqlCommand komut42 = new SqlCommand(sorgu24, baglanti);
                 string username2 = (string)komut42.ExecuteScalar();
 
-                string istek = "insert into Posts(Username, Date, Comments, Likes, Post) values (@Username, @Date, @Comments, @Likes, @Post)";
+                string istek = "insert into Posts(Username, Post) values (@Username, @Post)";
                 SqlCommand cmd = new SqlCommand(istek, baglanti);
                 cmd.Parameters.AddWithValue("@Username", username2);
-                cmd.Parameters.AddWithValue("@Date", DateTime.Now.ToLongDateString());
-                cmd.Parameters.AddWithValue("@Answers", 0);
                 cmd.Parameters.AddWithValue("@Post", TextBox1.Text);
                 cmd.ExecuteNonQuery();
                 if (baglanti.State.ToString() == "Open")
@@ -123,11 +121,12 @@ public partial class Blank_Blank : System.Web.UI.Page
                     baglanti.Close();
                     SqlConnection.ClearPool(baglanti);
                 }
+                baglanti.Close();
                 Response.Redirect("/BlankApp");
             }
-            catch
+            catch(Exception hata)
             {
-                Label3.Text = "Üzgünüz bir hata oluştu. Tekrar deneyiniz.";
+                Label3.Text = "Üzgünüz bir hata oluştu. Tekrar deneyiniz." + hata;
             }
         }
     }
@@ -139,7 +138,7 @@ public partial class Blank_Blank : System.Web.UI.Page
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        Response.Redirect("/Account?mode=register&url=/BlankApp");
+        Response.Redirect("/Account?mode=register&url=/BlankApp?mode=test");
     }
 
     protected void Button6_Click(object sender, EventArgs e)
@@ -169,9 +168,13 @@ public partial class Blank_Blank : System.Web.UI.Page
                 SqlConnection baglantiistek = new SqlConnection(admin);
                 if (baglantiistek.State == ConnectionState.Closed)
                     baglantiistek.Open();
+
+                string sorgu24 = "SELECT Username FROM dbo.Users where PassID='" + old.Value + "' ";
+                SqlCommand komut42 = new SqlCommand(sorgu24, baglantiistek);
+                string username2 = (string)komut42.ExecuteScalar();
                 string istek = "insert into Discover(Username, Post, Like1, Dislike) values (@Username,@Post,@Like1,@Dislike)";
                 SqlCommand komut = new SqlCommand(istek, baglantiistek);
-                komut.Parameters.AddWithValue("@Username", Session["kullanici"]);
+                komut.Parameters.AddWithValue("@Username", username2);
                 komut.Parameters.AddWithValue("@Post", TextBox5.Text);
                 komut.Parameters.AddWithValue("@Like1", 0);
                 komut.Parameters.AddWithValue("@Dislike", 0);

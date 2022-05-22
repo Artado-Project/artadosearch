@@ -10,8 +10,8 @@ body {
 }
 
 .container {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .çizgi {
@@ -26,42 +26,44 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 600px) {
     .orta {
         text-align: center;
-        width:700px;
-        margin-left:auto;
-        margin-right:auto;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
     }
+
     .auto-style1 {
-        min-width:200px;
-        max-width:400px;
-        max-height:250px;
-        margin-top:100px;
+        width: 30px !important;
+        display: inline;
     }
+
     .arama {
         background-color: #F9F9FA;
-        width: 580px;
-        height: 45px;
+        width: 500px !important;
+        height: 60px !important;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
-        padding: 8px 8px 8px 8px;
-        border-style:solid !important;
+        padding: 7px 7px 7px 7px;
+        border-style: solid !important;
     }
 
     #arama_çubugu {
-        Height: 29px;
-        Width: 490px;
+        Height: 50px;
+        Width: 400px !important;
     }
+
         #arama_çubugu:focus {
             outline: none;
             background-color: transparent !important
         }
 
     .Button1 {
-        vertical-align:middle;
+        vertical-align: middle;
     }
+
         .Button1:focus {
             outline: none;
         }
@@ -79,9 +81,10 @@ body::-webkit-scrollbar {
         margin-top: 50px;
     }
 
-    .label{
-        margin-bottom:0px;
+    .label {
+        margin-bottom: 0px;
     }
+
     .ayarlar {
         width: 35px;
         height: 30px;
@@ -91,10 +94,11 @@ body::-webkit-scrollbar {
         top: 12px;
         right: 10px;
     }
+
         .ayarlar:focus {
             outline: none;
-            
         }
+
     .login {
         height: 35px;
         float: left;
@@ -163,11 +167,12 @@ body::-webkit-scrollbar {
         text-align: left;
         padding: 15px 15px 15px 15px;
         text-decoration: none;
-        -ms-overflow-style: none; 
+        -ms-overflow-style: none;
         scrollbar-width: none;
-        overflow:scroll;
-        border-style:none !important
+        overflow: scroll;
+        border-style: none !important
     }
+
         .kontrol::-webkit-scrollbar {
             display: none;
         }
@@ -177,6 +182,7 @@ body::-webkit-scrollbar {
         height: 25px;
         float: right;
     }
+
         .kapat:focus {
             outline: none;
         }
@@ -209,6 +215,7 @@ body::-webkit-scrollbar {
         width: 200px;
         margin-bottom: 10px;
     }
+
         .komut1:focus {
             outline: none;
         }
@@ -218,38 +225,44 @@ body::-webkit-scrollbar {
         width: 200px;
         margin-bottom: 10px;
     }
+
         .komut2:focus {
             outline: none;
         }
 
+    .top {
+        max-width: 480px;
+        height: 150px;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .right {
-        width: 400px;
-        max-height: 300px;
-        background-color: #F9F9FA;
-        float: right;
-        margin-right: 200px;
+        max-height: 120px;
+        background-color: transparent !important;
         margin-top: 10px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
         padding: 10px 10px 10px 10px;
-        overflow: hidden;
+        max-width: 200px;
+        float: right;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        border-style: none !important
     }
 
+        .right::-webkit-scrollbar {
+            display: none;
+        }
+
     .left {
-        max-width: 500px;
-        max-height: 300px;
-        background-color: #F9F9FA;
-        float: left;
-        margin-left: 200px;
+        background-color: transparent !important;
         margin-top: 10px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
         padding: 10px 10px 10px 10px;
-        overflow: hidden;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        float:left;
+        margin-left: 10px;
     }
 
     .ınfoimage {
@@ -268,42 +281,85 @@ body::-webkit-scrollbar {
         text-align: center;
         height: 50px;
     }
+
+    .Title {
+        max-width: 500px;
+    }
+
+    .Desc {
+        width: 500px;
+        margin-top: 10px;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto
+    }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
-    .orta {
-        text-align: center;
-    }
-    .auto-style1 {
-        min-width: 100px;
-        max-width: 300px;
-        max-height: 200px;
+
+    .top {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        white-space: nowrap;
         margin-top: 100px;
     }
+
+    .right {
+        background-color: transparent !important;
+        max-width: 200px;
+        float: right;
+        max-height: 120px;
+    }
+
+    .left {
+        background-color: transparent !important;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        float: left;
+        margin-left: 20px;
+    }
+
+    .orta {
+        text-align: center;
+        white-space: nowrap !important
+    }
+
+    .auto-style1 {
+        width: 30px !important;
+        display: inline;
+    }
+
     .arama {
-        background-color: white;
-        width: 300px;
-        height: 45px;
+        background-color: #F9F9FA;
+        width: 350px !important;
+        height: 60px !important;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         margin-left: auto;
         margin-right: auto;
-        padding: 5px 5px 5px 5px;
-        border-style: solid !important
+        padding: 7px 7px 7px 7px;
+        border-style: solid !important;
     }
+
     #arama_çubugu {
-        width: 200px;
-        Height: 29px;
+        Height: 50px;
+        Width: 250px;
     }
+
         #arama_çubugu:focus {
             outline: none;
+            background-color: transparent !important
         }
 
     .Button1 {
         vertical-align: middle;
     }
+
         .Button1:focus {
             outline: none;
         }
@@ -435,6 +491,7 @@ body::-webkit-scrollbar {
         height: 25px;
         float: right;
     }
+
         .kapat:focus {
             outline: none;
         }
@@ -471,43 +528,13 @@ body::-webkit-scrollbar {
     .komut1 {
         width: 200px;
         margin-bottom: 10px;
-        height:50px;
+        height: 50px;
     }
 
     .komut2 {
         width: 200px;
         margin-bottom: 10px;
-        height:50px;
-    }
-
-    .right {
-        max-width: 330px;
-        min-height: 210px;
-        background-color: #F9F9FA;
-        margin-left: auto;
-        margin-right: auto;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        padding: 10px 10px 10px 10px;
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-
-    .left {
-        max-width: 330px;
-        max-height: 350px;
-        background-color: #F9F9FA;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        padding: 10px 10px 10px 10px;
-        overflow: hidden;
+        height: 50px;
     }
 
     .ınfoimage {
@@ -527,4 +554,3 @@ body::-webkit-scrollbar {
         height: 50px;
     }
 }
-

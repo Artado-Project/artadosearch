@@ -42,11 +42,16 @@
     }
 
     .image {
-        width: 145px;
-        height: 50px;
+        width: 100px;
+        height:100px;
         margin-top: 30px;
         float: left;
-        margin-left: 30px;
+        margin-left: 100px;
+    }
+
+    .screenshots{
+        width:500px;
+        height:250px
     }
 
     .arama {
@@ -123,11 +128,26 @@
         border-bottom-right-radius: 10px;
         max-width: 250px;
         min-height: 50px;
-        background: #FC466B; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #4c427f;
         font-family: Bahnschrift;
         padding: 10px 10px 10px 10px;
+    }
+
+    .download {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-bottom: 50px;
+        height: 350px;
+        background: #4568DC;
+        background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+        background: linear-gradient(to right, #B06AB3, #4568DC);
+        padding: 20px 20px 20px 20px;
+        color:white;
+    }
+
+    #Label2{
+        margin-top:100px !important
     }
 }
 
@@ -140,12 +160,12 @@
     }
 
     .image {
-        width: 145px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         margin-top: 5px;
         margin-bottom: 10px;
-        margin-left:auto;
-        margin-right:auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .textbox {
@@ -218,10 +238,30 @@
         font-family: Bahnschrift;
         max-width: 250px;
         min-height: 50px;
-        background: #FC466B; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #4c427f;
         font-family: Bahnschrift;
         padding: 10px 10px 10px 10px;
+    }
+
+    .screenshots {
+        width: 80%;
+        height: 50%;
+    }
+
+    .download {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-bottom: 50px;
+        height: 350px;
+        background: #4568DC;
+        background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+        background: linear-gradient(to right, #B06AB3, #4568DC);
+        padding: 20px 20px 20px 20px;
+        color: white;
+    }
+
+    #Label2 {
+        margin-top: 100px !important
     }
 }

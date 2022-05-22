@@ -47,40 +47,40 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             Button1.Visible = false;
             Url = RouteData.Values["post"].ToString();
 
-            SqlCommand cmd2 = new SqlCommand("update arda.Questions set Views+=1 where ID='" + Url + "'", baglanti);
+            SqlCommand cmd2 = new SqlCommand("update dbo.Questions set Views+=1 where ID='" + Url + "'", baglanti);
             cmd2.ExecuteNonQuery();
 
-            string sorgu = "SELECT Title FROM arda.Questions where ID='"+ Url + "' ";
+            string sorgu = "SELECT Title FROM dbo.Questions where ID='" + Url + "' ";
             string title;
             SqlCommand komut = new SqlCommand(sorgu, baglanti);
             title = (string)komut.ExecuteScalar();
             Title.Text = title;
 
-            string sorgu2 = "SELECT Username FROM arda.Questions where ID='" + Url + "' ";
+            string sorgu2 = "SELECT Username FROM dbo.Questions where ID='" + Url + "' ";
             string username;
             SqlCommand komut2 = new SqlCommand(sorgu2, baglanti);
             username = (string)komut2.ExecuteScalar();
             Username.Text = username;
 
-            string sorgu5 = "SELECT Date FROM arda.Questions where ID='" + Url + "' ";
+            string sorgu5 = "SELECT Date FROM dbo.Questions where ID='" + Url + "' ";
             string date;
             SqlCommand komut3 = new SqlCommand(sorgu5, baglanti);
             date = (string)komut3.ExecuteScalar();
             Date.Text = date;
 
-            string sorgu3 = "SELECT Detail FROM arda.Questions where ID='" + Url + "' ";
+            string sorgu3 = "SELECT Detail FROM dbo.Questions where ID='" + Url + "' ";
             string detail;
             SqlCommand komut4 = new SqlCommand(sorgu3, baglanti);
             detail = (string)komut4.ExecuteScalar();
             Detail.Text = detail;
 
-            string sorgu4 = "SELECT Views FROM arda.Questions where ID='" + Url + "' ";
+            string sorgu4 = "SELECT Views FROM dbo.Questions where ID='" + Url + "' ";
             int view;
             SqlCommand komut5 = new SqlCommand(sorgu4, baglanti);
             view = (int)komut5.ExecuteScalar();
             View.Text = view + " görüntülenme";
 
-            string sorgu6 = "SELECT Answers FROM arda.Questions where ID='" + Url + "' ";
+            string sorgu6 = "SELECT Answers FROM dbo.Questions where ID='" + Url + "' ";
             int answer;
             SqlCommand komut6 = new SqlCommand(sorgu6, baglanti);
             answer = (int)komut6.ExecuteScalar();
@@ -163,7 +163,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
 
             Page.Title = username + " - Kullanıcı - Artado Forum";
 
-            SqlDataAdapter adp2 = new SqlDataAdapter("select * from arda.Questions where Username='" + username + "' order by ID desc", baglanti);
+            SqlDataAdapter adp2 = new SqlDataAdapter("select * from dbo.Questions where Username='" + username + "' and BlogPost='f' order by ID desc", baglanti);
             DataTable dt2 = new DataTable();
             adp2.Fill(dt2);
             Profil_Questions.DataSource = dt2;
@@ -174,7 +174,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             Profil.Visible = false;
         }
 
-        SqlDataAdapter adp = new SqlDataAdapter("select * from arda.Questions order by ID desc", baglanti);
+        SqlDataAdapter adp = new SqlDataAdapter("select * from dbo.Questions where BlogPost='f' order by ID desc", baglanti);
         DataTable dt = new DataTable();
         adp.Fill(dt);
         pds.DataSource = dt.DefaultView;
@@ -239,7 +239,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
         }
         else
         {
-            Page.Theme = "Klasik";
+            Page.Theme = "Night";
         }
     }
 
@@ -315,7 +315,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             SqlCommand komut2 = new SqlCommand(sorgu2, baglanti2);
             username = (int)komut2.ExecuteScalar();
 
-            string istek = "insert into arda.Questions(Title, Detail, Username, Date, Answers, Views, UserID) values (@Title, @Detail, @Username, @Date, @Answers, @Views, @UserID)";
+            string istek = "insert into dbo.Questions(Title, Detail, Username, Date, Answers, Views, UserID, BlogPost) values (@Title, @Detail, @Username, @Date, @Answers, @Views, @UserID, @BlogPost)";
             SqlCommand cmd = new SqlCommand(istek, baglanti);
             cmd.Parameters.AddWithValue("@Title", TitleText.Text);
             cmd.Parameters.AddWithValue("@Detail", editortxt.InnerText);
@@ -324,6 +324,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@Answers", 0);
             cmd.Parameters.AddWithValue("@Views", 0);
             cmd.Parameters.AddWithValue("@UserID", username);
+            cmd.Parameters.AddWithValue("@BlogPost", "f");
             cmd.ExecuteNonQuery();
             if (baglanti.State.ToString() == "Open")
             {
@@ -373,7 +374,7 @@ public partial class Topluluk_Forum_Forum : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@Answer", editortxt2.InnerText);
             cmd.ExecuteNonQuery();
 
-            SqlCommand cmd2 = new SqlCommand("update arda.Questions set Answers+=1 where ID='" + ID + "'", baglanti);
+            SqlCommand cmd2 = new SqlCommand("update dbo.Questions set Answers+=1 where ID='" + ID + "'", baglanti);
             cmd2.ExecuteNonQuery();
             if (baglanti.State.ToString() == "Open")
             {
