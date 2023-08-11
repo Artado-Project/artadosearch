@@ -1,0 +1,368 @@
+﻿body {
+}
+
+.dino {
+    width: 150px;
+    height: auto;
+}
+
+@media screen and (min-width: 600px) {
+    .middle {
+        text-align: center;
+        display: table;
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .searchbar {
+        margin-top: 50px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        width: 100vw;
+        z-index: 99;
+        margin-left: auto;
+        margin-top: 0px;
+    }
+    
+    .classic_tabs {
+        width: 90%;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: nowrap;
+        margin-top: 80px;
+        margin-bottom: 15px;
+    }
+        .classic_tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+    .left_tabs {
+        width: 50px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: 30px;
+        position: fixed;
+        z-index: 99;
+        top: 50%;
+        transform: translate(0, -50%);
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+        border: 1px solid #bdbdbd;
+        white-space: nowrap;
+    }
+        .left_tabs::-webkit-scrollbar {
+            display: none;
+        }    
+
+    .left_tabs .tab{
+        margin-bottom: 5px !important;
+    }
+
+    .bottom_tabs {
+        max-width: 40vw;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        padding: 10px 10px 10px 0px;
+        border-radius: 10px;
+        border: 1px solid #bdbdbd;
+        white-space: nowrap;
+        position: fixed;
+        z-index: 99;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+        .bottom_tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+    .right_tabs {
+        width: 50px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        position: fixed;
+        z-index: 99;
+        right: 30px;
+        top: 50%;
+        transform: translate(0, -50%);
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+        border: 1px solid #bdbdbd;
+        white-space: nowrap;
+    }
+        .right_tabs::-webkit-scrollbar {
+            display: none;
+        }    
+    
+        .right_tabs .tab{
+            margin-bottom: 5px !important;
+        }        
+
+    .tab {
+        height: 32px;
+        margin-right: 30px;
+        padding: 5px 5px 5px 5px;
+    }
+
+        .tab:focus {
+            outline: none;
+        }
+        .tab:hover {
+            border-bottom: 1px;
+        }
+
+    .r_div {
+        padding: 3px 10px 3px 10px;
+        max-width: 200px;
+        min-width: 50px;
+        border: solid 1px #2f2f30;
+        background: transparent;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-right: 10px;
+        font-size: small;
+        display: inline;
+    }
+
+        .r_div:hover {
+            background-color: white;
+            color: black
+        }
+
+        .r_div:focus {
+            background-color: white;
+            color: black
+        }
+
+    #web_results {
+        text-align: left !important;
+        margin-left: 100px;
+    }
+
+    .infoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+    }
+
+    .info {
+        max-width: 500px;
+        background-color: transparent !important;
+        float: right;
+        margin-right: 40px;
+        padding: 10px 10px 10px 10px;
+        border: 1px solid #bdbdbd;
+        border-radius: 10px;
+        text-align: left;
+        line-height: 20px
+    }
+
+        .info::-webkit-scrollbar {
+            display: none;
+        }
+
+    .att {
+        max-width: 600px;
+        background-color: #FFB72B;
+        padding: 5px 10px 10px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .middle {
+        text-align: center;
+        display: table;
+        width: 100%;
+    }
+
+    .searchbar {
+        margin-top: 50px;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 80px;
+        z-index: 99;
+        width: 90% !important;
+        margin-left: auto;
+        margin-top: 0px;
+    }
+
+    .classic_tabs {
+        width: 90vw;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: nowrap;
+        margin-top: 150px;
+    }
+        .classic_tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+    #classic_tabs{
+        margin-bottom: 20px
+    }
+
+    .left_tabs {
+        display: none;
+    }
+        .left_tabs::-webkit-scrollbar {
+            display: none;
+        }    
+
+    .left_tabs .tab{
+        margin-bottom: 5px !important;
+    }
+
+    .bottom_tabs {
+        max-width: 90vw;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        padding: 10px 10px 10px 0px;
+        border-radius: 10px;
+        border: 1px solid #bdbdbd;
+        white-space: nowrap;
+        position: fixed;
+        z-index: 99;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+        .bottom_tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+    .right_tabs {
+        display: none;
+    }
+        .right_tabs::-webkit-scrollbar {
+            display: none;
+        }    
+    
+        .right_tabs .tab{
+            margin-bottom: 5px !important;
+        }        
+
+    .tab {
+        height: 32px;
+        margin-right: 30px;
+        padding: 5px 5px 5px 5px;
+    }
+
+        .tab:focus {
+            outline: none;
+        }
+        .tab:hover {
+            border-bottom: 1px;
+        }
+
+    .r_div {
+        padding: 3px 10px 3px 10px;
+        max-width: 200px;
+        min-width: 50px;
+        border: solid 1px #2f2f30;
+        background: transparent;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-right: 10px;
+        font-size: small;
+        display: inline;
+    }
+
+        .r_div:hover {
+            background-color: white;
+            color: black
+        }
+
+        .r_div:focus {
+            background-color: white;
+            color: black
+        }
+
+    #web_results {
+        text-align: left !important;
+    }
+
+    .infoimage {
+        float: right;
+        max-width: 120px;
+        max-height: 150px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+    }
+
+    .info {
+        max-width: 90vw;
+        background-color: transparent !important;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 10px 10px 10px 10px;
+        border: 1px solid #bdbdbd;
+        border-radius: 10px;
+        text-align: left;
+        line-height: 20px;
+        margin-bottom: 10px
+    }
+
+        .info::-webkit-scrollbar {
+            display: none;
+        }
+
+    .att {
+        max-width: 90vw;
+        background-color: #FFB72B;
+        padding: 5px 10px 10px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tabs {
+        max-width: 90vw;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: scroll;
+        overflow-y: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: nowrap
+    }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+}

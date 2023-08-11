@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPanel demo</title>
+
+    <script src="/node_modules/feather-icons/dist/feather.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/theme-gray-100.css" />
+
+    <link rel="stylesheet" href="/components/mainpanel/mainpanel.css" />
+
+    <link rel="stylesheet" href="/components/accordion/accordion.css" />
+    <script src="/components/accordion/accordion.js" defer></script>
+  </head>
+  <body>
+    <div class="mainpanel-container">
+      <aside>
+        <button class="sidebar-item active">Test</button>
+        <div class="accordion-container sidebar">
+          <button class="headerbar">
+            <span class="title">Test</span>
+            <i class="icon" data-feather="chevron-down"></i>
+          </button>
+          <div class="content">
+            Lorem.
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

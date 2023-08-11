@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="About" xml:space="preserve">
+    <value>Σχετικά</value>
+</data>
+	<data name="AboutSearch" xml:space="preserve">
+    <value>Σχετικά με την Αναζήτηση Artado</value>
+</data>
+	<data name="Academic" xml:space="preserve">
+    <value>Ακαδημαϊκό</value>
+</data>
+	<data name="Apply" xml:space="preserve">
+    <value>Εφαρμογή</value>
+</data>
+	<data name="Attention" xml:space="preserve">
+    <value>Αυτή η σελίδα δεν έχει μεταφραστεί σε όλες τις γλώσσες.</value>
+</data>
+	<data name="Azer" xml:space="preserve">
+    <value>Αζερμπαϊτζανικά</value>
+</data>
+	<data name="Background" xml:space="preserve">
+    <value>Ταπετσαρία</value>
+</data>
+	<data name="Back_exp" xml:space="preserve">
+    <value>Μπορείτε να βάλετε οποιαδήποτε εικόνα θέλετε στο υπόβαθρο. Μπορείτε να επαναφέρετε το υπόβαθρο αφήνοντάς το κενό.</value>
+</data>
+	<data name="Basics" xml:space="preserve">
+    <value>Βασικές Ρυθμίσεις</value>
+</data>
+	<data name="Beta" xml:space="preserve">
+    <value>Αυτή η λειτουργία δεν είναι διαθέσιμη αυτή τη στιγμή καθώς το Artado Search βρίσκεται ακόμα σε φάση δοκιμής.</value>
+</data>
+	<data name="Blog" xml:space="preserve">
+    <value>Ιστολόγιο</value>
+</data>
+	<data name="Bosnian" xml:space="preserve">
+    <value>Βοσνιακά</value>
+</data>
+	<data name="Bottom" xml:space="preserve">
+    <value>Κάτω</value>
+</data>
+	<data name="Bulgarian" xml:space="preserve">
+    <value>Βουλγαρικά</value>
+</data>
+	<data name="B_4" xml:space="preserve">
+    <value>Εισάγετε τον σύνδεσμο της εικόνας που θέλετε να τοποθετήσετε στο υπόβαθρο.</value>
+</data>
+	<data name="Categories" xml:space="preserve">
+    <value>Κατηγορίες</value>
+</data>
+	<data name="Cat_exp" xml:space="preserve">
+    <value>Μπορείτε να αλλάξετε την τοποθεσία των κατηγοριών αναζήτησης.</value>
+</data>
+	<data name="Chinese" xml:space="preserve">
+    <value>Κινεζικά</value>
+</data>
+	<data name="Classic" xml:space="preserve">
+    <value>Κλασικό</value>
+</data>
+	<data name="Colorful" xml:space="preserve">
+    <value>Πολύχρωμο</value>
+</data>
+	<data name="Contact" xml:space="preserve">
+    <value>Επικοινωνία</value>
+</data>
+	<data name="Cookies1" xml:space="preserve">
+    <value>Κουλούρια</value>
+</data>
+	<data name="Create_Profile" xml:space="preserve">
+    <value>Δημιουργία Προφίλ</value>
+</data>
+	<data name="Custom" xml:space="preserve">
+    <value>Προσαρμοσμένο</value>
+</data>
+	<data name="CustomCSS" xml:space="preserve">
+    <value>Προσαρμοσμένο CSS</value>
+</data>
+	<data name="CustomCSS_exp" xml:space="preserve">
+    <value>Μπορείτε να προσαρμόσετε και να δημιουργήσετε το δικό σας θέμα για το Artado γράφοντας κώδικα CSS.</value>
+</data>
+	<data name="CustomExt_exp" xml:space="preserve">
+    <value>Μπορείτε να διαχειριστείτε τις επεκτάσεις που χρησιμοποιείτε εδώ. Μπορείτε επίσης να βρείτε περισσότερες επεκτάσεις από το Artado Store.</value>
+</data>
+	<data name="Customization" xml:space="preserve">
+    <value>Προσαρμογή</value>
+</data>
+	<data name="CustomJS" xml:space="preserve">
+    <value>Προσαρμοσμένη Επέκταση</value>
+</data>
+	<data name="CustomJS_exp" xml:space="preserve">
+    <value>Μπορείτε να προσαρμόσετε και να δημιουργήσετε τη δική σας επέκταση για το Artado γράφοντας κώδικα Javascript.</value>
+</data>
+	<data name="CustomThemes" xml:space="preserve">
+    <value>Προσαρμοσμένα Θέματα</value>
+</data>
+	<data name="CustomTheme_exp" xml:space="preserve">
+    <value>Μπορείτε να διαχειριστείτε τα θέματα που χρησιμοποιείτε εδώ. Επίσης, μπορείτε να βρείτε περισσότερα θέματα στο Artado Store.</value>
+</data>
+	<data name="Default" xml:space="preserve">
+    <value>Προεπιλογή</value>
+</data>
+	<data name="Default2" xml:space="preserve">
+    <value>Προεπιλεγμένες Ρυθμίσεις</value>
+</data>
+	<data name="Default3" xml:space="preserve">
+    <value>Επιστροφή στις προεπιλεγμένες ρυθμίσεις.</value>
+</data>
+	<data name="Donate" xml:space="preserve">
+    <value>Δωρεά</value>
+</data>
+	<data name="Down" xml:space="preserve">
+    <value>Λυπούμαστε! Βιώνουμε αυτήν τη στιγμή ένα πρόβλημα. Το Artado θα είναι και πάλι ενεργό σύντομα.</value>
+</data>
+	<data name="English" xml:space="preserve">
+    <value>Αγγλικά</value>
+</data>
+	<data name="EnterName" xml:space="preserve">
+    <value>Παρακαλούμε εισαγάγετε ένα όνομα προφίλ</value>
+</data>
+	<data name="Extensions" xml:space="preserve">
+    <value>Επεκτάσεις</value>
+</data>
+	<data name="Film" xml:space="preserve">
+    <value>Ταινία</value>
+</data>
+	<data name="Forum" xml:space="preserve">
+    <value>Φόρουμ</value>
+</data>
+	<data name="French" xml:space="preserve">
+    <value>Γαλλικά</value>
+</data>
+	<data name="German" xml:space="preserve">
+    <value>Γερμανικά</value>
+</data>
+	<data name="GoStore" xml:space="preserve">
+    <value>Πήγαινε στο Κατάστημα</value>
+</data>
+	<data name="Home_Custom" xml:space="preserve">
+    <value>Μπορείτε να βρείτε νέα θέματα, εφαρμογές και παιχνίδια από το κατάστημα.</value>
+</data>
+	<data name="Home_Privacy" xml:space="preserve">
+    <value>Το Artado δεν συλλέγει καμία από τις προσωπικές σας πληροφορίες. Το Artado προστατεύει την ιδιωτικότητά σας όσο το δυνατόν περισσότερο.</value>
+</data>
+	<data name="Home_Projects" xml:space="preserve">
+    <value>Μπορείτε να βρείτε πολλά ακόμα από τα έργα μας, όπως προγράμματα περιήγησης και κατάστημα, εδώ.</value>
+</data>
+	<data name="Hungarian" xml:space="preserve">
+    <value>Ουγγρικά</value>
+</data>
+	<data name="Image" xml:space="preserve">
+    <value>Εικόνες</value>
+</data>
+	<data name="Info" xml:space="preserve">
+    <value>Πληροφορίες</value>
+</data>
+	<data name="IT" xml:space="preserve">
+    <value>Πληροφορική</value>
+</data>
+	<data name="Italian" xml:space="preserve">
+    <value>Ιταλικά</value>
+</data>
+	<data name="Japanese" xml:space="preserve">
+    <value>Ιαπωνικά</value>
+</data>
+	<data name="Kazakh" xml:space="preserve">
+    <value>Καζακικά</value>
+</data>
+	<data name="Korean" xml:space="preserve">
+    <value>Κορεατικά</value>
+</data>
+	<data name="Kyrgyz" xml:space="preserve">
+    <value>Κιργιζικά</value>
+</data>
+	<data name="Lang" xml:space="preserve">
+    <value>Γλώσσες</value>
+</data>
+	<data name="Lang_exp" xml:space="preserve">
+    <value>Αλλάξτε τη γλώσσα που χρησιμοποιείτε στην Αναζήτηση Artado.</value>
+</data>
+	<data name="Left" xml:space="preserve">
+    <value>Αριστερά</value>
+</data>
+	<data name="Logo" xml:space="preserve">
+    <value>Λογότυπο</value>
+</data>
+	<data name="Logo_exp" xml:space="preserve">
+    <value>Μπορείτε να αλλάξετε το λογότυπο της Αναζήτησης Artado όπως επιθυμείτε. Περισσότερα λογότυπα μπορούν να βρεθούν στο κατάστημα.</value>
+</data>
+	<data name="Macedonian" xml:space="preserve">
+    <value>Μακεδονικά</value>
+</data>
+	<data name="Manifest" xml:space="preserve">
+    <value>Μανιφέστο</value>
+</data>
+	<data name="Manifesto1" xml:space="preserve">
+    <value>Μανιφέστο Artado</value>
+</data>
+	<data name="Manifesto2" xml:space="preserve">
+    <value>Υποστηρίζουμε ένα διαδίκτυο όπου όλοι μπορούν να ανταλλάσσουν ελεύθερα πληροφορίες, να σεβαστούν τα προσωπικά δεδομένα και να εκφράσουν ιδέες χωρίς καμία λογοκρισία.</value>
+</data>
+	<data name="Menu" xml:space="preserve">
+    <value>Μενού</value>
+</data>
+	<data name="News" xml:space="preserve">
+    <value>Νέα</value>
+</data>
+	<data name="Night" xml:space="preserve">
+    <value>Νύχτα</value>
+</data>
+	<data name="Old" xml:space="preserve">
+    <value>Παλιό Λογότυπο</value>
+</data>
+	<data name="OpenSource" xml:space="preserve">
+    <value>Ανοικτού Κώδικα</value>
+</data>
+	<data name="Portuguese" xml:space="preserve">
+    <value>Πορτογαλικά</value>
+</data>
+	<data name="Pride" xml:space="preserve">
+    <value>Υπερηφάνεια</value>
+</data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Ιδιωτικότητα</value>
+</data>
+	<data name="Profiles" xml:space="preserve">
+    <value>Προφίλ</value>
+</data>
+	<data name="Profiles_exp" xml:space="preserve">
+    <value>Τα προφίλ είναι ένας τρόπος να αποθηκεύετε τις ρυθμίσεις του Artado στον νέφος. Μπορείτε να αποθηκεύσετε την προσαρμογή σας στο νέφος και να τη χρησιμοποιήσετε σε άλλη συσκευή ή να μοιραστείτε την προσαρμογή σας με τους φίλους σας. Επίσης, με την είσοδό σας στον λογαριασμό σας στο Artado, μπορείτε να συγχρονίσετε τα προφίλ σας.</value>
+</data>
+	<data name="Profile_Name" xml:space="preserve">
+    <value>Όνομα Προφίλ</value>
+</data>
+	<data name="Projects" xml:space="preserve">
+    <value>Τα Έργα μας</value>
+</data>
+	<data name="Results" xml:space="preserve">
+    <value>Αποτελέσματα</value>
+</data>
+	<data name="Right" xml:space="preserve">
+    <value>Δεξί</value>
+</data>
+	<data name="Russian" xml:space="preserve">
+    <value>Ρωσικά</value>
+</data>
+	<data name="Serbian" xml:space="preserve">
+    <value>Σερβικά</value>
+</data>
+	<data name="Settings" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+</data>
+	<data name="Sign" xml:space="preserve">
+    <value>Είσοδος</value>
+</data>
+	<data name="Slogan" xml:space="preserve">
+    <value>Εξερευνήστε το Διαδίκτυο!</value>
+</data>
+	<data name="Spanish" xml:space="preserve">
+    <value>Ισπανικά</value>
+</data>
+	<data name="Sync" xml:space="preserve">
+    <value>Συγχρονισμός</value>
+</data>
+	<data name="Themes" xml:space="preserve">
+    <value>Θέματα</value>
+</data>
+	<data name="Title" xml:space="preserve">
+    <value>Τίτλος</value>
+</data>
+	<data name="Top" xml:space="preserve">
+    <value>Κορυφή</value>
+</data>
+	<data name="Turkish" xml:space="preserve">
+    <value>Τουρκικά</value>
+</data>
+	<data name="Ukrainian" xml:space="preserve">
+    <value>Ουκρανικά</value>
+</data>
+	<data name="Uzbek" xml:space="preserve">
+    <value>Ουζμπεκικά</value>
+</data>
+	<data name="Video" xml:space="preserve">
+    <value>Βίντεο</value>
+</data>
+	<data name="Vietnamese" xml:space="preserve">
+    <value>Βιετναμικά</value>
+</data>
+</root>

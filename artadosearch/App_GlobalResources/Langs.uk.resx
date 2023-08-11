@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="About" xml:space="preserve">
+    <value>Про нас</value>
+</data>
+	<data name="AboutSearch" xml:space="preserve">
+    <value>Про Artado Search</value>
+</data>
+	<data name="Academic" xml:space="preserve">
+    <value>Академічний</value>
+</data>
+	<data name="Apply" xml:space="preserve">
+    <value>Застосувати</value>
+</data>
+	<data name="Attention" xml:space="preserve">
+    <value>Ця сторінка ще не перекладена на всі мови.</value>
+</data>
+	<data name="Azer" xml:space="preserve">
+    <value>Азербайджанська</value>
+</data>
+	<data name="Background" xml:space="preserve">
+    <value>Зображення на фон</value>
+</data>
+	<data name="Back_exp" xml:space="preserve">
+    <value>Ви можете встановити будь-яке зображення на фон, яке ви хочете. Ви можете скинути фон, залишивши його порожнім.</value>
+</data>
+	<data name="Basics" xml:space="preserve">
+    <value>Основні налаштування</value>
+</data>
+	<data name="Beta" xml:space="preserve">
+    <value>Ця функція в даний час недоступна, оскільки Artado Search все ще знаходиться в бета-версії.</value>
+</data>
+	<data name="Blog" xml:space="preserve">
+    <value>Блог</value>
+</data>
+	<data name="Bosnian" xml:space="preserve">
+    <value>Боснійська</value>
+</data>
+	<data name="Bottom" xml:space="preserve">
+    <value>Низ</value>
+</data>
+	<data name="Bulgarian" xml:space="preserve">
+    <value>Болгарська</value>
+</data>
+	<data name="B_4" xml:space="preserve">
+    <value>Введіть посилання на зображення, яке ви хочете встановити на фон.</value>
+</data>
+	<data name="Categories" xml:space="preserve">
+    <value>Категорії</value>
+</data>
+	<data name="Cat_exp" xml:space="preserve">
+    <value>Ви можете змінити розташування категорій пошуку.</value>
+</data>
+	<data name="Chinese" xml:space="preserve">
+    <value>Китайська</value>
+</data>
+	<data name="Classic" xml:space="preserve">
+    <value>Класичний</value>
+</data>
+	<data name="Colorful" xml:space="preserve">
+    <value>Кольоровий</value>
+</data>
+	<data name="Contact" xml:space="preserve">
+    <value>Контакт</value>
+</data>
+	<data name="Cookies1" xml:space="preserve">
+    <value>Куки</value>
+</data>
+	<data name="Create_Profile" xml:space="preserve">
+    <value>Створити профіль</value>
+</data>
+	<data name="Custom" xml:space="preserve">
+    <value>Власне</value>
+</data>
+	<data name="CustomCSS" xml:space="preserve">
+    <value>Власний CSS</value>
+</data>
+	<data name="CustomCSS_exp" xml:space="preserve">
+    <value>Ви можете налаштувати і створити свою власну тему для Artado, використовуючи CSS код.</value>
+</data>
+	<data name="CustomExt_exp" xml:space="preserve">
+    <value>Тут ви можете керувати використанням розширень. Ви також можете знайти більше розширень у Artado Store.</value>
+</data>
+	<data name="Customization" xml:space="preserve">
+    <value>Налаштування</value>
+</data>
+	<data name="CustomJS" xml:space="preserve">
+    <value>Власне розширення</value>
+</data>
+	<data name="CustomJS_exp" xml:space="preserve">
+    <value>Ви можете налаштувати і створити своє власне розширення для Artado, використовуючи JavaScript код.</value>
+</data>
+	<data name="CustomThemes" xml:space="preserve">
+    <value>Власні теми</value>
+</data>
+	<data name="CustomTheme_exp" xml:space="preserve">
+    <value>Тут ви можете керувати використанням тем, які ви використовуєте. Також ви можете знайти більше тем у Artado Store.</value>
+</data>
+	<data name="Default" xml:space="preserve">
+    <value>За замовчуванням</value>
+</data>
+	<data name="Default2" xml:space="preserve">
+    <value>Налаштування за замовчуванням</value>
+</data>
+	<data name="Default3" xml:space="preserve">
+    <value>Повернутися до налаштувань за замовчуванням.</value>
+</data>
+	<data name="Donate" xml:space="preserve">
+    <value>Пожертвувати</value>
+</data>
+	<data name="Down" xml:space="preserve">
+    <value>Вибачте! Наразі виникла проблема. Artado скоро буде активний знову.</value>
+</data>
+	<data name="English" xml:space="preserve">
+    <value>Англійська</value>
+</data>
+	<data name="EnterName" xml:space="preserve">
+    <value>Будь ласка, введіть ім'я профілю</value>
+</data>
+	<data name="Extensions" xml:space="preserve">
+    <value>Розширення</value>
+</data>
+	<data name="Film" xml:space="preserve">
+    <value>Фільм</value>
+</data>
+	<data name="Forum" xml:space="preserve">
+    <value>Форум</value>
+</data>
+	<data name="French" xml:space="preserve">
+    <value>Французька</value>
+</data>
+	<data name="German" xml:space="preserve">
+    <value>Німецька</value>
+</data>
+	<data name="GoStore" xml:space="preserve">
+    <value>Перейти до магазину</value>
+</data>
+	<data name="Home_Custom" xml:space="preserve">
+    <value>Ви можете знайти нові теми, програми та ігри в магазині.</value>
+</data>
+	<data name="Home_Privacy" xml:space="preserve">
+    <value>Artado не збирає жодних особистих даних. Artado захищає вашу конфіденційність наскільки це можливо.</value>
+</data>
+	<data name="Home_Projects" xml:space="preserve">
+    <value>Ви можете знайти багато інших наших проектів, таких як браузери та магазин, тут.</value>
+</data>
+	<data name="Hungarian" xml:space="preserve">
+    <value>Угорська</value>
+</data>
+	<data name="Image" xml:space="preserve">
+    <value>Зображення</value>
+</data>
+	<data name="Info" xml:space="preserve">
+    <value>Інформація</value>
+</data>
+	<data name="IT" xml:space="preserve">
+    <value>ІТ</value>
+</data>
+	<data name="Italian" xml:space="preserve">
+    <value>Італійська</value>
+</data>
+	<data name="Japanese" xml:space="preserve">
+    <value>Японська</value>
+</data>
+	<data name="Kazakh" xml:space="preserve">
+    <value>Казахська</value>
+</data>
+	<data name="Korean" xml:space="preserve">
+    <value>Корейська</value>
+</data>
+	<data name="Kyrgyz" xml:space="preserve">
+    <value>Киргизька</value>
+</data>
+	<data name="Lang" xml:space="preserve">
+    <value>Мови</value>
+</data>
+	<data name="Lang_exp" xml:space="preserve">
+    <value>Змініть мову, яку ви використовуєте для пошуку в Artado.</value>
+</data>
+	<data name="Left" xml:space="preserve">
+    <value>Ліворуч</value>
+</data>
+	<data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+</data>
+	<data name="Logo_exp" xml:space="preserve">
+    <value>Ви можете змінити логотип Artado Search за вашим бажанням. Більше логотипів можна знайти в магазині.</value>
+</data>
+	<data name="Macedonian" xml:space="preserve">
+    <value>Македонська</value>
+</data>
+	<data name="Manifest" xml:space="preserve">
+    <value>Маніфест</value>
+</data>
+	<data name="Manifesto1" xml:space="preserve">
+    <value>Маніфест Artado</value>
+</data>
+	<data name="Manifesto2" xml:space="preserve">
+    <value>Ми підтримуємо Інтернет, де кожен може вільно обмінюватися інформацією, поважати особисті дані та висловлювати ідеї без будь-якої цензури.</value>
+</data>
+	<data name="Menu" xml:space="preserve">
+    <value>Меню</value>
+</data>
+	<data name="News" xml:space="preserve">
+    <value>Новини</value>
+</data>
+	<data name="Night" xml:space="preserve">
+    <value>Нічний</value>
+</data>
+	<data name="Old" xml:space="preserve">
+    <value>Старий логотип</value>
+</data>
+	<data name="OpenSource" xml:space="preserve">
+    <value>Відкритий код</value>
+</data>
+	<data name="Portuguese" xml:space="preserve">
+    <value>Португальська</value>
+</data>
+	<data name="Pride" xml:space="preserve">
+    <value>Гордість</value>
+</data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Конфіденційність</value>
+</data>
+	<data name="Profiles" xml:space="preserve">
+    <value>Профілі</value>
+</data>
+	<data name="Profiles_exp" xml:space="preserve">
+    <value>Профілі - це спосіб зберегти ваші конфігурації Artado у хмарі. Ви можете зберегти свою настройку у хмарі і використовувати її на іншому пристрої, або поділитися настройкою з друзями. Також, увійшовши до облікового запису Artado, ви можете синхронізувати свої профілі.</value>
+</data>
+	<data name="Profile_Name" xml:space="preserve">
+    <value>Ім'я профілю</value>
+</data>
+	<data name="Projects" xml:space="preserve">
+    <value>Наші Проекти</value>
+</data>
+	<data name="Results" xml:space="preserve">
+    <value>Результати</value>
+</data>
+	<data name="Right" xml:space="preserve">
+    <value>Праворуч</value>
+</data>
+	<data name="Russian" xml:space="preserve">
+    <value>Російська</value>
+</data>
+	<data name="Serbian" xml:space="preserve">
+    <value>Сербська</value>
+</data>
+	<data name="Settings" xml:space="preserve">
+    <value>Налаштування</value>
+</data>
+	<data name="Sign" xml:space="preserve">
+    <value>Увійти</value>
+</data>
+	<data name="Slogan" xml:space="preserve">
+    <value>Досліджуйте Інтернет!</value>
+</data>
+	<data name="Spanish" xml:space="preserve">
+    <value>Іспанська</value>
+</data>
+	<data name="Sync" xml:space="preserve">
+    <value>Синхронізувати з вашим обліковим записом Artado</value>
+</data>
+	<data name="Themes" xml:space="preserve">
+    <value>Теми</value>
+</data>
+	<data name="Theme_exp" xml:space="preserve">
+    <value>Ви можете знайти більше тем у магазині Artado.</value>
+</data>
+	<data name="Top" xml:space="preserve">
+    <value>Верх</value>
+</data>
+	<data name="Turkish" xml:space="preserve">
+    <value>Турецька</value>
+</data>
+	<data name="Turkmen" xml:space="preserve">
+    <value>Туркменська</value>
+</data>
+	<data name="Ukrainian" xml:space="preserve">
+    <value>Українська</value>
+</data>
+	<data name="Uzbek" xml:space="preserve">
+    <value>Узбецька</value>
+</data>
+	<data name="Video" xml:space="preserve">
+    <value>Відео</value>
+</data>
+</root>

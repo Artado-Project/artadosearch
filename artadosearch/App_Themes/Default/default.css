@@ -1,0 +1,18 @@
+@import url('/styles/global.css');
+
+body, .gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet, .gs-fileFormatType {
+    color: #000 !important;
+}
+
+.tab {
+    color: #6c6c6c !important
+}
+    .tab:hover {
+        color: #2f2f30 !important;
+        border-color: #2f2f30;
+    }
+
+.card, .card a, .searchbar, .bottom_tabs, .left_tabs, .right_tabs {
+    background-color: #ffffff !important;
+    color: #2f2f30 !important;
+}

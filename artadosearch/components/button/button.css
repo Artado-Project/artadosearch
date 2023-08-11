@@ -1,0 +1,20 @@
+.button {
+  display: flex;
+  padding: var(--spcaing-05);
+  background: var(--button-primary);
+  color: var(--text-on-color);
+  border: none;
+}
+
+.button:hover {
+  background: var(--button-primary-hover);
+  cursor: pointer;
+}
+
+.button:active {
+  background: var(--button-primary-active);
+}
+
+.button:focus {
+  box-shadow: inset 0px 0px 0px 2px var(--focus);
+}

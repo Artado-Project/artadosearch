@@ -1,0 +1,574 @@
+﻿
+@media screen and (min-width: 600px) {
+    .products {
+        margin-left: 20vw;
+        padding: 10px 10px 10px 10px;
+        margin-top: 30px;
+    }
+
+    .product_row {
+        height: 300px;
+        width: 200px;
+        margin-left: 20px;
+        margin-right: auto;
+        margin-top: 10px;
+        border: 1px solid #bdbdbd;
+        border-radius: 10px;
+        overflow: hidden
+    }
+
+        .product_row:hover .product_logo {
+            transform: scale(0.9);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+
+    .pro_link {
+        text-decoration: none !important;
+        display: block !important;
+        width: 200px;
+        float: left;
+        margin-left: 20px;
+    }
+
+        .pro_link:hover {
+            color: #9147ff !important;
+        }
+
+    .product_logo {
+        width: 100%;
+        height: 150px;
+        float: left;
+        margin-right: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transition: transform .2s;
+    }
+
+    .row_info {
+        padding: 10px 10px 10px 10px;
+        text-align: center;
+    }
+
+        .row_info span {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 150px;
+            max-height: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    .gamepage {
+        width: 60%;
+        float: left;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid #808080;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+        .gamepage::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gamepage a {
+            color: white;
+            text-decoration: none;
+        }
+
+            .gamepage a:hover {
+                color: #9147ff;
+                border-color: #9147ff !important;
+            }
+
+    .game_info {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .game_info a:hover {
+            color: #9147ff;
+            border-color: #9147ff !important;
+        }
+
+    .gamelogo {
+        width: 200px;
+        height: 200px;
+        float: left;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .url {
+    }
+
+        .url:hover {
+            color: #9147ff;
+            border-color: #9147ff !important;
+        }
+
+    .desc {
+        float: left;
+        margin-left: 20px;
+        margin-top: 20px;
+        max-height: 50%;
+        margin-bottom: 20px;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+        .desc::-webkit-scrollbar {
+            display: none;
+        }
+
+    .getbutton {
+        height: 50px;
+        padding: 10px 10px 10px 10px;
+        background-color: #9147ff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        color: white;
+        float: right;
+        margin-right: 30px;
+    }
+
+    .ism-slider {
+        margin-top: 80px !important;
+        margin-bottom: 80px !important;
+        height: 450px !important;
+    }
+
+    .textbox {
+        width: 80%;
+        min-height: 30px;
+        border-radius: 10px;
+        border: 1px solid white;
+        padding: 10px 10px 10px 10px;
+        background: transparent;
+        color: white;
+        margin-top: 20px
+    }
+
+    .dlist {
+        background-color: #1C1C1C;
+        padding: 5px 5px 5px 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white
+    }
+
+    input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-upload-button {
+        background-color: #303030;
+        border: none;
+        border-right: 1px solid #444444;
+        color: #BCBCBC;
+    }
+
+    .tip {
+        background-color: #F9FFA4;
+        padding: 10px 10px 15px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black
+    }
+
+    .att {
+        background-color: #FFB72B;
+        padding: 10px 10px 10px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black;
+    }
+
+    .danger {
+        background-color: #F24C4C;
+        padding: 10px 10px 15px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: white
+    }
+
+    .product_page{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 20px 20px 20px 20px;
+        text-align: left
+    }
+
+    .product_img{
+        float: left;
+        width: 150px;
+        height: 150px;
+        margin-right: 50px
+    }
+
+    .p_name{
+        float: left;
+        font-size: x-large;
+    }
+
+    .p_dev {
+        float: left;
+    }
+
+    .use {
+        float: right;
+        margin-right: 100px;
+        height: 35px;
+        width: 100px;
+        background-color: #5F5F87 !important;
+        color: white !important;
+        padding: 10px 10px 10px 10px !important
+    }
+
+    .slider {
+        width: 100%;
+        height: 510px;
+        position: relative;
+        margin-top: 100px
+    }
+
+        .slider img {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+            .slider img:first-child {
+                z-index: 1;
+            }
+
+            .slider img:nth-child(2) {
+                z-index: 0;
+            }
+
+    .navigation-button {
+        text-align: center;
+        position: relative;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+}
+
+
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+    .products {
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px 10px 10px 10px;
+        margin-top: 30px;
+        overflow: scroll;
+    }
+
+    .product_row {
+        height: 300px;
+        width: 40vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        border: 1px solid #bdbdbd;
+        border-radius: 10px;
+        overflow: hidden
+    }
+
+        .product_row:hover .product_logo {
+            transform: scale(0.9);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+
+    .pro_link {
+        text-decoration: none !important;
+        display: block !important;
+        width: 40vw;
+        float: left;
+        margin-left: 20px;
+    }
+
+        .pro_link:hover {
+            color: #9147ff !important;
+        }
+
+    .product_logo {
+        width: 100%;
+        height: 150px;
+        float: left;
+        margin-right: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transition: transform .2s;
+    }
+
+    .row_info {
+        padding: 10px 10px 10px 10px;
+        text-align: center;
+    }
+
+        .row_info span {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 150px;
+            max-height: 20vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    .gamepage {
+        width: 60%;
+        float: left;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid #808080;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+        .gamepage::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gamepage a {
+            color: white;
+            text-decoration: none;
+        }
+
+            .gamepage a:hover {
+                color: #9147ff;
+                border-color: #9147ff !important;
+            }
+
+    .game_info {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .game_info a:hover {
+            color: #9147ff;
+            border-color: #9147ff !important;
+        }
+
+    .gamelogo {
+        width: 200px;
+        height: 200px;
+        float: left;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .url {
+    }
+
+        .url:hover {
+            color: #9147ff;
+            border-color: #9147ff !important;
+        }
+
+    .desc {
+        float: left;
+        margin-left: 20px;
+        margin-top: 20px;
+        max-height: 50%;
+        margin-bottom: 20px;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+        .desc::-webkit-scrollbar {
+            display: none;
+        }
+
+    .getbutton {
+        height: 50px;
+        padding: 10px 10px 10px 10px;
+        background-color: #9147ff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        color: white;
+        float: right;
+        margin-right: 30px;
+    }
+
+    .ism-slider {
+        margin-top: 80px !important;
+        margin-bottom: 80px !important;
+        height: 450px !important;
+    }
+
+    .textbox {
+        width: 80%;
+        min-height: 30px;
+        border-radius: 10px;
+        border: 1px solid white;
+        padding: 10px 10px 10px 10px;
+        background: transparent;
+        color: white;
+        margin-top: 20px
+    }
+
+    .dlist {
+        background-color: #1C1C1C;
+        padding: 5px 5px 5px 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white
+    }
+
+    input[type="file"]::file-selector-button, input[type="file"]::-webkit-file-upload-button {
+        background-color: #303030;
+        border: none;
+        border-right: 1px solid #444444;
+        color: #BCBCBC;
+    }
+
+    .tip {
+        background-color: #F9FFA4;
+        padding: 10px 10px 15px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black
+    }
+
+    .att {
+        background-color: #FFB72B;
+        padding: 10px 10px 10px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: black;
+    }
+
+    .danger {
+        background-color: #F24C4C;
+        padding: 10px 10px 15px 10px;
+        min-width: 100px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: white
+    }
+
+    .product_page {
+        width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 20px 20px 20px 20px;
+        text-align: center
+    }
+
+    .product_page br {
+        display: none
+    }
+
+    .product_img {
+        width: 150px;
+        height: 150px;
+        margin-right: auto;
+        margin-left:auto
+    }
+
+    .p_name {
+        font-size: x-large;
+        display: block !important;
+    }
+
+    .p_dev {
+        margin-top: 20px;
+        display: block !important
+    }
+
+    .use {
+        height: 35px;
+        width: 100px;
+        background-color: #5F5F87 !important;
+        color: white !important;
+        padding: 10px 10px 10px 10px !important
+    }
+
+    .slider {
+        width: 100%;
+        height: 510px;
+        position: relative;
+        margin-top: 100px
+    }
+
+        .slider img {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+            .slider img:first-child {
+                z-index: 1;
+            }
+
+            .slider img:nth-child(2) {
+                z-index: 0;
+            }
+
+    .navigation-button {
+        text-align: center;
+        position: relative;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+}

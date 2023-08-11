@@ -1,0 +1,52 @@
+﻿+TO-DO LIST
+
+If you any ideas you can add them and send as pull request.
+
++ : Done
+- : In Progress
+x : Haven't started
+
++ Default Design [+]
++ Default Themes [+]
+  - Classic [+]
+  - Night [+]
++ Search Page Design [+]
++ Responsive Design [+]
++ Settings Page Design [+]
++ Basic Search Funciton [-]
+  - Google Results [+]
+  - Artado Results [-]
+  - Bing Results [+]
+  - Yahoo! Results [+]
+  - Petal Results [x] (Petal is closed)
+  - Google(Image) Results [+]
+  - Youtube Results [-]
+  - Bing(News) Results [+]
+  - Reddit Results [x] (After the last API update, probably not gonna happen)
+  - Twitter Results (Maybe) [x] (Dame with Reddit)
+  - TMDB Results (Maybe) [x]
+  - Github Results [x] (Github changed its interface thats why Github results are not working.
+ 			Maybe we can handle it with the API.)
+  - StackOverflow Results (If there is an API for that we might use that because otherwise it won't work. 
+			   If there is not a API for that, we might use ArtadoBot) [x]
+  - BASE Results [x] (It was working but it's not working apperantly)
+  - Google Scholar Results [+]
+  - RefSeek Results [x]
+  - Add Your Own Results Source [x]
++ Widgets, etc.
+  - Info Boxes from Wikipedia [+]
+  - Dict Results from Dictionary.com [x]
+  - Currency Widget from TradingView [x]
+  - Weather Widget from weatherwidget.io [x]
+  - Movie Widget from TMDB [x]
+  - Music Widget (with lyrics) from somewhere (I haven't decide the source for that. Check the SOURCES[1, 2] files for options.) [x]
+  - Twitter Widget (Again, not certain) [x]
+  - Artado Maps and Maps Widget in search page [x]
++ Themes from Store [+]
++ Extensions 
+  - Widget Extensions [x]
+  - Script Extensions [+]
+  
++ Store [-]
+
++ ArtadoBot [-]

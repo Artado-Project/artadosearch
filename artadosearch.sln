@@ -1,29 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30104.148
+VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "artadosearch", "artadosearch\", "{166EB8D4-536C-4D0D-9758-994D2834949F}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_52941"
-		Debug.AspNetCompiler.PhysicalPath = "artadosearch\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52941\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_52941"
-		Release.AspNetCompiler.PhysicalPath = "artadosearch\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52941\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "52941"
-		SlnRelativePath = "artadosearch\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "artadosearch", "artadosearch\artadosearch.csproj", "{8DA8EEAA-A7AF-4CB5-8398-5BEFFC9D4353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{166EB8D4-536C-4D0D-9758-994D2834949F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{166EB8D4-536C-4D0D-9758-994D2834949F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{166EB8D4-536C-4D0D-9758-994D2834949F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{166EB8D4-536C-4D0D-9758-994D2834949F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8DA8EEAA-A7AF-4CB5-8398-5BEFFC9D4353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA8EEAA-A7AF-4CB5-8398-5BEFFC9D4353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA8EEAA-A7AF-4CB5-8398-5BEFFC9D4353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA8EEAA-A7AF-4CB5-8398-5BEFFC9D4353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C025B674-47C2-4F86-956A-A86D1388F042}
+		SolutionGuid = {1EF59EEF-3C57-48EE-9CC2-FEDAA4140B9A}
 	EndGlobalSection
 EndGlobal
