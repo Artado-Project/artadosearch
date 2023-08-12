@@ -41,7 +41,7 @@ Copy the Web.example.config to Web.config and fill in the database parameters.
 
 4. **Build and Launch**: Utilize your preferred development environment or the command line to build the project. Once built, start the application and access the search engine via your web browser.
 
-5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](Developer_Guide.md) for comprehensive guidelines.
+5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](Themes_and_Extensions.md) for comprehensive guidelines.
 
 ## Contributing
 
