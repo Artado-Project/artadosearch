@@ -70,7 +70,7 @@ Artado Search operates under the [AGPL v3](LICENSE) license, which mandates that
 
 ## Contact
 
-For inquiries, collaboration opportunities, or any concerns, reach out to us at [arda@artadosearch.com](mailto:arda@artadosearch.com).
+For inquiries, collaboration opportunities, or any concerns, reach out to us at [support@artadosearch.com](mailto:support@artadosearch.com).
 
 ---
 
