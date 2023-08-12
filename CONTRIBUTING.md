@@ -60,7 +60,7 @@ Connect with our community of developers and users to share insights, discuss en
 
 - [GitHub Discussions](../../discussions): Engage in open conversations.
 - [Issue Tracker](../../issues): Report issues and suggest improvements.
-- [Email](mailto:arda@artadosearch.com): Reach out with questions or feedback.
+- [Email](mailto:support@artadosearch.com): Reach out with questions or feedback.
 
 ## License
 
