@@ -24,7 +24,7 @@ The following behaviors are considered unacceptable within the Artado Search pro
 
 ## Reporting Violations
 
-If you witness or experience any behavior that violates this Code of Conduct, please report it promptly. You can report violations by contacting the project maintainers at [arda@artadosearch.com](mailto:arda@artadosearch.com). All reports will be treated confidentially and addressed appropriately.
+If you witness or experience any behavior that violates this Code of Conduct, please report it promptly. You can report violations by contacting the project maintainers at [support@artadosearch.com](mailto:support@artadosearch.com). All reports will be treated confidentially and addressed appropriately.
 
 ## Enforcement
 
