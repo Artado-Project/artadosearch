@@ -46,7 +46,7 @@ Before submitting a pull request, ensure your changes adhere to our guidelines a
 
 ## Creating Themes and Extensions
 
-Dive into our platform's extensibility by crafting themes and extensions to personalize the search experience. Visit the [Theme and Extension Documentation](Developer_Documentation.md) for comprehensive guidelines on creating and publishing your customizations.
+Dive into our platform's extensibility by crafting themes and extensions to personalize the search experience. Visit the [Theme and Extension Documentation](Themes_and_Extensions.md) for comprehensive guidelines on creating and publishing your customizations.
 
 ## Translating Artado Search
 
