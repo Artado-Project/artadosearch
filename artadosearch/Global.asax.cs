@@ -23,6 +23,7 @@ namespace artadosearch
             url.MapPageRoute("stats", "settings/stats", "~/settings.aspx");
             url.MapPageRoute("workshop", "workshop", "~/Workshop/Default.aspx");
             url.MapPageRoute("product", "workshop/{id}", "~/Workshop/ProductPage.aspx");
+            url.MapPageRoute("manifest", "manifest", "~/Manifest.aspx");
         }
         void Application_Start(object sender, EventArgs e)
         {

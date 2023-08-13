@@ -38,8 +38,8 @@ namespace artadosearch.Settings_Pages
                 foreach (string item in ext.Values)
                 {
                     string path = ext.Values[item];
-                    Page.Header.Controls.Add(
-                         new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                    bdy1.Controls.Add(
+                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                 }
             }
 
@@ -53,7 +53,7 @@ namespace artadosearch.Settings_Pages
                     {
                         if (item != null)
                         {
-                            string path = ext.Values[item];
+                            string path = HttpUtility.UrlDecode(HttpUtility.UrlDecode(HttpUtility.UrlDecode(ext.Values[item])));
 
                             int id = ArtadoSql.SelectInt("ProductID", "Versions", "Path", path, con);
                             string name = ArtadoSql.Select("Name", "Products", "ID", id.ToString(), con, "string");

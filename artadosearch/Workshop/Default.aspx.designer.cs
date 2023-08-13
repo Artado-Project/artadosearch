@@ -60,6 +60,15 @@ namespace artadosearch.Workshop
         protected global::System.Web.UI.WebControls.Label worktxt;
 
         /// <summary>
+        /// devs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label devs;
+
+        /// <summary>
         /// buttons_r control.
         /// </summary>
         /// <remarks>

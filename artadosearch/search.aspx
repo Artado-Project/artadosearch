@@ -25,7 +25,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <title></title>
 </head>
-<body>
+<body id="bdy1" runat="server">
     <form id="form1" runat="server">
         <div class="middle">
             <div class="form-control form-input searchbar">

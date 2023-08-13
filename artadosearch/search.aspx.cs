@@ -170,16 +170,19 @@ namespace artadosearch
                         pref_lang = lang;
                     }
 
-                    SqlConnection connection = new SqlConnection(con);
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-                    string istek = "insert into Searchs(preferred_lang, date, source) values (@preferred_lang, @date, @source)";
-                    SqlCommand cmd = new SqlCommand(istek, connection);
-                    cmd.Parameters.AddWithValue("@preferred_lang", pref_lang);
-                    cmd.Parameters.AddWithValue("@date", date);
-                    cmd.Parameters.AddWithValue("@source", web_source);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
+                    if(web_source != "Artado")
+                    {
+                        SqlConnection connection = new SqlConnection(con);
+                        if (connection.State == ConnectionState.Closed)
+                            connection.Open();
+                        string istek = "insert into Searchs(preferred_lang, date, source) values (@preferred_lang, @date, @source)";
+                        SqlCommand cmd = new SqlCommand(istek, connection);
+                        cmd.Parameters.AddWithValue("@preferred_lang", pref_lang);
+                        cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@source", web_source);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
                     #endregion
 
                     #region Customization
@@ -203,8 +206,8 @@ namespace artadosearch
                         foreach (string item in ext.Values)
                         {
                             string path = ext.Values[item];
-                            Page.Header.Controls.Add(
-                                 new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                            bdy1.Controls.Add(
+                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                         }
                     }
 
@@ -441,9 +444,10 @@ namespace artadosearch
             Response.Redirect("/search?i=" + searchinput.Text);
         }
 
+        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
         protected void SignIn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://myacc.artado.xyz/?name=Artado");
+            Response.Redirect("https://myacc.artado.xyz/?name=" + api);
         }
 
         #region Search Buttons

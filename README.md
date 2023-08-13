@@ -34,6 +34,7 @@ Copy the Web.example.config to Web.config and fill in the database parameters.
 	  <add name="service" connectionString="" />
    </connectionStrings>
    <appSettings>
+        <add key="api_url" value="" />
 		<add key="api_pass" value=""/>
 		<add key="enc_pass" value=""/>
 	 </appSettings>

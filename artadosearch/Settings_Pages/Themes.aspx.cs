@@ -60,9 +60,9 @@ namespace artadosearch.Settings
                     {
                         if(item != null)
                         {
-                            string path = custom.Values[item];
+                            string path = HttpUtility.UrlDecode(HttpUtility.UrlDecode(HttpUtility.UrlDecode(custom.Values[item])));
 
-                            int id = ArtadoSql.SelectInt("ProductID", "Versions", "Path", HttpUtility.UrlDecode(path), con);
+                            int id = ArtadoSql.SelectInt("ProductID", "Versions", "Path", path, con);
                             string name = ArtadoSql.Select("Name", "Products", "ID", id.ToString(), con, "string");
 
                             list.Add(name);

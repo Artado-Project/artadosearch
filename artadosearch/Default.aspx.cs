@@ -25,7 +25,8 @@ namespace artadosearch
 
         //Passwords
         string api_pass = System.Configuration.ConfigurationManager.AppSettings["api_pass"].ToString();
-        string pass = System.Configuration.ConfigurationManager.AppSettings["enc_pass"].ToString();
+        string pass = System.Configuration.ConfigurationManager.AppSettings["enc_pass"].ToString(); 
+        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -170,55 +171,11 @@ namespace artadosearch
             //Custom Themes, Extensions, Logos etc
             try
             {
-                //Custom Theme
-                HttpCookie custom = HttpContext.Current.Request.Cookies["CustomTheme"];
-                if (custom != null && custom.Value != null)
-                {
-                    foreach (string item in custom.Values)
-                    {
-                        string path = custom.Values[item];
-                        Page.Header.Controls.Add(
-                             new System.Web.UI.LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\" />"));
-                    }
-                }
-
-                //Extension
-                HttpCookie ext = HttpContext.Current.Request.Cookies["Extension"];
-                if (ext != null && ext.Value != null)
-                {
-                    foreach (string item in ext.Values)
-                    {
-                        string path = ext.Values[item];
-                        Page.Header.Controls.Add(
-                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
-                    }
-                }
-
-                //Custom Icons
-                HttpCookie icon = HttpContext.Current.Request.Cookies["CustomIcon"];
-                if (icon != null && icon.Value != null)
-                {
-                    Image1.Src = "https://devs.artado.xyz/" + icon.Value;
-                }
-
-                //Custom CSS
-                HttpCookie customcss = HttpContext.Current.Request.Cookies["CustomCSS"];
-                if (customcss != null && customcss != null)
-                {
-                    Page.Header.Controls.Add(
-                             new System.Web.UI.LiteralControl("<style>" + Server.UrlDecode(customcss.Value) + "</style>"));
-                }
-
-                ////Custom JS
-                //HttpCookie customjs = HttpContext.Current.Request.Cookies["CustomJS"];
-                //if (customjs != null && customjs != null)
-                //{
-                //    Page.Header.Controls.Add(
-                //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
-                //}
-
-                //Custom Theme Trial
+                //Custom Trial
                 string p = Request.QueryString["p"];
+
+                //Profiles
+                string profile = Request.QueryString["profile"];
 
                 if (p != null)
                 {
@@ -237,8 +194,8 @@ namespace artadosearch
                         string version = ArtadoSql.Select("WinFolder", "Products", "ID", p, con, "string");
                         string path = ArtadoSql.Select("Path", "Versions", "ID", version, con, "string");
 
-                        Page.Header.Controls.Add(
-                            new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                        bdy1.Controls.Add(
+                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                     }
                     else if(type == "Logo")
                     {
@@ -250,14 +207,7 @@ namespace artadosearch
 
                     save.Visible = true;
                 }
-                else
-                {
-                    save.Visible = false;
-                }
-
-                //Profiles
-                string profile = Request.QueryString["profile"];
-                if (profile != null)
+                else if (profile != null)
                 {
                     try
                     {
@@ -399,6 +349,56 @@ namespace artadosearch
                     {
                         Response.Write(err.Message);
                     }
+                }
+                else
+                {
+                    save.Visible = false;
+                    //Custom Theme
+                    HttpCookie custom = HttpContext.Current.Request.Cookies["CustomTheme"];
+                    if (custom != null && custom.Value != null)
+                    {
+                        foreach (string item in custom.Values)
+                        {
+                            string path = custom.Values[item];
+                            Page.Header.Controls.Add(
+                                 new System.Web.UI.LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\" />"));
+                        }
+                    }
+
+                    //Extension
+                    HttpCookie ext = HttpContext.Current.Request.Cookies["Extension"];
+                    if (ext != null && ext.Value != null)
+                    {
+                        foreach (string item in ext.Values)
+                        {
+                            string path = ext.Values[item];
+                            bdy1.Controls.Add(
+                                 new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                        }
+                    }
+
+                    //Custom Icons
+                    HttpCookie icon = HttpContext.Current.Request.Cookies["CustomIcon"];
+                    if (icon != null && icon.Value != null)
+                    {
+                        Image1.Src = "https://devs.artado.xyz/" + icon.Value;
+                    }
+
+                    //Custom CSS
+                    HttpCookie customcss = HttpContext.Current.Request.Cookies["CustomCSS"];
+                    if (customcss != null && customcss != null)
+                    {
+                        Page.Header.Controls.Add(
+                                 new System.Web.UI.LiteralControl("<style>" + Server.UrlDecode(customcss.Value) + "</style>"));
+                    }
+
+                    ////Custom JS
+                    //HttpCookie customjs = HttpContext.Current.Request.Cookies["CustomJS"];
+                    //if (customjs != null && customjs != null)
+                    //{
+                    //    Page.Header.Controls.Add(
+                    //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
+                    //}
                 }
             }
             catch
@@ -556,7 +556,7 @@ namespace artadosearch
 
         protected void SignIn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://myacc.artado.xyz/?name=Artado");
+            Response.Redirect("https://myacc.artado.xyz/?name=" + api);
         }
 
         public void CreateCookie(string name, string value)

@@ -141,7 +141,9 @@
                     <hr class="ince"/>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Settings"><asp:Label ID="Label7" style="color: #00b74a;" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br /></a><br/>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/workshop">Workshop</a><br />
+                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://forum.artado.xyz/"><asp:Label style="color: #00b74a;" ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Manifest"><asp:Label style="color: #00b74a;" ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br>
+                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://myacc.artado.xyz/privacy"><asp:Label style="color: #00b74a;" ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://github.com/Artado-Project/artadosearch">Github</a><br>
                     <hr class="ince">
                     <div class="col-md-12">
@@ -153,9 +155,9 @@
         </div>
 
         <div id="save" runat="server" class="save">
-            <asp:Label ID="savetxt" runat="server" Text="Değişiklikler kaydedilsin mi?"></asp:Label><br /><br />
-            <asp:Button id="yes" runat="server" CssClass="btn button" Text="Evet" OnClick="yes_Click"/>
-            <asp:Button id="no" runat="server" CssClass="btn btn-outline-success mb-3" style="margin-bottom: 0px !important" Text="Hayır" OnClick="no_Click"/>
+            <asp:Label ID="savetxt" runat="server" Text="Do you want to save the changes?"></asp:Label><br /><br />
+            <asp:Button id="yes" runat="server" CssClass="btn button" Text="Yes" OnClick="yes_Click"/>
+            <asp:Button id="no" runat="server" CssClass="btn btn-outline-success mb-3" style="margin-bottom: 0px !important" Text="No" OnClick="no_Click"/>
         </div>
     </form>
 </body>

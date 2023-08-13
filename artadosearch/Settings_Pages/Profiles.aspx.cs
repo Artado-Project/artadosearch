@@ -19,6 +19,7 @@ namespace artadosearch.Settings_Pages
         //Passwords
         string api_pass = System.Configuration.ConfigurationManager.AppSettings["api_pass"].ToString();
         string pass = System.Configuration.ConfigurationManager.AppSettings["enc_pass"].ToString();
+        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,8 +51,8 @@ namespace artadosearch.Settings_Pages
                 foreach (string item in ext.Values)
                 {
                     string path = ext.Values[item];
-                    Page.Header.Controls.Add(
-                         new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                    bdy1.Controls.Add(
+                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                 }
             }
 
@@ -207,7 +208,12 @@ namespace artadosearch.Settings_Pages
                 cmd.Parameters.AddWithValue("@profile_name", profilename.Value.ToString());
                 //User ID
                 if (id != null)
-                    cmd.Parameters.AddWithValue("@userid", id.Value.ToString());
+                {
+                    HttpCookie deviceid = HttpContext.Current.Request.Cookies["device"];
+                    string key = EncryptClass.Encrypt(Request.Browser.Browser + Request.UserHostAddress + deviceid.Value, pass);
+                    string pure_id = EncryptClass.Decrypt(id.Value, key);
+                    cmd.Parameters.AddWithValue("@userid", pure_id);
+                }
                 else if (anonid != null)
                     cmd.Parameters.AddWithValue("@userid", anonid.Value.ToString());
                 else
@@ -254,12 +260,12 @@ namespace artadosearch.Settings_Pages
                 }
                 else
                 {
-                    Response.Redirect("https://myacc.artado.xyz/?name=Artado");
+                    Response.Redirect("https://myacc.artado.xyz/?name=" + api);
                 }
             }
             catch
             {
-                Response.Redirect("https://myacc.artado.xyz/?name=Artado");
+                Response.Redirect("https://myacc.artado.xyz/?name=" + api);
             }
         }
     }

@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="/components/entry/entry.css" />
     <link rel="stylesheet" href="/styles/home.css" />
   </head>
-  <body style="overflow-x: hidden;">
+  <body id="bdy1" runat="server" style="overflow-x: hidden;">
       <form runat="server" id="form1">
         <div class="headerbar-container">
             <header>

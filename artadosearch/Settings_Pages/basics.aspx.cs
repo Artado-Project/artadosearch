@@ -38,8 +38,8 @@ namespace artadosearch
                 foreach (string item in ext.Values)
                 {
                     string path = ext.Values[item];
-                    Page.Header.Controls.Add(
-                         new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
+                    bdy1.Controls.Add(
+                             new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                 }
             }
 
