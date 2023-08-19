@@ -185,7 +185,7 @@
 
             <div id="web_results" runat="server">
                 <div id="google" runat="server">
-                    <script async src="https://cse.google.com/cse.js?cx=160e826a9c5ebe821"></script>
+                    <script async src="/js/google.js"></script>
                     <div class="gcse-searchresults-only" enablehistory="false" runat="server"></div>
                 </div>
                 <div id="others" runat="server">

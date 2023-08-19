@@ -118,10 +118,13 @@
     color: white !important;
 }
 
-.card, .card a, .searchbar, .bottom_tabs, .left_tabs, .right_tabs, .save {
+.card, .card a, .searchbar, .bottom_tabs, .left_tabs, .right_tabs, .save, #autocomplete-list {
     background-color: var(--gray-100) !important;
     color: white !important;
 }
+    #autocomplete-list li:hover {
+        color: #000;
+    }
 
 #ImageButton1, .text-reset, .btn-close {
     filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(260deg) brightness(97%) contrast(102%);

@@ -82,6 +82,32 @@
         white-space: nowrap
     }
 
+    #autocomplete-list {
+        list-style-type: none;
+        margin-top: 45px;
+        margin-right: 60px;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-top: none;
+        position: fixed;
+        z-index: 999;
+        width: 500px;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: #fff;
+        display: none;
+        text-align: left
+    }
+
+        #autocomplete-list li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+            #autocomplete-list li:hover {
+                background-color: #f5f5f5;
+            }
+
     .logo {
         width: 30px;
         float: left;
@@ -240,6 +266,32 @@
         .searchinput:focus{
             outline: none
         }
+
+    #autocomplete-list {
+        list-style-type: none;
+        margin-top: 45px;
+        margin-right: 60px;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-top: none;
+        position: fixed;
+        z-index: 999;
+        width: 300px;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: #fff;
+        display: none;
+        text-align: left
+    }
+
+        #autocomplete-list li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+            #autocomplete-list li:hover {
+                background-color: #f5f5f5;
+            }
 
     .search {
         width: 30px;

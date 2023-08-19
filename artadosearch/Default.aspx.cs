@@ -24,9 +24,9 @@ namespace artadosearch
         string search = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
 
         //Passwords
-        string api_pass = System.Configuration.ConfigurationManager.AppSettings["api_pass"].ToString();
-        string pass = System.Configuration.ConfigurationManager.AppSettings["enc_pass"].ToString(); 
-        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
+        string api_pass = Configs.api_pass;
+        string pass = Configs.enc_pass;
+        string api = Configs.api_url;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -551,7 +551,7 @@ namespace artadosearch
 
         protected void Search(object sender, EventArgs e)
         {
-            Response.Redirect("/search?i=" + HttpUtility.UrlPathEncode(searchinput.Text));
+            Response.Redirect("/search?i=" + HttpUtility.UrlEncode(searchinput.Text));
         }
 
         protected void SignIn_Click(object sender, EventArgs e)

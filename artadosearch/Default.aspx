@@ -39,7 +39,7 @@
         <div class="middle">
             <asp:Panel ID="searchpanel" runat="server" class="form-control form-input searchbar">
                 <img id="Image1" runat="server" class="logo"/>
-                <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>"></asp:TextBox>
+                <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/search.svg" CssClass="search" OnClick="Search"/>
             </asp:Panel>
 
@@ -160,5 +160,6 @@
             <asp:Button id="no" runat="server" CssClass="btn btn-outline-success mb-3" style="margin-bottom: 0px !important" Text="No" OnClick="no_Click"/>
         </div>
     </form>
+    <script src="/js/autocomplete.js"></script>
 </body>
 </html>

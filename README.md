@@ -26,19 +26,15 @@ Follow these steps to get Artado Search up and running on your system:
    ```
 
 3. **Configuration**: Configure the database connection in `web.config` as to adapt Artado Search to your specific use case.
-Copy the Web.example.config to Web.config and fill in the database parameters.
+Copy the `Web.example.config` to `Web.config` and fill in the database parameters.
    ```xml
    <connectionStrings>
 	  <add name="con" connectionString="" />
 	  <add name="admin" connectionString="" />
 	  <add name="service" connectionString="" />
    </connectionStrings>
-   <appSettings>
-        <add key="api_url" value="" />
-		<add key="api_pass" value=""/>
-		<add key="enc_pass" value=""/>
-	 </appSettings>
    ```
+Also change the parameters in `Config.cs`. Copy the `Config.example.cs` to `Config.cs` and fill in the parameters.
 
 4. **Build and Launch**: Utilize your preferred development environment or the command line to build the project. Once built, start the application and access the search engine via your web browser.
 

@@ -129,6 +129,7 @@
   <ItemGroup>
     <Content Include="App_Themes\Default\default.css" />
     <Content Include="App_Themes\Night\night.css" />
+    <Content Include="Autocomplete\Autocomplete.aspx" />
     <Content Include="components\accordion\accordion.css" />
     <Content Include="components\accordion\accordion.js" />
     <Content Include="components\button\button.css" />
@@ -144,6 +145,9 @@
     <Content Include="css\home.css" />
     <Content Include="App_Themes\Night\Night.skin" />
     <Content Include="error.html" />
+    <Content Include="hour.txt" />
+    <Content Include="js\Autocomplete.js" />
+    <Content Include="js\google_api.js" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-Bold.woff2" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-BoldItalic.woff2" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-ExtraLight.woff2" />
@@ -160,6 +164,7 @@
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-TextItalic.woff2" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-Thin.woff2" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-ThinItalic.woff2" />
+    <Content Include="js\google.js" />
     <Content Include="images\Artado Vectors\construction helmet artado\_18ab7d61-b36b-4608-85f6-a9b046a73150.png" />
     <Content Include="images\Artado Vectors\construction helmet artado\_3c7fda61-f98f-4885-9a7a-a76e811e7ac1.png" />
     <Content Include="images\Artado Vectors\construction helmet artado\_d8a1256b-f19e-4d7a-a372-0f41e514683d.png" />
@@ -4053,6 +4058,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Langs.zh.resx</DependentUpon>
     </Compile>
+    <Compile Include="Autocomplete\Autocomplete.aspx.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Autocomplete\Autocomplete.aspx.designer.cs">
+      <DependentUpon>Autocomplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Configs.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4067,6 +4080,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\GoogleToken.cs" />
+    <Compile Include="GoogleAPI.cs" />
     <Compile Include="Manifest.aspx.cs">
       <DependentUpon>Manifest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

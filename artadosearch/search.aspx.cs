@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.Encodings.Web;
 
 namespace artadosearch
 {
@@ -38,7 +39,7 @@ namespace artadosearch
                     string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
 
                     searchinput.Attributes.Add("value", query);
-                    Page.Title = query + " - Artado Search";
+                    Page.Title = HttpUtility.HtmlEncode(query) + " - Artado Search";
 
                     HttpCookie source = HttpContext.Current.Request.Cookies["WebResults"];
                     HttpCookie video_source = HttpContext.Current.Request.Cookies["VideoResults"];
@@ -227,12 +228,12 @@ namespace artadosearch
                     }
 
                     //Custom JS
-                    HttpCookie customjs = HttpContext.Current.Request.Cookies["CustomJS"];
-                    if (customjs != null && customjs != null)
-                    {
-                        Page.Header.Controls.Add(
-                                 new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
-                    }
+                    //HttpCookie customjs = HttpContext.Current.Request.Cookies["CustomJS"];
+                    //if (customjs != null && customjs != null)
+                    //{
+                    //    Page.Header.Controls.Add(
+                    //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
+                    //}
                     #endregion
 
                     //Account Things
@@ -441,10 +442,13 @@ namespace artadosearch
 
         protected void Search(object sender, EventArgs e)
         {
-            Response.Redirect("/search?i=" + searchinput.Text);
+            Response.Redirect("/search?i=" + HttpUtility.UrlEncode(searchinput.Text));
         }
 
-        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
+        //Passwords
+        string api_pass = Configs.api_pass;
+        string pass = Configs.enc_pass;
+        string api = Configs.api_url;
         protected void SignIn_Click(object sender, EventArgs e)
         {
             Response.Redirect("https://myacc.artado.xyz/?name=" + api);
@@ -664,6 +668,8 @@ namespace artadosearch
                         google.Visible = true;
                         others.Visible = false;
                         artado.Visible = false;
+
+                        GoogleToken.ChangeToken();
                         break;
 
                     case "Artado":
@@ -813,6 +819,8 @@ namespace artadosearch
                         google.Visible = true;
                         others.Visible = false;
                         artado.Visible = false;
+
+                        GoogleToken.ChangeToken();
                         break;
                 }
             }

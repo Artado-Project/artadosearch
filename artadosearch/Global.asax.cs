@@ -24,6 +24,7 @@ namespace artadosearch
             url.MapPageRoute("workshop", "workshop", "~/Workshop/Default.aspx");
             url.MapPageRoute("product", "workshop/{id}", "~/Workshop/ProductPage.aspx");
             url.MapPageRoute("manifest", "manifest", "~/Manifest.aspx");
+            url.MapPageRoute("autocomplete", "api/autocomplete", "~/autocomplete/autocomplete.aspx");
         }
         void Application_Start(object sender, EventArgs e)
         {

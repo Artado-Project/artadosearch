@@ -17,9 +17,9 @@ namespace artadosearch.Settings_Pages
         string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
 
         //Passwords
-        string api_pass = System.Configuration.ConfigurationManager.AppSettings["api_pass"].ToString();
-        string pass = System.Configuration.ConfigurationManager.AppSettings["enc_pass"].ToString();
-        string api = System.Configuration.ConfigurationManager.AppSettings["api_url"].ToString();
+        string api_pass = Configs.api_pass;
+        string pass = Configs.enc_pass;
+        string api = Configs.api_url;
 
         protected void Page_Load(object sender, EventArgs e)
         {
