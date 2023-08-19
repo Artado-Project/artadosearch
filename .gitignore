@@ -8,7 +8,7 @@
 
 # Artado database config
 artadosearch/Web.config
-artadosearch/Config.cs
+artadosearch/Configs.cs
 
 # User-specific files
 *.rsuser
