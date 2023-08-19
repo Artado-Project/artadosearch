@@ -31,7 +31,7 @@
 <meta name="twitter:title" content="Artado Search" />
 <meta name="twitter:description" content="Open Source, Private and Anonymous Search Engine" />
 <meta name="twitter:url" content="https://www.artadosearch.com/" />
-<meta name="twitter:image" content="https://www.artadosearch.com/Icons/privacy.jpg" />
+<meta name="twitter:image" content="https://www.artadosearch.com/images/privacy.jpg" />
     <title>Artado Search</title>
 </head>
 <body id="bdy1" runat="server">
