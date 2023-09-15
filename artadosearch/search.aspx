@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <link href="css/home.css" rel="stylesheet"/>
 <link href="css/search.css" rel="stylesheet"/>
+
 <link href="css/nova.css" rel="stylesheet"/>
 <link href="css/otherresults.css" rel="stylesheet"/>
 <link rel="stylesheet" href="css/mdb.min.css" type="text/css" />
@@ -33,77 +34,6 @@
                 <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>" ></asp:TextBox>
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/search.svg" CssClass="search" OnClick="Search"/>
          </div>
-         <div class="top">
-             <a href="https://myacc.artado.xyz/account"><img id="pfp" runat="server" class="login" /></a>
-             <asp:Button ID="SignIn" runat="server" Text="<%$Resources:Langs, Sign %>" class="btn login" OnClick="SignIn_Click"/>
-             <button class="btn btn-success menu" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
-              <div class="offcanvas offcanvas-end" style="max-width: 300px; border-top-left-radius:10px; border-bottom-left-radius:10px;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <style>
-                    ::-webkit-scrollbar {
-                        width: 4px;
-                        color: #3c3c3c;
-                    }
-                </style>
-                <div class="offcanvas-header">
-                    <asp:Label ID="offcanvasRightLabel" runat="server" Text="<%$Resources:Langs, Menu %>" Font-Size="X-Large"></asp:Label>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <asp:DropDownList ID="Themes" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Themes_SelectedIndexChanged">
-                        <asp:ListItem Text="<%$Resources:Langs, Themes %>" disabled="" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Classic %>" Value="Default"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Night %>" Value="Night"></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="Languages" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Languages_SelectedIndexChanged">
-                        <asp:ListItem Text="<%$Resources:Langs, Lang %>" disabled="" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, English %>" Value="en"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Turkish %>" Value="tr"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, French %>" Value="fr"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, German %>" Value="de"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Italian %>" Value="it"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Russian %>" Value="ru"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Chinese %>" Value="zh"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Spanish %>" Value="es"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Portuguese %>" Value="pt"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Korean %>" Value="ko"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Japanese %>" Value="ja"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Hungarian %>" Value="hu"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Bulgarian %>" Value="bg"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Bosnian %>" Value="bs"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Serbian %>" Value="sr"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Macedonian %>" Value="mk"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Greek %>" Value="el"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Ukrainian %>" Value="uk"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Azer %>" Value="az"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Turkmen %>" Value="tk"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Kazakh %>" Value="kk"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Kyrgyz %>" Value="ky"></asp:ListItem>
-                        <asp:ListItem Text="<%$Resources:Langs, Uzbek %>" Value="uz"></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="Results" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Results_SelectedIndexChanged">
-                        <asp:ListItem Text="<%$Resources:Langs, Results %>" disabled="" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="Google" Value="Google"></asp:ListItem>
-                        <asp:ListItem Text="Artado" Value="Artado"></asp:ListItem>
-                        <asp:ListItem Text="Bing" Value="Bing"></asp:ListItem>
-                        <asp:ListItem Text="Yahoo!" Value="Yahoo"></asp:ListItem>
-                        <asp:ListItem Text="Youtube" Value="Youtube"></asp:ListItem>
-                        <asp:ListItem Text="Izlesene" Value="Izlesene"></asp:ListItem>
-                        <asp:ListItem Text="Scholar" Value="Google Scholar"></asp:ListItem>
-                        <asp:ListItem Text="Bing News" Value="News"></asp:ListItem>
-                    </asp:DropDownList>
-                    <hr class="ince"/>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Settings"><asp:Label ID="Label7" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br /></a><br/>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/workshop">Workshop</a><br />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Manifest">Manifesto</a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://github.com/Artado-Project/artadosearch">Github</a><br>
-                    <hr class="ince">
-                    <div class="col-md-12">
-                        <h3 class="text-center fontlu">Artado Search</h3>
-                        <p class="text-center mb-3">Artado Search'te aramalarınız kaydedilmez. Kimse sizin kim olduğunuzu bilemez. Artado Search ile tamamen anonim olarak internetin sınırlarını keşfedebilirsiniz!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
             
             <div class="classic_tabs" >
                 <div id="classic_tabs" runat="server">
@@ -175,11 +105,124 @@
                 <a id="more" runat="server" style="text-decoration:none;" target="_blank" rel="nofollow"><asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
             </div>
 
-            <div id="artado" runat="server">
-                <img src="/images/Artado%20Vectors/construction%20helmet%20artado/_d8a1256b-f19e-4d7a-a372-0f41e514683d.png" alt="Dinosaur Logo" class="dino">
+            <div id="artado" runat="server" class="results">
+                <asp:DropDownList ID="languageDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="languageDropDown_SelectedIndexChanged" class="form-select mb-3" style="width: 200px; display: inline-block">
+                    <asp:ListItem Text="<%$Resources:Langs, Lang %>" disabled="" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="English" Value="en" />
+                    <asp:ListItem Text="Spanish" Value="es" />
+                    <asp:ListItem Text="French" Value="fr" />
+                    <asp:ListItem Text="German" Value="de" />
+                    <asp:ListItem Text="Chinese" Value="zh" />
+                    <asp:ListItem Text="Japanese" Value="ja" />
+                    <asp:ListItem Text="Korean" Value="ko" />
+                    <asp:ListItem Text="Russian" Value="ru" />
+                    <asp:ListItem Text="Arabic" Value="ar" />
+                    <asp:ListItem Text="Hindi" Value="hi" />
+                    <asp:ListItem Text="Portuguese" Value="pt" />
+                    <asp:ListItem Text="Italian" Value="it" />
+                    <asp:ListItem Text="Dutch" Value="nl" />
+                    <asp:ListItem Text="Swedish" Value="sv" />
+                    <asp:ListItem Text="Norwegian" Value="no" />
+                    <asp:ListItem Text="Danish" Value="da" />
+                    <asp:ListItem Text="Finnish" Value="fi" />
+                    <asp:ListItem Text="Turkish" Value="tr" />
+                    <asp:ListItem Text="Greek" Value="el" />
+                    <asp:ListItem Text="Polish" Value="pl" />
+                    <asp:ListItem Text="Czech" Value="cs" />
+                    <asp:ListItem Text="Hungarian" Value="hu" />
+                    <asp:ListItem Text="Romanian" Value="ro" />
+                    <asp:ListItem Text="Bulgarian" Value="bg" />
+                    <asp:ListItem Text="Swahili" Value="sw" />
+                    <asp:ListItem Text="Vietnamese" Value="vi" />
+                    <asp:ListItem Text="Thai" Value="th" />
+                    <asp:ListItem Text="Hebrew" Value="he" />
+                    <asp:ListItem Text="Urdu" Value="ur" />
+                    <asp:ListItem Text="Persian" Value="fa" />
+                    <asp:ListItem Text="Malay" Value="ms" />
+                    <asp:ListItem Text="Indonesian" Value="id" />
+                    <asp:ListItem Text="Bengali" Value="bn" />
+                    <asp:ListItem Text="Tamil" Value="ta" />
+                    <asp:ListItem Text="Telugu" Value="te" />
+                    <asp:ListItem Text="Marathi" Value="mr" />
+                    <asp:ListItem Text="Gujarati" Value="gu" />
+                    <asp:ListItem Text="Slovak" Value="sk" />
+                    <asp:ListItem Text="Slovenian" Value="sl" />
+                    <asp:ListItem Text="Croatian" Value="hr" />
+                    <asp:ListItem Text="Serbian" Value="sr" />
+                    <asp:ListItem Text="Macedonian" Value="mk" />
+                    <asp:ListItem Text="Bosnian" Value="bs" />
+                    <asp:ListItem Text="Albanian" Value="sq" />
+                    <asp:ListItem Text="Estonian" Value="et" />
+                    <asp:ListItem Text="Latvian" Value="lv" />
+                    <asp:ListItem Text="Lithuanian" Value="lt" />
+                    <asp:ListItem Text="Ukrainian" Value="uk" />
+                    <asp:ListItem Text="Belarusian" Value="be" />
+                    <asp:ListItem Text="Georgian" Value="ka" />
+                    <asp:ListItem Text="Armenian" Value="hy" />
+                    <asp:ListItem Text="Azerbaijani" Value="az" />
+                    <asp:ListItem Text="Kazakh" Value="kk" />
+                    <asp:ListItem Text="Uzbek" Value="uz" />
+                    <asp:ListItem Text="Turkmen" Value="tk" />
+                    <asp:ListItem Text="Kyrgyz" Value="ky" />
+                    <asp:ListItem Text="Tajik" Value="tg" />
+                    <asp:ListItem Text="Mongolian" Value="mn" />
+                    <asp:ListItem Text="Nepali" Value="ne" />
+                    <asp:ListItem Text="Sinhala" Value="si" />
+                    <asp:ListItem Text="Burmese" Value="my" />
+                    <asp:ListItem Text="Khmer" Value="km" />
+                    <asp:ListItem Text="Lao" Value="lo" />
+                    <asp:ListItem Text="Tibetan" Value="bo" />
+                    <asp:ListItem Text="Mongolian" Value="mn" />
+                    <asp:ListItem Text="Nepali" Value="ne" />
+                    <asp:ListItem Text="Sinhala" Value="si" />
+                    <asp:ListItem Text="Burmese" Value="my" />
+                    <asp:ListItem Text="Khmer" Value="km" />
+                    <asp:ListItem Text="Lao" Value="lo" />
+                    <asp:ListItem Text="Tibetan" Value="bo" />
+                </asp:DropDownList>
+                <asp:DropDownList ID="SafeSearch" runat="server" AutoPostBack="true" class="form-select mb-3" style="margin-bottom: 20px; width: 200px; display: inline-block" OnSelectedIndexChanged="SafeSearch_SelectedIndexChanged">
+                    <asp:ListItem Text="Safe Search" disabled="" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="On" Value="On"></asp:ListItem>
+                    <asp:ListItem Text="Off" Value="Off"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:Repeater ID="suggestions" runat="server">
+                    <ItemTemplate>
+                        <a id="artado_r" href='<%# Eval("URL") %>' class="result-item">
+                            <div class="result-refs">
+                                <div class="result-badge">
+                                    <img class="result-icon" src='https://www.google.com/s2/favicons?domain=<%# Eval("URL") %>&sz=16'/>
+                                    <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("URL") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <small class="result-box">
+                                <div class="result-title font-assistant"><asp:Label ID="title" runat="server" Text='<%# Eval("Title") %>'></asp:Label></div>
+                                <div class="result-desc text-desc font-assistant">
+                                    <asp:Label ID="desc" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                                </div>
+                            </small>
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:Repeater ID="artado_results" runat="server">
+                    <ItemTemplate>
+                        <a href='<%# Eval("url") %>' class="result-item">
+                            <div class="result-refs">
+                                <div class="result-badge">
+                                    <img class="result-icon" src='https://www.google.com/s2/favicons?domain=<%# Eval("url") %>&sz=16'/>
+                                    <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("url") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <small class="result-box">
+                                <div class="result-title font-assistant"><asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label></div>
+                                <div class="result-desc text-desc font-assistant">
+                                    <asp:Label ID="desc" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                                </div>
+                            </small>
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <div class="att">
-                    <i class="bi bi-exclamation-octagon" style="font-size: 30px; margin-right: 10px; margin-left: 10px"></i>
-                    <asp:Label id="Label1" runat="server" Text="<%$Resources:Langs, Beta %>" />
+                    <asp:Label ID="betatext" runat="server" style="" Text="Artado results may be insufficient since it is still in beta. You can use the results of Google or other search engines by selecting them from the panel above."></asp:Label>
                 </div>
             </div>
 

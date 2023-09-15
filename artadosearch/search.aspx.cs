@@ -18,6 +18,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.Encodings.Web;
+using Newtonsoft.Json;
+using System.Text.Json.Nodes;
 
 namespace artadosearch
 {
@@ -50,21 +52,14 @@ namespace artadosearch
 
                     string type = Request.QueryString["type"];
 
+                    //Get the Wikipedia Data
+                    Wiki wiki = GetWiki.Get(query);
+
                     switch (type)
                     {
                         //Web Results
                         case "web":
-                            if (source.Value != "Artado")
-                            {
-                                //Get the Wikipedia Data
-                                Wiki wiki = GetWiki.Get(query);
-
-                                Web(query, source, wiki);
-                            }
-                            else
-                            {
-                                Web(query, source, null);
-                            }
+                            Web(query, source, wiki);
                             break;
 
                         case "image":
@@ -120,27 +115,7 @@ namespace artadosearch
                             break;
 
                         default:
-                            if(source != null)
-                            {
-                                if (source.Value != "Artado")
-                                {
-                                    //Get the Wikipedia Data
-                                    Wiki wiki = GetWiki.Get(query);
-
-                                    Web(query, source, wiki);
-                                }
-                                else
-                                {
-                                    Web(query, source, null);
-                                }
-                            }
-                            else
-                            {
-                                //Get the Wikipedia Data
-                                Wiki wiki = GetWiki.Get(query);
-
-                                Web(query, source, wiki);
-                            }
+                            Web(query, source, wiki);
                             break;
                     }
 
@@ -197,7 +172,6 @@ namespace artadosearch
                             Page.Header.Controls.Add(
                                  new System.Web.UI.LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\" />"));
                         }
-                        Themes.SelectedValue = "Custom";
                     }
 
                     //Extension
@@ -235,38 +209,6 @@ namespace artadosearch
                     //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
                     //}
                     #endregion
-
-                    //Account Things
-                    HttpCookie old = HttpContext.Current.Request.Cookies["id"];
-
-                    if (old != null && old.Value != null)
-                    {
-                        SignIn.Visible = false;
-                        pfp.Visible = true;
-
-                        HttpCookie image = HttpContext.Current.Request.Cookies["pfp"];
-                        if (image != null && image.Value != null)
-                        {
-                            pfp.Src = image.Value;
-                        }
-                        else
-                        {
-                            string url = "https://api.artado.xyz/api/Values?getid=" + old.Value + "&key=Artadofa1c891ea2554da58aa682108d3153bc";
-                            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-                            WebResponse response = request.GetResponse();
-                            StreamReader reader = new StreamReader(response.GetResponseStream());
-                            string xmltext = reader.ReadToEnd();
-
-                            int results1 = xmltext.IndexOf("<image>".ToLower()) + 7;
-                            int results2 = xmltext.Substring(results1).IndexOf("</image>");
-                            string img = xmltext.Substring(results1, results2);
-
-                            HttpCookie cookie = new HttpCookie("pfp");
-                            cookie.Value = img;
-                            cookie.Expires = DateTime.UtcNow.AddDays(360);
-                            Response.Cookies.Add(cookie);
-                        }
-                    }
                 }
                 else
                 {
@@ -321,36 +263,17 @@ namespace artadosearch
             if (cookie0 != null && cookie0.Value != null)
             {
                 Page.Theme = cookie0.Value;
-                Themes.SelectedValue = cookie0.Value;
             }
             else
             {
                 Page.Theme = "Default";
-                Themes.SelectedValue = "Default";
             }
 
-
-            System.Web.HttpCookie cookie3 = HttpContext.Current.Request.Cookies["WebResults"];
-            if (cookie3 != null && cookie3.Value != null)
+            //Result lang
+            HttpCookie cookie = HttpContext.Current.Request.Cookies["result_lang"];
+            if (cookie != null && cookie.Value != null)
             {
-                Results.SelectedValue = cookie3.Value;
-            }
-            else
-            {
-                Results.SelectedValue = "Google";
-            }
-
-            System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
-            System.Globalization.CultureInfo kultur = System.Threading.Thread.CurrentThread.CurrentUICulture;
-            string lang = kultur.TwoLetterISOLanguageName;
-
-            if (cookielang != null && cookielang.Value != null)
-            {
-                Languages.SelectedValue = cookielang.Value;
-            }
-            else
-            {
-                Languages.SelectedValue = lang;
+                languageDropDown.SelectedValue = cookie.Value;
             }
 
             System.Web.HttpCookie cat_cookie = HttpContext.Current.Request.Cookies["Categories"];
@@ -403,43 +326,7 @@ namespace artadosearch
             }
         }
 
-        protected void Themes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CreateCookie("Theme", Themes.SelectedValue);
-        }
-
-        protected void Languages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HttpCookie old = HttpContext.Current.Request.Cookies["Lang"];
-            if (old != null && old.Value != null)
-            {
-                old.Expires = DateTime.UtcNow.AddDays(-1);
-                Response.Cookies.Add(old);
-                Session.Abandon();
-
-                HttpCookie cookie = new HttpCookie("Lang");
-                cookie.Value = Languages.SelectedValue;
-                cookie.Expires = DateTime.UtcNow.AddDays(360);
-                Response.Cookies.Add(cookie);
-                Page.Response.Redirect(Page.Request.Url.ToString());
-            }
-            else
-            {
-                HttpCookie cookie = new HttpCookie("Lang");
-                cookie.Value = Languages.SelectedValue;
-                cookie.Expires = DateTime.UtcNow.AddDays(360);
-                Response.Cookies.Add(cookie);
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(Languages.SelectedValue);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(Languages.SelectedValue);
-                Page.Response.Redirect(Page.Request.Url.ToString());
-            }
-        }
-
-        protected void Results_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CreateCookie("WebResults", Results.SelectedValue);
-        }
-
+       
         protected void Search(object sender, EventArgs e)
         {
             Response.Redirect("/search?i=" + HttpUtility.UrlEncode(searchinput.Text));
@@ -677,7 +564,44 @@ namespace artadosearch
                         google.Visible = false;
                         others.Visible = false;
                         artado.Visible = true;
-                        infocard.Visible = false;
+
+                        //Result lang
+                        HttpCookie cookie = HttpContext.Current.Request.Cookies["result_lang"];
+                        //Safe Search
+                        HttpCookie safe = HttpContext.Current.Request.Cookies["safe"];
+                        string safeS;
+                        if (safe != null && safe.Value != null)
+                        {
+                            safeS = safe.Value;
+                        }
+                        else
+                        {
+                            safeS = "Off";
+                        }
+
+                        if (cookie != null && cookie.Value != null)
+                        {
+                            suggestions.DataSource = ResultsClass.Artado(query, 0, cookie.Value);
+                        }
+                        else
+                        {
+                            suggestions.DataSource = ResultsClass.Artado(query, 0, null);
+                        }
+                        suggestions.DataBind();
+
+                        //PriEco Results
+                        DataTable dt;
+                        if (cookie != null && cookie.Value != null)
+                        {
+                            dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, cookie.Value));
+                        }
+                        else
+                        {
+                            dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, null));
+                        }
+                        
+                        artado_results.DataSource = dt;
+                        artado_results.DataBind();
                         break;
 
                     case "Bing":
@@ -1094,5 +1018,15 @@ namespace artadosearch
             }
         }
         #endregion
+
+        protected void languageDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateCookie("result_lang", languageDropDown.SelectedValue);
+        }
+
+        protected void SafeSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateCookie("safe", SafeSearch.SelectedValue);
+        }
     }
 }

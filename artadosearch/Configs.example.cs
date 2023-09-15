@@ -10,5 +10,6 @@ namespace artadosearch
         public static string api_pass = "";
         public static string api_url = "";
         public static string enc_pass = "";
+        public static string resultapi = "";
     }
 }

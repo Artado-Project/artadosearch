@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Text.Encodings.Web;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace artadosearch.Settings_Pages
 {
@@ -58,28 +61,16 @@ namespace artadosearch.Settings_Pages
 
             if (!IsPostBack)
             {
-                HttpCookie id = HttpContext.Current.Request.Cookies["id"];
                 HttpCookie profile_id = HttpContext.Current.Request.Cookies["anonid"];
 
-                if (id != null && id.Value != null)
-                {
-                    HttpCookie deviceid = HttpContext.Current.Request.Cookies["device"];
-                    string key = EncryptClass.Encrypt(Request.Browser.Browser + Request.UserHostAddress + deviceid.Value, pass);
-
-                    string pure_id = EncryptClass.Decrypt(id.Value, key);
-                    SqlDataAdapter adp = new SqlDataAdapter("select * from Profiles where userid='" + pure_id + "'", con);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    profiles_list.DataSource = dt;
-                    profiles_list.DataBind();
-                }
-                else if (profile_id != null && profile_id.Value != null)
+                if (profile_id != null && profile_id.Value != null)
                 {
                     SqlDataAdapter adp = new SqlDataAdapter("select * from Profiles where userid='" + profile_id.Value + "'", con);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
                     profiles_list.DataSource = dt;
                     profiles_list.DataBind();
+                    id_txt.Text = "Sync ID: " + HttpUtility.HtmlEncode(profile_id.Value.ToString());
                 }
             }
 
@@ -207,15 +198,8 @@ namespace artadosearch.Settings_Pages
                 //Profile Name
                 cmd.Parameters.AddWithValue("@profile_name", profilename.Value.ToString());
                 //User ID
-                if (id != null)
-                {
-                    HttpCookie deviceid = HttpContext.Current.Request.Cookies["device"];
-                    string key = EncryptClass.Encrypt(Request.Browser.Browser + Request.UserHostAddress + deviceid.Value, pass);
-                    string pure_id = EncryptClass.Decrypt(id.Value, key);
-                    cmd.Parameters.AddWithValue("@userid", pure_id);
-                }
-                else if (anonid != null)
-                    cmd.Parameters.AddWithValue("@userid", anonid.Value.ToString());
+                if (anonid != null)
+                    cmd.Parameters.AddWithValue("@userid", HttpUtility.HtmlEncode(anonid.Value.ToString()));
                 else
                 {
                     HttpCookie httpCookie = new HttpCookie("anonid");
@@ -226,6 +210,7 @@ namespace artadosearch.Settings_Pages
                 }
                 cmd.ExecuteNonQuery();
                 connection.Close();
+                Response.Redirect("/Settings/Profiles");
             }
             else
             {
@@ -242,31 +227,28 @@ namespace artadosearch.Settings_Pages
 
         protected void sync_Click(object sender, EventArgs e)
         {
-            HttpCookie anonid = HttpContext.Current.Request.Cookies["anonid"];
-            HttpCookie id = HttpContext.Current.Request.Cookies["id"];
-            try
+            string name = "anonid";
+            string value = HttpUtility.HtmlEncode(ID_input.Value);
+            HttpCookie old = HttpContext.Current.Request.Cookies[name];
+            if (old != null && old.Value != null)
             {
-                if (id != null && id.Value != null && anonid != null && anonid.Value != null)
-                {
-                    HttpCookie deviceid = HttpContext.Current.Request.Cookies["device"];
-                    string key = EncryptClass.Encrypt(Request.Browser.Browser + Request.UserHostAddress + deviceid.Value, pass);
+                old.Expires = DateTime.UtcNow.AddDays(-1);
+                Response.Cookies.Add(old);
+                Session.Abandon();
 
-                    string pure_id = EncryptClass.Decrypt(id.Value, key);
-                    ArtadoSql.Update("userid", pure_id, "Profiles", "userid", anonid.Value, con);
-
-                    anonid.Expires = DateTime.UtcNow.AddDays(-1);
-                    Response.Cookies.Add(anonid);
-                    Session.Abandon();
-                }
-                else
-                {
-                    Response.Redirect("https://myacc.artado.xyz/?name=" + api);
-                }
+                HttpCookie cookie = new HttpCookie(name);
+                cookie.Value = value;
+                cookie.Expires = DateTime.UtcNow.AddDays(360);
+                Response.Cookies.Add(cookie);
             }
-            catch
+            else
             {
-                Response.Redirect("https://myacc.artado.xyz/?name=" + api);
+                HttpCookie cookie = new HttpCookie(name);
+                cookie.Value = value;
+                cookie.Expires = DateTime.UtcNow.AddDays(360);
+                Response.Cookies.Add(cookie);
             }
+            Response.Redirect("/Settings/Profiles");
         }
     }
 }

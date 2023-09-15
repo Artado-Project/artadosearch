@@ -168,12 +168,30 @@ namespace artadosearch.Settings_Pages
         protected global::System.Web.UI.WebControls.Button create_profile;
 
         /// <summary>
-        /// sync control.
+        /// id_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sync;
+        protected global::System.Web.UI.WebControls.Label id_txt;
+
+        /// <summary>
+        /// ID_input control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ID_input;
+
+        /// <summary>
+        /// Sync control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Sync;
     }
 }

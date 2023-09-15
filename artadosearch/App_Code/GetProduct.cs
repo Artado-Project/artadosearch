@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Collections;
 
 namespace artadosearch
 {
@@ -28,7 +29,12 @@ namespace artadosearch
             }
             else
             {
-                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and Name Like '" + name + "' and AppStatus='Approved' order by ID desc", baglanti);
+                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and Name Like @q and AppStatus='Approved' order by ID desc", baglanti);
+                adp.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@q",
+                    Value = "%" + name + "%",
+                });
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
                 DataProduct.DataSource = dt;

@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Resources;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace artadosearch
 {
@@ -259,6 +265,66 @@ namespace artadosearch
             {
                 return "Something went wrong!";
             }
+        }
+
+        public static string PriEco(string query, int num, string safe, string lang)
+        {
+            try
+            {
+                string apikey = Configs.resultapi;
+                string url;
+                if (lang != null)
+                {
+                    url = "https://search.jojoyou.org/api/?api=" + apikey + "&q=" + query + "&lang=" + lang + "&num=" + num + "&safe=" + safe;
+                }
+                else
+                {
+                    url = "https://search.jojoyou.org/api/?api=" + apikey + "&q=" + query + "&num=" + num + "&safe=" + safe;
+                }
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string jsonstring = reader.ReadToEnd();
+
+                return jsonstring;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static DataTable Artado(string query, int num, string lang)
+        {
+            //Connection Strings
+            string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
+
+            //Setting Sql Connection
+            SqlConnection baglanti = new SqlConnection(con);
+
+            SqlDataAdapter adp;
+            if(lang != null)
+            {
+                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", baglanti);
+                adp.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@Lang",
+                    Value = "%" + lang + "%",
+                });
+            }
+            else
+            {
+                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", baglanti);
+            }
+            adp.SelectCommand.Parameters.Add(new SqlParameter
+            {
+                ParameterName = "@q",
+                Value = "%" + query + "%",
+            });
+            string cmd = adp.ToString();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            return dt;
         }
     }
 }

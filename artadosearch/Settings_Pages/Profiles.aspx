@@ -93,7 +93,12 @@
                         <asp:Button id="openprofile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="openprofile_Click"/>
                         <asp:Button id="create_profile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="create_profile_Click"/>
                         <br />
-                        <asp:Button id="sync" runat="server" Text="<%$Resources:Langs, Sync %>" class="button" OnClick="sync_Click"/>
+                        <asp:Label ID="id_txt" runat="server" style=""></asp:Label>
+                        <br />
+                        <div class="entry-container">
+                            <input id="ID_input" runat="server" type="text" name="name" placeholder="Enter Sync ID"/>
+                        </div>
+                        <asp:Button id="Sync" runat="server" Text="<%$Resources:Langs, Apply %>" class="cool_button" OnClick="sync_Click"/>
                     </section>
                 </div>
             </main>

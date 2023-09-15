@@ -181,6 +181,7 @@
     <Content Include="images\oldies\old-icon.png" />
     <Content Include="images\oldies\old.png" />
     <Content Include="images\oldies\old1.png" />
+    <Content Include="js\test.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="node_modules\.package-lock.json" />
     <Content Include="node_modules\classnames\HISTORY.md" />
