@@ -145,6 +145,7 @@
     <Content Include="css\home.css" />
     <Content Include="App_Themes\Night\Night.skin" />
     <Content Include="error.html" />
+    <Content Include="FaviconAPI.aspx" />
     <Content Include="hour.txt" />
     <Content Include="js\Autocomplete.js" />
     <Content Include="js\google_api.js" />
@@ -4078,6 +4079,13 @@
     <Compile Include="App_Code\WikiAPI\GetWiki.cs" />
     <Compile Include="App_Code\GetProduct.cs" />
     <Compile Include="EncryptClass.cs" />
+    <Compile Include="FaviconAPI.aspx.cs">
+      <DependentUpon>FaviconAPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FaviconAPI.aspx.designer.cs">
+      <DependentUpon>FaviconAPI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

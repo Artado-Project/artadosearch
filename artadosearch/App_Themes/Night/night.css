@@ -155,3 +155,7 @@ select {
 .r_div {
     border: solid 1px white;
 }
+
+.results .result-item {
+    box-shadow: rgba(255, 255, 255, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+}

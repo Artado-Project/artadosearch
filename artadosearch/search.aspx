@@ -190,7 +190,7 @@
                         <a id="artado_r" href='<%# Eval("URL") %>' class="result-item">
                             <div class="result-refs">
                                 <div class="result-badge">
-                                    <img class="result-icon" src='https://www.google.com/s2/favicons?domain=<%# Eval("URL") %>&sz=16'/>
+                                    <img class="result-icon" src='/api/favicon?q=<%# Eval("URL") %>'/>
                                     <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("URL") %>'></asp:Label>
                                 </div>
                             </div>

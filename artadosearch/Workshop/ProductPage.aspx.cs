@@ -31,6 +31,12 @@ namespace artadosearch.Workshop
                     string logo = GetProduct.Info("Logo", id);
                     string devurl = ArtadoSql.Select("URL", "Devs", "Name", dev, con, "string");
 
+                    Page.Title = name + " - Artado Workshop";
+                    Page.MetaDescription = desc + " - Customize Artado as you want";
+                    Page.MetaKeywords = "open source, open source search engine, linux, foss, foss search engine, arama, arama motoru, customize, customizable" +
+                        "yerli, artado, gizlilik, milli, türk yapımı, güvenli, açık kaynak, reklamsız, reklamsız arama motoru, search, search engine, " +
+                        "privacy, security, tarayıcı, browser, celer";
+
                     nametxt.Text = name;
                     devtxt.Text = dev;
                     desctxt.Text = desc;
