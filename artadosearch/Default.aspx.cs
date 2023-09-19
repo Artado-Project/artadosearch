@@ -379,6 +379,7 @@ namespace artadosearch
         protected void Themes_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateCookie("Theme", Themes.SelectedValue);
+            Response.Redirect("/");
         }
 
         protected void Languages_SelectedIndexChanged(object sender, EventArgs e)
