@@ -207,6 +207,7 @@
     <Content Include="node_modules\feather-icons\package.json" />
     <Content Include="node_modules\feather-icons\README.md" />
     <Content Include="css\panel.css" />
+    <Content Include="package.json" />
     <Content Include="Settings_Pages\Extensions.aspx" />
     <Content Include="Settings_Pages\Profiles.aspx" />
     <Content Include="Settings_Pages\Themes.aspx" />

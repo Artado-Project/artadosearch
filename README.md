@@ -59,7 +59,7 @@ To contribute:
 
 If you're interested in contributing translations or correcting existing ones:
 
-1. Visit the [Translation Documentation](Translations.md) for information on how to contribute new languages or improve existing translations.
+1. Visit the [Translation Documentation](Translation.md) for information on how to contribute new languages or improve existing translations.
 
 ## License
 
