@@ -142,7 +142,9 @@
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://forum.artado.xyz/"><asp:Label style="color: #00b74a;" ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Manifest"><asp:Label style="color: #00b74a;" ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://myacc.artado.xyz/privacy"><asp:Label style="color: #00b74a;" ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br>
+                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://devs.artado.xyz/">Developers</a><br>
                     <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://github.com/Artado-Project/artadosearch">Github</a><br>
+                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://discord.gg/WXCsr8zTN6">Discord</a><br>
                     <hr class="ince">
                     <div class="col-md-12">
                         <h3 class="text-center fontlu">Artado Search</h3>
