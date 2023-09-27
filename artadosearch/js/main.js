@@ -7,8 +7,7 @@
 window.onload=resimdegis;
 */
 
-function google_arama()
+function Google_Search() //Edited by LinuxUsersLinuxMint. Change made: google_search has been changed to Google_search.
 {
     window.location = "index.php" + encodeURIComponent(document.getElementById("q").value);
 }
-
