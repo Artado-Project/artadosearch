@@ -222,7 +222,7 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <div class="att">
-                    <asp:Label ID="betatext" runat="server" style="" Text="Artado results may be insufficient since it is still in beta. You can use the results of Google or other search engines by selecting them from the panel above."></asp:Label>
+                    <asp:Label ID="betatext" runat="server" Text="Artado results may be insufficient since it is still in beta. You can use the results of Google or other search engines by selecting them from the panel above."></asp:Label>
                 </div>
             </div>
 
