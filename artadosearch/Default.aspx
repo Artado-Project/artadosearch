@@ -46,7 +46,7 @@
             <div class="row" style="max-width: 90%; justify-content: center; margin: 0 auto; margin-top: 50px; ">
               <div class="col-md-4" style="width: 300px; text-align:center">
                 <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                   <a href="#" style="text-decoration: none; color: #4f4f4f">
+                   <a href="https://myacc.artado.xyz/privacy" style="text-decoration: none; color: #4f4f4f">
                      <div class="card-body">
                         <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-lock-fill"></i></div>
                         <asp:Label ID="Label1" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Privacy %>"></asp:Label><br />
@@ -57,7 +57,7 @@
               </div>
               <div class="col-md-4" style="width: 300px; text-align:center">
                 <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                   <a href="#" style="text-decoration: none; color: #4f4f4f">
+                   <a href="https://www.artadosearch.com/workshop/" style="text-decoration: none; color: #4f4f4f">
                       <div class="card-body">
                           <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-bag-fill"></i></div>
                           <asp:Label ID="Label3" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Customization %>"></asp:Label><br />
@@ -68,7 +68,7 @@
               </div>
               <div class="col-md-4" style="width: 300px; text-align:center">
                 <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                   <a href="#" style="text-decoration: none; color: #4f4f4f">
+                   <a href="https://www.artado.xyz/" style="text-decoration: none; color: #4f4f4f">
                       <div class="card-body">
                         <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-three-dots"></i></div>
                         <asp:Label ID="Label5" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Projects %>"></asp:Label><br />
