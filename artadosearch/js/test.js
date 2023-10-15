@@ -119,4 +119,4 @@
     document.body.appendChild(saveButton);
 
     createDraggable();
-});
+})});
