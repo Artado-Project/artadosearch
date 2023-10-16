@@ -80,7 +80,6 @@
             </div>
         </div>
         <div class="top">
-             <!--<div id="Beta" runat="server" class="btn btn-outline-success mb-3 beta"><span id="beta_text" style="color: #00b74a;">Beta</span></div>-->
              <button class="btn btn-success menu" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
               <div class="offcanvas offcanvas-end" style="max-width: 300px; border-top-left-radius:10px; border-bottom-left-radius:10px;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <style>
