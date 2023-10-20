@@ -300,12 +300,12 @@ namespace artadosearch
             string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
 
             //Setting Sql Connection
-            SqlConnection baglanti = new SqlConnection(con);
+            SqlConnection connection = new SqlConnection(con);
 
             SqlDataAdapter adp;
             if(lang != null)
             {
-                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", baglanti);
+                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", connection);
                 adp.SelectCommand.Parameters.Add(new SqlParameter
                 {
                     ParameterName = "@Lang",
@@ -314,7 +314,7 @@ namespace artadosearch
             }
             else
             {
-                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", baglanti);
+                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", connection);
             }
             adp.SelectCommand.Parameters.Add(new SqlParameter
             {
