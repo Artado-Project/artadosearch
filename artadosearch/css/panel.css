@@ -52,10 +52,12 @@
     }
 
         .row_info span {
+            display: block;
             margin-right: auto;
             margin-left: auto;
             max-width: 150px;
             max-height: 70px;
+            overflow: hidden;
             text-overflow: ellipsis;
         }
 
@@ -103,13 +105,12 @@
     }
 
     .url {
+    }
+
         .url:hover {
             color: #9147ff;
             border-color: #9147ff !important;
         }
-    }
-
-        
 
     .desc {
         float: left;
@@ -392,13 +393,12 @@
     }
 
     .url {
+    }
+
         .url:hover {
             color: #9147ff;
             border-color: #9147ff !important;
         }
-    }
-
-        
 
     .desc {
         float: left;
