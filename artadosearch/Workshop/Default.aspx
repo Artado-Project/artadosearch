@@ -56,8 +56,8 @@
                             <div class="product_row">
                                 <img src='https://devs.artado.xyz//Upload/Images/<%# Eval("Logo") %>' class="product_logo" />
                                 <div class="row_info">
-                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>' Font-Size="X-Large"></asp:Label>
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Developer") %>' Font-Size="Medium" ForeColor="Gray"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>' Font-Size="X-Large"></asp:Label><br />
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Developer") %>' Font-Size="Medium" ForeColor="Gray"></asp:Label><br />
                                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("Genre") %>' Font-Size="Small" ForeColor="Gray"></asp:Label>
                                 </div>               
                             </div>
