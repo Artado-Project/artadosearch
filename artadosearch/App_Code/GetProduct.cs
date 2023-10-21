@@ -17,11 +17,11 @@ namespace artadosearch
             string con = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
 
             //Setting Sql Connection
-            SqlConnection baglanti = new SqlConnection(con);
+            SqlConnection connection = new SqlConnection(con);
 
             if (name == null)
             {
-                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and AppStatus='Approved' order by ID desc", baglanti);
+                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and AppStatus='Approved' order by ID desc", connection);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
                 DataProduct.DataSource = dt;
@@ -29,7 +29,7 @@ namespace artadosearch
             }
             else
             {
-                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and Name Like @q and AppStatus='Approved' order by ID desc", baglanti);
+                SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where Genre='" + genre + "' and Name Like @q and AppStatus='Approved' order by ID desc", connection);
                 adp.SelectCommand.Parameters.Add(new SqlParameter
                 {
                     ParameterName = "@q",
@@ -49,18 +49,18 @@ namespace artadosearch
             string con = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
 
             //Setting Sql Connection
-            SqlConnection baglanti = new SqlConnection(con);
-            if (baglanti.State == ConnectionState.Closed)
+            SqlConnection connection = new SqlConnection(con);
+            if (connection.State == ConnectionState.Closed)
             {
-                baglanti.Open();
+                connection.Open();
             }
 
-            SqlCommand productinfo = new SqlCommand("select " + info + " from artadoco_admin.Products where ID='" + product + "'", baglanti);
+            SqlCommand productinfo = new SqlCommand("select " + info + " from artadoco_admin.Products where ID='" + product + "'", connection);
             string reinfo = (string)productinfo.ExecuteScalar();
 
-            if (baglanti.State == ConnectionState.Open)
+            if (connection.State == ConnectionState.Open)
             {
-                baglanti.Close();
+                connection.Close();
             }
 
             return reinfo;
