@@ -185,7 +185,6 @@
     <Content Include="js\test.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />
-    <Content Include="package.json" />
     <Content Include="Settings_Pages\Extensions.aspx" />
     <Content Include="Settings_Pages\Profiles.aspx" />
     <Content Include="Settings_Pages\Themes.aspx" />
@@ -251,7 +250,6 @@
     <Content Include="images\playstore.png" />
     <Content Include="images\privacy.jpg" />
     <Content Include="images\search.svg" />
-    <Content Include="js\main.js" />
     <None Include="SOURCES" />
     <Content Include="search.aspx" />
     <Content Include="styles\global.css" />
