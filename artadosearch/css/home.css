@@ -94,7 +94,8 @@
         overflow-y: auto;
         background-color: #fff;
         display: none;
-        text-align: left
+        text-align: left;
+        border-radius: 9px;
     }
 
         #autocomplete-list li {
