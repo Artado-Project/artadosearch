@@ -22,12 +22,12 @@
     }
 
     function createDraggable() {
-    // Select all elements on the page
-    const objects = document.querySelectorAll('*');
+        // Select all elements on the page
+        const objects = document.querySelectorAll('*');
 
         for (const draggable of objects) {
             if (draggable.className != "middle" && draggable.id != "bdy1" && draggable.tagName != "HTML" && draggable.tagName != "FORM") {
-                console.log(draggable.tagName); 
+                console.log(draggable.tagName);
                 draggable.addEventListener('mousedown', e => {
                     selectedElement = draggable;
                     const offsetX = e.clientX - draggable.getBoundingClientRect().left;
@@ -78,13 +78,13 @@
     }
 
     function removeDeleteButton() {
-    const deleteButtons = document.querySelectorAll('.delete-button');
-    deleteButtons.forEach(button => {
-        button.remove();
-    });
-    document.removeEventListener('click', removeDeleteButton);
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.remove();
+        });
+        document.removeEventListener('click', removeDeleteButton);
     }
-  
+
     const saveButton = document.createElement('button');
     saveButton.id = 'save-button';
     saveButton.innerText = 'Save Adjustments';
@@ -109,14 +109,15 @@
                 };
             });
 
-        // Convert the positions to JSON and create a cookie
-        const jsonPositions = JSON.stringify(positions);
-        document.cookie = `adjustments_moveit=${jsonPositions}; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/`;
+            // Convert the positions to JSON and create a cookie
+            const jsonPositions = JSON.stringify(positions);
+            document.cookie = `adjustments_moveit=${jsonPositions}; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/`;
 
-        console.log('Saved positions as cookie:', positions);
-    });
+            console.log('Saved positions as cookie:', positions);
+        });
 
-    document.body.appendChild(saveButton);
+        document.body.appendChild(saveButton);
 
-    createDraggable();
-})});
+        createDraggable();
+    })
+});

@@ -303,7 +303,7 @@ namespace artadosearch
             SqlConnection connection = new SqlConnection(con);
 
             SqlDataAdapter adp;
-            if(lang != null)
+            if (lang != null)
             {
                 adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", connection);
                 adp.SelectCommand.Parameters.Add(new SqlParameter

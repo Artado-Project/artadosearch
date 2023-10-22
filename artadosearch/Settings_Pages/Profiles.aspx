@@ -8,18 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings - Artado Search</title>
     <link rel="stylesheet" href="/css/mdb.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js"></script>
-    <link rel="stylesheet" href="/fonts/ibm-plex-sans/ibm-plex-sans.css"/>
+    <link rel="stylesheet" href="/fonts/ibm-plex-sans/ibm-plex-sans.css" />
     <link rel="stylesheet" href="/styles/theme-white.css" />
     <link rel="stylesheet" href="/components/headerbar/headerbar.css" />
     <link rel="stylesheet" href="/components/mainpanel/mainpanel.css" />
@@ -27,16 +27,15 @@
     <link rel="stylesheet" href="/components/accordion/accordion.css" />
     <script src="/components/accordion/accordion.js" defer></script>
     <link rel="stylesheet" href="/components/button/button.css" />
-    <link rel="shortcut icon" href="/images/favicon.ico"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
     <link
-      rel="stylesheet"
-      href="/components/profile-container/profile-container.css"
-    />
+        rel="stylesheet"
+        href="/components/profile-container/profile-container.css" />
     <link rel="stylesheet" href="/components/entry/entry.css" />
     <link rel="stylesheet" href="/styles/home.css" />
-  </head>
-  <body id="bdy1" runat="server" style="overflow-x: hidden;">
-      <form runat="server" id="form1">
+</head>
+<body id="bdy1" runat="server" style="overflow-x: hidden;">
+    <form runat="server" id="form1">
         <div class="headerbar-container">
             <header>
                 <div class="left">
@@ -44,7 +43,9 @@
                         <i data-feather="menu"></i>
                     </a>
 
-                    <a href="/" class="button title" role="button"><h1>Artado Search</h1></a>
+                    <a href="/" class="button title" role="button">
+                        <h1>Artado Search</h1>
+                    </a>
                 </div>
                 <div class="right">
                     <a href="https://www.artadosearch.com/Donate" class="icon button" role="button">
@@ -56,10 +57,10 @@
         <div class="main">
             <div class="mainpanel-container">
                 <aside>
-                    <asp:Button runat="server" ID="Basics" Text="<%$Resources:Langs, Basics %>" style="text-align: left" OnClick="Basics_Click"/>
-                    <asp:Button runat="server" ID="Themes_Button" Text="<%$Resources:Langs, Themes %>" style="text-align: left" OnClick="Themes_Button_Click"/>
-                    <asp:Button runat="server" ID="Extensions" Text="<%$Resources:Langs, Extensions %>" style="text-align: left" OnClick="Extensions_Click"/>
-                    <asp:Button runat="server" ID="Profiles_Button" Text="<%$Resources:Langs, Profiles %>" style="text-align: left" OnClick="Profiles_Button_Click"/>
+                    <asp:Button runat="server" ID="Basics" Text="<%$Resources:Langs, Basics %>" Style="text-align: left" OnClick="Basics_Click" />
+                    <asp:Button runat="server" ID="Themes_Button" Text="<%$Resources:Langs, Themes %>" Style="text-align: left" OnClick="Themes_Button_Click" />
+                    <asp:Button runat="server" ID="Extensions" Text="<%$Resources:Langs, Extensions %>" Style="text-align: left" OnClick="Extensions_Click" />
+                    <asp:Button runat="server" ID="Profiles_Button" Text="<%$Resources:Langs, Profiles %>" Style="text-align: left" OnClick="Profiles_Button_Click" />
                 </aside>
             </div>
 
@@ -73,12 +74,13 @@
                                 <ItemTemplate>
                                     <div class="accordion-container">
                                         <div class="headerbar" style="display: flex; align-items: center; justify-content: space-between; padding: var(--spcaing-05); min-width: 100%; background: transparent; border: none; font: var(--text-primary); text-align: start;">
-                                        <asp:Label ID="title" runat="server" class="title" Text='<%# Eval("profile_name") %>'></asp:Label>
-                                        <i class="icon" data-feather="chevron-down"></i>
-                                    </div>
-                                    <div class="content">
-                                        <a href='/?profile=<%# Eval("profile_id") %>'><asp:Label ID="url" runat="server" Text="Profile Link" style="color: blue !important"></asp:Label></a>
-                                    </div>
+                                            <asp:Label ID="title" runat="server" class="title" Text='<%# Eval("profile_name") %>'></asp:Label>
+                                            <i class="icon" data-feather="chevron-down"></i>
+                                        </div>
+                                        <div class="content">
+                                            <a href='/?profile=<%# Eval("profile_id") %>'>
+                                                <asp:Label ID="url" runat="server" Text="Profile Link" Style="color: blue !important"></asp:Label></a>
+                                        </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -86,23 +88,23 @@
                     </section>
                     <section>
                         <div class="entry-container">
-                            <input id="profilename" runat="server" type="text" name="name" placeholder="<%$Resources:Langs, Profile_Name %>"/>
+                            <input id="profilename" runat="server" type="text" name="name" placeholder="<%$Resources:Langs, Profile_Name %>" />
                             <asp:Label ID="err" runat="server" Text="<%$Resources:Langs, EnterName %>"></asp:Label>
                         </div>
-                        <asp:Button id="openprofile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="openprofile_Click"/>
-                        <asp:Button id="create_profile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="create_profile_Click"/>
+                        <asp:Button ID="openprofile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="openprofile_Click" />
+                        <asp:Button ID="create_profile" runat="server" Text="<%$Resources:Langs, Create_Profile %>" class="cool_button" OnClick="create_profile_Click" />
                         <br />
-                        <asp:Label ID="id_txt" runat="server" ></asp:Label>
+                        <asp:Label ID="id_txt" runat="server"></asp:Label>
                         <br />
                         <div class="entry-container">
-                            <input id="ID_input" runat="server" type="text" name="name" placeholder="Enter Sync ID"/>
+                            <input id="ID_input" runat="server" type="text" name="name" placeholder="Enter Sync ID" />
                         </div>
-                        <asp:Button id="Sync" runat="server" Text="<%$Resources:Langs, Apply %>" class="cool_button" OnClick="sync_Click"/>
+                        <asp:Button ID="Sync" runat="server" Text="<%$Resources:Langs, Apply %>" class="cool_button" OnClick="sync_Click" />
                     </section>
                 </div>
             </main>
         </div>
-      </form>
+    </form>
     <script src="/js/featherrep.js"></script>
-  </body>
+</body>
 </html>

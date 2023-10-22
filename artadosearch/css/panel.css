@@ -203,7 +203,7 @@
         color: white
     }
 
-    .product_page{
+    .product_page {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -212,14 +212,14 @@
         text-align: left
     }
 
-    .product_img{
+    .product_img {
         float: left;
         width: 150px;
         height: 150px;
         margin-right: 50px
     }
 
-    .p_name{
+    .p_name {
         float: left;
         font-size: x-large;
     }
@@ -500,15 +500,15 @@
         text-align: center
     }
 
-    .product_page br {
-        display: none
-    }
+        .product_page br {
+            display: none
+        }
 
     .product_img {
         width: 150px;
         height: 150px;
         margin-right: auto;
-        margin-left:auto
+        margin-left: auto
     }
 
     .p_name {

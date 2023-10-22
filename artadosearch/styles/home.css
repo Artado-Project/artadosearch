@@ -1,18 +1,18 @@
 html, body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-direction: column;
 }
 
 .mobile {
-  display: none !important;
+    display: none !important;
 }
 
 .main {
-  display: flex;
+    display: flex;
 }
 
 .cool_button {
@@ -27,37 +27,33 @@ html, body {
 }
 
 main {
-  width: 100%;
-  height: 100%;
-
-  margin: var(--spcaing-07);
-
-  font: var(--body-02);
-
-  display: grid;
-  grid-template-columns: 16rem 1fr;
-  grid-template-areas: ". content";
+    width: 100%;
+    height: 100%;
+    margin: var(--spcaing-07);
+    font: var(--body-02);
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas: ". content";
 }
 
-main .content {
-  grid-area: content;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+    main .content {
+        grid-area: content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
 .profile-container, .content section {
-  grid-column-start: 1;
-  grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .content section {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-.theme_row{
+.theme_row {
     border-top: 1px solid var(--border-subtle-01);
     border-bottom: 1px solid var(--border-subtle-01);
 }
@@ -70,23 +66,23 @@ main .content {
     width: 50px;
     height: 40px;
     background: transparent !important;
-    box-shadow:none !important
+    box-shadow: none !important
 }
 
 @media screen and (max-width: 1200px) {
-  main .content {
-    grid-template-columns: 1fr 1fr;
-  }
+    main .content {
+        grid-template-columns: 1fr 1fr;
+    }
 
-  .desktop {
-    display: none !important;
-  }
+    .desktop {
+        display: none !important;
+    }
 
-  .mobile {
-    display: inherit !important;
-  }
+    .mobile {
+        display: inherit !important;
+    }
 
-  main {
-    grid-template-areas: "content content";
-  }
+    main {
+        grid-template-areas: "content content";
+    }
 }

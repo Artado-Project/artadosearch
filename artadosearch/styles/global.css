@@ -87,12 +87,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -106,29 +106,34 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
+
 body {
-  line-height: 1;
+    line-height: 1;
 }
+
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
+
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: "";
+        content: none;
+    }
+
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 :root {
@@ -279,71 +284,88 @@ table {
 }
 
 * {
-  background: transparent;
-  font-family: "IBM Plex Sans" !important;
-  color: var(--text-primary);
-  box-sizing: border-box;
+    background: transparent;
+    font-family: "IBM Plex Sans" !important;
+    color: var(--text-primary);
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
+    background: var(--background);
 }
 
 .font-heading-compact-01 {
-  font: var(--heading-compact-01) !important;
+    font: var(--heading-compact-01) !important;
 }
+
 .font-heading-compact-02 {
-  font: var(--heading-compact-02) !important;
+    font: var(--heading-compact-02) !important;
 }
+
 .font-heading-01 {
-  font: var(--heading-01) !important;
+    font: var(--heading-01) !important;
 }
+
 .font-heading-02 {
-  font: var(--heading-02) !important;
+    font: var(--heading-02) !important;
 }
+
 .font-heading-03 {
-  font: var(--heading-03) !important;
+    font: var(--heading-03) !important;
 }
+
 .font-heading-04 {
-  font: var(--heading-04) !important;
+    font: var(--heading-04) !important;
 }
+
 .font-heading-05 {
-  font: var(--heading-05) !important;
+    font: var(--heading-05) !important;
 }
+
 .font-heading-06 {
-  font: var(--heading-06) !important;
+    font: var(--heading-06) !important;
 }
+
 .font-heading-07 {
-  font: var(--heading-07) !important;
+    font: var(--heading-07) !important;
 }
 
 .font-code-01 {
-  font: var(--code-01) !important;
+    font: var(--code-01) !important;
 }
+
 .font-code-02 {
-  font: var(--code-02) !important;
+    font: var(--code-02) !important;
 }
+
 .font-label-01 {
-  font: var(--label-01) !important;
+    font: var(--label-01) !important;
 }
+
 .font-label-02 {
-  font: var(--label-02) !important;
+    font: var(--label-02) !important;
 }
+
 .font-helper-text-01 {
-  font: var(--helper-text-01) !important;
+    font: var(--helper-text-01) !important;
 }
+
 .font-helper-text-02 {
-  font: var(--helper-text-02) !important;
+    font: var(--helper-text-02) !important;
 }
+
 .font-body-compact-01 {
-  font: var(--body-compact-01) !important;
+    font: var(--body-compact-01) !important;
 }
+
 .font-body-compact-02 {
-  font: var(--body-compact-02) !important;
+    font: var(--body-compact-02) !important;
 }
+
 .font-body-01 {
-  font: var(--body-01) !important;
+    font: var(--body-01) !important;
 }
+
 .font-body-02 {
-  font: var(--body-02) !important;
+    font: var(--body-02) !important;
 }
