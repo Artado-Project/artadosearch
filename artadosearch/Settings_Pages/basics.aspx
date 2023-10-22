@@ -17,11 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/mdb.min.js"></script>
-    <script src="js/featherrep.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js"></script>
     <link rel="stylesheet" href="/fonts/ibm-plex-sans/ibm-plex-sans.css"/>
-    <script src="/node_modules/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="/styles/theme-white.css" />
     <link rel="stylesheet" href="/components/headerbar/headerbar.css" />
     <link rel="stylesheet" href="/components/mainpanel/mainpanel.css" />
@@ -144,5 +142,6 @@
             </main>
         </div>
       </form>
+    <script src="/js/featherrep.js"></script>
   </body>
 </html>
