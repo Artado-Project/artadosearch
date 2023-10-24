@@ -189,6 +189,7 @@
     <Content Include="Settings_Pages\Profiles.aspx" />
     <Content Include="Settings_Pages\Themes.aspx" />
     <Content Include="Workshop\Default.aspx" />
+    <Content Include="Workshop\DeveloperPage.aspx" />
     <Content Include="Workshop\ProductPage.aspx" />
     <Content Include="App_GlobalResources\Langs.es.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
@@ -460,6 +461,13 @@
     </Compile>
     <Compile Include="Workshop\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workshop\DeveloperPage.aspx.cs">
+      <DependentUpon>DeveloperPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workshop\DeveloperPage.aspx.designer.cs">
+      <DependentUpon>DeveloperPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workshop\ProductPage.aspx.cs">
       <DependentUpon>ProductPage.aspx</DependentUpon>

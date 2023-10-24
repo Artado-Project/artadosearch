@@ -23,6 +23,7 @@ namespace artadosearch
             url.MapPageRoute("stats", "settings/stats", "~/settings.aspx");
             url.MapPageRoute("workshop", "workshop", "~/Workshop/Default.aspx");
             url.MapPageRoute("product", "workshop/{id}", "~/Workshop/ProductPage.aspx");
+            url.MapPageRoute("developer", "workshop/dev/{dev}", "~/Workshop/DeveloperPage.aspx");
             url.MapPageRoute("manifest", "manifest", "~/Manifest.aspx");
             url.MapPageRoute("autocomplete", "api/autocomplete", "~/autocomplete/autocomplete.aspx");
             url.MapPageRoute("favicon", "api/favicon", "~/FaviconAPI.aspx");

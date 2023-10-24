@@ -41,6 +41,22 @@ namespace artadosearch
                 DataProduct.DataBind();
             }
         }
+        
+        // Get products by a specific developer
+        public static void ProductsDev(Repeater DataProduct, string devid)
+        {
+            //Connection Strings
+            string con = System.Configuration.ConfigurationManager.ConnectionStrings["admin"].ConnectionString.ToString();
+
+            //Setting Sql Connection
+            SqlConnection connection = new SqlConnection(con);
+
+            SqlDataAdapter adp = new SqlDataAdapter("select * from artadoco_admin.Products where DevID=" + devid + " and AppStatus='Approved' order by ID desc", connection);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            DataProduct.DataSource = dt;
+            DataProduct.DataBind();
+        }
 
         //Get the info of the product
         public static string Info(string info, string product)
