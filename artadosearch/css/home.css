@@ -94,7 +94,9 @@
         overflow-y: auto;
         background-color: #fff;
         display: none;
-        text-align: left
+        text-align: left;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
         #autocomplete-list li {
