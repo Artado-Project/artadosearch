@@ -38,7 +38,7 @@ namespace artadosearch.Workshop
                         "privacy, security, tarayıcı, browser, celer";
 
                     nametxt.Text = name;
-                    desctxt.Text = "About me: " + desc;
+                    desctxt.InnerHtml = "About me: " + desc.Replace("\n", "<br />");
                     img.Src = "https://devs.artado.xyz/Upload/profiles/" + logo;
 
                     System.Diagnostics.Debug.WriteLine("c: " + ArtadoSql.SelectInt("PassID", "Devs", "URL", dev, con).ToString());

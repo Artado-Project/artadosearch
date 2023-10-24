@@ -93,7 +93,7 @@ namespace artadosearch.Workshop
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label desctxt;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl desctxt;
 
         /// <summary>
         /// web_results denetimi.

@@ -45,7 +45,7 @@
                 <img id="img" runat="server" class="product_img" src="#" />
                 <asp:Label ID="nametxt" runat="server" Text="Name" CssClass="p_name"></asp:Label><br />
                 <br />
-                <asp:Label ID="desctxt" runat="server" Text="Developer" CssClass="p_dev"></asp:Label>
+                <div ID="desctxt" runat="server" Text="Developer" CssClass="desctxt"></div>
                 <br />
                 <asp:Label runat="server" Font-Size="Large" Text="<%$Resources:Langs, ProjectsByThisDev %>"></asp:Label>
 
