@@ -60,5 +60,12 @@ namespace artadosearch.Workshop
         {
             Response.Redirect("/workshop?i=" + HttpUtility.UrlPathEncode(searchinput.Text));
         }
+
+        protected override void InitializeCulture()
+        {
+            Lang.Culture();
+
+            base.InitializeCulture();
+        }
     }
 }

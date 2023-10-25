@@ -104,5 +104,12 @@ namespace artadosearch.Workshop
                 Page.Response.Redirect(Page.Request.Url.ToString());
             }
         }
+
+        protected override void InitializeCulture()
+        {
+            Lang.Culture();
+
+            base.InitializeCulture();
+        }
     }
 }

@@ -1,386 +1,408 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
-		Microsoft ResX Schema
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-		Version 1.3
-
-		The primary goals of this format is to allow a simple XML format 
-		that is mostly human readable. The generation and parsing of the 
-		various data types are done through the TypeConverter classes 
-		associated with the data types.
-
-		Example:
-
-		... ado.net/XML headers & schema ...
-		<resheader name="resmimetype">text/microsoft-resx</resheader>
-		<resheader name="version">1.3</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-		<data name="Name1">this is my long string</data>
-		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-			[base64 mime encoded serialized .NET Framework object]
-		</data>
-		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-			[base64 mime encoded string representing a byte array form of the .NET Framework object]
-		</data>
-
-		There are any number of "resheader" rows that contain simple 
-		name/value pairs.
-
-		Each data row contains a name, and value. The row also contains a 
-		type or mimetype. Type corresponds to a .NET class that support 
-		text/value conversion through the TypeConverter architecture. 
-		Classes that don't support this are serialized and stored with the 
-		mimetype set.
-
-		The mimetype is used for serialized objects, and tells the 
-		ResXResourceReader how to depersist the object. This is currently not 
-		extensible. For a given mimetype the value must be set accordingly:
-
-		Note - application/x-microsoft.net.object.binary.base64 is the format 
-		that the ResXResourceWriter will generate, however the reader can 
-		read any of the formats listed below.
-
-		mimetype: application/x-microsoft.net.object.binary.base64
-		value   : The object must be serialized with 
-			: System.Serialization.Formatters.Binary.BinaryFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.soap.base64
-		value   : The object must be serialized with 
-			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.bytearray.base64
-		value   : The object must be serialized into a byte array 
-			: using a System.ComponentModel.TypeConverter
-			: and then encoded with base64 encoding.
-	-->
-	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="About" xml:space="preserve">
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
     <value>O nama</value>
-</data>
-	<data name="AboutSearch" xml:space="preserve">
+  </data>
+  <data name="AboutSearch" xml:space="preserve">
     <value>O pretrazi Artado</value>
-</data>
-	<data name="Academic" xml:space="preserve">
+  </data>
+  <data name="Academic" xml:space="preserve">
     <value>Akademski</value>
-</data>
-	<data name="Apply" xml:space="preserve">
+  </data>
+  <data name="Apply" xml:space="preserve">
     <value>Prijava</value>
-</data>
-	<data name="Attention" xml:space="preserve">
+  </data>
+  <data name="Attention" xml:space="preserve">
     <value>Ova stranica nije prevedena na sve jezike.</value>
-</data>
-	<data name="Azer" xml:space="preserve">
+  </data>
+  <data name="Azer" xml:space="preserve">
     <value>Azerbejdžanski</value>
-</data>
-	<data name="Background" xml:space="preserve">
+  </data>
+  <data name="Background" xml:space="preserve">
     <value>Pozadina</value>
-</data>
-	<data name="Back_exp" xml:space="preserve">
+  </data>
+  <data name="Back_exp" xml:space="preserve">
     <value>Možete postaviti bilo koju sliku koju želite u pozadini. Pozadinu možete resetirati ostavljajući je praznom.</value>
-</data>
-	<data name="Basics" xml:space="preserve">
+  </data>
+  <data name="Basics" xml:space="preserve">
     <value>Osnovne postavke</value>
-</data>
-	<data name="Beta" xml:space="preserve">
+  </data>
+  <data name="Beta" xml:space="preserve">
     <value>Ova funkcija trenutno nije dostupna jer je Artado pretraga još u beta verziji.</value>
-</data>
-	<data name="Blog" xml:space="preserve">
+  </data>
+  <data name="Blog" xml:space="preserve">
     <value>Blog</value>
-</data>
-	<data name="Bosnian" xml:space="preserve">
+  </data>
+  <data name="Bosnian" xml:space="preserve">
     <value>Bosanski</value>
-</data>
-	<data name="Bottom" xml:space="preserve">
+  </data>
+  <data name="Bottom" xml:space="preserve">
     <value>Dno</value>
-</data>
-	<data name="Bulgarian" xml:space="preserve">
+  </data>
+  <data name="Bulgarian" xml:space="preserve">
     <value>Bugarski</value>
-</data>
-	<data name="B_4" xml:space="preserve">
+  </data>
+  <data name="B_4" xml:space="preserve">
     <value>Unesite link slike koju želite postaviti u pozadini.</value>
-</data>
-	<data name="Categories" xml:space="preserve">
+  </data>
+  <data name="Categories" xml:space="preserve">
     <value>Kategorije</value>
-</data>
-	<data name="Cat_exp" xml:space="preserve">
+  </data>
+  <data name="Cat_exp" xml:space="preserve">
     <value>Možete promijeniti lokaciju kategorija pretrage.</value>
-</data>
-	<data name="Chinese" xml:space="preserve">
+  </data>
+  <data name="Chinese" xml:space="preserve">
     <value>Kineski</value>
-</data>
-	<data name="Classic" xml:space="preserve">
+  </data>
+  <data name="Classic" xml:space="preserve">
     <value>Klasično</value>
-</data>
-	<data name="Colorful" xml:space="preserve">
+  </data>
+  <data name="Colorful" xml:space="preserve">
     <value>Šareno</value>
-</data>
-	<data name="Contact" xml:space="preserve">
+  </data>
+  <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
-</data>
-	<data name="Cookies1" xml:space="preserve">
+  </data>
+  <data name="Cookies1" xml:space="preserve">
     <value>Kolačići</value>
-</data>
-	<data name="Create_Profile" xml:space="preserve">
+  </data>
+  <data name="Create_Profile" xml:space="preserve">
     <value>Kreiraj profil</value>
-</data>
-	<data name="Custom" xml:space="preserve">
+  </data>
+  <data name="Custom" xml:space="preserve">
     <value>Prilagođeno</value>
-</data>
-	<data name="CustomCSS" xml:space="preserve">
+  </data>
+  <data name="CustomCSS" xml:space="preserve">
     <value>Prilagođeni CSS</value>
-</data>
-	<data name="CustomCSS_exp" xml:space="preserve">
+  </data>
+  <data name="CustomCSS_exp" xml:space="preserve">
     <value>Možete prilagoditi i stvoriti svoju vlastitu temu za Artado koristeći CSS kod.</value>
-</data>
-	<data name="CustomExt_exp" xml:space="preserve">
+  </data>
+  <data name="CustomExt_exp" xml:space="preserve">
     <value>Ovdje možete upravljati koristeći ekstenzije. Također možete pronaći više ekstenzija u Artado Store.</value>
-</data>
-	<data name="Customization" xml:space="preserve">
+  </data>
+  <data name="Customization" xml:space="preserve">
     <value>Prilagođavanje</value>
-</data>
-	<data name="CustomJS" xml:space="preserve">
+  </data>
+  <data name="CustomJS" xml:space="preserve">
     <value>Prilagođeni JavaScript</value>
-</data>
-	<data name="CustomJS_exp" xml:space="preserve">
+  </data>
+  <data name="CustomJS_exp" xml:space="preserve">
     <value>Možete prilagoditi i stvoriti svoje vlastito proširenje za Artado koristeći JavaScript kod.</value>
-</data>
-	<data name="CustomThemes" xml:space="preserve">
+  </data>
+  <data name="CustomThemes" xml:space="preserve">
     <value>Prilagođene teme</value>
-</data>
-	<data name="CustomTheme_exp" xml:space="preserve">
+  </data>
+  <data name="CustomTheme_exp" xml:space="preserve">
     <value>Ovdje možete upravljati temama koje koristite. Također možete pronaći više tema u Artado Store.</value>
-</data>
-	<data name="Default" xml:space="preserve">
+  </data>
+  <data name="Default" xml:space="preserve">
     <value>Podrazumijevano</value>
-</data>
-	<data name="Default2" xml:space="preserve">
+  </data>
+  <data name="Default2" xml:space="preserve">
     <value>Podrazumijevane postavke</value>
-</data>
-	<data name="Default3" xml:space="preserve">
+  </data>
+  <data name="Default3" xml:space="preserve">
     <value>Vrati na podrazumijevane postavke.</value>
-</data>
-	<data name="Donate" xml:space="preserve">
+  </data>
+  <data name="Donate" xml:space="preserve">
     <value>Doniraj</value>
-</data>
-	<data name="Down" xml:space="preserve">
+  </data>
+  <data name="Down" xml:space="preserve">
     <value>Izvinjavamo se! Trenutno imamo problem. Artado će ponovno biti aktivan uskoro.</value>
-</data>
-	<data name="English" xml:space="preserve">
+  </data>
+  <data name="English" xml:space="preserve">
     <value>Engleski</value>
-</data>
-	<data name="EnterName" xml:space="preserve">
+  </data>
+  <data name="EnterName" xml:space="preserve">
     <value>Molimo unesite ime profila</value>
-</data>
-	<data name="Extensions" xml:space="preserve">
+  </data>
+  <data name="Extensions" xml:space="preserve">
     <value>Ekstenzije</value>
-</data>
-	<data name="Film" xml:space="preserve">
+  </data>
+  <data name="Film" xml:space="preserve">
     <value>Film</value>
-</data>
-	<data name="Forum" xml:space="preserve">
+  </data>
+  <data name="Forum" xml:space="preserve">
     <value>Forum</value>
-</data>
-	<data name="French" xml:space="preserve">
+  </data>
+  <data name="French" xml:space="preserve">
     <value>Francuski</value>
-</data>
-	<data name="German" xml:space="preserve">
+  </data>
+  <data name="German" xml:space="preserve">
     <value>Njemački</value>
-</data>
-	<data name="GoStore" xml:space="preserve">
+  </data>
+  <data name="GoStore" xml:space="preserve">
     <value>Idi u Trgovinu</value>
-</data>
-	<data name="Home_Custom" xml:space="preserve">
+  </data>
+  <data name="Home_Custom" xml:space="preserve">
     <value>Možete pronaći nove teme, aplikacije i igre u trgovini.</value>
-</data>
-	<data name="Home_Privacy" xml:space="preserve">
+  </data>
+  <data name="Home_Privacy" xml:space="preserve">
     <value>Artado ne prikuplja vaše lične podatke. Artado štiti vašu privatnost koliko god je moguće.</value>
-</data>
-	<data name="Home_Projects" xml:space="preserve">
+  </data>
+  <data name="Home_Projects" xml:space="preserve">
     <value>Možete pronaći mnogo više naših projekata kao što su pretraživači i trgovina ovde.</value>
-</data>
-	<data name="Hungarian" xml:space="preserve">
+  </data>
+  <data name="Hungarian" xml:space="preserve">
     <value>Mađarski</value>
-</data>
-	<data name="Image" xml:space="preserve">
+  </data>
+  <data name="Image" xml:space="preserve">
     <value>Slike</value>
-</data>
-	<data name="Info" xml:space="preserve">
+  </data>
+  <data name="Info" xml:space="preserve">
     <value>Informacije</value>
-</data>
-	<data name="IT" xml:space="preserve">
+  </data>
+  <data name="IT" xml:space="preserve">
     <value>IT</value>
-</data>
-	<data name="Italian" xml:space="preserve">
+  </data>
+  <data name="Italian" xml:space="preserve">
     <value>Italijanski</value>
-</data>
-	<data name="Japanese" xml:space="preserve">
+  </data>
+  <data name="Japanese" xml:space="preserve">
     <value>Japanski</value>
-</data>
-	<data name="Kazakh" xml:space="preserve">
+  </data>
+  <data name="Kazakh" xml:space="preserve">
     <value>Kazački</value>
-</data>
-	<data name="Korean" xml:space="preserve">
+  </data>
+  <data name="Korean" xml:space="preserve">
     <value>Korejski</value>
-</data>
-	<data name="Kyrgyz" xml:space="preserve">
+  </data>
+  <data name="Kyrgyz" xml:space="preserve">
     <value>Kirgiski</value>
-</data>
-	<data name="Lang" xml:space="preserve">
+  </data>
+  <data name="Lang" xml:space="preserve">
     <value>Jezici</value>
-</data>
-	<data name="Lang_exp" xml:space="preserve">
+  </data>
+  <data name="Lang_exp" xml:space="preserve">
     <value>Promijenite jezik koji koristite za Artado pretragu.</value>
-</data>
-	<data name="Left" xml:space="preserve">
+  </data>
+  <data name="Left" xml:space="preserve">
     <value>Lijevo</value>
-</data>
-	<data name="Logo" xml:space="preserve">
+  </data>
+  <data name="Logo" xml:space="preserve">
     <value>Logo</value>
-</data>
-	<data name="Logo_exp" xml:space="preserve">
+  </data>
+  <data name="Logo_exp" xml:space="preserve">
     <value>Možete promijeniti Artado pretrage logo kako želite. Više logotipa možete pronaći u trgovini.</value>
-</data>
-	<data name="Macedonian" xml:space="preserve">
+  </data>
+  <data name="Macedonian" xml:space="preserve">
     <value>Makedonski</value>
-</data>
-	<data name="Manifest" xml:space="preserve">
+  </data>
+  <data name="Manifest" xml:space="preserve">
     <value>Manifest</value>
-</data>
-	<data name="Manifesto1" xml:space="preserve">
+  </data>
+  <data name="Manifesto1" xml:space="preserve">
     <value>Artado Manifest</value>
-</data>
-	<data name="Manifesto2" xml:space="preserve">
+  </data>
+  <data name="Manifesto2" xml:space="preserve">
     <value>Zalažemo se za internet u kojem svako može slobodno razmjenjivati informacije, poštovati lične podatke i izražavati ideje bez cenzure.</value>
-</data>
-	<data name="Menu" xml:space="preserve">
+  </data>
+  <data name="Menu" xml:space="preserve">
     <value>Meni</value>
-</data>
-	<data name="News" xml:space="preserve">
+  </data>
+  <data name="News" xml:space="preserve">
     <value>Vijesti</value>
-</data>
-	<data name="Night" xml:space="preserve">
+  </data>
+  <data name="Night" xml:space="preserve">
     <value>Noćni</value>
-</data>
-	<data name="Old" xml:space="preserve">
+  </data>
+  <data name="Old" xml:space="preserve">
     <value>Stari logo</value>
-</data>
-	<data name="OpenSource" xml:space="preserve">
+  </data>
+  <data name="OpenSource" xml:space="preserve">
     <value>Otvoren izvor</value>
-</data>
-	<data name="Portuguese" xml:space="preserve">
+  </data>
+  <data name="Portuguese" xml:space="preserve">
     <value>Portugalski</value>
-</data>
-	<data name="Pride" xml:space="preserve">
+  </data>
+  <data name="Pride" xml:space="preserve">
     <value>Ponos</value>
-</data>
-	<data name="Privacy" xml:space="preserve">
+  </data>
+  <data name="Privacy" xml:space="preserve">
     <value>Privatnost</value>
-</data>
-	<data name="Profiles" xml:space="preserve">
+  </data>
+  <data name="Profiles" xml:space="preserve">
     <value>Profili</value>
-</data>
-	<data name="Profiles_exp" xml:space="preserve">
+  </data>
+  <data name="Profiles_exp" xml:space="preserve">
     <value>Profili su način za čuvanje vaših Artado konfiguracija u oblaku. Možete sačuvati prilagođavanje u oblaku i koristiti ga na drugom uređaju ili možete podeliti svoje prilagođavanje sa prijateljima. Također, prijavljivanjem na svoj Artado nalog možete sinhronizovati svoje profile.</value>
-</data>
-	<data name="Profile_Name" xml:space="preserve">
+  </data>
+  <data name="Profile_Name" xml:space="preserve">
     <value>Ime profila</value>
-</data>
-	<data name="Projects" xml:space="preserve">
+  </data>
+  <data name="Projects" xml:space="preserve">
     <value>Naši Projekti</value>
-</data>
-	<data name="Results" xml:space="preserve">
+  </data>
+  <data name="ProjectsByThisDev" xml:space="preserve">
+    <value>Projekti ovog razvijatelja:</value>
+  </data>
+  <data name="Results" xml:space="preserve">
     <value>Rezultati</value>
-</data>
-	<data name="Right" xml:space="preserve">
+  </data>
+  <data name="Right" xml:space="preserve">
     <value>Desno</value>
-</data>
-	<data name="Russian" xml:space="preserve">
+  </data>
+  <data name="Russian" xml:space="preserve">
     <value>Русский</value>
-</data>
-	<data name="Serbian" xml:space="preserve">
+  </data>
+  <data name="Serbian" xml:space="preserve">
     <value>Српски</value>
-</data>
-	<data name="Settings" xml:space="preserve">
+  </data>
+  <data name="Settings" xml:space="preserve">
     <value>Podešavanja</value>
-</data>
-	<data name="Sign" xml:space="preserve">
+  </data>
+  <data name="Sign" xml:space="preserve">
     <value>Prijavi se</value>
-</data>
-	<data name="Slogan" xml:space="preserve">
+  </data>
+  <data name="Slogan" xml:space="preserve">
     <value>Istražite Internet!</value>
-</data>
-	<data name="Spanish" xml:space="preserve">
+  </data>
+  <data name="Spanish" xml:space="preserve">
     <value>Španski</value>
-</data>
-	<data name="Sync" xml:space="preserve">
+  </data>
+  <data name="Sync" xml:space="preserve">
     <value>Sinhronizujte sa svojim Artado nalogom</value>
-</data>
-	<data name="Themes" xml:space="preserve">
+  </data>
+  <data name="Themes" xml:space="preserve">
     <value>Teme</value>
-</data>
-	<data name="Theme_exp" xml:space="preserve">
+  </data>
+  <data name="Theme_exp" xml:space="preserve">
     <value>Možete pronaći više tema u Artado Store.</value>
-</data>
-	<data name="Top" xml:space="preserve">
+  </data>
+  <data name="Top" xml:space="preserve">
     <value>Vrh</value>
-</data>
-	<data name="Turkish" xml:space="preserve">
+  </data>
+  <data name="Turkish" xml:space="preserve">
     <value>Turski</value>
-</data>
-	<data name="Turkmen" xml:space="preserve">
+  </data>
+  <data name="Turkmen" xml:space="preserve">
     <value>Turkmenski</value>
-</data>
-	<data name="Ukrainian" xml:space="preserve">
+  </data>
+  <data name="Ukrainian" xml:space="preserve">
     <value>Ukrajinski</value>
-</data>
-	<data name="Uzbek" xml:space="preserve">
+  </data>
+  <data name="Uzbek" xml:space="preserve">
     <value>Uzbekistanski</value>
-</data>
-	<data name="Video" xml:space="preserve">
+  </data>
+  <data name="Video" xml:space="preserve">
     <value>Video</value>
-</data>
+  </data>
 </root>

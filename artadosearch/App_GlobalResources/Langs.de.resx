@@ -360,6 +360,9 @@
   <data name="Projects" xml:space="preserve">
     <value>Unsere Projekte</value>
   </data>
+  <data name="ProjectsByThisDev" xml:space="preserve">
+    <value>Projekte dieses Entwicklers:</value>
+  </data>
   <data name="Results" xml:space="preserve">
     <value>Ergebnisse</value>
   </data>

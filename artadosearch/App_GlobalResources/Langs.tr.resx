@@ -378,6 +378,9 @@
   <data name="Projects" xml:space="preserve">
     <value>Projelerimiz</value>
   </data>
+  <data name="ProjectsByThisDev" xml:space="preserve">
+    <value>Bu geliştiricinin projeleri:</value>
+  </data>
   <data name="Relevance" xml:space="preserve">
     <value>Alaka</value>
   </data>

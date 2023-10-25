@@ -354,6 +354,9 @@
   <data name="Projects" xml:space="preserve">
     <value>Nos Projets</value>
   </data>
+  <data name="ProjectsByThisDev" xml:space="preserve">
+    <value>Projets de ce développeur:</value>
+  </data>
   <data name="Results" xml:space="preserve">
     <value>Résultats</value>
   </data>
