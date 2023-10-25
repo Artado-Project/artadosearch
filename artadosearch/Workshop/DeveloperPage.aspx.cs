@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,7 +40,10 @@ namespace artadosearch.Workshop
                         "privacy, security, tarayıcı, browser, celer";
 
                     nametxt.Text = name;
-                    desctxt.InnerHtml = "About me: " + desc.Replace("\n", "<br />");
+                    desc = "About me: " + desc.Replace("\n", "<br />");
+                    string regex = @"(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)[-A-Z0-9+&@#%?\/=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])";
+                    Regex r = new Regex(regex, RegexOptions.IgnoreCase);
+                    desctxt.InnerHtml = r.Replace(desc, "<a href=\"$1\" target =\"_blank\">$1</a>");
                     img.Src = "https://devs.artado.xyz/Upload/profiles/" + logo;
 
                     System.Diagnostics.Debug.WriteLine("c: " + ArtadoSql.SelectInt("PassID", "Devs", "URL", dev, con).ToString());
