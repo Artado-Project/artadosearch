@@ -11,7 +11,7 @@ namespace artadosearch.Workshop
 {
 
 
-    public partial class ProductPPage
+    public partial class ProductPage
     {
 
         /// <summary>

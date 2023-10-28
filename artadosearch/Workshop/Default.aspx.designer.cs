@@ -11,7 +11,7 @@ namespace artadosearch.Workshop
 {
 
 
-    public partial class Defaukt
+    public partial class Default
     {
 
         /// <summary>
