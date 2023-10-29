@@ -589,19 +589,26 @@ namespace artadosearch
                         }
                         suggestions.DataBind();
 
-                        //PriEco Results
-                        DataTable dt;
-                        if (cookie != null && cookie.Value != null)
+                        try
                         {
-                            dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, cookie.Value));
+                            //PriEco Results
+                            DataTable dt;
+                            if (cookie != null && cookie.Value != null)
+                            {
+                                dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, cookie.Value));
+                            }
+                            else
+                            {
+                                dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, null));
+                            }
+
+                            artado_results.DataSource = dt;
+                            artado_results.DataBind();
                         }
-                        else
+                        catch
                         {
-                            dt = JsonConvert.DeserializeObject<DataTable>(ResultsClass.PriEco(query, 10, safeS, null));
+                            artado_results.Visible = false;
                         }
-                        
-                        artado_results.DataSource = dt;
-                        artado_results.DataBind();
                         break;
 
                     case "Bing":
