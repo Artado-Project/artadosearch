@@ -202,7 +202,6 @@ table {
 
 * {
     background: transparent;
-    font-family: "IBM Plex Sans" !important;
     color: var(--text-primary);
     box-sizing: border-box;
 }
