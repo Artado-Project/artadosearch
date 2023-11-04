@@ -9,7 +9,6 @@
     <title>Settings - Artado Search</title>
     <link rel="stylesheet" href="/css/mdb.min.css" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap-icons.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand:wght@300&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet" />
     <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -40,7 +39,7 @@
                     </a>
 
                     <a href="/" class="button title" role="button">
-                        <h1>Artado Search</h1>
+                        <h1 style="font-size: 1rem;">Artado Search</h1>
                     </a>
                 </div>
                 <div class="right">
