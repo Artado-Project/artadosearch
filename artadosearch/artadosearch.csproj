@@ -139,7 +139,7 @@
     <Content Include="components\mainpanel\mainpanel.js" />
     <Content Include="components\profile-container\profile-container.css" />
     <Content Include="components\switch\switch.css" />
-    <Content Include="css\nova.css" />
+    <Content Include="css\bootstrap-icons.css" />
     <Content Include="css\otherresults.css" />
     <Content Include="Default.aspx" />
     <Content Include="css\home.css" />
@@ -148,6 +148,8 @@
     <Content Include="FaviconAPI.aspx" />
     <Content Include="hour.txt" />
     <Content Include="js\Autocomplete.js" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\featherrep.js" />
     <Content Include="js\google_api.js" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-Bold.woff2" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-BoldItalic.woff2" />
@@ -182,6 +184,9 @@
     <Content Include="images\oldies\old-icon.png" />
     <Content Include="images\oldies\old.png" />
     <Content Include="images\oldies\old1.png" />
+    <Content Include="js\jquery-3.3.1.slim.min.js" />
+    <Content Include="js\mdb.min.js" />
+    <Content Include="js\popper.min.js" />
     <Content Include="js\test.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />
@@ -230,6 +235,8 @@
       <LastGenOutput>Langs.uz.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="css\fonts\bootstrap-icons.woff" />
+    <Content Include="css\fonts\bootstrap-icons.woff2" />
     <None Include="TODO" />
     <Content Include="demos\accordion.html" />
     <Content Include="demos\entry.html" />

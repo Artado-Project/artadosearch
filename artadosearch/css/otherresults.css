@@ -545,7 +545,6 @@ li::marker {
 
 .gsc-webResult.gsc-result {
     background-color: transparent !important;
-    margin-bottom: 30px !important;
     margin-left: 5px !important;
 }
 
@@ -1751,7 +1750,7 @@ li::marker {
     color: #c7100d
 }
 
-</style > <style > .search-wrapper[data-v-5c176f41] {
+.search-wrapper[data-v-5c176f41] {
     position: relative;
     background: var(--card-bg);
     height: 48px;
@@ -4088,7 +4087,7 @@ li::marker {
     white-space: nowrap
 }
 
-</style > <style > .s-news-cp-item[data-v-b5c94204] {
+.s-news-cp-item[data-v-b5c94204] {
     position: relative;
     display: block
 }
@@ -5126,7 +5125,7 @@ li::marker {
     margin-top: 20px
 }
 
-</style > <style > .live-container[data-v-d0323e68] {
+.live-container[data-v-d0323e68] {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -6382,19 +6381,7 @@ img[data-v-1d4d2048], video[data-v-1d4d2048] {
 }
 
 
-<meta charset="UTF-8" >
-<meta name="referrer" content="origin" >
-<meta property="og:title" content="france - Petal Search" >
-<meta property="og:type" content="website" >
-<meta property="og:site_name" content="Petal Search" >
-<meta property="og:description" content="Searching is simple with Petal Search." >
-<meta name="description" content="Petal Search is a Huawei developed search engine app that allows users to easily search for and find the things they need – including apps, news, videos, images, shopping, flights & hotels, local businesses, and more – directly from their home screen." >
-<meta property="og:image" content="https://search-static-dre.dbankcdn.com/pc/v1/share.png" >
-<meta name="twitter:card" content="summary_large_image" >
-<script > window.__CDN_PATH__="https://search-static-dre.dbankcdn.com/pc/v1"</script >
-<link rel='shortcut icon' href='https://search-static-dre.dbankcdn.com/pc/v1/favicon.ico' type='image/x-icon' / >
-<title > france - Petal Search</title >
-<link rel="stylesheet" href="https://search-static-dre.dbankcdn.com/pc/v1/static/css/vendor-lazy.86654d5b.css" / > <link rel="stylesheet" href="https://search-static-dre.dbankcdn.com/pc/v1/static/css/common.3e4dfe17.css" / > <link rel="stylesheet" href="https://search-static-dre.dbankcdn.com/pc/v1/static/css/channel/all/all.2fc41b3d.css" / > <style > .container .webpage-header[data-v-0270429e] {
+.container .webpage-header[data-v-0270429e] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -7597,7 +7584,7 @@ img[data-v-1d4d2048], video[data-v-1d4d2048] {
     color: #c7100d
 }
 
-</style > <style > .search-wrapper[data-v-5c176f41] {
+.search-wrapper[data-v-5c176f41] {
     position: relative;
     background: var(--card-bg);
     height: 48px;
