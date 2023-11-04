@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductPage.aspx.cs" Inherits="artadosearch.Workshop.ProductPPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductPage.aspx.cs" Inherits="artadosearch.Workshop.ProductPage" %>
 
 <!DOCTYPE html>
 
