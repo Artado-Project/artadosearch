@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // denetlenir. Bir derlemeyle ilişkilendirilmiş bilgileri değiştirmek için bu
 // öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("artadosearch")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Artado Search is open source, private and highly customizable search engine.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Artado-Project")]
 [assembly: AssemblyProduct("artadosearch")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
