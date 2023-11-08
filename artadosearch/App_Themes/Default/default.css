@@ -1,5 +1,15 @@
 @import url('/styles/global.css');
 
+:root {
+    --background: #f7f7f7;
+    --bg-primary: #E4EBF5;
+    --bg-secondary: #fff;
+    --bg-tertiary: #E4EBF5;
+    --bg-quaternary: #4c566a;
+    --text: #000000;
+    --accent: #eef2f6;
+}
+
 body, .gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet, .gs-fileFormatType {
     color: #000 !important;
 }

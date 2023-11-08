@@ -681,6 +681,24 @@ namespace artadosearch
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl google;
 
         /// <summary>
+        /// google_server denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater google_server;
+
+        /// <summary>
+        /// googlejs denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl googlejs;
+
+        /// <summary>
         /// others denetimi.
         /// </summary>
         /// <remarks>

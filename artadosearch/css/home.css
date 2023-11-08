@@ -1,3 +1,38 @@
+/* firefox */
+input:focus {
+    outline: 0 none;
+    border: 0 none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+#up-down {
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
+}
+
+@-webkit-keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
 @media screen and (min-width: 600px) {
     .button {
         height: 35px;

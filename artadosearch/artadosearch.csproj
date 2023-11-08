@@ -187,6 +187,8 @@
     <Content Include="js\jquery-3.3.1.slim.min.js" />
     <Content Include="js\mdb.min.js" />
     <Content Include="js\popper.min.js" />
+    <Content Include="js\home.js" />
+    <Content Include="js\tailwind.js" />
     <Content Include="js\test.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />

@@ -267,6 +267,37 @@ namespace artadosearch
             }
         }
 
+        public static string Google(string query, string lang)
+        {
+            try
+            {
+                string apikey = GoogleToken.GetToken();
+                string url;
+                if (lang != null)
+                {
+                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
+                }
+                else
+                {
+                    System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
+                    lang = cul.TwoLetterISOLanguageName;
+                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
+                }
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+                request.Referer = "https://www.google.com/";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string jsonstring = reader.ReadToEnd();
+
+                return jsonstring;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static string PriEco(string query, int num, string safe, string lang)
         {
             try

@@ -234,8 +234,31 @@
 
             <div id="web_results" runat="server">
                 <div id="google" runat="server">
-                    <script async src="/js/google.js"></script>
-                    <div class="gcse-searchresults-only" enablehistory="false" runat="server"></div>
+                    <asp:Repeater ID="google_server" runat="server">
+                        <ItemTemplate>
+                            <a id="artado_r" href='<%# Eval("url") %>' class="result-item">
+                                <div class="result-refs">
+                                    <div class="result-badge">
+                                        <img class="result-icon" src='/api/favicon?q=<%# Eval("url") %>' />
+                                        <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("visibleUrl") %>'></asp:Label>
+                                    </div>
+                                </div>
+                                <small class="result-box">
+                                    <div class="result-title font-assistant">
+                                        <asp:Label ID="title" runat="server" Text='<%# Eval("titleNoFormatting") %>'></asp:Label>
+                                    </div>
+                                    <div class="result-desc text-desc font-assistant">
+                                        <asp:Label ID="desc" runat="server" Text='<%# Eval("content") %>'></asp:Label>
+                                    </div>
+                                </small>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                   <div id="googlejs" runat="server">
+                       <script async src="/js/google.js"></script>
+                       <div class="gcse-searchresults-only" enablehistory="false" runat="server"></div>
+                   </div>
                 </div>
                 <div id="others" runat="server">
                     <asp:Label ID="otherstxt" runat="server" />

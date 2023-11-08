@@ -551,12 +551,39 @@ namespace artadosearch
                 switch (source.Value)
                 {
                     case "Google":
-                        Google_B.Font.Bold = true;
-                        google.Visible = true;
-                        others.Visible = false;
-                        artado.Visible = false;
+                        try
+                        {
+                            Google_B.Font.Bold = true;
+                            google.Visible = true;
+                            google_server.Visible = true;
+                            googlejs.Visible = false;
+                            others.Visible = false;
+                            artado.Visible = false;
 
-                        GoogleToken.ChangeToken();
+                            //Result lang
+                            HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
+
+                            if (lang != null && lang.Value != null)
+                            {
+                                google_server.DataSource = ResultsClass.Google(query, lang.Value);
+                            }
+                            else
+                            {
+                                google_server.DataSource = ResultsClass.Google(query, null);
+                            }
+                            google_server.DataBind();
+                        }
+                        catch
+                        {
+                            Google_B.Font.Bold = true;
+                            google.Visible = true;
+                            google_server.Visible = false;
+                            googlejs.Visible = true;
+                            others.Visible = false;
+                            artado.Visible = false;
+
+                            GoogleToken.ChangeToken();
+                        }
                         break;
 
                     case "Artado":
@@ -725,21 +752,77 @@ namespace artadosearch
                         break;
 
                     default:
-                        Google_B.Font.Bold = true;
-                        google.Visible = true;
-                        others.Visible = false;
-                        artado.Visible = false;
+                        try
+                        {
+                            Google_B.Font.Bold = true;
+                            google.Visible = true;
+                            google_server.Visible = true;
+                            googlejs.Visible = false;
+                            others.Visible = false;
+                            artado.Visible = false;
 
-                        GoogleToken.ChangeToken();
+                            //Result lang
+                            HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
+
+                            if (lang != null && lang.Value != null)
+                            {
+                                google_server.DataSource = ResultsClass.Google(query, lang.Value);
+                            }
+                            else
+                            {
+                                google_server.DataSource = ResultsClass.Google(query, null);
+                            }
+                            google_server.DataBind();
+                        }
+                        catch
+                        {
+                            Google_B.Font.Bold = true;
+                            google.Visible = true;
+                            google_server.Visible = false;
+                            googlejs.Visible = true;
+                            others.Visible = false;
+                            artado.Visible = false;
+
+                            GoogleToken.ChangeToken();
+                        }
                         break;
                 }
             }
             else
             {
-                Google_B.Font.Bold = true;
-                google.Visible = true;
-                others.Visible = false;
-                artado.Visible = false;
+                try
+                {
+                    Google_B.Font.Bold = true;
+                    google.Visible = true;
+                    google_server.Visible = true;
+                    googlejs.Visible = false;
+                    others.Visible = false;
+                    artado.Visible = false;
+
+                    //Result lang
+                    HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
+
+                    if (lang != null && lang.Value != null)
+                    {
+                        google_server.DataSource = ResultsClass.Google(query, lang.Value);
+                    }
+                    else
+                    {
+                        google_server.DataSource = ResultsClass.Google(query, null);
+                    }
+                    google_server.DataBind();
+                }
+                catch
+                {
+                    Google_B.Font.Bold = true;
+                    google.Visible = true;
+                    google_server.Visible = false;
+                    googlejs.Visible = true;
+                    others.Visible = false;
+                    artado.Visible = false;
+
+                    GoogleToken.ChangeToken();
+                }
             }
 
             //Get the Wikipedia Data

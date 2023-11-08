@@ -33,15 +33,6 @@ namespace artadosearch
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// searchpanel denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel searchpanel;
-
-        /// <summary>
         /// Image1 denetimi.
         /// </summary>
         /// <remarks>
@@ -58,69 +49,6 @@ namespace artadosearch
         /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchinput;
-
-        /// <summary>
-        /// ImageButton1 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
-
-        /// <summary>
-        /// Label1 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Label2 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// Label3 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// Label4 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// Label5 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// Label6 denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluþturulan alan.
-        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// offcanvasRightLabel denetimi.
