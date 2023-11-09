@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link href="/css/panel.css?v=1" rel="stylesheet" />
+    <link href="/css/panel.css?v=2" rel="stylesheet" />
     <link href="/css/home.css" rel="stylesheet" />
     <link href="/css/search.css" rel="stylesheet" />
     <link href="/css/otherresults.css" rel="stylesheet" />
