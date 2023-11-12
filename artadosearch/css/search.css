@@ -151,8 +151,8 @@
         }
 
     #web_results {
-        text-align: left !important;
-        margin-left: 15vw;
+        max-width: 84%;
+        margin: 0 auto;
     }
 
     .infoimage {
@@ -401,10 +401,6 @@
             background-color: white;
             color: black
         }
-
-    #web_results {
-        text-align: left !important;
-    }
 
     .infoimage {
         float: right;
