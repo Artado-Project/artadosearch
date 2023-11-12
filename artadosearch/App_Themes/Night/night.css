@@ -1,8 +1,14 @@
 ﻿@import url('/styles/global.css');
 /* */
 :root {
+    --bg-primary: #2e3440;
+    --bg-secondary: #3b4252;
+    --bg-tertiary: #434c5e;
+    --bg-quaternary: #4c566a;
+    --text: #eceff4;
+    --accent: #d8dee9;
     /* Tokens */
-    --background: var(--gray-100);
+    --background: #2e3440;
     --background-hover: color-mix(in srgb, var(--gray-50) 16%, black);
     --background-active: color-mix(in srgb, var(--gray-50) 40%, black);
     --background-selected: color-mix(in srgb, var(--gray-50) 24%, black);
@@ -135,7 +141,7 @@
 }
 
 #offcanvasRight {
-    background-color: #262626;
+    background-color: #3b4252;
 }
 
 .tab {
@@ -148,7 +154,7 @@
 
 select {
     color: var(--text-primary) !important;
-    background: var(--field-01) !important;
+    background: #3b4252 !important;
     font: var(--body-compact-01);
 }
 

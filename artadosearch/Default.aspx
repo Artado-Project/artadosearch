@@ -41,13 +41,20 @@
                   <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
                   <button hidden id="search-delete" class="px-5 bg-[var(--bg-secondary)]"><i
                       class="fa-solid fa-close"></i></button>
-                  <button id="search-button" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
+                  <button id="search" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
                       class="bi bi-search"></i></button>
                 </div>
               </div>
             </div>
 
-            <a class="absolute bottom-0 text-center pb-5" id="up-down" style="color: var(--text); width: 100px" href="#features">
+            <div id="save" runat="server" class="save">
+                <asp:Label ID="savetxt" runat="server" Text="Do you want to save the changes?"></asp:Label><br />
+                <br />
+                <asp:Button ID="yes" runat="server" CssClass="btn button" Text="Yes" OnClick="yes_Click" />
+                <asp:Button ID="no" runat="server" CssClass="btn btn-outline-success mb-3" Style="margin-bottom: 0px !important" Text="No" OnClick="no_Click" />
+            </div>
+
+            <a class="absolute bottom-0 text-center pb-5" id="up-down" style="color: var(--text);" href="#features">
             <i class="text-3xl bi bi-chevron-down"></i></a>
         </div>
         <div class="top">
@@ -107,34 +114,79 @@
                         <asp:ListItem Text="Bing News" Value="News"></asp:ListItem>
                     </asp:DropDownList>
                     <hr class="ince" />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Settings">
-                        <asp:Label ID="Label7" Style="color: #00b74a;" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br />
+                    <br />
+                    <a href="/Settings">
+                        <asp:Label ID="Label7" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br />
                     </a>
                     <br />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/workshop">Workshop</a><br />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://forum.artado.xyz/">
-                        <asp:Label Style="color: #00b74a;" ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Manifest">
-                        <asp:Label Style="color: #00b74a;" ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://myacc.artado.xyz/privacy">
-                        <asp:Label Style="color: #00b74a;" ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://devs.artado.xyz/">Developers</a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://github.com/Artado-Project/artadosearch">Github</a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://discord.gg/WXCsr8zTN6">Discord</a><br>
-                    <hr class="ince">
-                    <div class="col-md-12">
-                        <h3 class="text-center fontlu">Artado Search</h3>
-                        <asp:Label ID="manifest" runat="server" class="text-center mb-3" Text="<%$Resources:Langs, Manifesto2 %>"></asp:Label>
-                    </div>
+                    <a href="/workshop">Workshop</a><br /><br />
+                    <a href="https://forum.artado.xyz/">
+                        <asp:Label ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br><br />
+                    <a href="/Manifest">
+                        <asp:Label ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br><br />
+                    <a href="https://myacc.artado.xyz/privacy">
+                        <asp:Label ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br><br />
+                    <a href="https://devs.artado.xyz/">Developers</a><br><br />
+                    <a href="https://github.com/Artado-Project/artadosearch">Github</a><br><br />
+                    <a href="https://discord.gg/WXCsr8zTN6">Discord</a><br><br />
                 </div>
             </div>
         </div>
 
-        <div id="save" runat="server" class="save">
-            <asp:Label ID="savetxt" runat="server" Text="Do you want to save the changes?"></asp:Label><br />
-            <br />
-            <asp:Button ID="yes" runat="server" CssClass="btn button" Text="Yes" OnClick="yes_Click" />
-            <asp:Button ID="no" runat="server" CssClass="btn btn-outline-success mb-3" Style="margin-bottom: 0px !important" Text="No" OnClick="no_Click" />
+        <div id="features" class="flex flex-col justify-between h-screen">
+            <div class="py-20 px-40 max-sm:px-10">
+                <div class="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-20">
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    Your highly customizable<br>
+                    search engine 🔎
+                    </div>
+                    <div>Artado Search is a versatile and highly customizable search engine, designed to empower users with the
+                    ability to tailor their search experience to their unique needs. This project is based on the ASP.NET
+                    Framework and is proudly open source under the AGPL v3 license. It not only offers its own search results
+                    but also integrates results from other search engines, providing a comprehensive search solution.</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    More than one result 🔥
+                    </div>
+                    <div>Artado not only relies on its proprietary search algorithms but also goes the extra mile by aggregating
+                    results from various other search engines. This distinctive approach enriches the user experience by
+                    offering a comprehensive view of information from diverse sources, enabling users to access a broader
+                    spectrum of data and insights. By combining the strengths of its own algorithms with the collective
+                    knowledge of multiple search engines, Artado Search ensures that users are equipped with a well-rounded
+                    perspective, fostering a more informed and in-depth exploration of their search queries.</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    Customise as you like 🎨
+                    </div>
+                    <p>Artado goes beyond traditional search engines by offering extensive customization options. You can create
+                    personalized themes and extensions to enhance the user interface and functionality. You can find new themes,
+                    apps and games from the store.</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    Keep your data to yourself 🔒
+                    </div>
+                    <div>Artado does not collect any of your personal data. Artado protects your privacy as much as possible.
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center text-sm gap-10 pb-10 pt-5 px-40 max-sm:px-10">
+                <a href="/" class="flex items-center gap-2">
+                <img class="h-7" src="/images/android-chrome-192x192.png" alt="artado search logo">
+                Artado Search
+                </a>
+                <a href="#" target="_blank">Privacy</a>
+                <a href="#" target="_blank">Manifesto</a>
+                <a href="#" target="_blank">Forum</a>
+                <a href="#" target="_blank">Discord</a>
+                <a href="#" target="_blank">Source Code</a>
+                <a href="#" target="_blank">Developers</a>
+                <a href="#" target="_blank">Workshop</a>
+            </div>
         </div>
     </form>
     <script src="/js/autocomplete.js"></script>
