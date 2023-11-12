@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <title></title>
 </head>
-<body id="bdy1" runat="server">
+<body id="searchpage" runat="server">
     <form id="form1" runat="server">
         <div class="middle">
             <div class="form-control form-input searchbar">

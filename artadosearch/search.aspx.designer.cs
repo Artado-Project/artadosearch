@@ -15,13 +15,13 @@ namespace artadosearch
     {
 
         /// <summary>
-        /// bdy1 denetimi.
+        /// searchpage denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bdy1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchpage;
 
         /// <summary>
         /// form1 denetimi.
