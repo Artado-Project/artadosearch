@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div id="features" class="flex flex-col justify-between h-screen">
+        <div id="features" class="flex flex-col justify-between">
             <div class="py-20 px-40 max-sm:px-10">
                 <div class="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-20">
                 <div>
@@ -172,7 +172,7 @@
                 </div>
                 </div>
             </div>
-            <div class="flex flex-wrap items-center text-sm gap-10 pb-10 pt-5 px-40 max-sm:px-10">
+            <div class="flex flex-wrap items-center text-sm gap-10 pb-10 px-40 max-sm:px-10">
                 <a href="/" class="flex items-center gap-2">
                 <img class="h-7" src="/images/android-chrome-192x192.png" alt="artado search logo">
                 Artado Search

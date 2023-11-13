@@ -51,13 +51,13 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.TextBox searchinput;
 
         /// <summary>
-        /// search denetimi.
+        /// searchbutton denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton search;
+        protected global::System.Web.UI.HtmlControls.HtmlButton searchbutton;
 
         /// <summary>
         /// classic_tabs denetimi.
@@ -465,15 +465,6 @@ namespace artadosearch
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl buttons_r;
 
         /// <summary>
-        /// Google_B denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Google_B;
-
-        /// <summary>
         /// Button1 denetimi.
         /// </summary>
         /// <remarks>
@@ -481,6 +472,15 @@ namespace artadosearch
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Google_B denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Google_B;
 
         /// <summary>
         /// Button2 denetimi.
@@ -625,15 +625,6 @@ namespace artadosearch
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList languageDropDown;
-
-        /// <summary>
-        /// SafeSearch denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SafeSearch;
 
         /// <summary>
         /// suggestions denetimi.

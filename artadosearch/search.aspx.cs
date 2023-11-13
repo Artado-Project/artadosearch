@@ -594,17 +594,6 @@ namespace artadosearch
 
                         //Result lang
                         HttpCookie cookie = HttpContext.Current.Request.Cookies["result_lang"];
-                        //Safe Search
-                        HttpCookie safe = HttpContext.Current.Request.Cookies["safe"];
-                        string safeS;
-                        if (safe != null && safe.Value != null)
-                        {
-                            safeS = safe.Value;
-                        }
-                        else
-                        {
-                            safeS = "Off";
-                        }
 
                         if (cookie != null && cookie.Value != null)
                         {
@@ -752,77 +741,45 @@ namespace artadosearch
                         break;
 
                     default:
-                        try
+                        Button1.Font.Bold = true;
+                        google.Visible = false;
+                        others.Visible = false;
+                        artado.Visible = true;
+
+                        //Result lang
+                        HttpCookie cookie2 = HttpContext.Current.Request.Cookies["result_lang"];
+
+                        if (cookie2 != null && cookie2.Value != null)
                         {
-                            Google_B.Font.Bold = true;
-                            google.Visible = true;
-                            google_server.Visible = true;
-                            googlejs.Visible = false;
-                            others.Visible = false;
-                            artado.Visible = false;
-
-                            //Result lang
-                            HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
-
-                            if (lang != null && lang.Value != null)
-                            {
-                                google_server.DataSource = ResultsClass.Google(query, lang.Value);
-                            }
-                            else
-                            {
-                                google_server.DataSource = ResultsClass.Google(query, null);
-                            }
-                            google_server.DataBind();
+                            suggestions.DataSource = ResultsClass.Artado(query, 0, cookie2.Value);
                         }
-                        catch
+                        else
                         {
-                            Google_B.Font.Bold = true;
-                            google.Visible = true;
-                            google_server.Visible = false;
-                            googlejs.Visible = true;
-                            others.Visible = false;
-                            artado.Visible = false;
-
-                            GoogleToken.ChangeToken();
+                            suggestions.DataSource = ResultsClass.Artado(query, 0, null);
                         }
+                        suggestions.DataBind();
                         break;
                 }
             }
             else
             {
-                try
+                Button1.Font.Bold = true;
+                google.Visible = false;
+                others.Visible = false;
+                artado.Visible = true;
+
+                //Result lang
+                HttpCookie cookie2 = HttpContext.Current.Request.Cookies["result_lang"];
+
+                if (cookie2 != null && cookie2.Value != null)
                 {
-                    Google_B.Font.Bold = true;
-                    google.Visible = true;
-                    google_server.Visible = true;
-                    googlejs.Visible = false;
-                    others.Visible = false;
-                    artado.Visible = false;
-
-                    //Result lang
-                    HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
-
-                    if (lang != null && lang.Value != null)
-                    {
-                        google_server.DataSource = ResultsClass.Google(query, lang.Value);
-                    }
-                    else
-                    {
-                        google_server.DataSource = ResultsClass.Google(query, null);
-                    }
-                    google_server.DataBind();
+                    suggestions.DataSource = ResultsClass.Artado(query, 0, cookie2.Value);
                 }
-                catch
+                else
                 {
-                    Google_B.Font.Bold = true;
-                    google.Visible = true;
-                    google_server.Visible = false;
-                    googlejs.Visible = true;
-                    others.Visible = false;
-                    artado.Visible = false;
-
-                    GoogleToken.ChangeToken();
+                    suggestions.DataSource = ResultsClass.Artado(query, 0, null);
                 }
+                suggestions.DataBind();
             }
 
             //Get the Wikipedia Data
@@ -1091,11 +1048,6 @@ namespace artadosearch
         protected void languageDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateCookie("result_lang", languageDropDown.SelectedValue);
-        }
-
-        protected void SafeSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CreateCookie("safe", SafeSearch.SelectedValue);
         }
     }
 }

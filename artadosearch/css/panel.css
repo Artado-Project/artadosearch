@@ -9,8 +9,7 @@
     .product_row {
         height: 380px;
         width: 200px;
-        margin-left: 20px;
-        margin-right: auto;
+        margin-right: 20px;
         margin-top: 10px;
         border: 1px solid #bdbdbd;
         border-radius: 10px;
@@ -29,7 +28,7 @@
         display: block !important;
         width: 200px;
         float: left;
-        margin-left: 20px;
+        margin-right: 20px;
     }
 
         .pro_link:hover {
