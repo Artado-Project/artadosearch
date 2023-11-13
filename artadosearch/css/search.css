@@ -29,6 +29,10 @@
         top: 20%;
     }
 
+    .tabs {
+        margin-left: 170px;
+    }
+
     .classic_tabs {
         width: 90%;
         -ms-overflow-style: none;
@@ -299,9 +303,20 @@
         transform: translateX(-50%);
         top: 10px;
         z-index: 99;
-        width: 90% !important;
+        width: 90vw !important;
         margin-left: auto;
         margin-top: 0px;
+        padding: 5px 5px 5px 10px
+    }
+
+    .search {
+        font-size: 20px;
+        position: absolute;
+        top: 20%;
+    }
+
+    #languageDropDown{
+        margin-left: 20px
     }
 
     .classic_tabs {
@@ -319,10 +334,6 @@
         .classic_tabs::-webkit-scrollbar {
             display: none;
         }
-
-    #classic_tabs {
-        margin-bottom: 20px
-    }
 
     .left_tabs {
         display: none;
@@ -382,6 +393,10 @@
         .tab:hover {
             border-bottom: 1px;
         }
+
+    .tabs{
+        text-align: center;
+    }
 
     .r_div {
         padding: 3px 10px 3px 10px;

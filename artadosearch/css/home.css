@@ -280,7 +280,6 @@ input:focus {
     }
 
     .searchbar {
-        width: 90vw !important;
         height: 50px !important;
         border-radius: 10px;
         margin-left: auto;

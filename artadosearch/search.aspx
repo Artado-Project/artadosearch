@@ -83,7 +83,7 @@
                 <a id="a10" runat="server" class="tab" style="display: inline"><i class="bi bi-journals"></i></a>
             </div>
             <hr/>
-            <div id="buttons_r" runat="server" class="tabs" style="margin-left: 170px; margin-bottom: 20px">
+            <div id="buttons_r" runat="server" class="tabs" style="margin-bottom: 20px">
                 <asp:Button ID="Button1" runat="server" Text="Artado" class="r_div" Font-Size="Small" OnClick="Button1_Click" />
                 <asp:Button ID="Google_B" runat="server" Text="Google" class="r_div" Font-Size="Small" OnClick="Google_B_Click" />
                 <asp:Button ID="Button2" runat="server" Text="Bing" class="r_div" Font-Size="Small" OnClick="Button2_Click" />
