@@ -151,6 +151,7 @@
         }
 
     #web_results {
+        text-align: left !important;
         max-width: 84%;
         margin: 0 auto;
     }
