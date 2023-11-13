@@ -212,6 +212,10 @@ input:focus {
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
+    #searchbar{
+        width: 90% !important
+    }
+
     .login {
         height: 35px;
         float: left;
@@ -272,6 +276,7 @@ input:focus {
         text-align: center;
         display: table;
         width: 100%;
+        height: 100vh;
     }
 
     .searchbar {

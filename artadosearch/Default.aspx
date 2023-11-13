@@ -36,7 +36,7 @@
               <div class="flex items-end" style="margin-top: 150px; margin-bottom: 30px">
                 <img class="h-44" id="Image1" runat="server" alt="artado search logo">
               </div>
-              <div class="shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
+              <div id="searchbar" class="shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
                 <div class="flex">
                   <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
                   <button id="searchbutton" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
