@@ -148,12 +148,10 @@
                     <div class="text-4xl font-black mb-5">
                     More than one result 🔥
                     </div>
-                    <div>Artado not only relies on its proprietary search algorithms but also goes the extra mile by aggregating
-                    results from various other search engines. This distinctive approach enriches the user experience by
-                    offering a comprehensive view of information from diverse sources, enabling users to access a broader
-                    spectrum of data and insights. By combining the strengths of its own algorithms with the collective
-                    knowledge of multiple search engines, Artado Search ensures that users are equipped with a well-rounded
-                    perspective, fostering a more informed and in-depth exploration of their search queries.</div>
+                    <div>In a departure from the norm, Artado Search doesn't rely solely on its own search algorithms. 
+                        Instead, it combines results from other search engines, presenting users with a comprehensive perspective. 
+                        This unique approach ensures that users have access to a wider range of information, making it a valuable tool for 
+                        those who seek diverse search results.</div>
                 </div>
                 <div>
                     <div class="text-4xl font-black mb-5">
