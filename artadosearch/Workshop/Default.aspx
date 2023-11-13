@@ -37,7 +37,7 @@
             <div class="classic_tabs">
             </div>
 
-            <div id="buttons_r" runat="server" class="tabs" style="margin-left: 170px; margin-bottom: 20px">
+            <div id="buttons_r" runat="server" class="tabs" style="margin-bottom: 20px">
                 <asp:Button ID="Theme" runat="server" Text="<%$Resources:Langs, Themes %>" class="r_div" Font-Size="Small" OnClick="Theme_Click" />
                 <asp:Button ID="Ext" runat="server" Text="<%$Resources:Langs, Extensions %>" class="r_div" Font-Size="Small" OnClick="Ext_Click" />
                 <asp:Button ID="Logo" runat="server" Text="<%$Resources:Langs, Logo %>" class="r_div" Font-Size="Small" OnClick="Logo_Click" />
