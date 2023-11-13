@@ -51,6 +51,15 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.TextBox searchinput;
 
         /// <summary>
+        /// searchbutton denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton searchbutton;
+
+        /// <summary>
         /// save denetimi.
         /// </summary>
         /// <remarks>

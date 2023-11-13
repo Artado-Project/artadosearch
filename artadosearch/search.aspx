@@ -21,11 +21,12 @@
 <body id="searchpage" runat="server">
     <form id="form1" runat="server">
         <div class="middle">
-            <div class="form-control form-input searchbar">
+            <div class="searchbar">
                 <a href="/">
                     <img id="Image1" runat="server" class="logo" /></a>
                 <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>"></asp:TextBox>
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/search.svg" CssClass="search" OnClick="Search" />
+                <button id="search" runat="server" onserverclick="Search" class="search"><i
+                        class="bi bi-search"></i></button>
             </div>
 
             <div class="classic_tabs">
@@ -81,8 +82,8 @@
                 <a id="A9" runat="server" class="tab" style="display: inline"><i class="bi bi-code-slash" style="margin-right: 5px;"></i></a>
                 <a id="a10" runat="server" class="tab" style="display: inline"><i class="bi bi-journals"></i></a>
             </div>
-
-            <div id="buttons_r" runat="server" class="tabs" style="text-align: center; margin-bottom: 20px">
+            <hr/>
+            <div id="buttons_r" runat="server" class="tabs" style="margin-left: 170px; margin-bottom: 20px">
                 <asp:Button ID="Google_B" runat="server" Text="Google" class="r_div" Font-Size="Small" OnClick="Google_B_Click" />
                 <asp:Button ID="Button1" runat="server" Text="Artado" class="r_div" Font-Size="Small" OnClick="Button1_Click" />
                 <asp:Button ID="Button2" runat="server" Text="Bing" class="r_div" Font-Size="Small" OnClick="Button2_Click" />

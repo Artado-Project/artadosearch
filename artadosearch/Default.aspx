@@ -39,9 +39,7 @@
               <div class="shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
                 <div class="flex">
                   <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
-                  <button hidden id="search-delete" class="px-5 bg-[var(--bg-secondary)]"><i
-                      class="fa-solid fa-close"></i></button>
-                  <button id="search" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
+                  <button id="searchbutton" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
                       class="bi bi-search"></i></button>
                 </div>
               </div>

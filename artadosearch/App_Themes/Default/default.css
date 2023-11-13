@@ -25,4 +25,10 @@ body, .gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet
 .card, .card a, .searchbar, .bottom_tabs, .left_tabs, .right_tabs {
     background-color: #ffffff !important;
     color: #2f2f30 !important;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.results .result-item, .gsc-result {
+    border: none !important;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }

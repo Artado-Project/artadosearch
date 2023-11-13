@@ -51,13 +51,13 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.TextBox searchinput;
 
         /// <summary>
-        /// ImageButton1 denetimi.
+        /// search denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.HtmlControls.HtmlButton search;
 
         /// <summary>
         /// classic_tabs denetimi.

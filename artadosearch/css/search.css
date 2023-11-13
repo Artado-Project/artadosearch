@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 600px) {
     .middle {
-        text-align: center;
+        text-align: left;
         display: table;
         width: 100%;
         margin-top: 0px;
@@ -14,13 +14,19 @@
     .searchbar {
         margin-top: 50px;
         position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 150px;
         top: 20px;
         width: 100vw;
         z-index: 99;
         margin-left: auto;
         margin-top: 0px;
+        padding: 5px 5px 5px 10px
+    }
+
+    .search {
+        font-size: 20px;
+        position: absolute;
+        top: 20%;
     }
 
     .classic_tabs {
@@ -29,10 +35,9 @@
         scrollbar-width: none;
         overflow: scroll;
         overflow-y: hidden;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 150px;
         white-space: nowrap;
-        margin-top: 80px;
+        margin-top: 90px;
         margin-bottom: 15px;
     }
 
@@ -151,8 +156,9 @@
         }
 
     #web_results {
+        text-align: left !important;
         max-width: 84%;
-        margin: 0 auto;
+        margin: 0 150px;
     }
 
     .infoimage {
