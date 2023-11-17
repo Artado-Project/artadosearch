@@ -243,7 +243,14 @@ li::marker {
 }
 
 .gsc-result {
-    margin-bottom: 0 !important
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 13px 13px !important;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.1s;
+    margin-bottom: 20px !important;
 }
 
 .gsc-control-cse {
@@ -393,11 +400,6 @@ li::marker {
     background-color: #FFF;
 }
 
-.gsc-webResult {
-    border: none !important;
-    padding: 0px 0px 0px 0px !important;
-}
-
 .gsc-control-cse, .gsc-control-cse .gsc-table-result {
     font-family: arial !important
 }
@@ -500,7 +502,7 @@ li::marker {
 }
 
 .gsc-webResult .gsc-result {
-    word-break: break-word !important
+    word-break: break-word !important;
 }
 
 .gsc-webResult.gsc-result {
@@ -655,12 +657,6 @@ li::marker {
 
 .gsc-results .gsc-cursor-box {
     margin: 10px !important
-}
-
-.gsc-results .gsc-cursor {
-    color: #333 !important;
-    display: inline;
-    fill: #333 !important
 }
 
 .gcsc-find-more-on-google {
@@ -9445,7 +9441,7 @@ img[data-v-1d4d2048], video[data-v-1d4d2048] {
     }
 
     .gsc-webResult {
-        max-height: 100px !important
+        max-height: 200px !important;
     }
 
     .card-thumbnail {

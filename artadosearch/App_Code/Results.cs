@@ -267,21 +267,25 @@ namespace artadosearch
             }
         }
 
-        public static string PriEco(string query, int num, string safe, string lang)
+        public static string Google(string query, string lang)
         {
             try
             {
-                string apikey = Configs.resultapi;
+                string apikey = GoogleToken.GetToken();
                 string url;
                 if (lang != null)
                 {
-                    url = "https://search.jojoyou.org/api/?api=" + apikey + "&q=" + query + "&lang=" + lang + "&num=" + num + "&safe=" + safe;
+                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
                 }
                 else
                 {
-                    url = "https://search.jojoyou.org/api/?api=" + apikey + "&q=" + query + "&num=" + num + "&safe=" + safe;
+                    System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
+                    lang = cul.TwoLetterISOLanguageName;
+                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
                 }
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+                request.Referer = "https://www.google.com/";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
                 WebResponse response = request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 string jsonstring = reader.ReadToEnd();
@@ -305,7 +309,7 @@ namespace artadosearch
             SqlDataAdapter adp;
             if (lang != null)
             {
-                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", connection);
+                adp = new SqlDataAdapter("select TOP (20) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", connection);
                 adp.SelectCommand.Parameters.Add(new SqlParameter
                 {
                     ParameterName = "@Lang",
@@ -314,7 +318,7 @@ namespace artadosearch
             }
             else
             {
-                adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", connection);
+                adp = new SqlDataAdapter("select TOP (20) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", connection);
             }
             adp.SelectCommand.Parameters.Add(new SqlParameter
             {

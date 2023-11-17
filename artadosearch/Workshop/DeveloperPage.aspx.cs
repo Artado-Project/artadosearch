@@ -56,6 +56,52 @@ namespace artadosearch.Workshop
             }
         }
 
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            HttpCookie customicon = HttpContext.Current.Request.Cookies["CustomIcon"];
+            HttpCookie old = HttpContext.Current.Request.Cookies["Icon"];
+            if (customicon == null)
+            {
+                if (old != null && old.Value != null)
+                {
+                    switch (old.Value)
+                    {
+                        case "default":
+                            Image1.Src = "/images/android-chrome-192x192.png";
+                            break;
+
+                        case "colorful":
+                            Image1.Src = "/images/artadov3-colorful-icon.png";
+                            break;
+
+                        case "old":
+                            Image1.Src = "/images/oldies/old-icon.png";
+                            break;
+
+                        default:
+                            Image1.Src = "/images/android-chrome-192x192.png";
+                            break;
+                    }
+                }
+                else
+                {
+                    Image1.Src = "/images/android-chrome-192x192.png";
+                }
+            }
+
+            //Normal Themes
+            HttpCookie cookie0 = HttpContext.Current.Request.Cookies["Theme"];
+            if (cookie0 != null && cookie0.Value != null)
+            {
+                Page.Theme = cookie0.Value;
+            }
+            else
+            {
+                Page.Theme = "Default";
+            }
+        }
+
+
         protected void Search(object sender, EventArgs e)
         {
             Response.Redirect("/workshop?i=" + HttpUtility.UrlPathEncode(searchinput.Text));

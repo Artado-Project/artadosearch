@@ -22,14 +22,14 @@
 <body>
     <form id="form1" runat="server">
         <div class="middle">
-            <div class="form-control form-input searchbar">
+            <div class="searchbar">
                 <a href="/">
-                    <img id="Image1" runat="server" class="logo" src="/images/android-chrome-192x192.png" /></a>
+                    <img src="/images/android-chrome-192x192.png" id="Image1" runat="server" class="logo" /></a>
                 <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>"></asp:TextBox>
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/search.svg" CssClass="search" OnClick="Search" />
+                <button id="searchbutton" runat="server" onserverclick="Search" class="search"><i
+                        class="bi bi-search"></i></button>
             </div>
             <div class="top">
-                <asp:Label ID="worktxt" runat="server" Text="Workshop" class=" btn btn-outline-success mb-3 left"></asp:Label>
                 <a href="https://devs.artado.xyz/" class="right_b btn" type="button">
                     <asp:Label ID="devs" runat="server" Text="Share Your Project"></asp:Label></a>
             </div>
@@ -37,11 +37,12 @@
             <div class="classic_tabs">
             </div>
 
-            <div id="buttons_r" runat="server" class="tabs" style="text-align: center; margin-bottom: 20px">
+            <div id="buttons_r" runat="server" class="tabs" style="margin-bottom: 20px">
                 <asp:Button ID="Theme" runat="server" Text="<%$Resources:Langs, Themes %>" class="r_div" Font-Size="Small" OnClick="Theme_Click" />
                 <asp:Button ID="Ext" runat="server" Text="<%$Resources:Langs, Extensions %>" class="r_div" Font-Size="Small" OnClick="Ext_Click" />
                 <asp:Button ID="Logo" runat="server" Text="<%$Resources:Langs, Logo %>" class="r_div" Font-Size="Small" OnClick="Logo_Click" />
             </div>
+            <hr />
 
             <div id="web_results" runat="server">
                 <asp:Repeater runat="server" ID="Projects">

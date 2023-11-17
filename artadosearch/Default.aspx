@@ -9,10 +9,11 @@
     <link href="css/home.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/mdb.min.css" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap-icons.css" />
-    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/mdb.min.js"></script>
+    <script src="/js/tailwind.js"></script>
     <link rel="search" type="application/opensearchdescription+xml" title="Artado Search" href="https://www.artadosearch.com/opensearch.xml" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <meta name="keywords" content="open source, open source search engine, linux, foss, foss search engine, arama, arama motoru, yerli, artado, gizlilik, milli, türk yapımı, güvenli, açık kaynak, reklamsız, reklamsız arama motoru, search, search engine, privacy, security, tarayıcı, browser, celer" />
@@ -28,50 +29,31 @@
     <meta name="twitter:image" content="https://www.artadosearch.com/images/privacy.jpg" />
     <title>Artado Search</title>
 </head>
-<body id="bdy1" runat="server">
+<body id="homepage" runat="server">
     <form id="form1" runat="server">
         <div class="middle">
-            <asp:Panel ID="searchpanel" runat="server" class="form-control form-input searchbar">
-                <img id="Image1" runat="server" class="logo" />
-                <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="/images/search.svg" CssClass="search" OnClick="Search" />
-            </asp:Panel>
-
-            <div class="row" style="max-width: 90%; justify-content: center; margin: 0 auto; margin-top: 50px;">
-                <div class="col-md-4" style="width: 300px; text-align: center">
-                    <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                        <a href="https://myacc.artado.xyz/privacy" style="text-decoration: none; color: #4f4f4f">
-                            <div class="card-body">
-                                <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-lock-fill"></i></div>
-                                <asp:Label ID="Label1" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Privacy %>"></asp:Label><br />
-                                <asp:Label ID="Label2" runat="server" Text="<%$Resources:Langs, Home_Privacy %>"></asp:Label>
-                            </div>
-                        </a>
-                    </div>
+            <div class="flex flex-col items-center">
+              <div class="flex items-end" style="margin-top: 150px; margin-bottom: 30px">
+                <img class="h-44" id="Image1" runat="server" alt="artado search logo">
+              </div>
+              <div id="searchbar" class="searchbar shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
+                <div class="flex">
+                  <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
+                  <button id="searchbutton" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
+                      class="bi bi-search"></i></button>
                 </div>
-                <div class="col-md-4" style="width: 300px; text-align: center">
-                    <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                        <a href="https://www.artadosearch.com/workshop/" style="text-decoration: none; color: #4f4f4f">
-                            <div class="card-body">
-                                <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-bag-fill"></i></div>
-                                <asp:Label ID="Label3" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Customization %>"></asp:Label><br />
-                                <asp:Label ID="Label4" runat="server" Text="<%$Resources:Langs, Home_Custom %>"></asp:Label>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4" style="width: 300px; text-align: center">
-                    <div class="btn card" style="border: 1px solid #bdbdbd; text-transform: none">
-                        <a href="https://www.artado.xyz/" style="text-decoration: none; color: #4f4f4f">
-                            <div class="card-body">
-                                <div style="font-size: 50px; margin-bottom: 5px"><i class="bi bi-three-dots"></i></div>
-                                <asp:Label ID="Label5" runat="server" Font-Bold="true" Font-Size="X-Large" Text="<%$Resources:Langs, Projects %>"></asp:Label><br />
-                                <asp:Label ID="Label6" runat="server" Text="<%$Resources:Langs, Home_Projects %>"></asp:Label>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <div id="save" runat="server" class="save">
+                <asp:Label ID="savetxt" runat="server" Text="Do you want to save the changes?"></asp:Label><br />
+                <br />
+                <asp:Button ID="yes" runat="server" CssClass="btn button" Text="Yes" OnClick="yes_Click" />
+                <asp:Button ID="no" runat="server" CssClass="btn btn-outline-success mb-3" Style="margin-bottom: 0px !important" Text="No" OnClick="no_Click" />
+            </div>
+
+            <a class="absolute bottom-0 text-center pb-5" id="up-down" style="color: var(--text);" href="#features">
+            <i class="text-3xl bi bi-chevron-down"></i></a>
         </div>
         <div class="top">
             <button class="btn btn-success menu" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
@@ -130,34 +112,69 @@
                         <asp:ListItem Text="Bing News" Value="News"></asp:ListItem>
                     </asp:DropDownList>
                     <hr class="ince" />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Settings">
-                        <asp:Label ID="Label7" Style="color: #00b74a;" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br />
+                    <br />
+                    <a href="/Settings">
+                        <asp:Label ID="Label7" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br />
                     </a>
                     <br />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/workshop">Workshop</a><br />
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://forum.artado.xyz/">
-                        <asp:Label Style="color: #00b74a;" ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="/Manifest">
-                        <asp:Label Style="color: #00b74a;" ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://myacc.artado.xyz/privacy">
-                        <asp:Label Style="color: #00b74a;" ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://devs.artado.xyz/">Developers</a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://github.com/Artado-Project/artadosearch">Github</a><br>
-                    <a class="btn btn-outline-success mb-3" data-ripple-color="dark" href="https://discord.gg/WXCsr8zTN6">Discord</a><br>
-                    <hr class="ince">
-                    <div class="col-md-12">
-                        <h3 class="text-center fontlu">Artado Search</h3>
-                        <asp:Label ID="manifest" runat="server" class="text-center mb-3" Text="<%$Resources:Langs, Manifesto2 %>"></asp:Label>
-                    </div>
+                    <a href="/workshop"><asp:Label ID="txtxt" runat="server" Text="Workshop"></asp:Label></a><br /><br />
+                    <a href="https://forum.artado.xyz/">
+                        <asp:Label ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br><br />
+                    <a href="/Manifest">
+                        <asp:Label ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br><br />
+                    <a href="https://myacc.artado.xyz/privacy">
+                        <asp:Label ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br><br />
+                    <a href="https://devs.artado.xyz/"><asp:Label ID="Label13" runat="server" Text="Developers"></asp:Label></a><br><br />
+                    <a href="https://github.com/Artado-Project/artadosearch"><asp:Label ID="Label12" runat="server" Text="Github"></asp:Label></a><br><br />
+                    <a href="https://discord.gg/WXCsr8zTN6"><asp:Label ID="Label11" runat="server" Text="Discord"></asp:Label></a><br><br />
                 </div>
             </div>
         </div>
 
-        <div id="save" runat="server" class="save">
-            <asp:Label ID="savetxt" runat="server" Text="Do you want to save the changes?"></asp:Label><br />
-            <br />
-            <asp:Button ID="yes" runat="server" CssClass="btn button" Text="Yes" OnClick="yes_Click" />
-            <asp:Button ID="no" runat="server" CssClass="btn btn-outline-success mb-3" Style="margin-bottom: 0px !important" Text="No" OnClick="no_Click" />
+        <div id="features" class="flex flex-col justify-between">
+            <div class="py-20 px-40 max-sm:px-10">
+                <div class="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-20">
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    <asp:Label ID="txt" runat="server" Text="<%$Resources:Langs, Artado_Custom %>"></asp:Label>
+                    </div>
+                    <div><asp:Label ID="Label1" runat="server" Text="<%$Resources:Langs, Artado1 %>"></asp:Label></div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    <asp:Label ID="Label2" runat="server" Text="<%$Resources:Langs, More_than %>"></asp:Label>
+                    </div>
+                    <div><asp:Label ID="Label3" runat="server" Text="<%$Resources:Langs, Artado2 %>"></asp:Label></div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    <asp:Label ID="Label4" runat="server" Text="<%$Resources:Langs, Customise_as %>"></asp:Label>
+                    </div>
+                    <p><asp:Label ID="Label5" runat="server" Text="<%$Resources:Langs, Artado3 %>"></asp:Label></p>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-5">
+                    <asp:Label ID="Label6" runat="server" Text="<%$Resources:Langs, Artado_Privacy %>"></asp:Label>
+                    </div>
+                    <div><asp:Label ID="Label10" runat="server" Text="<%$Resources:Langs, Artado4 %>"></asp:Label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center text-sm gap-10 pb-10 px-40 max-sm:px-10">
+                <a href="/" class="flex items-center gap-2">
+                <img class="h-7" src="/images/android-chrome-192x192.png" alt="artado search logo">
+                Artado Search
+                </a>
+                <a href="https://artado.xyz" target="_blank">Other Projects</a>
+                <a href="https://myacc.artado.xyz/privacy" target="_blank">Privacy</a>
+                <a href="https://localhost:44350/Manifest" target="_blank">Manifesto</a>
+                <a href="https://forum.artado.xyz/" target="_blank">Forum</a>
+                <a href="https://discord.gg/WXCsr8zTN6" target="_blank">Discord</a>
+                <a href="https://github.com/Artado-Project/artadosearch" target="_blank">Source Code</a>
+                <a href="https://devs.artado.xyz/" target="_blank">Developers</a>
+                <a href="https://localhost:44350/workshop" target="_blank">Workshop</a>
+            </div>
         </div>
     </form>
     <script src="/js/autocomplete.js"></script>

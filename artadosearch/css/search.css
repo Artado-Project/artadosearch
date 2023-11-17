@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 600px) {
     .middle {
-        text-align: center;
+        text-align: left;
         display: table;
         width: 100%;
         margin-top: 0px;
@@ -14,13 +14,23 @@
     .searchbar {
         margin-top: 50px;
         position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 150px;
         top: 20px;
         width: 100vw;
         z-index: 99;
         margin-left: auto;
         margin-top: 0px;
+        padding: 5px 5px 5px 10px
+    }
+
+    .search {
+        font-size: 20px;
+        position: absolute;
+        top: 20%;
+    }
+
+    .tabs {
+        margin-left: 170px;
     }
 
     .classic_tabs {
@@ -29,10 +39,9 @@
         scrollbar-width: none;
         overflow: scroll;
         overflow-y: hidden;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 150px;
         white-space: nowrap;
-        margin-top: 80px;
+        margin-top: 90px;
         margin-bottom: 15px;
     }
 
@@ -153,7 +162,7 @@
     #web_results {
         text-align: left !important;
         max-width: 84%;
-        margin: 0 auto;
+        margin: 0 150px;
     }
 
     .infoimage {
@@ -294,9 +303,20 @@
         transform: translateX(-50%);
         top: 10px;
         z-index: 99;
-        width: 90% !important;
+        width: 90vw !important;
         margin-left: auto;
         margin-top: 0px;
+        padding: 5px 5px 5px 10px
+    }
+
+    .search {
+        font-size: 20px;
+        position: absolute;
+        top: 20%;
+    }
+
+    #languageDropDown{
+        margin-left: 20px
     }
 
     .classic_tabs {
@@ -314,10 +334,6 @@
         .classic_tabs::-webkit-scrollbar {
             display: none;
         }
-
-    #classic_tabs {
-        margin-bottom: 20px
-    }
 
     .left_tabs {
         display: none;
@@ -377,6 +393,10 @@
         .tab:hover {
             border-bottom: 1px;
         }
+
+    .tabs{
+        text-align: center;
+    }
 
     .r_div {
         padding: 3px 10px 3px 10px;

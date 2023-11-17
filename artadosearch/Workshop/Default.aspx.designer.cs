@@ -42,22 +42,13 @@ namespace artadosearch.Workshop
         protected global::System.Web.UI.WebControls.TextBox searchinput;
 
         /// <summary>
-        /// ImageButton1 denetimi.
+        /// searchbutton denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
-
-        /// <summary>
-        /// worktxt denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label worktxt;
+        protected global::System.Web.UI.HtmlControls.HtmlButton searchbutton;
 
         /// <summary>
         /// devs denetimi.

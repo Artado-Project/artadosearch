@@ -1,16 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text.Encodings.Web;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 namespace artadosearch.Settings_Pages
 {

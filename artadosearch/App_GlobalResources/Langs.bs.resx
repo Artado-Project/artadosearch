@@ -129,6 +129,24 @@
   <data name="Apply" xml:space="preserve">
     <value>Prijava</value>
   </data>
+  <data name="Artado1" xml:space="preserve">
+    <value>Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the ASP.NET Framework and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.</value>
+  </data>
+  <data name="Artado2" xml:space="preserve">
+    <value>In a departure from the norm, Artado Search doesn't rely solely on its own search algorithms. Instead, it combines results from other search engines, presenting users with a comprehensive perspective. This unique approach ensures that users have access to a wider range of information, making it a valuable tool for those who seek diverse search results.</value>
+  </data>
+  <data name="Artado3" xml:space="preserve">
+    <value>Artado goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality. You can find new themes, apps and games from the store.</value>
+  </data>
+  <data name="Artado4" xml:space="preserve">
+    <value>Artado does not collect any of your personal data. Artado protects your privacy as much as possible.</value>
+  </data>
+  <data name="Artado_Custom" xml:space="preserve">
+    <value>Your highly customizable search engine 🔎</value>
+  </data>
+  <data name="Artado_Privacy" xml:space="preserve">
+    <value>Keep your data to yourself 🔒</value>
+  </data>
   <data name="Attention" xml:space="preserve">
     <value>Ova stranica nije prevedena na sve jezike.</value>
   </data>
@@ -198,6 +216,9 @@
   <data name="CustomExt_exp" xml:space="preserve">
     <value>Ovdje možete upravljati koristeći ekstenzije. Također možete pronaći više ekstenzija u Artado Store.</value>
   </data>
+  <data name="Customise_as" xml:space="preserve">
+    <value>Customise as you like 🎨</value>
+  </data>
   <data name="Customization" xml:space="preserve">
     <value>Prilagođavanje</value>
   </data>
@@ -251,15 +272,6 @@
   </data>
   <data name="GoStore" xml:space="preserve">
     <value>Idi u Trgovinu</value>
-  </data>
-  <data name="Home_Custom" xml:space="preserve">
-    <value>Možete pronaći nove teme, aplikacije i igre u trgovini.</value>
-  </data>
-  <data name="Home_Privacy" xml:space="preserve">
-    <value>Artado ne prikuplja vaše lične podatke. Artado štiti vašu privatnost koliko god je moguće.</value>
-  </data>
-  <data name="Home_Projects" xml:space="preserve">
-    <value>Možete pronaći mnogo više naših projekata kao što su pretraživači i trgovina ovde.</value>
   </data>
   <data name="Hungarian" xml:space="preserve">
     <value>Mađarski</value>
@@ -317,6 +329,9 @@
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Meni</value>
+  </data>
+  <data name="More_than" xml:space="preserve">
+    <value>More than one source🔥</value>
   </data>
   <data name="News" xml:space="preserve">
     <value>Vijesti</value>

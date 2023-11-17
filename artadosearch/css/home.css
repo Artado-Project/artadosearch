@@ -1,3 +1,38 @@
+/* firefox */
+input:focus {
+    outline: 0 none;
+    border: 0 none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+#up-down {
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
+}
+
+@-webkit-keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes action {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
 @media screen and (min-width: 600px) {
     .button {
         height: 35px;
@@ -66,6 +101,7 @@
         text-align: center;
         display: table;
         width: 100%;
+        height: 100vh;
     }
 
     .searchbar {
@@ -74,7 +110,6 @@
         border-radius: 10px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 150px;
         display: table-cell;
         vertical-align: middle;
         white-space: nowrap
@@ -82,14 +117,14 @@
 
     #autocomplete-list {
         list-style-type: none;
-        margin-top: 45px;
+        margin-top: 50px;
         margin-right: 60px;
         padding: 0;
         border: 1px solid #ccc;
         border-top: none;
         position: fixed;
         z-index: 999;
-        width: 500px;
+        width: 438px;
         max-height: 200px;
         overflow-y: auto;
         background-color: #fff;
@@ -97,7 +132,13 @@
         text-align: left;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
+
+        #autocomplete-list::-webkit-scrollbar {
+            display: none;
+        }
 
         #autocomplete-list li {
             padding: 10px;
@@ -116,7 +157,7 @@
     }
 
     .searchinput {
-        width: 440px;
+        width: 448px;
         height: 100%;
         float: left;
         border: none;
@@ -176,6 +217,10 @@
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
+    #searchbar{
+        width: 90% !important
+    }
+
     .login {
         height: 35px;
         float: left;
@@ -236,15 +281,14 @@
         text-align: center;
         display: table;
         width: 100%;
+        height: 100vh;
     }
 
     .searchbar {
-        width: 90vw !important;
         height: 50px !important;
         border-radius: 10px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 150px;
         display: table-cell;
         vertical-align: middle;
         text-align: center;
