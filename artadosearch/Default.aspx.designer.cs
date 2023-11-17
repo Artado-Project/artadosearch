@@ -15,13 +15,13 @@ namespace artadosearch
     {
 
         /// <summary>
-        /// bdy1 denetimi.
+        /// homepage denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluþturulan alan.
         /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bdy1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homepage;
 
         /// <summary>
         /// form1 denetimi.
@@ -141,6 +141,15 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
+        /// txtxt denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtxt;
+
+        /// <summary>
         /// Label9 denetimi.
         /// </summary>
         /// <remarks>
@@ -166,5 +175,104 @@ namespace artadosearch
         /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label0;
+
+        /// <summary>
+        /// Label13 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label13;
+
+        /// <summary>
+        /// Label12 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label12;
+
+        /// <summary>
+        /// Label11 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
+
+        /// <summary>
+        /// txt denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txt;
+
+        /// <summary>
+        /// Label1 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Label2 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// Label3 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// Label4 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// Label5 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+
+        /// <summary>
+        /// Label6 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+
+        /// <summary>
+        /// Label10 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
     }
 }

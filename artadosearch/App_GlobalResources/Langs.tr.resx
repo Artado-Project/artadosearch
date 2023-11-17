@@ -132,6 +132,24 @@
   <data name="Apply" xml:space="preserve">
     <value>Uygula</value>
   </data>
+  <data name="Artado1" xml:space="preserve">
+    <value>Artado Search, kullanıcılara arama deneyimlerini kendi benzersiz ihtiyaçlarına göre uyarlama olanağı sağlamak üzere tasarlanmış, çok yönlü ve son derece özelleştirilebilir bir arama motorudur. Bu proje ASP.NET Framework'ü temel alır ve AGPL v3 lisansı altında gururla açık kaynaktır. Yalnızca kendi arama sonuçlarını sunmakla kalmaz, aynı zamanda diğer arama motorlarından gelen sonuçları da entegre ederek kapsamlı bir arama çözümü sunar.</value>
+  </data>
+  <data name="Artado2" xml:space="preserve">
+    <value>Artado Search, diğerlerinden farklı olarak yalnızca kendi arama algoritmalarına dayanmıyor. Bunun yerine, diğer arama motorlarından elde edilen sonuçları birleştirerek kullanıcılara kapsamlı bir bakış açısı sunar. Bu benzersiz yaklaşım, kullanıcıların daha geniş bir bilgi yelpazesine erişmesini sağlayarak, onu çeşitli arama sonuçları arayanlar için değerli bir araç haline getirir.</value>
+  </data>
+  <data name="Artado3" xml:space="preserve">
+    <value>Artado, kapsamlı özelleştirme seçenekleri sunarak geleneksel arama motorlarının ötesine geçiyor. Kullanıcı arayüzünü ve işlevselliğini geliştirmek için kişiselleştirilmiş temalar ve uzantılar oluşturabilirsiniz. Mağazada yeni temalar, uygulamalar ve oyunlar bulabilirsiniz.</value>
+  </data>
+  <data name="Artado4" xml:space="preserve">
+    <value>Artado hiçbir kişisel verinizi toplamaz. Artado gizliliğinizi mümkün olduğu kadar korur.</value>
+  </data>
+  <data name="Artado_Custom" xml:space="preserve">
+    <value>Son derece özelleştirilebilir arama motorunuz 🔎</value>
+  </data>
+  <data name="Artado_Privacy" xml:space="preserve">
+    <value>Verilerinizi kendinize saklayın 🔒</value>
+  </data>
   <data name="Attention" xml:space="preserve">
     <value>Bu sayfa tüm dillere çevrilmemiş olabilir.</value>
   </data>
@@ -149,6 +167,9 @@
   </data>
   <data name="Beta" xml:space="preserve">
     <value>Artado Search hala beta sürecinde olduğundan dolayı bu özellik şu anda kullanıma uygun değildir.</value>
+  </data>
+  <data name="BetaResults" xml:space="preserve">
+    <value>Artado sonuçları henüz beta aşamasında olduğundan yetersiz kalabilir. Google veya diğer arama motorlarının sonuçlarını yukarıdaki panelden seçerek kullanabilirsiniz.</value>
   </data>
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
@@ -200,6 +221,9 @@
   </data>
   <data name="CustomExt_exp" xml:space="preserve">
     <value>Kullandığınız eklentileri buradan yönetebilirsiniz. Ayrıca Artado Store'dan daha fazla eklenti bulabilirsiniz.</value>
+  </data>
+  <data name="Customise_as" xml:space="preserve">
+    <value>İstediğin gibi özelleştir 🎨</value>
   </data>
   <data name="Customization" xml:space="preserve">
     <value>Özelleştirme</value>
@@ -263,15 +287,6 @@
   </data>
   <data name="GoStore" xml:space="preserve">
     <value>Mağazaya git</value>
-  </data>
-  <data name="Home_Custom" xml:space="preserve">
-    <value>Mağazadan yeni temalar, uygulamalar ve oyunlar bulabilirsin.</value>
-  </data>
-  <data name="Home_Privacy" xml:space="preserve">
-    <value>Artado hiç bir kişisel verinizi toplamaz. Artado sizin gizliliğinizi olabildiğince korur.</value>
-  </data>
-  <data name="Home_Projects" xml:space="preserve">
-    <value>Tarayıcı, mağaza gibi daha bir çok projemizi buradan bulabilirsin.</value>
   </data>
   <data name="Hungarian" xml:space="preserve">
     <value>Macarca</value>
@@ -338,6 +353,9 @@
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
+  </data>
+  <data name="More_than" xml:space="preserve">
+    <value>Birden fazla kaynak🔥</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>En yeni</value>

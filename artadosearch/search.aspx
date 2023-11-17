@@ -105,7 +105,7 @@
                 <asp:Label ID="Summary" runat="server" Font-Size="Medium"></asp:Label>
                 <br />
                 <a id="more" runat="server" style="text-decoration: none;" target="_blank" rel="nofollow">
-                    <asp:Label ID="Label9" runat="server" Text="Daha fazla" Font-Size="Small"></asp:Label></a>
+                    <asp:Label ID="Label9" runat="server" Text="More" Font-Size="Small"></asp:Label></a>
             </div>
 
             <div id="artado" runat="server" class="results">
@@ -226,7 +226,7 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 <div class="att">
-                    <asp:Label ID="betatext" runat="server" Text="Artado results may be insufficient since it is still in beta. You can use the results of Google or other search engines by selecting them from the panel above."></asp:Label>
+                    <asp:Label ID="betatext" runat="server" Text="<%$Resources:Langs, BetaResults %>"></asp:Label>
                 </div>
             </div>
 

@@ -58,7 +58,7 @@ namespace artadosearch
                         string version = ArtadoSql.Select("WinFolder", "Products", "ID", p, con, "string");
                         string path = ArtadoSql.Select("Path", "Versions", "ID", version, con, "string");
 
-                        bdy1.Controls.Add(
+                        homepage.Controls.Add(
                              new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                     }
                     else if(type == "Logo")
@@ -206,7 +206,7 @@ namespace artadosearch
                         }
                         if (bg != null)
                         {
-                            bdy1.Attributes.Add("style", "background:url(" + bg + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;");
+                            homepage.Attributes.Add("style", "background:url(" + bg + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;");
                         }
                     }
                     catch(Exception err)
@@ -236,7 +236,7 @@ namespace artadosearch
                         foreach (string item in ext.Values)
                         {
                             string path = ext.Values[item];
-                            bdy1.Controls.Add(
+                            homepage.Controls.Add(
                                  new System.Web.UI.LiteralControl("<script src=\"" + ResolveUrl("https://devs.artado.xyz/" + path) + "\"></script>"));
                         }
                     }
@@ -337,7 +337,7 @@ namespace artadosearch
             HttpCookie old2 = HttpContext.Current.Request.Cookies["background"];
             if (old2 != null && old2.Value != null)
             {
-                bdy1.Attributes.Add("style", "background:url(" + old2.Value + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;");
+                homepage.Attributes.Add("style", "background:url(" + old2.Value + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;");
             }
 
             string profile = Request.QueryString["profile"];

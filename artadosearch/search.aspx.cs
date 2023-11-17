@@ -1,25 +1,8 @@
-﻿using Resources;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Policy;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Text.Encodings.Web;
-using Newtonsoft.Json;
-using System.Text.Json.Nodes;
 
 namespace artadosearch
 {

@@ -29,14 +29,14 @@
     <meta name="twitter:image" content="https://www.artadosearch.com/images/privacy.jpg" />
     <title>Artado Search</title>
 </head>
-<body id="bdy1" runat="server">
+<body id="homepage" runat="server">
     <form id="form1" runat="server">
         <div class="middle">
             <div class="flex flex-col items-center">
               <div class="flex items-end" style="margin-top: 150px; margin-bottom: 30px">
                 <img class="h-44" id="Image1" runat="server" alt="artado search logo">
               </div>
-              <div id="searchbar" class="shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
+              <div id="searchbar" class="searchbar shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
                 <div class="flex">
                   <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
                   <button id="searchbutton" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
@@ -117,16 +117,16 @@
                         <asp:Label ID="Label7" runat="server" Text="<%$Resources:Langs, Settings %>"></asp:Label><br />
                     </a>
                     <br />
-                    <a href="/workshop">Workshop</a><br /><br />
+                    <a href="/workshop"><asp:Label ID="txtxt" runat="server" Text="Workshop"></asp:Label></a><br /><br />
                     <a href="https://forum.artado.xyz/">
                         <asp:Label ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br><br />
                     <a href="/Manifest">
                         <asp:Label ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br><br />
                     <a href="https://myacc.artado.xyz/privacy">
                         <asp:Label ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br><br />
-                    <a href="https://devs.artado.xyz/">Developers</a><br><br />
-                    <a href="https://github.com/Artado-Project/artadosearch">Github</a><br><br />
-                    <a href="https://discord.gg/WXCsr8zTN6">Discord</a><br><br />
+                    <a href="https://devs.artado.xyz/"><asp:Label ID="Label13" runat="server" Text="Developers"></asp:Label></a><br><br />
+                    <a href="https://github.com/Artado-Project/artadosearch"><asp:Label ID="Label12" runat="server" Text="Github"></asp:Label></a><br><br />
+                    <a href="https://discord.gg/WXCsr8zTN6"><asp:Label ID="Label11" runat="server" Text="Discord"></asp:Label></a><br><br />
                 </div>
             </div>
         </div>
@@ -136,36 +136,27 @@
                 <div class="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-20">
                 <div>
                     <div class="text-4xl font-black mb-5">
-                    Your highly customizable<br>
-                    search engine 🔎
+                    <asp:Label ID="txt" runat="server" Text="<%$Resources:Langs, Artado_Custom %>"></asp:Label>
                     </div>
-                    <div>Artado Search is a versatile and highly customizable search engine, designed to empower users with the
-                    ability to tailor their search experience to their unique needs. This project is based on the ASP.NET
-                    Framework and is proudly open source under the AGPL v3 license. It not only offers its own search results
-                    but also integrates results from other search engines, providing a comprehensive search solution.</div>
+                    <div><asp:Label ID="Label1" runat="server" Text="<%$Resources:Langs, Artado1 %>"></asp:Label></div>
                 </div>
                 <div>
                     <div class="text-4xl font-black mb-5">
-                    More than one result 🔥
+                    <asp:Label ID="Label2" runat="server" Text="<%$Resources:Langs, More_than %>"></asp:Label>
                     </div>
-                    <div>In a departure from the norm, Artado Search doesn't rely solely on its own search algorithms. 
-                        Instead, it combines results from other search engines, presenting users with a comprehensive perspective. 
-                        This unique approach ensures that users have access to a wider range of information, making it a valuable tool for 
-                        those who seek diverse search results.</div>
+                    <div><asp:Label ID="Label3" runat="server" Text="<%$Resources:Langs, Artado2 %>"></asp:Label></div>
                 </div>
                 <div>
                     <div class="text-4xl font-black mb-5">
-                    Customise as you like 🎨
+                    <asp:Label ID="Label4" runat="server" Text="<%$Resources:Langs, Customise_as %>"></asp:Label>
                     </div>
-                    <p>Artado goes beyond traditional search engines by offering extensive customization options. You can create
-                    personalized themes and extensions to enhance the user interface and functionality. You can find new themes,
-                    apps and games from the store.</p>
+                    <p><asp:Label ID="Label5" runat="server" Text="<%$Resources:Langs, Artado3 %>"></asp:Label></p>
                 </div>
                 <div>
                     <div class="text-4xl font-black mb-5">
-                    Keep your data to yourself 🔒
+                    <asp:Label ID="Label6" runat="server" Text="<%$Resources:Langs, Artado_Privacy %>"></asp:Label>
                     </div>
-                    <div>Artado does not collect any of your personal data. Artado protects your privacy as much as possible.
+                    <div><asp:Label ID="Label10" runat="server" Text="<%$Resources:Langs, Artado4 %>"></asp:Label>
                     </div>
                 </div>
                 </div>
@@ -175,13 +166,14 @@
                 <img class="h-7" src="/images/android-chrome-192x192.png" alt="artado search logo">
                 Artado Search
                 </a>
-                <a href="#" target="_blank">Privacy</a>
-                <a href="#" target="_blank">Manifesto</a>
-                <a href="#" target="_blank">Forum</a>
-                <a href="#" target="_blank">Discord</a>
-                <a href="#" target="_blank">Source Code</a>
-                <a href="#" target="_blank">Developers</a>
-                <a href="#" target="_blank">Workshop</a>
+                <a href="https://artado.xyz" target="_blank">Other Projects</a>
+                <a href="https://myacc.artado.xyz/privacy" target="_blank">Privacy</a>
+                <a href="https://localhost:44350/Manifest" target="_blank">Manifesto</a>
+                <a href="https://forum.artado.xyz/" target="_blank">Forum</a>
+                <a href="https://discord.gg/WXCsr8zTN6" target="_blank">Discord</a>
+                <a href="https://github.com/Artado-Project/artadosearch" target="_blank">Source Code</a>
+                <a href="https://devs.artado.xyz/" target="_blank">Developers</a>
+                <a href="https://localhost:44350/workshop" target="_blank">Workshop</a>
             </div>
         </div>
     </form>

@@ -97,6 +97,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the ASP.NET Framework and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado1 {
+            get {
+                return ResourceManager.GetString("Artado1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   In a departure from the norm, Artado Search doesn&apos;t rely solely on its own search algorithms. Instead, it combines results from other search engines, presenting users with a comprehensive perspective. This unique approach ensures that users have access to a wider range of information, making it a valuable tool for those who seek diverse search results. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado2 {
+            get {
+                return ResourceManager.GetString("Artado2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Artado goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality. You can find new themes, apps and games from the store. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado3 {
+            get {
+                return ResourceManager.GetString("Artado3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Artado does not collect any of your personal data. Artado protects your privacy as much as possible. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado4 {
+            get {
+                return ResourceManager.GetString("Artado4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Your highly customizable search engine 🔎 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado_Custom {
+            get {
+                return ResourceManager.GetString("Artado_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Keep your data to yourself 🔒 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Artado_Privacy {
+            get {
+                return ResourceManager.GetString("Artado_Privacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   This page has not been translated into all languages. benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Attention {
@@ -147,6 +201,15 @@ namespace Resources {
         internal static string Beta {
             get {
                 return ResourceManager.GetString("Beta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Artado results may be insufficient since it is still in beta. You can use the results of Google or other search engines by selecting them from the panel above. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BetaResults {
+            get {
+                return ResourceManager.GetString("BetaResults", resourceCulture);
             }
         }
         
@@ -300,6 +363,15 @@ namespace Resources {
         internal static string CustomExt_exp {
             get {
                 return ResourceManager.GetString("CustomExt_exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Customise as you like 🎨 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Customise_as {
+            get {
+                return ResourceManager.GetString("Customise_as", resourceCulture);
             }
         }
         
@@ -475,33 +547,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   You can find new themes, apps and games from the store. benzeri yerelleştirilmiş bir dize arar.
-        /// </summary>
-        internal static string Home_Custom {
-            get {
-                return ResourceManager.GetString("Home_Custom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Artado does not collect any of your personal data. Artado protects your privacy as much as possible. benzeri yerelleştirilmiş bir dize arar.
-        /// </summary>
-        internal static string Home_Privacy {
-            get {
-                return ResourceManager.GetString("Home_Privacy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   You can find many more of our projects such as browsers and store here. benzeri yerelleştirilmiş bir dize arar.
-        /// </summary>
-        internal static string Home_Projects {
-            get {
-                return ResourceManager.GetString("Home_Projects", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Hungarian benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Hungarian {
@@ -669,6 +714,15 @@ namespace Resources {
         internal static string Menu {
             get {
                 return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   More than one source🔥 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string More_than {
+            get {
+                return ResourceManager.GetString("More_than", resourceCulture);
             }
         }
         
