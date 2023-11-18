@@ -17,7 +17,7 @@ namespace artadosearch
         {
             //Get hour.txt
             DateTime hour = File.GetLastWriteTime(System.Web.HttpContext.Current.Server.MapPath("/hour.txt"));
-            TimeSpan limit = TimeSpan.FromHours(5);
+            TimeSpan limit = TimeSpan.FromHours(3);
 
             if ((DateTime.Now - hour) > limit)
             {

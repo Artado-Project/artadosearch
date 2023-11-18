@@ -120,11 +120,9 @@ input:focus {
         margin-top: 50px;
         margin-right: 60px;
         padding: 0;
-        border: 1px solid #ccc;
-        border-top: none;
-        position: fixed;
+        position: absolute;
         z-index: 999;
-        width: 438px;
+        width: 550px;
         max-height: 200px;
         overflow-y: auto;
         background-color: #fff;
@@ -316,14 +314,12 @@ input:focus {
 
     #autocomplete-list {
         list-style-type: none;
-        margin-top: 45px;
+        margin-top: 50px;
         margin-right: 60px;
         padding: 0;
-        border: 1px solid #ccc;
-        border-top: none;
-        position: fixed;
+        position: absolute;
         z-index: 999;
-        width: 300px;
+        width: 90%;
         max-height: 200px;
         overflow-y: auto;
         background-color: #fff;

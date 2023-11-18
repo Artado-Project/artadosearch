@@ -18,7 +18,7 @@ namespace artadosearch
                     query = Request.QueryString["q"];
                 }
 
-                if (query != null && query != string.Empty)
+                if (query != null && query != string.Empty && Bangs.BangSearch(query) == null)
                 {
                     //Connection String
                     string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
@@ -192,6 +192,10 @@ namespace artadosearch
                     //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
                     //}
                     #endregion
+                }
+                else if (Bangs.BangSearch(query) != null)
+                {
+                    Response.Redirect(Bangs.BangSearch(query));
                 }
                 else
                 {
@@ -534,39 +538,14 @@ namespace artadosearch
                 switch (source.Value)
                 {
                     case "Google":
-                        try
-                        {
-                            Google_B.Font.Bold = true;
-                            google.Visible = true;
-                            google_server.Visible = true;
-                            googlejs.Visible = false;
-                            others.Visible = false;
-                            artado.Visible = false;
+                        Google_B.Font.Bold = true;
+                        google.Visible = true;
+                        google_server.Visible = false;
+                        googlejs.Visible = true;
+                        others.Visible = false;
+                        artado.Visible = false;
 
-                            //Result lang
-                            HttpCookie lang = HttpContext.Current.Request.Cookies["result_lang"];
-
-                            if (lang != null && lang.Value != null)
-                            {
-                                google_server.DataSource = ResultsClass.Google(query, lang.Value);
-                            }
-                            else
-                            {
-                                google_server.DataSource = ResultsClass.Google(query, null);
-                            }
-                            google_server.DataBind();
-                        }
-                        catch
-                        {
-                            Google_B.Font.Bold = true;
-                            google.Visible = true;
-                            google_server.Visible = false;
-                            googlejs.Visible = true;
-                            others.Visible = false;
-                            artado.Visible = false;
-
-                            GoogleToken.ChangeToken();
-                        }
+                        GoogleToken.ChangeToken();
                         break;
 
                     case "Artado":

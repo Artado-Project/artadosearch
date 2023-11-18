@@ -337,6 +337,7 @@
     <Compile Include="Autocomplete\Autocomplete.aspx.designer.cs">
       <DependentUpon>Autocomplete.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Bangs.cs" />
     <Compile Include="Configs.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
