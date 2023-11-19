@@ -6,15 +6,17 @@ Artado Search is a versatile and highly customizable search engine, designed to 
 
 ## Features
 
-- **Customizability**: Artado Search goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality.
-
 - **Combined Results**: In addition to its own search algorithms, Artado Search aggregates results from other search engines, providing users with a holistic perspective and access to a wider range of information.
 
-- **Multi-language Support**: Artado Search supports over 20 languages out of the box. Users have the ability to contribute additional languages or correct translation errors to make the search experience more inclusive and accurate.
+- **Customizability**: Artado Search goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality.
+
+- **Workshop**: A place that you can share and use the themes, extensions and logos made by our users.
 
 - **Developer-Friendly**: Artado Search's extensibility is one of its core strengths. Developers can create and publish themes, extensions, and logos through the Artado Developers platform. Themes are crafted using CSS, while extensions are powered by JavaScript.
+
+- **Multi-language Support**: Artado Search supports over 20 languages out of the box. Users have the ability to contribute additional languages or correct translation errors to make the search experience more inclusive and accurate.
   
-- **Bangs:** DuckDuckGo-style [!bang syntax](https://duckduckgo.com/bangs). Artado Search supports over 70 bangs.
+- **Bangs**: DuckDuckGo-style [!bang syntax](https://duckduckgo.com/bangs). Artado Search supports over 70 bangs.
 
 
 ## Getting Started
