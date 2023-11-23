@@ -168,12 +168,12 @@
                 </a>
                 <a href="https://artado.xyz" target="_blank">Other Projects</a>
                 <a href="https://myacc.artado.xyz/privacy" target="_blank">Privacy</a>
-                <a href="https://localhost:44350/Manifest" target="_blank">Manifesto</a>
+                <a href="https://www.artadosearch.com/Manifest" target="_blank">Manifesto</a>
                 <a href="https://forum.artado.xyz/" target="_blank">Forum</a>
                 <a href="https://discord.gg/WXCsr8zTN6" target="_blank">Discord</a>
                 <a href="https://github.com/Artado-Project/artadosearch" target="_blank">Source Code</a>
                 <a href="https://devs.artado.xyz/" target="_blank">Developers</a>
-                <a href="https://localhost:44350/workshop" target="_blank">Workshop</a>
+                <a href="https://www.artadosearch.com/workshop" target="_blank">Workshop</a>
             </div>
         </div>
     </form>
