@@ -127,11 +127,13 @@
     <Content Include="images\oldies\old.png" />
     <Content Include="images\oldies\old1.png" />
     <Content Include="js\jquery-3.3.1.slim.min.js" />
+    <Content Include="js\location.js" />
     <Content Include="js\mdb.min.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="js\home.js" />
     <Content Include="js\tailwind.js" />
     <Content Include="js\test.js" />
+    <Content Include="js\weather.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />
     <Content Include="Settings_Pages\Extensions.aspx" />
@@ -407,6 +409,7 @@
       <DependentUpon>Themes.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\WikiAPI\Wiki.cs" />
+    <Compile Include="App_Code\Weather.cs" />
     <Compile Include="Workshop\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

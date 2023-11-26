@@ -95,6 +95,10 @@
                 <asp:Button ID="Button10" runat="server" Text="News" class="r_div" Font-Size="Small" OnClick="Button10_Click" />
             </div>
 
+            <div id="WeatherWidget" runat="server">
+
+            </div>
+
             <div id="infocard" runat="server" class="info">
                 <asp:Label ID="title" runat="server" Font-Size="Larger" Font-Bold="true"></asp:Label>
                 <asp:Image ID="Img" runat="server" CssClass="infoimage" />

@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Web;
 using System.Web.UI;
+using System.IO;
 
 namespace artadosearch
 {
@@ -102,46 +103,17 @@ namespace artadosearch
                             break;
                     }
 
-                    #region Save Search
-                    System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
-                    string lang = cul.TwoLetterISOLanguageName;
-                    string pref_lang;
-                    HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
-                    DateTime dateTime = DateTime.UtcNow.Date;
-                    string date = dateTime.ToString("dd/MM/yyyy");
-                    string web_source;
+                    #region Widgets
+                    //Check this issue for any suggestions https://github.com/Artado-Project/artadosearch/issues/38
 
-                    if(source != null)
-                    {
-                        web_source = source.Value;
-                    }
-                    else
-                    {
-                        web_source = "Google";
-                    }
-
-                    if (cookielang != null)
-                    {
-                        pref_lang = cookielang.Value;
-                    }
-                    else
-                    {
-                        pref_lang = lang;
-                    }
-
-                    if(web_source != "Artado")
-                    {
-                        SqlConnection connection = new SqlConnection(con);
-                        if (connection.State == ConnectionState.Closed)
-                            connection.Open();
-                        string istek = "insert into Searchs(preferred_lang, date, source) values (@preferred_lang, @date, @source)";
-                        SqlCommand cmd = new SqlCommand(istek, connection);
-                        cmd.Parameters.AddWithValue("@preferred_lang", pref_lang);
-                        cmd.Parameters.AddWithValue("@date", date);
-                        cmd.Parameters.AddWithValue("@source", web_source);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
+                    //if (Weather.CheckWeather(query))
+                    //{
+                    //    WeatherWidget.InnerHtml = "<a id=\"weatherW\" class=\"weatherwidget-io\" data-label_2=\"WEATHER\" data-theme=\"original\"></a>";
+                    //    searchpage.Controls.Add(
+                    //         new System.Web.UI.LiteralControl("<script src=\"/js/location.js\"></script>"));
+                    //    searchpage.Controls.Add(
+                    //         new System.Web.UI.LiteralControl("<script>\r\n!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='/js/weather.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');\r\n</script>"));
+                    //}
                     #endregion
 
                     #region Customization
