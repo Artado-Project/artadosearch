@@ -1,4 +1,4 @@
-# Artado Search
+# Artado Search Rewrite
 
 ![Artado Search Logo](https://www.artadosearch.com/images/android-chrome-192x192.png)
 
