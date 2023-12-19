@@ -1,0 +1,15 @@
+@import "css/_ArtadoGrid.css";
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300&family=Open+Sans:wght@400;500&display=swap');
+
+.font__assistant {
+  font-family: 'Assistant', sans-serif;
+}
+
+.font__open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.font__open-sans-bold {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
