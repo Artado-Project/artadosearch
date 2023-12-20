@@ -79,10 +79,21 @@ const ArtadoSearchBar: React.FC = () => {
 
     return (
         <>
-            <form method={'GET'} action={'/search'}>
-                <div style={{justifyContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <img src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
-                         style={isMobile ? {width: 150} : null} alt={'artado logo'}/>
+            <form
+                method={'GET'}
+                action={'/search'}
+            >
+                <div
+                    style={{
+                        justifyContent: 'center',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                }}>
+                    <img
+                        src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
+                        style={isMobile ? {width: 150} : null}
+                        alt={'artado logo'}/>
                     <br/>
                     <AutoComplete
                         id={'searchBar'}
@@ -92,7 +103,11 @@ const ArtadoSearchBar: React.FC = () => {
                         onSearch={(text) => setOptions(getPanelValue(text))}
                         placeholder="Let's search the internet!"
                     />
-                    <input name={'q'} type={'hidden'} value={selectedValue} />
+                    <input
+                        name={'q'}
+                        type={'hidden'}
+                        value={selectedValue}
+                    />
                 </div>
             </form>
         </>

@@ -98,14 +98,33 @@ const ArtadoHeader: React.FC = () => {
     }, []);
 
     return (
-        <div style={{display: "flex", justifyContent: "end", alignItems: "center"}}>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "center"
+        }}
+        >
             {Object.keys(Options).map((key, ) => (
-                <a href={Options[key].link} style={isMobile ? {display: 'none'} : LinkStyle} className="font__open-sans">
+                <a
+                    href={Options[key].link}
+                    style={
+                    isMobile
+                        ? {display: 'none'}
+                        : LinkStyle}
+                    className="font__open-sans"
+                >
                     {Options[key].title}
                 </a>
             ))}
 
-            <Button onClick={showSidebar} style={{ paddingTop: "6px", marginLeft: "20px" }}>
+            <Button
+                onClick={showSidebar}
+                style={{
+                    paddingTop: "6px",
+                    marginLeft: "20px"
+                }}
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="bi bi-list" viewBox="0 0 16 16">
                     <path fillRule="evenodd"
@@ -143,16 +162,38 @@ const ArtadoHeader: React.FC = () => {
                     ]}
                 />
 
-                <Divider plain orientation={"center"} style={{marginBottom: "20px"}}>
+                <Divider
+                    plain
+                    orientation={"center"}
+                    style={{
+                        marginBottom: "20px"
+                    }}
+                >
                     Safe Search
                 </Divider>
 
-                <Switch checkedChildren="On" unCheckedChildren="Off" style={{ marginBottom: "10px" }} />
+                <Switch
+                    checkedChildren="On"
+                    unCheckedChildren="Off"
+                    style={{
+                        marginBottom: "10px"
+                    }}
+                />
 
 
-                <div style={MutedText}> Omits sensitive material from general search results. </div>
+                <div
+                    style={MutedText}
+                >
+                    Omits sensitive material from general search results.
+                </div>
 
-                <Divider plain orientation={"center"} style={{marginBottom: "20px"}}>
+                <Divider
+                    plain
+                    orientation={"center"}
+                    style={{
+                        marginBottom: "20px"
+                    }}
+                >
                     <svg style={{ paddingTop: "9px" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          className="bi bi-gear" viewBox="0 0 16 16">
                         <path
@@ -163,15 +204,39 @@ const ArtadoHeader: React.FC = () => {
                 </Divider>
 
                 {Object.keys(DividerLinks).map((key) => (
-                    <Button href={DividerLinks[key].link} style={{ width: "100%", marginBottom: "15px" }} className="font__open-sans">{DividerLinks[key].title}</Button>
+                    <Button
+                        href={DividerLinks[key].link}
+                        style={{
+                            width: "100%",
+                            marginBottom: "15px"
+                        }}
+                        className="font__open-sans"
+                    >
+                        {DividerLinks[key].title}
+                    </Button>
                 ))}
 
                 {isMobile && (
                     <>
-                        <Divider plain orientation={"center"} style={{ marginBottom: "20px" }}>Others</Divider>
+                        <Divider
+                            plain
+                            orientation={"center"}
+                            style={{
+                                marginBottom: "20px"
+                            }}
+                        >
+                            Others
+                        </Divider>
 
                         {Object.keys(Options).map((key, ) => (
-                            <Button href={Options[key].link} style={{ width: '100%', marginBottom: '15px' }} className="font__open-sans">
+                            <Button
+                                href={Options[key].link}
+                                style={{
+                                    width: '100%',
+                                    marginBottom: '15px'
+                                }}
+                                className="font__open-sans"
+                            >
                                 {Options[key].title}
                             </Button>
                         ))}
