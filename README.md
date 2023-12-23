@@ -2,7 +2,7 @@
 
 ![Artado Search Logo](https://www.artadosearch.com/images/android-chrome-192x192.png)
 
-Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the ASP.NET Framework and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.
+Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the Javascript/Typescript and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.
 
 ## Features
 
@@ -23,24 +23,16 @@ Artado Search is a versatile and highly customizable search engine, designed to 
 
 Follow these steps to get Artado Search up and running on your system:
 
-1. **Prerequisites**: Make sure you have the ASP.NET Framework 4.8 installed on your machine.
+1. **Prerequisites**: Node.js and npm are required to build and run Artado Search. If you don't have them installed, refer to the [Node.js documentation](https://nodejs.org/en/download/) for instructions on how to install them.
 
 2. **Clone the Repository**: Clone this repository to your local environment using the following command:
    ```bash
    git clone https://github.com/Artado-Project/artadosearch
    ```
-
-3. **Configuration**: Configure the database connection in `web.config` as to adapt Artado Search to your specific use case.
-Copy the `Web.example.config` to `Web.config` and fill in the database parameters.
-   ```xml
-   <connectionStrings>
-	  <add name="con" connectionString="" />
-	  <add name="admin" connectionString="" />
-	  <add name="service" connectionString="" />
-   </connectionStrings>
-   ```
-Also change the parameters in `Config.cs`. Copy the `Config.example.cs` to `Config.cs` and fill in the parameters.
-
+3. **Install Dependencies**: Navigate to the project directory and install the dependencies using the following command:
+   ```bash 
+    npm install
+    ```
 4. **Build and Launch**: Utilize your preferred development environment or the command line to build the project. Once built, start the application and access the search engine via your web browser.
 
 5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](Themes_and_Extensions.md) for comprehensive guidelines.
