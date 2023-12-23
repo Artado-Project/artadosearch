@@ -2,6 +2,7 @@ import ArtadoHeader from "./../components/Index/ArtadoHeader";
 import ArtadoFooter from "./../components/Index/ArtadoFooter";
 import ArtadoSearchBar from "./../components/Index/ArtadoSearchBar";
 import ArtadoSection from "./../components/Index/ArtadoSection";
+import ArtadoAlerts from "../components/Index/ArtadoAlerts";
 
 import './../assets/Index.css';
 
@@ -12,6 +13,7 @@ function Index() {
             <div style={{marginTop: '100px'}}>
                 <ArtadoSearchBar/>
             </div>
+            <ArtadoAlerts />
             <ArtadoSection />
             <ArtadoFooter />
         </div>
