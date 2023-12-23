@@ -36,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "ts-node": "^10.9.2"
   }
 }
