@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.arrow {
+  margin-top: 270px;
+  width: 70px;
+  animation: arrowAnimation 1s infinite alternate;
+  margin-bottom: 90px;
+  color: #8c8c8c;
+}
+
+.artado-section-arrow {
+  /*margin-bottom: 85vh;*/
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .arrow {
+    margin-top: 200px;
+  }
+}
+
+@keyframes arrowAnimation {
+  from {
+    transform: translateY(0); /* Başlangıç konumu */
+  }
+  to {
+    transform: translateY(10px); /* Bitiş konumu */
+  }
+}
