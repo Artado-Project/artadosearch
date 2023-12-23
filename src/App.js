@@ -1,6 +1,7 @@
 import ArtadoHeader from "./components/Index/ArtadoHeader";
 import ArtadoFooter from "./components/Index/ArtadoFooter";
 import ArtadoSearchBar from "./components/Index/ArtadoSearchBar";
+import ArtadoSection from "./components/Index/ArtadoSection";
 
 import './assets/Index.css';
 
@@ -11,7 +12,8 @@ function App() {
         <div style={{marginTop: '100px'}}>
             <ArtadoSearchBar/>
         </div>
-        <ArtadoFooter/>
+        <ArtadoSection />
+        <ArtadoFooter />
     </div>
   );
 }
