@@ -1,10 +1,3 @@
-/**
- * @file ArtadoFooter.js
- * @brief Footer for Artado (For all pages)
- * @contains Footer
- * @author [yasinldev](https://github.com/yasinldev)
- */
-
 import './../../assets/Index.css';
 import React from "react";
 

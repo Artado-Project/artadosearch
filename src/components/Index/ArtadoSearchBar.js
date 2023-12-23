@@ -1,10 +1,3 @@
-/**
- * @file ArtadoHeader.js
- * @brief Header for Artado Search Index Page
- * @contains Drawer and Links
- * @author [yasinldev](https://github.com/yasinldev)
- */
-
 import React, { useState, useEffect} from 'react';
 import './../../assets/Index.css';
 import {AutoComplete} from 'antd';
