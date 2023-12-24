@@ -1,10 +1,11 @@
-import ArtadoHeader from "./../components/Index/ArtadoHeader";
-import ArtadoFooter from "./../components/Index/ArtadoFooter";
-import ArtadoSearchBar from "./../components/Index/ArtadoSearchBar";
-import ArtadoSection from "./../components/Index/ArtadoSection";
+import ArtadoHeader from "../components/Index/ArtadoHeader";
+import ArtadoFooter from "../components/Index/ArtadoFooter";
+import ArtadoSearchBar from "../components/Index/ArtadoSearchBar";
+import ArtadoSection from "../components/Index/ArtadoSection";
 import ArtadoAlerts from "../components/Index/ArtadoAlerts";
 
 import './../assets/Index.css';
+import React from "react";
 
 function Index() {
     return (

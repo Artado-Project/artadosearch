@@ -128,7 +128,6 @@ const ArtadoHeader: React.FC = () => {
             <Drawer
                 title="Artado Settings"
                 placement={"right"}
-                titleStyle={{textAlign: "center"}}
                 closable={true}
                 onClose={closeSidebar}
                 open={open}

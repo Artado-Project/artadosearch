@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './../../assets/Index.css';
 import {AutoComplete} from 'antd';
 
-const mockVal = (str, repeat = 1) => ({
+const mockVal = (str: string, repeat = 1) => ({
     value: str.repeat(repeat),
 });
 
@@ -47,7 +47,7 @@ const ArtadoSearchBar: React.FC = () => {
     }, []);
 
 
-    const getPanelValue = (searchText) =>
+    const getPanelValue = (searchText: string) =>
         !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3), mockVal(searchText, 4), mockVal(searchText, 5)];
 
     const onSelect = (data: string) => {

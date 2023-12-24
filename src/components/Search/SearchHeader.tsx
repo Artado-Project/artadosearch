@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, { useEffect } from "react";
 import { Input } from "antd";
 import { useNavigate } from "react-router-dom";

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { message } from 'antd';
 
-const AlertMessage = () => {
-    useEffect(() => {
+const AlertMessage = (): null => {
+    useEffect((): void => {
         const alertParams = new URLSearchParams(window.location.search);
-        const alertType = alertParams.get('ret_no');
+        const alertType: string = alertParams.get('ret_no');
 
         const showAlert = () => {
             switch (alertType) {

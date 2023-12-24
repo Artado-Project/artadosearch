@@ -1,4 +1,5 @@
-import SearchHeader from './../components/Search/SearchHeader';
+import React from 'react';
+import SearchHeader from '../components/Search/SearchHeader';
 
 import './../assets/Index.css';
 
