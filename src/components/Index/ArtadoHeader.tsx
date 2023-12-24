@@ -6,10 +6,19 @@ const LinkStyle = {
     color: 'black',
     fontSize: '12px',
     marginRight: '10px',
-    textDecoration: 'underline',
+    textDecoration: 'none',
 }
 
-const Options = {
+interface OptionsItem{
+    title: string;
+    link: string;
+}
+
+interface OptionsProps {
+    [key: string]: OptionsItem;
+}
+
+const Options: OptionsProps = {
     'Settings': {
         title: 'Settings',
         link: '#Settings' // TODO: Add Link
@@ -34,7 +43,16 @@ const MutedText = {
     marginBottom: "5px"
 }
 
-const DividerLinks = {
+interface DividerLinksItem {
+    title: string;
+    link: string;
+}
+
+interface DividerLinksProps {
+    [key: string]: DividerLinksItem;
+}
+
+const DividerLinks: DividerLinksProps = {
     'Workshop': {
         title: "Workshop",
         link: "#WorkShop" // TODO: Add Link
