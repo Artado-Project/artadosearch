@@ -4,7 +4,7 @@ import { message } from 'antd';
 const AlertMessage = (): null => {
     useEffect((): void => {
         const alertParams = new URLSearchParams(window.location.search);
-        const alertType: string = alertParams.get('ret_no');
+        const alertType: string | null = alertParams.get('ret_no');
 
         const showAlert = () => {
             switch (alertType) {
