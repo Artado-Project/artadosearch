@@ -7,7 +7,7 @@ const mockVal = (str: string, repeat = 1) => ({
 });
 
 const ArtadoSearchBar: React.FC = () => {
-    const [options, setOptions] = useState([]);
+    const [options, setOptions] = useState<{ value: string }[]>([]);
     const [isMobile, setIsMobile] = useState(false);
     const [isHover, setIsHover] = useState(false);
     const [selectedValue, setSelectedValue] = useState('');
@@ -85,7 +85,7 @@ const ArtadoSearchBar: React.FC = () => {
                 }}>
                     <img
                         src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
-                        style={isMobile ? {width: 150} : null}
+                        style={isMobile ? {width: 150} : undefined}
                         alt={'artado logo'}/>
                     <br/>
                     <AutoComplete
