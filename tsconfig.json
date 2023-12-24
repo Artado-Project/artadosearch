@@ -1,6 +1,31 @@
 {
   "compilerOptions": {
+    "types": [
+      "bun-types",
+      "ol",
+    ],
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+    "module": "esnext",
+    "target": "esnext",
+    "noEmit": true,
+    "moduleDetection": "force",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowJs": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "composite": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "jsx": "react"
-  }
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src"
+  ]
 }
