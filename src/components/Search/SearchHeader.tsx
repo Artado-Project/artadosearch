@@ -1,9 +1,9 @@
-// @ts-ignore
-import React, { useEffect } from "react";
-import { Input } from "antd";
+import React, {ReactNode, useEffect} from "react";
+import {AutoComplete, AutoCompleteProps, Input} from "antd";
 import { useNavigate } from "react-router-dom";
 import ArtadoHeader from "../Index/ArtadoHeader";
 import './../../assets/Index.css';
+import {OptionProps} from "antd/es/mentions";
 
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
@@ -58,7 +58,7 @@ const SearchHeader: React.FC = () => {
                         <Input.Group>
                             <Input
                                 name={'q'}
-                                defaultValue={search}
+                                defaultValue={search ?? ''}
                                 placeholder={'Let\'s find something...'}
                                 style={{width: '100%'}}
                                 suffix={<img src={'https://www.artadosearch.com/images/android-chrome-192x192.png'} alt={'Artado Search'} width={20} height={20} />}
