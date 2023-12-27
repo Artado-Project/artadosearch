@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, {AxiosRequestConfig} from "axios";
 
 interface WikipediaResponse {
     batchcomplete: string;
@@ -30,7 +30,7 @@ const config = (query: string): AxiosRequestConfig => ({
         titles: query,
         exintro: true,
         explaintext: true,
-        pithumbsize: 300,
+        pithumbsize: 200,
     },
 });
 
@@ -57,11 +57,11 @@ export async function searchWikipedia(countryCode: string, query: string): Promi
     return undefined;
 }
 
-/*
+
 const countryCode = 'tr';
-const query = 'istanbul';
+const query = 'Türkiye';
 
 searchWikipedia(countryCode, query).then((result) => {
     console.log('Result:', result);
 });
-*/
+

@@ -52,7 +52,7 @@ const SearchOpenStreetMap: React.FC = () => {
 
             newMap.addInteraction(drawInteraction);
         }
-    }); // Boş dependency array kullanıldığından sadece bir kez çalışır
+    }, [map]);
 
     return (
         <div id="map" className="map" style={{ width: '60%', height: '200px' }}></div>
