@@ -55,7 +55,7 @@ const SearchOpenStreetMap: React.FC = () => {
     }, [map]);
 
     return (
-        <div id="map" className="map" style={{ width: '60%', height: '200px' }}></div>
+        <div id="map" className="map" style={{ width: '60%', height: '200px', borderRadius: 0 }}></div>
     );
 };
 

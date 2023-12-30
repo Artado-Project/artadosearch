@@ -14,6 +14,12 @@
   font-weight: 500;
 }
 
+.card-style {
+  width: 100%;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
 .search-types {
   position: relative;
   display: flex;
@@ -64,6 +70,10 @@
 
 .ol-zoom {
   display: none;
+}
+
+.ol-viewport {
+  border-radius: 0;
 }
 
 .ol-viewport:last-child {
