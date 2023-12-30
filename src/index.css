@@ -13,11 +13,10 @@ code {
 }
 
 .arrow {
-  position: relative;
-  margin-top: 200px;
+  position: absolute;
+  margin-top: 300px;
   width: 70px;
   animation: arrowAnimation 1s infinite alternate;
-  margin-bottom: 90px;
   color: #8c8c8c;
 }
 
