@@ -108,6 +108,17 @@ const ArtadoHeader: React.FC = () => {
         }
     }, []);
 
+    const checkDarkMode = () => {
+        const selected = document.getElementById('theme') as HTMLSelectElement;
+        const theme = selected.value;
+        if (theme === 'dark') {
+            // save theme to local storage
+            localStorage.setItem('theme', 'Dark');
+        } else if (theme === 'light') {
+            localStorage.setItem('theme', 'Light');
+        }
+    }
+
     return (
         <div
             style={{
@@ -153,6 +164,8 @@ const ArtadoHeader: React.FC = () => {
                 >
                 <Select
                     defaultValue="Select a Theme"
+                    id={"theme"}
+                    onChange={checkDarkMode}
                     style={{ width: "100%", height: "35px", marginBottom: "20px" }}
                     options={[
                         { value: 'night', label: 'Night' },
@@ -162,6 +175,7 @@ const ArtadoHeader: React.FC = () => {
                     ]}
                 />
                 <Select
+                    id={"language"}
                     defaultValue="Select a Language"
                     style={{ width: "100%", height: "35px", marginBottom: "20px"}}
                     options={[
