@@ -8,6 +8,7 @@ const envPath = path.resolve(rootPath, 'src', 'config', '.env');
 
 dotenv.config({ path: envPath });
 
+
 // Connection URL
 export async function connection() {
     const client: mongodb.MongoClient
