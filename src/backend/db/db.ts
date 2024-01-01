@@ -1,8 +1,12 @@
 import * as mongodb from 'mongodb';
 import * as dotenv from 'dotenv';
+import "path-browserify";
+import * as path from 'path';
 
-// Load environment variables from .env file, where API keys and passwords are configured
-dotenv.config({ path: 'config/.env' });
+const rootPath = process.cwd();
+const envPath = path.resolve(rootPath, 'src', 'config', '.env');
+
+dotenv.config({ path: envPath });
 
 // Connection URL
 export async function connection() {
