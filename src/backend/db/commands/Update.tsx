@@ -1,8 +1,13 @@
 import * as mongodb from 'mongodb';
+import "path-browserify";
 import * as dotenv from 'dotenv';
+import path from "path";
 
-// Load environment variables from .env file our .env file is in the ../config folder
-dotenv.config({ path: './config/.env' });
+// Load environment variables from .env file our .env file is in the ./src/config/ folder
+const rootPath = process.cwd();
+const envPath = path.resolve(rootPath, 'src', 'config', '.env');
+
+dotenv.config({ path: envPath });
 
 export default class Update {
     private static readonly uri: string = process.env.MONGODB_URI ?? '';
