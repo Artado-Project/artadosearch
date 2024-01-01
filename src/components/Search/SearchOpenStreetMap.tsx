@@ -6,6 +6,13 @@ import Point from 'ol/geom/Point';
 import { Interaction } from 'ol/interaction';
 import 'ol/ol.css';
 import '../../assets/Index.css'
+import * as url from "url";
+import * as dotenv from "dotenv";
+
+const __root = process.cwd();
+const env_path = url.resolve(__root, 'src/config/.env');
+
+dotenv.config({ path: env_path });
 
 const SearchOpenStreetMap: React.FC = () => {
     const [map, setMap] = useState<Map | null>(null);
