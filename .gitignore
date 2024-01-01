@@ -182,7 +182,7 @@ AutoTest.Net/
 [Ee]xpress/
 
 # .env file
-src/backend/db/config/.env
+src/config/.env
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
