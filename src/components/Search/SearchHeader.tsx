@@ -3,7 +3,6 @@ import {AutoComplete, AutoCompleteProps, Input} from "antd";
 import { useNavigate } from "react-router-dom";
 import ArtadoHeader from "../Index/ArtadoHeader";
 import './../../assets/Index.css';
-import {OptionProps} from "antd/es/mentions";
 
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
