@@ -1,5 +1,5 @@
 {
-  "name": "artado-react",
+  "name": "artado-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,8 @@
     "@types/react-dom": "^18.2.18",
     "antd": "^5.12.2",
     "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "mongodb": "^6.3.0",
     "ol": "^8.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -45,7 +47,6 @@
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@types/ol": "^7.0.0",
-    "ts-node": "^10.9.2",
-    "axios": "^1.6.3"
+    "ts-node": "^10.9.2"
   }
 }
