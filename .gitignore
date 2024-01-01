@@ -51,6 +51,7 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -179,6 +180,9 @@ AutoTest.Net/
 
 # Installshield output folder
 [Ee]xpress/
+
+# .env file
+src/backend/db/config/.env
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
