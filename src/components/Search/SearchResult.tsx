@@ -28,6 +28,11 @@ const SearchResultStyle = {
         fontSize: '13px',
         color: '#7c7c7c',
     },
+    cardUrl: {
+        fontSize: '13px',
+        color: '#6c6c6c',
+        marginBottom: '-14px'
+    },
     cardSubTitle: {
         marginTop: '20px',
         marginLeft: '30px',
@@ -101,7 +106,10 @@ const SearchResult: React.FC = () => {
                 title={
                     <>
                         <span>Turkey - Wikipedia</span> <br />
-                        <small style={{ color: '#7c7c7c' }}>en.wikipedia.org  › wiki › Turkey</small>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <small style={{ color: '#7c7c7c' }}>en.wikipedia.org  › wiki › Turkey</small>
+                            <Tag color={'green'}>Encyclopedia ~ Verified</Tag>
+                        </div>
                     </>
                 }
                 open={isModalVisible}
@@ -131,8 +139,9 @@ const SearchResult: React.FC = () => {
                     </svg>
                 </div>
                 <h3 style={SearchResultStyle.cardTitle}>Turkey - Wikipedia</h3>
+                <div style={SearchResultStyle.cardUrl}>en.wikipedia.org  › wiki › Turkey</div> <br />
                 <span style={SearchResultStyle.cardDesc}>
-                <Tag style={{ color: '#7c7c7c' }}>Document</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
+                <Tag color={'#a1a1a1'}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
             </span>
                 <div style={SearchResultStyle.cardSubTitle}>
                     <h6 style={SearchResultStyle.cardSubTitle.SubTitle}>Turkey (bird) - Wikipedia</h6>
@@ -159,6 +168,7 @@ const SearchResult: React.FC = () => {
                     </svg>
                 </div>
                 <h3 style={SearchResultStyle.cardTitle}>Turkey Consciousness</h3>
+                <div style={SearchResultStyle.cardUrl}>gurneyjourney.blogspot.com  › 2023 › 12 › turkey-consciousness.html</div><br />
                 <span style={SearchResultStyle.cardDesc}>
                     But their ability to understand the world goes much further than just communication. He raises a bunch of wild turkeys, allowing them to imprint on him so that he's their parent. The exercise—which must have taken total commitment for the better part of a year—gives us a rare insight into the umwelt of some very impressive wild animals.
                 </span>
