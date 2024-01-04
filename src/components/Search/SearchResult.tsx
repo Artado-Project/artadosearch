@@ -1,5 +1,5 @@
-import React, {  } from 'react';
-import { Tag } from 'antd';
+import React, { useState } from 'react';
+import {Tag, Modal, Segmented, Alert, Button} from 'antd';
 
 const SearchResultStyle = {
     card: {
@@ -22,6 +22,7 @@ const SearchResultStyle = {
         float: 'right',
         color: '#5c5c5c',
         marginTop: '10px',
+        cursor: 'pointer',
     },
     cardDesc: {
         fontSize: '13px',
@@ -47,10 +48,81 @@ const SearchResultStyle = {
 } as const;
 
 const SearchResult: React.FC = () => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedSegmented, setSelectedSegmented] = useState<string>('summary');
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    }
+
+    const closeModal = () => {
+        setIsModalVisible(false);
+    }
+
+    const segmentedOptions = [
+        { label: 'Summary', value: 'summary' },
+        { label: 'Safety', value: 'safety' },
+    ];
+
+    const handleSegmentedChange = (value: string) => {
+        setSelectedSegmented(value);
+    }
+
+    const checkSegmentedValue = () => {
+        if (selectedSegmented === 'summary') {
+            return (
+                <span style={{ color: '#5c5c5c', marginTop: '10px' }}>
+                    <div style={{ marginTop: 10 }}></div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem doloremque eaque enim error in laborum magni nesciunt repellendus. Exercitationem iure laudantium obcaecati officiis porro possimus quae quidem quis, rem repellat! Alias aliquid consectetur debitis delectus dolores eaque enim eos eveniet ex explicabo fuga illo in itaque iusto, magnam magni molestias, nemo nulla numquam pariatur perspiciatis porro rem repudiandae sapiente sequi sunt tempora ullam unde veniam veritatis. Ab ad, commodi consequatur facilis fugiat fugit, maiores nihil possimus quisquam quo tempora veniam!
+                </span>
+            );
+        }
+        else if (selectedSegmented === 'safety') {
+            return (
+                <>
+                    <div style={{ marginTop: 10 }}></div>
+                    <Alert
+                        message="This website is safe"
+                        description="This website uses the HTTPS protocol. This means that all communications that users carry out on the site are encrypted and transmitted securely. Encryption of data prevents third parties from intercepting users' personal information, passwords and other sensitive data."
+                        type="success"
+                        showIcon
+                    />
+                </>
+            );
+        }
+        else {
+            console.error('Error: handleSegmentedChange()');
+        }
+    }
+
     return (
         <>
+            <Modal
+                title={
+                    <>
+                        <span>Turkey - Wikipedia</span> <br />
+                        <small style={{ color: '#7c7c7c' }}>en.wikipedia.org  › wiki › Turkey</small>
+                    </>
+                }
+                open={isModalVisible}
+                footer={
+                    <>
+                        <br />
+                        <div style={{ display: "flex", justifyContent: 'center' }}>
+                            If you think there is an error &nbsp; &nbsp;
+                            <Button type={'dashed'}>
+                                Send Error
+                            </Button>
+                        </div>
+                    </>
+                }
+                onCancel={closeModal}
+                >
+                <Segmented options={segmentedOptions} onChange={handleSegmentedChange} block />
+                { checkSegmentedValue() }
+            </Modal>
             <div style={SearchResultStyle.card}>
-                <div style={SearchResultStyle.cardHeader}>
+                <div style={SearchResultStyle.cardHeader} onClick={showModal}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          className="bi bi-question-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
