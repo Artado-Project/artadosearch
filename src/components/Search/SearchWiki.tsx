@@ -60,7 +60,7 @@ const SearchWiki: React.FC = () => {
                     </div>
                 }
                 title={
-                    <Segmented options={segmented_options} onChange={handleSegmentChange} block />
+                    <Segmented style={{ color: '#5c5c5c' }} options={segmented_options} onChange={handleSegmentChange} block />
                 }
             >
                 {checking_segmented_value()}
