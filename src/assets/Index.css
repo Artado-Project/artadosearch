@@ -68,6 +68,63 @@
   transition: 0.1s;
 }
 
+.artado-result-card {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.artado-result-card .result-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5c5c5c;
+  margin-top: 10px;
+  font-family: 'assistant', sans-serif;
+  margin-bottom: 7px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #b4b4b4;
+}
+
+.artado-result-card .result-header {
+  float: right;
+  color: #5c5c5c;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.artado-result-card .result-desc {
+  font-size: 13px;
+  color: #7c7c7c;
+}
+
+.artado-result-card .result-url {
+  font-size: 13px;
+  color: #6c6c6c;
+  margin-bottom: -14px;
+}
+
+.artado-result-card .result-subtitle {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.artado-result-card .result-subtitle .subtitle {
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #b4b4b4;
+  color: #5c5c5c;
+  font-family: 'assistant', sans-serif;
+  margin-bottom: 7px;
+}
+
+.artado-result-card .result-subtitle .desc {
+  font-size: 13px;
+  color: #7c7c7c;
+}
+
+
 .ol-zoom {
   display: none;
 }
@@ -100,5 +157,9 @@
   .search-types .search-buttons {
     display: flex;
     font-size: smaller;
+  }
+
+  .artado-result-card .result-subtitle {
+    margin-left: 15px;
   }
 }
