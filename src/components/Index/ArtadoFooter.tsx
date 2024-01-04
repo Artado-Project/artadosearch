@@ -1,5 +1,5 @@
 import './../../assets/Index.css';
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 type LinkProps = {
     title: string;
@@ -16,6 +16,22 @@ const FooterLinks: TypeFooterLinks = {
 }
 
 const ArtadoFooter: React.FC = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    const responsiveDesign = () => {
+        const mq = window.matchMedia('(max-width: 600px)');
+        setIsMobile(mq.matches);
+    }
+
+    useEffect(() => {
+        responsiveDesign();
+        window.addEventListener('resize', responsiveDesign);
+
+        return () => {
+            window.removeEventListener('resize', responsiveDesign);
+        }
+    }, []);
+
     return (
         <>
             <footer className={'footer'}>
@@ -37,6 +53,11 @@ const ArtadoFooter: React.FC = () => {
                     Artado Search contributors all rights reserved 2023 ©
                 </a>
                 &nbsp;
+                {isMobile && (
+                    <>
+                        <br />
+                    </>
+                )}
                 <span
                     style={{
                         color: '#7c7c7c',
@@ -45,6 +66,11 @@ const ArtadoFooter: React.FC = () => {
                 >
                 ~
             </span>
+                {isMobile && (
+                    <>
+                        <br />
+                    </>
+                )}
                 &nbsp;
                 {Object.keys(FooterLinks).map((key,) => (
                     <a
