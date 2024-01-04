@@ -59,7 +59,7 @@ const SearchHeader: React.FC = () => {
                                 name={'q'}
                                 defaultValue={search ?? ''}
                                 placeholder={'Let\'s find something...'}
-                                style={{width: '100%'}}
+                                style={{width: '100%', height: '35px'}}
                                 suffix={<img src={'https://www.artadosearch.com/images/android-chrome-192x192.png'} alt={'Artado Search'} width={20} height={20} />}
                             />
                         </Input.Group>
