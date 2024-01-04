@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "types": [
-      "ol"
+      "ol", "node"
     ],
     "target": "es5",
     "lib": ["es2015", "dom"],
