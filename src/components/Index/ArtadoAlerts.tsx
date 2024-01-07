@@ -1,31 +1,34 @@
-import { useEffect } from 'react';
-import { message } from 'antd';
+import { useEffect, useState } from 'react';
+import { notification } from 'antd';
 
 const AlertMessage = (): null => {
-    useEffect((): void => {
-        const alertParams = new URLSearchParams(window.location.search);
-        const alertType: string | null = alertParams.get('ret_no');
+    const [hasAlertShown, setHasAlertShown] = useState(false);
 
-        const showAlert = () => {
-            switch (alertType) {
-                case 'empty-url':
-                    message.warning({
-                        content: 'Attention! Input value cannot be empty! (EMPTY-URL)',
-                        style: {
-                            fontWeight: 'bold',
-                            fontSize: '0.8rem',
-                            fontFamily: 'assistant',
-                        }
-                    });
-                    break;
+    useEffect(() => {
+        if (!hasAlertShown) {
+            const alertParams = new URLSearchParams(window.location.search);
+            const alertType: string | null = alertParams.get('ret_no');
 
-                default:
-                    break;
-            }
-        };
+            const showAlert = () => {
+                switch (alertType) {
+                    case 'empty-url':
+                        notification.warning({
+                            message: 'Warning - Missing Parameter',
+                            description: 'Attention, the URL or input value cannot be empty. If you are getting this error, you are probably having a problem with missing parameters. If you are interacting with a web service or API, make sure you provide the correct parameters.',
+                            placement: 'bottomRight',
+                            duration: 15
+                        });
+                        break;
 
-        showAlert();
-    }, );
+                    default:
+                        break;
+                }
+            };
+
+            showAlert();
+            setHasAlertShown(true);
+        }
+    }, [hasAlertShown]);
 
     return null;
 };
