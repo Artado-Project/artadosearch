@@ -288,6 +288,7 @@ typings/
 
 # dotenv environment variables file
 .env
+src/config/.env
 
 *.DS_Store
 .AppleDouble

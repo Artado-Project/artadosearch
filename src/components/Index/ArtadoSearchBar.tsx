@@ -85,7 +85,7 @@ const ArtadoSearchBar: React.FC = () => {
                 }}>
                     <img
                         src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
-                        style={isMobile ? {width: 150} : undefined}
+                        style={isMobile ? {width: 150} : {width: 150, marginBottom: 30}}
                         alt={'artado logo'}/>
                     <br/>
                     <AutoComplete

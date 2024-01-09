@@ -50,7 +50,7 @@ const ArtadoFooter: React.FC = () => {
                         }}
                         alt={'artado logo'}
                     />
-                    Artado Search contributors all rights reserved 2023 ©
+                    Artado Search
                 </a>
                 &nbsp;
                 {isMobile && (

@@ -1,14 +1,27 @@
 {
   "compilerOptions": {
     "types": [
-      "ol", "node"
+      "ol",
+      "node"
     ],
     "target": "es5",
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "preserve",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-
   "include": [
     "src"
   ]

@@ -2,70 +2,18 @@
 
 ![Artado Search Logo](https://www.artadosearch.com/images/android-chrome-192x192.png)
 
-Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the Javascript/Typescript and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.
+We are rewriting Artado in React and TypeScript! This repository is for the development of the **new Artado Search**.
 
-## Features
+## Why Rewrite?
 
-- **Combined Results**: In addition to its own search algorithms, Artado Search aggregates results from other search engines, providing users with a holistic perspective and access to a wider range of information.
+Current version of Artado Search is written in ASP.NET and C#. ASP.NET is a great web framework and it fulfilled our needs so far. But ASP.NET has problems. One of the main reason we abandon ASP.NET is lack of support for cross-platform. ASP.NET doesn't really work well in other platforms except Windows. There were Mono for this job but it lacks many features and doesn't really work well. You can read [this article](https://halfblood.pro/the-end-of-mono/) for state of Mono. Another problem in ASP.NET is lack of contributions. There had been many people that wanted but couldn't contribute to Artado because of ASP.NET. Thus there have been many request to abandon the ASP.NET and rewrite the Artado Search in another language/framework.
 
-- **Customizability**: Artado Search goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality.
+For these reasons we decided it is best to rewrite the entire project(again). We know this process will take time but it won't be that long. We are expecting to move on to this version by the end of 2024. And the current version does its job very well, so users shouldn't have problems while using Artado.
 
-- **Workshop**: A place that you can share and use the themes, extensions and logos made by our users.
+## But why React and Typescript?
 
-- **Developer-Friendly**: Artado Search's extensibility is one of its core strengths. Developers can create and publish themes, extensions, and logos through the Artado Developers platform. Themes are crafted using CSS, while extensions are powered by JavaScript.
+Current contributors decided that. And these technologies are really popular these days.
 
-- **Multi-language Support**: Artado Search supports over 20 languages out of the box. Users have the ability to contribute additional languages or correct translation errors to make the search experience more inclusive and accurate.
-  
-- **Bangs**: DuckDuckGo-style [!bang syntax](https://duckduckgo.com/bangs). Artado Search supports over 70 bangs.
+## State of Rewrite and ToDos
 
-
-## Getting Started
-
-Follow these steps to get Artado Search up and running on your system:
-
-1. **Prerequisites**: Node.js and npm are required to build and run Artado Search. If you don't have them installed, refer to the [Node.js documentation](https://nodejs.org/en/download/) for instructions on how to install them.
-
-2. **Clone the Repository**: Clone this repository to your local environment using the following command:
-   ```bash
-   git clone https://github.com/Artado-Project/artadosearch
-   ```
-3. **Install Dependencies**: Navigate to the project directory and install the dependencies using the following command:
-   ```bash 
-    npm install
-    ```
-4. **Build and Launch**: Utilize your preferred development environment or the command line to build the project. Once built, start the application and access the search engine via your web browser.
-
-5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](Themes_and_Extensions.md) for comprehensive guidelines.
-
-## Contributing
-
-We welcome contributions from the community to enhance Artado Search's capabilities. If you want to contribute, please follow the [contribution guidelines](CONTRIBUTING.md).
-To contribute:
-
-1. Fork the repository and create a new branch from `main`.
-
-2. Implement your changes, whether it's fixing issues, introducing new features, or improving existing functionality.
-
-3. Ensure your changes are covered by tests, maintaining the integrity of the existing test suite.
-
-4. Open a pull request, providing detailed insights into your changes and their purpose.
-
-5. Engage in discussions with reviewers and maintainers to address any feedback or queries.
-
-## Language Contributions
-
-If you're interested in contributing translations or correcting existing ones:
-
-1. Visit the [Translation Documentation](Translation.md) for information on how to contribute new languages or improve existing translations.
-
-## License
-
-Artado Search operates under the [AGPL v3](LICENSE) license, which mandates that any modifications or derivatives must also be open source and adhere to the AGPL v3.
-
-## Contact
-
-For inquiries, collaboration opportunities, or any concerns, reach out to us at [support@artadosearch.com](mailto:support@artadosearch.com).
-
----
-
-Explore the possibilities of Artado Search, and join us in building a search engine that adapts to your preferences and helps you discover information efficiently. Your contributions make a difference!
+- [ ] do a todo list
