@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Tag, Modal, Segmented, Alert, Button} from 'antd';
+import {Tag, Modal, Segmented, Alert, Button, SegmentedProps} from 'antd';
 
 
 const SearchResult: React.FC = () => {
@@ -19,9 +19,9 @@ const SearchResult: React.FC = () => {
         { label: 'Safety', value: 'safety' },
     ];
 
-    const handleSegmentedChange = (value: string) => {
-        setSelectedSegmented(value);
-    }
+    const handleSegmentedChange = (value: string | number) => {
+        setSelectedSegmented(value.toString());
+    };
 
     const checkSegmentedValue = () => {
         if (selectedSegmented === 'summary') {

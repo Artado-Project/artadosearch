@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "antd": "^5.12.2",
+    "antd": "^5.12.8",
     "axios": "^1.6.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

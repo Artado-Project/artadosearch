@@ -28,8 +28,8 @@ const SearchWiki: React.FC = () => {
         { label: 'Open In Open Street Map', value: 'openstreetmap' },
     ];
 
-    const handleSegmentChange = (value: string) => {
-        setSelectedSegment(value);
+    const handleSegmentChange = (value: string | number) => {
+        setSelectedSegment(value.toString());
     }
 
     const checking_segmented_value = () => {
