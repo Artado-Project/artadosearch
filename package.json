@@ -61,6 +61,6 @@
     "@types/ol": "^7.0.0",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^4"
   }
 }
