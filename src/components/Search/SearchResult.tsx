@@ -90,7 +90,7 @@ const SearchResult: React.FC = () => {
                     </svg>
                 </div>
                 <a href={'#'} style={{ cursor: 'pointer' }} className={'result-title'}>Turkey - Wikipedia</a>
-                <div className={'result-url'}>en.wikipedia.org  › wiki › Turkey</div> <br />
+                <div className={'result-url'} style={{ marginTop: '3px'}}>en.wikipedia.org  › wiki › Turkey</div> <br />
                 <span className={'result-desc'}>
                     <Tag color={'#a1a1a1'}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
                 </span>
@@ -119,7 +119,7 @@ const SearchResult: React.FC = () => {
                     </svg>
                 </div>
                 <h3 className={'result-title'}>Turkey Consciousness</h3>
-                <div className={'result-url'}>gurneyjourney.blogspot.com  › 2023 › 12 › turkey-consciousness.html</div><br />
+                <div className={'result-url'} style={{ marginTop: '5px' }}>gurneyjourney.blogspot.com  › 2023 › 12 › turkey-consciousness.html</div><br />
                 <span className={'result-desc'}>
                     But their ability to understand the world goes much further than just communication. He raises a bunch of wild turkeys, allowing them to imprint on him so that he's their parent. The exercise—which must have taken total commitment for the better part of a year—gives us a rare insight into the umwelt of some very impressive wild animals.
                 </span>

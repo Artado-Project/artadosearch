@@ -80,7 +80,7 @@
   color: #5c5c5c;
   margin-top: 10px;
   font-family: 'assistant', sans-serif;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-color: #b4b4b4;
@@ -100,8 +100,8 @@
 
 .artado-result-card .result-url {
   font-size: 13px;
-  color: #6c6c6c;
-  margin-bottom: -14px;
+  color: #8c8c8c;
+  margin-bottom: -15px;
 }
 
 .artado-result-card .result-subtitle {
