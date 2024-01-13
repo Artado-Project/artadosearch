@@ -7,6 +7,7 @@ box-node-express-skeleton-app/app/*_config.json
 config.json
 package-lock.json
 
+dist/
 node_modules/
 .DS_Store
 .idea/

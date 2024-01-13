@@ -5,6 +5,8 @@ import SearchResult from "../components/Search/SearchResult";
 
 import './../assets/Index.css';
 
+import './../backend/results';
+
 function Search() {
   return (
     <div className={'Artado-container is-fluid'} style={{ margin: '10px' }}>

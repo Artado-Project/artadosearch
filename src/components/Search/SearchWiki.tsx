@@ -3,13 +3,14 @@ import { Segmented, Divider } from 'antd';
 import { searchWikipedia } from "../../backend/api/wikipedia/wikipedia";
 import SearchOpenStreetMap from "./SearchOpenStreetMap";
 import './../../assets/Index.css';
+import { SegmentedValue } from 'antd/es/segmented';
 
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
 
 const SearchWiki: React.FC = () => {
     const [imgUrl, setImgUrl] = useState<string | undefined>('');
-    const [selectedSegment, setSelectedSegment] = useState<string>('wiki');
+    const [selectedSegment, setSelectedSegment] = useState<SegmentedValue>('wiki');
 
     useEffect(() => {
         const country_code = navigator.language.split('-')[0].toLowerCase();
@@ -28,8 +29,8 @@ const SearchWiki: React.FC = () => {
         { label: 'Open In Open Street Map', value: 'openstreetmap' },
     ];
 
-    const handleSegmentChange = (value: string | number) => {
-        setSelectedSegment(value.toString());
+    const handleSegmentChange = (value: SegmentedValue) => {
+        setSelectedSegment(value);
     }
 
     const checking_segmented_value = () => {

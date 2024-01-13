@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import {Tag, Modal, Segmented, Alert, Button, SegmentedProps} from 'antd';
+import {Tag, Modal, Segmented, Alert, Button} from 'antd';
+import { SegmentedValue } from 'antd/es/segmented';
 
 
 const SearchResult: React.FC = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [selectedSegmented, setSelectedSegmented] = useState<string>('summary');
+    const [selectedSegmented, setSelectedSegmented] = useState<SegmentedValue>('summary');
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -19,9 +20,9 @@ const SearchResult: React.FC = () => {
         { label: 'Safety', value: 'safety' },
     ];
 
-    const handleSegmentedChange = (value: string | number) => {
-        setSelectedSegmented(value.toString());
-    };
+    const handleSegmentedChange = (value: SegmentedValue) => {
+        setSelectedSegmented(value);
+    }
 
     const checkSegmentedValue = () => {
         if (selectedSegmented === 'summary') {

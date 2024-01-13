@@ -28,7 +28,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "api": "npx tsc",
+    "api-dev": "npx tsc -w & nodemon dist/app.mjs",
+    "build": "react-scripts build & npx tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
