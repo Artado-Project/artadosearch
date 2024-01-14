@@ -83,7 +83,7 @@
   margin-bottom: 10px;
   text-decoration: underline;
   text-underline-offset: 6px;
-  text-decoration-color: #b4b4b4;
+  text-decoration-color: rgba(180, 180, 180, 0.56);
 }
 
 .artado-result-card .result-header {
@@ -107,13 +107,14 @@
 .artado-result-card .result-subtitle {
   margin-top: 20px;
   margin-left: 30px;
+  border-right: rgba(180, 180, 180, 0.56);
 }
 
 .artado-result-card .result-subtitle .subtitle {
   font-size: 15px;
   text-decoration: underline;
   text-underline-offset: 6px;
-  text-decoration-color: #b4b4b4;
+  text-decoration-color: rgba(180, 180, 180, 0.56);
   color: #5c5c5c;
   font-family: 'assistant', sans-serif;
   margin-bottom: 7px;
