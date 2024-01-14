@@ -11,14 +11,14 @@ const constr = "mongodb://localhost";
 
 async function ConnectToDB(constr:string) {
     await mongoose.connect(constr);
-    console.log("Connected to database succesfully!");
+    console.log("Connected to database successfully!");
 }
 
 try{
     await ConnectToDB(constr);
 }
 catch(e){
-    console.log("Ups! Something went wrong while trying to connect to the database. Error:", e);
+    console.error("Ups! Something went wrong while trying to connect to the database. Error:", e);
 }
 
 const PORT = 3000;
@@ -40,7 +40,7 @@ function API(){
         return(<h1>WORKS</h1>);
     });
 
-    return(<h1>not workin</h1>);
+    return(<h1>not working</h1>);
 }
 
 export default API;
