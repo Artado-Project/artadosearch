@@ -92,7 +92,7 @@ const SearchResult: React.FC = () => {
                 <a href={'#'} style={{ cursor: 'pointer' }} className={'result-title'}>Turkey - Wikipedia</a>
                 <div className={'result-url'} style={{ marginTop: '3px'}}>en.wikipedia.org  › wiki › Turkey</div> <br />
                 <span className={'result-desc'}>
-                    <Tag color={'#a1a1a1'}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
+                    <Tag color="default" style={{ color: '#7c7c7c' }}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
                 </span>
                 <div className={'result-subtitle'}>
                     <h6 className={'subtitle'}>Turkey (bird) - Wikipedia</h6>
