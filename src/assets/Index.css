@@ -81,9 +81,7 @@
   margin-top: 10px;
   font-family: 'assistant', sans-serif;
   margin-bottom: 10px;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-color: rgba(180, 180, 180, 0.56);
+  border-bottom: 1px solid rgba(101, 101, 101, 0.56);
 }
 
 .artado-result-card .result-header {
@@ -105,26 +103,28 @@
 }
 
 .artado-result-card .result-subtitle {
+  border-left: 1px dashed rgba(180, 180, 180, 0.56);
+  padding-top: 20px;
   margin-top: 20px;
-  margin-left: 30px;
-  border-right: rgba(180, 180, 180, 0.56);
+  padding-left: 30px;
 }
 
 .artado-result-card .result-subtitle .subtitle {
   font-size: 15px;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-color: rgba(180, 180, 180, 0.56);
-  color: #5c5c5c;
+  border-bottom: 1px solid rgba(91, 91, 91, 0.56);
+  color: #6b6b6b;
   font-family: 'assistant', sans-serif;
-  margin-bottom: 7px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+  position: relative;
 }
 
 .artado-result-card .result-subtitle .desc {
   font-size: 13px;
   color: #7c7c7c;
 }
-
 
 .ol-zoom {
   display: none;

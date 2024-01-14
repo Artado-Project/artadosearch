@@ -89,24 +89,24 @@ const SearchResult: React.FC = () => {
                             d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
                     </svg>
                 </div>
-                <a href={'#'} style={{ cursor: 'pointer' }} className={'result-title'}>Turkey - Wikipedia</a>
+                <a href={'#'} style={{ textDecoration: 'none' }} className={'result-title'}>Turkey - Wikipedia</a>
                 <div className={'result-url'} style={{ marginTop: '3px'}}>en.wikipedia.org  › wiki › Turkey</div> <br />
                 <span className={'result-desc'}>
                     <Tag color="default" style={{ color: '#7c7c7c' }}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
                 </span>
                 <div className={'result-subtitle'}>
-                    <h6 className={'subtitle'}>Turkey (bird) - Wikipedia</h6>
+                    <a href={'#'} style={{ textDecoration: 'none' }} className={'subtitle'}>Turkey (bird) - Wikipedia</a><br />
                     <span className={'desc'}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorem laudantium modi, praesentium sed totam voluptatibus! Cupiditate inventore tempora tempore.
-                </span>
-                    <h6 className={'subtitle'}>History of Turkey - Wikipedia</h6>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorem laudantium modi, praesentium sed totam voluptatibus! Cupiditate inventore tempora tempore.
+                    </span><br /><br /><br />
+                    <a href={'#'} style={{ textDecoration: 'none' }} className={'subtitle'}>History of Turkey - Wikipedia</a><br />
                     <span className={'desc'}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam asperiores commodi culpa cumque dolorem, maxime qui quia sed similique vel vitae voluptas?
-                </span>
-                    <h6 className={'subtitle'}>Istanbul - Wikipedia</h6>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam asperiores commodi culpa cumque dolorem, maxime qui quia sed similique vel vitae voluptas?
+                    </span><br /><br /><br />
+                    <a href={'#'} style={{ textDecoration: 'none' }} className={'subtitle'}>Istanbul - Wikipedia</a><br />
                     <span className={'desc'}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam asperiores commodi culpa cumque dolorem, maxime qui quia sed similique vel vitae voluptas?
-                </span>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam asperiores commodi culpa cumque dolorem, maxime qui quia sed similique vel vitae voluptas?
+                    </span>
                 </div>
             </div>
             <div className={'artado-result-card'}>
@@ -118,7 +118,7 @@ const SearchResult: React.FC = () => {
                             d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
                     </svg>
                 </div>
-                <h3 className={'result-title'}>Turkey Consciousness</h3>
+                <a href={'#'} style={{ textDecoration: 'none' }} className={'result-title'}>Turkey Consciousness</a>
                 <div className={'result-url'} style={{ marginTop: '5px' }}>gurneyjourney.blogspot.com  › 2023 › 12 › turkey-consciousness.html</div><br />
                 <span className={'result-desc'}>
                     But their ability to understand the world goes much further than just communication. He raises a bunch of wild turkeys, allowing them to imprint on him so that he's their parent. The exercise—which must have taken total commitment for the better part of a year—gives us a rare insight into the umwelt of some very impressive wild animals.
