@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Tag, Modal, Segmented, Alert, Button} from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 
 
 const SearchResult: React.FC = () => {
+    //Backend Part / Get the results
+    const searchParams = new URLSearchParams(window.location.search);
+    const q = searchParams.get('q');
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const response = await fetch('/api?q=' + q);
+            const result = await response.json();
+            setData(result);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+        };
+
+        fetchData();
+    }, []);
+    //Backend Part / Get the results
+
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedSegmented, setSelectedSegmented] = useState<SegmentedValue>('summary');
 
