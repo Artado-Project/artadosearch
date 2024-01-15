@@ -1,30 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {Tag, Modal, Segmented, Alert, Button} from 'antd';
+import { Tag, Modal, Segmented, Alert, Button } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 
 
 const SearchResult: React.FC = () => {
-    //Backend Part / Get the results
-    const searchParams = new URLSearchParams(window.location.search);
-    const q = searchParams.get('q');
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-        try {
-            const response = await fetch('/api?q=' + q);
-            const result = await response.json();
-            setData(result);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-        };
-
-        fetchData();
-    }, []);
-    //Backend Part / Get the results
-
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedSegmented, setSelectedSegmented] = useState<SegmentedValue>('summary');
 
@@ -72,13 +51,34 @@ const SearchResult: React.FC = () => {
         }
     }
 
+    //Backend Part / Get the results
+    const searchParams = new URLSearchParams(window.location.search);
+    const q = searchParams.get('q');
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api?q=' + q);
+                const result = await response.json();
+                setData(result);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    //Backend Part / Get the results
+
     return (
         <>
             <Modal
                 title={
                     <>
                         <span>Turkey - Wikipedia</span> <br />
-                        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <small style={{ color: '#7c7c7c' }}>en.wikipedia.org  › wiki › Turkey</small>
                             <Tag color={'green'}>Encyclopedia ~ Verified</Tag>
                         </div>
@@ -97,23 +97,24 @@ const SearchResult: React.FC = () => {
                     </>
                 }
                 onCancel={closeModal}
-                >
+            >
                 <Segmented options={segmentedOptions} onChange={handleSegmentedChange} block />
-                { checkSegmentedValue() }
+                {checkSegmentedValue()}
             </Modal>
-            <div className={'artado-result-card'}>
+            {data.map((item: any) => (
+                <div className={'artado-result-card'}>
                 <div className={'result-header'} onClick={showModal}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         className="bi bi-question-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        className="bi bi-question-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                         <path
-                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
                     </svg>
                 </div>
-                <a href={'#'} style={{ textDecoration: 'none' }} className={'result-title'}>Turkey - Wikipedia</a>
-                <div className={'result-url'} style={{ marginTop: '3px'}}>en.wikipedia.org  › wiki › Turkey</div> <br />
+                <a href={'#'} style={{ textDecoration: 'none' }} className={'result-title'}>{item.title}</a>
+                <div className={'result-url'} style={{ marginTop: '3px' }}>{item.url}</div> <br />
                 <span className={'result-desc'}>
-                    <Tag color="default" style={{ color: '#7c7c7c' }}>Encyclopedia</Tag> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur consequuntur culpa deserunt doloremque eligendi illo illum ipsa laboriosam laudantium nesciunt nostrum, officiis quibusdam quos sequi sunt, totam vitae voluptate.
+                    <Tag color="default" style={{ color: '#7c7c7c' }}>{item.type}</Tag> {item.desc}
                 </span>
                 <div className={'result-subtitle'}>
                     <a href={'#'} style={{ textDecoration: 'none' }} className={'subtitle'}>Turkey (bird) - Wikipedia</a><br />
@@ -130,13 +131,15 @@ const SearchResult: React.FC = () => {
                     </span>
                 </div>
             </div>
+            ))}
+            
             <div className={'artado-result-card'}>
                 <div className={'result-header'}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         className="bi bi-question-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        className="bi bi-question-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                         <path
-                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
                     </svg>
                 </div>
                 <a href={'#'} style={{ textDecoration: 'none' }} className={'result-title'}>Turkey Consciousness</a>
