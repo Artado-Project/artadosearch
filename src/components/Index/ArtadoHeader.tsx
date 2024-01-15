@@ -9,9 +9,17 @@ const LinkStyle = {
     textDecoration: 'none',
 }
 
+const MutedText = {
+    color: "gray",
+    fontSize: "12px",
+    fontFamily: "Open Sans",
+    fontWeight: "bold",
+    marginBottom: "5px"
+}
+
 interface OptionsItem{
     title: string;
-    link: string;
+    value: string;
 }
 
 interface OptionsProps {
@@ -21,67 +29,82 @@ interface OptionsProps {
 const Options: OptionsProps = {
     'Settings': {
         title: 'Settings',
-        link: '#Settings' // TODO: Add Link
+        value: '#Settings' // TODO: Add Link
     },
 
     'Help': {
         title: 'Help',
-        link: '#Help', // TODO: Add Link
+        value: '#Help', // TODO: Add Link
     },
 
     'Feedback': {
         title: 'Feedback',
-        link: '#Feedback' // TODO: Add Link
+        value: '#Feedback' // TODO: Add Link
     },
 }
 
-const MutedText = {
-    color: "gray",
-    fontSize: "12px",
-    fontFamily: "Open Sans",
-    fontWeight: "bold",
-    marginBottom: "5px"
-}
-
-interface DividerLinksItem {
-    title: string;
-    link: string;
-}
-
-interface DividerLinksProps {
-    [key: string]: DividerLinksItem;
-}
-
-const DividerLinks: DividerLinksProps = {
+const DividerLinks: OptionsProps = {
     'Workshop': {
         title: "Workshop",
-        link: "#WorkShop" // TODO: Add Link
+        value: "#WorkShop" // TODO: Add Link
     },
 
     'Forum': {
         title: "Forum",
-        link: "#Forum" // TODO: Add Link
+        value: "#Forum" // TODO: Add Link
     },
 
     'Manifesto': {
         title: "Manifesto",
-        link: "#Manifesto" // TODO: Add Link
+        value: "#Manifesto" // TODO: Add Link
     },
 
     'Privacy Policy': {
         title: "Privacy Policy",
-        link: "#PrivacyPolicy" // TODO: Add Link
+        value: "#PrivacyPolicy" // TODO: Add Link
     },
 
     'Terms of Service': {
         title: "Terms of Service",
-        link: "#TermsOfService" // TODO: Add Link
+        value: "#TermsOfService" // TODO: Add Link
     },
 
     'Discord': {
         title: "Discord",
-        link: "#Discord" // TODO: Add Link
+        value: "#Discord" // TODO: Add Link
     },
+}
+
+const SearchEngines: OptionsProps = {
+    'Artado' : {
+        title: 'Artado',
+        value: 'artado'
+    },
+
+    'Google' : {
+        title: 'Google',
+        value: 'google',
+    },
+
+    'Duckduckgo' : {
+        title: 'Duckduckgo',
+        value: 'duckduckgo'
+    },
+
+    'Bing' : {
+        title: 'Bing',
+        value: 'bing',
+    },
+
+    'Yahoo' : {
+        title: 'Yahoo!',
+        value: 'yahoo',
+    },
+
+    'Scholar' : {
+        title: 'Scholar',
+        value: 'scholar',
+    }
 }
 
 const ArtadoHeader: React.FC = () => {
@@ -135,7 +158,7 @@ const ArtadoHeader: React.FC = () => {
         >
             {Object.keys(Options).map((key, ) => (
                 <a
-                    href={Options[key].link}
+                    href={Options[key].value}
                     style={
                     isMobile
                         ? {display: 'none'}
@@ -179,6 +202,15 @@ const ArtadoHeader: React.FC = () => {
                         { value: 'auto', label: 'Auto' },
                         { value: 'disabled', label: 'Select a Theme', disabled: true },
                     ]}
+                />
+                <Select
+                    defaultValue="Search Engine (Artado)"
+                    id="engine"
+                    style={{ width: "100%", height: "35px", marginBottom: "20px" }}
+                    options={Object.keys(SearchEngines).map(key => ({
+                        value: SearchEngines[key].value,
+                        label: SearchEngines[key].title,
+                    }))}
                 />
                 <Select
                     id={"language"}
@@ -235,7 +267,7 @@ const ArtadoHeader: React.FC = () => {
 
                 {Object.keys(DividerLinks).map((key) => (
                     <Button
-                        href={DividerLinks[key].link}
+                        href={DividerLinks[key].value}
                         style={{
                             width: "100%",
                             marginBottom: "15px"
@@ -260,7 +292,7 @@ const ArtadoHeader: React.FC = () => {
 
                         {Object.keys(Options).map((key, ) => (
                             <Button
-                                href={Options[key].link}
+                                href={Options[key].value}
                                 style={{
                                     width: '100%',
                                     marginBottom: '15px'
