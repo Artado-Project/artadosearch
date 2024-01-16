@@ -20,6 +20,24 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
+.manifest-title {
+  font-family: 'Assistant', 'sans-serif';
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  background-color: #3c3c3c;
+  padding: 20px;
+  color: white;
+  border-radius: 4px;
+}
+
+.manifest-subtitle {
+  font-family: 'Assistant', 'sans-serif';
+  border-left: 1px solid #8c8c8c;
+  padding-left: 20px;
+}
+
 .search-types {
   position: relative;
   display: flex;
@@ -74,14 +92,17 @@
   margin-bottom: 20px;
 }
 
+.artado-result-card .result-title-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
 .artado-result-card .result-title {
   font-size: 20px;
   font-weight: bold;
   color: #5c5c5c;
-  margin-top: 10px;
   font-family: 'assistant', sans-serif;
-  margin-bottom: 10px;
-  border-bottom: 1px solid rgba(101, 101, 101, 0.56);
 }
 
 .artado-result-card .result-header {
