@@ -56,7 +56,7 @@ const DividerLinks: OptionsProps = {
 
     'Manifesto': {
         title: "Manifesto",
-        value: "#Manifesto" // TODO: Add Link
+        value: "/manifest"
     },
 
     'Privacy Policy': {
