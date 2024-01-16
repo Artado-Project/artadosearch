@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from './pages';
 import Search from './pages/search';
+import Manifest from './pages/manifest';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
               <Routes>
                   <Route path={'/'} element={<Home />} />
                   <Route path={'/search'} element={<Search />} />
+                  <Route path={'/manifest'} element={<Manifest/>} />
               </Routes>
           </Router>
       </>
