@@ -35,6 +35,7 @@
 .manifest-subtitle {
   font-family: 'Assistant', 'sans-serif';
   border-left: 1px solid #8c8c8c;
+  line-height: 35px;
   padding-left: 20px;
 }
 
