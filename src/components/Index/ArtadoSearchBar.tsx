@@ -48,7 +48,7 @@ const ArtadoSearchBar: React.FC = () => {
 
 
     const getPanelValue = (searchText: string) =>
-        !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3), mockVal(searchText, 4), mockVal(searchText, 5)];
+        !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3), mockVal(searchText, 4), mockVal(searchText, 5), mockVal(searchText, 6), mockVal(searchText, 7)];
 
     const onSelect = (data: string) => {
         setSelectedValue(data);
