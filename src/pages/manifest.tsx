@@ -1,6 +1,6 @@
 import React from "react";
 import './../assets/Index.css';
-import { Button } from "antd";
+import { Button, FloatButton } from "antd";
 
 function Manifest() {
     return (
@@ -43,6 +43,7 @@ function Manifest() {
                 Implementing the principles above will truly make the internet a beautiful place. In the 21st century, the internet is both an entertainment network and a communication network. It is one of the most important factors for human progress. We at Artado support the principles mentioned above and invite you to do the same. The internet will be a better place when we unite!
                 <br /><br />
             </div>
+            <FloatButton.BackTop />
         </>
     )
 }
