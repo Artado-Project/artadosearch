@@ -190,6 +190,17 @@ const ArtadoHeader: React.FC = () => {
                 onClose={closeSidebar}
                 open={open}
                 width={300}
+                footer={
+                    <span style={{
+                        textAlign: "center",
+                        fontSize: "12px",
+                        color: "#8c8c8c",
+                        fontWeight: "bold",
+                        fontFamily: "assistant, sans-serif"
+                    }}>
+                        Artado Search Contributors © 2023
+                    </span>
+                }
                 >
                 <Select
                     defaultValue="Select a Theme"
