@@ -9,6 +9,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+@media (max-width: 768px) {
+  #changelog-title {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+}
+
 .font__open-sans-bold {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
@@ -30,6 +37,10 @@
   padding: 20px;
   color: white;
   border-radius: 4px;
+}
+
+.line-height {
+  line-height: 28px;
 }
 
 .card-container {
