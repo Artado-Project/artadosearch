@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from './database';
+import mongoose from './db/database';
 import router from './db/routes/router';
 
 const app = express();

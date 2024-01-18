@@ -1,17 +1,14 @@
 import express, { Request, Response } from 'express';
-import Result from '../models/result';
+import getResults from '../models/result';
 
 const router = express.Router();
 
 router.get('/api', async (req: Request, res: Response) => {
   try {
     // Extract the "q" parameter from the URL
-    const searchTerm: string = req.query.q as string;
+    const q: string = req.query.q as string;
 
-    // Customize the query based on the search term
-    const query = { fieldName: { $regex: new RegExp(searchTerm, 'i') } };
-
-    const results = await Result.find(query);
+    const results = await getResults(q);
     res.json(results);
   } catch (error) {
     console.error('Error fetching data:', error);

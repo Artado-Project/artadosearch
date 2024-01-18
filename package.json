@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/mssql": "^9.1.4",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "antd": "^5.12.8",
@@ -14,8 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongodb": "^6.3.0",
-    "mongoose": "^8.0.4",
+    "mssql": "^10.0.2",
     "n": "^9.2.0",
     "ol": "^8.2.0",
     "path-browserify": "^1.0.1",
@@ -28,8 +28,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "api": "npx tsc",
-    "api-dev": "npx tsc -w & nodemon dist/app.mjs",
     "build": "react-scripts build & npx tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -57,12 +55,10 @@
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
-    "@types/mongodb": "^4.0.7",
-    "@types/mongoose": "^5.11.97",
     "@types/node": "^20.10.8",
     "@types/ol": "^7.0.0",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
-    "typescript": "^4"
+    "typescript": "^4.9.5"
   }
 }
