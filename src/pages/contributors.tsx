@@ -9,17 +9,20 @@ const Contributors: React.FC = () => {
         {
             avatar: "https://avatars.githubusercontent.com/u/90653146?s=64&v=4",
             name: "yasinldev",
-            role: "Project Maintainer"
+            role: "Project Maintainer",
+            social: "https://github.com/yasinldev"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/47920304?s=64&v=4",
             name: "ardatdev",
-            role: "Project Maintainer"
+            role: "Project Maintainer",
+            social: "https://github.com/ardatdev"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/79412062?s=64&v=4",
             name: "Arnolxu",
-            role: "Project Maintainer"
+            role: "Project Maintainer",
+            social: "https://github.com/Arnolxu"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/98576933?v=4",
@@ -32,27 +35,32 @@ const Contributors: React.FC = () => {
         {
             avatar: "https://yt3.ggpht.com/qQpFe3FpnkE_e9U-Xnj6AyHjwCqdu51sm3K_OyMlwMrvQqbo4UVnl_84Zrb6d9OnG4CfScCp=s176-c-k-c0x00ffffff-no-rj-mo",
             name: "Yusuf İpek",
-            role: "Special Thanks"
+            role: "Special Thanks",
+            social: "https://www.youtube.com/@yusufipk"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/72984140?v=4",
             name: "lareii",
-            role: "Supporter"
+            role: "Supporter",
+            social: "https://github.com/lareii"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/44518454?s=96&v=4",
             name: "abulat189",
-            role: "Contributor"
+            role: "Contributor",
+            social: "https://github.com/abulat189"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/143949134?s=96&v=4",
             name: "LinuxUsersLinuxMint",
-            role: "Contributor"
+            role: "Contributor",
+            social: "https://github.com/LinuxUsersLinuxMint"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/136915671?s=96&v=4",
             name: "atakishiyev-yusif",
-            role: "Contributor"
+            role: "Contributor",
+            social: "https://github.com/atakishiyev-yusif",
         }
     ];
 
@@ -78,7 +86,7 @@ const Contributors: React.FC = () => {
                         <Card key={index} style={{width: 300, marginTop: 16, marginRight: 10, alignItems: 'center'}}>
                             <Meta
                                 avatar={<Avatar src={member.avatar} />}
-                                title={<a href={`https://github.com/${member.name}`}>{member.name}</a>}
+                                title={<a href={member.social}>{member.name}</a>}
                                 description={member.role}
                             />
                         </Card>
@@ -91,7 +99,7 @@ const Contributors: React.FC = () => {
                         <Card key={index} style={{width: 300, marginTop: 16, marginRight: 10, alignItems: 'center'}}>
                             <Meta
                                 avatar={<Avatar src={member.avatar} />}
-                                title={<a href={`https://github.com/${member.name}`}>{member.name}</a>}
+                                title={<a href={member.social}>{member.name}</a>}
                                 description={member.role}
                             />
                         </Card>
