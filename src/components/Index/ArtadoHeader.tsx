@@ -6,6 +6,7 @@ const LinkStyle = {
     color: 'black',
     fontSize: '12px',
     marginRight: '10px',
+    borderBottom: '0.01rem solid #9c9c9c',
     textDecoration: 'none',
 }
 
@@ -41,6 +42,11 @@ const Options: OptionsProps = {
         title: 'Feedback',
         value: '#Feedback' // TODO: Add Link
     },
+
+    'Contributors': {
+        title: 'Contributors',
+        value: '/contributors'
+    }
 }
 
 const DividerLinks: OptionsProps = {
@@ -304,6 +310,7 @@ const ArtadoHeader: React.FC = () => {
                         {Object.keys(Options).map((key, ) => (
                             <Button
                                 href={Options[key].value}
+                                id={'others'}
                                 style={{
                                     width: '100%',
                                     marginBottom: '15px'
