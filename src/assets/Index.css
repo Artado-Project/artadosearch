@@ -32,7 +32,28 @@
   border-radius: 4px;
 }
 
-.manifest-subtitle {
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Artado-container .ant-card {
+  width: 300px;
+  margin-top: 16px;
+  margin-right: 10px;
+  align-items: center;
+  flex: 0 0 calc(25% - 10px);
+}
+
+@media (max-width: 768px) {
+  .Artado-container .ant-card {
+    flex: none;
+    width: 100% !important;
+    margin-right: 0;
+  }
+}
+
+.bordered-subtitle {
   font-family: 'Assistant', 'sans-serif';
   border-left: 1px solid #8c8c8c;
   line-height: 35px;
@@ -97,6 +118,15 @@
   display: flex;
   align-content: center;
   align-items: center;
+}
+
+.title {
+  font-family: 'Assistant', 'sans-serif';
+  font-weight: bold;
+}
+
+#others:last-child {
+  margin-bottom: 0;
 }
 
 .artado-result-card .result-title {
