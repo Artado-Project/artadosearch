@@ -1,16 +1,12 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import db from '../database';
+import * as sql from 'mssql';
 
-export interface ResultInterface extends Document {
-  // Define model fields here (later, might be useful)
-}
+const getResults = async (q: string) => {
+  const pool = await db();
+  const result = await pool.request()
+                .input('q', sql.NVarChar, q)
+                .query('SELECT * FROM WebResults WHERE (Title Like @q or Description Like @q or Keywords Like @q) order by Rank desc');
+  return result.recordset;
+};
 
-const ResultSchema: Schema = new Schema({
-  title: String,
-  url: String,
-  desc: String,
-  type: String
-});
-
-const Result = mongoose.model<ResultInterface>('Result', ResultSchema);
-
-export default Result;
+export default getResults;
