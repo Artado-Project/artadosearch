@@ -62,6 +62,7 @@ const SearchResult: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
         try {
+            console.log("fetching data. query: " + q);
             const response = await fetch('/api?q=' + q);
             const result = await response.json();
             setData(result);

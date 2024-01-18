@@ -4,7 +4,7 @@
       "ol",
       "node"
     ],
-    "target": "es6",
+    "target": "es2021",
     "lib": [
       "ES2021",
       "dom"
