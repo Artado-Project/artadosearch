@@ -41,7 +41,7 @@ const Contributors: React.FC = () => {
         {
             avatar: "https://avatars.githubusercontent.com/u/72984140?v=4",
             name: "lareii",
-            role: "Supporter",
+            role: "Supporter / Contributor",
             social: "https://github.com/lareii"
         },
         {
@@ -61,7 +61,27 @@ const Contributors: React.FC = () => {
             name: "atakishiyev-yusif",
             role: "Contributor",
             social: "https://github.com/atakishiyev-yusif",
-        }
+        },
+        {
+            avatar: "https://avatars.githubusercontent.com/u/107067529?v=4",
+            name: "islekcaganmert",
+            role: [
+                <small>
+                    Workshop Creator (Old Version)
+                </small>
+            ],
+            social: "https://github.com/islekcaganmert"
+        },
+        {
+            avatar: "https://avatars.githubusercontent.com/u/51877047?v=4",
+            name: "KerimCan05",
+            role: [
+                <small>
+                    Workshop Creator (Old Version)
+                </small>
+            ],
+            social: "https://github.com/KerimCan05"
+        },
     ];
 
     return (
