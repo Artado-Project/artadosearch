@@ -57,7 +57,7 @@ const DividerLinks: OptionsProps = {
 
     'Forum': {
         title: "Forum",
-        value: "#Forum" // TODO: Add Link
+        value: "https://forum.artado.xyz/"
     },
 
     'Manifesto': {
@@ -77,7 +77,7 @@ const DividerLinks: OptionsProps = {
 
     'Discord': {
         title: "Discord",
-        value: "#Discord" // TODO: Add Link
+        value: "https://discord.gg/FVSAycTsKT"
     },
 }
 
