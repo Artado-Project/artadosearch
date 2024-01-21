@@ -26,26 +26,14 @@ function Manifest() {
                 We advocate for an internet where everyone can engage in free information exchange, where personal data
                 is respected, and where ideas can be expressed without censorship.
                 <br/><br/>
-                <h2 className="bordered-subtitle">Why do we care so much about a free internet?</h2>
-                People can share anything quickly and effectively through the internet. The internet allows rapid
-                communication with millions. It is a tool for amplifying the voice of the public. Therefore, the
+                <h2 className="bordered-subtitle">Why Free Internet? (as in Freedom)</h2>
+                People can share anything quickly and effectively through the internet. Therefore, the
                 internet should be accessible to everyone freely.
                 <br/><br/>
                 Freedom of thought is a cornerstone of democracy. Restricting freedom of thought in democratically
                 governed countries is a betrayal of democracy and the people. Freedom of thought should be a right for
                 all of humanity, not just in democratic countries. The internet serves as a means to fulfill this right.
                 Restricting this tool is a denial of one's fundamental rights.
-                <br/><br/>
-                <h2 className="bordered-subtitle">Why you should not pay for search?</h2>
-                Search engines are the most used websites on the internet. They are the first step to accessing the
-                internet. Therefore, search engines should be free and accessible to everyone. Search engines should not
-                be a tool for profit. Search engines should be a tool for the people.
-                <br/><br/>
-                Charging people a price for access to accurate information is anathema to democracy. Turning search
-                engines into a revenue stream and charging money for accurate information or otherwise throwing them
-                into misleading information pollution (advertisements) is treason in the Internet country. We think that
-                we should direct all people to the right information, especially in this period of information
-                pollution, and that this is a human duty, and we defend this idea in a widespread way.
                 <br/><br/>
                 <h2 className='bordered-subtitle'>Embracing anti-censorship</h2>
                 Suppression of information is a mechanism employed by authoritarian regimes to curtail the unfettered

@@ -41,11 +41,6 @@ const Options: OptionsProps = {
     'Feedback': {
         title: 'Feedback',
         value: '#Feedback' // TODO: Add Link
-    },
-
-    'Contributors': {
-        title: 'Contributors',
-        value: '/contributors'
     }
 }
 
