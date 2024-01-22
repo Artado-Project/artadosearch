@@ -12,7 +12,6 @@ const FooterLinks: TypeFooterLinks = {
     'Privacy Policy': { title: 'Privacy Policy', link: '#PrivacyPolicy' },
     'Manifest': { title: 'Manifest', link: '/manifest' },
     'About Us': { title: 'About Us', link: '#About' },
-    'Changelog': { title: 'Changelog', link: '/changelog' },
     'GitHub': { title: 'GitHub', link: 'https://github.com/Artado-Project/artadosearch' },
 }
 
