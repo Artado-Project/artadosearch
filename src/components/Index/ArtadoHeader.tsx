@@ -30,7 +30,7 @@ interface OptionsProps {
 const Options: OptionsProps = {
     'Settings': {
         title: 'Settings',
-        value: '#Settings' // TODO: Add Link
+        value: '/settings',
     },
 
     'Help': {
