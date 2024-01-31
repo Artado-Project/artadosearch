@@ -1,5 +1,5 @@
-import React, {ReactNode, useEffect} from "react";
-import {AutoComplete, AutoCompleteProps, Input} from "antd";
+import React, {useEffect} from "react";
+import {Input} from "antd";
 import { useNavigate } from "react-router-dom";
 import ArtadoHeader from "../Index/ArtadoHeader";
 import './../../assets/Index.css';
@@ -35,8 +35,18 @@ const items = [
     },
     {
         key: 6,
+        label: 'science',
+        url: '/search?q=' + search + '&type=science',
+    },
+    {
+        key: 7,
         label: 'news',
         url: '/search?q=' + search + '&type=news',
+    },
+    {
+        key: 8,
+        label: 'shopping',
+        url: '/search?q=' + search + '&type=shopping',
     },
 ];
 
