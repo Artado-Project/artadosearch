@@ -4,6 +4,7 @@ import Home from './pages';
 import Search from './pages/search';
 import Manifest from './pages/manifest';
 import Settings from './pages/settings';
+import About from './pages/about';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
                   <Route path={'/search'} element={<Search />} />
                   <Route path={'/manifest'} element={<Manifest/>} />
                   <Route path={'/settings'} element={<Settings />} />
+                  <Route path={'/about'} element={<About />} />
               </Routes>
           </Router>
       </>
