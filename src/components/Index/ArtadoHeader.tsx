@@ -199,7 +199,7 @@ const ArtadoHeader: React.FC = () => {
                         fontWeight: "bold",
                         fontFamily: "assistant, sans-serif"
                     }}>
-                        Artado Search Contributors © 2023
+                        Artado Search Contributors © 2024
                     </span>
                 }
                 >
