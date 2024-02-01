@@ -72,6 +72,7 @@ const ArtadoFooter: React.FC = () => {
                     </>
                 )}
                 &nbsp;
+
                 <a
                     className={'font__assistant footer-content'}
                 >
