@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {Tag, Modal, Segmented, Alert, Button, Avatar} from 'antd';
+import {Tag, Modal, Segmented, Alert, Avatar} from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 import './SearchCarousel';
-import SearchCarousel from "./SearchCarousel";
 
 
 const SearchResult: React.FC = () => {
@@ -91,11 +90,11 @@ const SearchResult: React.FC = () => {
                 footer={
                     <>
                         <br />
-                        <div style={{ display: "flex", justifyContent: 'center' }}>
-                            If you think there is an error &nbsp; &nbsp;
-                            <Button type={'dashed'}>
-                                Send Error
-                            </Button>
+                        <div style={{ display: "flex", fontSize: '12px', color: '#6c6c6c', borderTop: '1px solid #d0d0d0' }}>
+                            <span style={{ paddingTop: '15px' }}>
+                                If you think there is an error &nbsp;
+                                <a href={'/'}>report error</a>
+                            </span>
                         </div>
                     </>
                 }
