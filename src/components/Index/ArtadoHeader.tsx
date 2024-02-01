@@ -3,7 +3,7 @@ import './../../assets/Index.css';
 import {Button, Divider, Drawer, Select, Switch,} from "antd";
 
 const LinkStyle = {
-    color: 'black',
+    color: '#6c6c6c',
     fontSize: '12px',
     marginRight: '10px',
     borderBottom: '0.01rem solid #9c9c9c',
