@@ -55,7 +55,7 @@ const ArtadoFooter: React.FC = () => {
                 &nbsp;
                 {isMobile && (
                     <>
-                        <br />
+                        <br/>
                     </>
                 )}
                 <span
@@ -68,15 +68,22 @@ const ArtadoFooter: React.FC = () => {
             </span>
                 {isMobile && (
                     <>
-                        <br />
+                        <br/>
                     </>
                 )}
                 &nbsp;
+                <a
+                    className={'font__assistant footer-content'}
+                >
+                    Thanks to all contributors to make Artado Search better.
+                </a>
+                <br /><br />
                 {Object.keys(FooterLinks).map((key,) => (
                     <a
                         href={FooterLinks[key].link}
                         className={'font__assistant footer-content'}
                         key={key}
+                        style={{ borderBottom: '1px solid #d0d0d0' }}
                     >
                         {FooterLinks[key].title}
                     </a>
