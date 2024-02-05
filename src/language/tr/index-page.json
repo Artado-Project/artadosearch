@@ -1,0 +1,41 @@
+{
+  "input": "Hadi interneti keşfedelim!",
+
+  "modal": {
+    "title_1": "Artado Search nedir? \uD83E\uDD14",
+    "content_1": "Artado Search, kullanıcılara arama deneyimlerini benzersiz ihtiyaçlarına göre uyarlama yeteneği kazandırmak için tasarlanmış çok yönlü ve son derece özelleştirilebilir bir arama motorudur. Bu proje TypeScript'e dayanmaktadır ve AGPL v3 lisansı altında gururla açık kaynaktır. Sadece kendi arama sonuçlarını sunmakla kalmaz, aynı zamanda diğer arama motorlarından gelen sonuçları da entegre ederek kapsamlı bir arama çözümü sunar.",
+    "title_2": "İstediğiniz gibi değiştirin \uD83C\uDFA8",
+    "content_2": "Artado, kapsamlı özelleştirme seçenekleri sunarak geleneksel arama motorlarının ötesine geçer. Kullanıcı arayüzünü ve işlevselliğini geliştirmek için kişiselleştirilmiş temalar ve uzantılar oluşturabilirsiniz. Mağazadan yeni temalar, uygulamalar ve oyunlar bulabilirsiniz.",
+    "title_3": "Arama sonucundan daha fazlası \uD83D\uDCDA",
+    "content_3": "Alışılagelmişin dışında, Artado Search yalnızca kendi arama algoritmalarına güvenmiyor. Bunun yerine, diğer arama motorlarından gelen sonuçları birleştirerek kullanıcılara kapsamlı bir bakış açısı sunar. Bu benzersiz yaklaşım, kullanıcıların daha geniş bir bilgi yelpazesine erişmesini sağlayarak, farklı arama sonuçları arayanlar için değerli bir araç haline getiriyor.",
+    "title_4": "Verilerinizi kendinize saklayın \uD83D\uDD12",
+    "content_4": "Artado hiçbir kişisel verinizi toplamaz. Artado gizliliğinizi mümkün olduğunca korur."
+  },
+
+  "privacy_policy": "Gizlilik Politikası",
+  "settings": "Ayarlar",
+  "help": "Yardım",
+  "feedback": "Geri bildirim",
+  "manifest": "Manifesto",
+  "about us": "Hakkımızda",
+
+  "sidebar": {
+    "select_a_theme": "Bir tema seçin",
+    "select_a_language": "Bir dil seçin",
+    "default_search_engine": "Varsayılan arama motoru",
+    "safe_search": "Güvenli arama",
+    "safe_search_desc": "Hassas materyalleri genel arama sonuçlarından çıkarır.",
+    "off": "Kapalı",
+    "on": "Açık",
+    "workshop": "Atölye",
+    "forum": "Forum",
+    "manifesto": "Manifesto",
+    "privacy_policy": "Gizlilik Politikası",
+    "terms_of_service": "Hizmet Şartları"
+  },
+
+  "alerts": {
+    "missing_parameters": "Eksik parametreler",
+    "missing_parameters_desc": "Dikkat, URL veya girdi değeri boş olamaz. Bu hatayı alıyorsanız, muhtemelen eksik parametrelerle ilgili bir sorun yaşıyorsunuzdur. Bir web hizmeti veya API ile etkileşim kuruyorsanız, doğru parametreleri sağladığınızdan emin olun."
+  }
+}
