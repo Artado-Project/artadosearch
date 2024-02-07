@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import './../../assets/Index.css';
 import {Button, Divider, Drawer, Select, Switch,} from "antd";
 
+const language = localStorage.getItem('language') ?? 'en';
+const languageData = require(`./../../language/${language}/index-page.json`);
+
 const LinkStyle = {
     color: '#6c6c6c',
     fontSize: '12px',
@@ -29,44 +32,44 @@ interface OptionsProps {
 
 const Options: OptionsProps = {
     'Settings': {
-        title: 'Settings',
+        title: languageData.settings,
         value: '/settings',
     },
 
     'Help': {
-        title: 'Help',
+        title: languageData.help,
         value: '#Help', // TODO: Add Link
     },
 
     'Feedback': {
-        title: 'Feedback',
+        title: languageData.feedback,
         value: '#Feedback' // TODO: Add Link
     }
 }
 
 const DividerLinks: OptionsProps = {
     'Workshop': {
-        title: "Workshop",
+        title: languageData.sidebar.workshop,
         value: "#WorkShop" // TODO: Add Link
     },
 
     'Forum': {
-        title: "Forum",
+        title: languageData.sidebar.forum,
         value: "https://forum.artado.xyz/"
     },
 
     'Manifesto': {
-        title: "Manifesto",
+        title: languageData.sidebar.manifesto,
         value: "/manifest"
     },
 
     'Privacy Policy': {
-        title: "Privacy Policy",
+        title: languageData.sidebar.privacy_policy,
         value: "#PrivacyPolicy" // TODO: Add Link
     },
 
     'Terms of Service': {
-        title: "Terms of Service",
+        title: languageData.sidebar.terms_of_service,
         value: "#TermsOfService" // TODO: Add Link
     },
 
@@ -132,15 +135,13 @@ const ArtadoHeader: React.FC = () => {
         }
     }, []);
 
-    const checkDarkMode = () => {
-        const selected = document.getElementById('theme') as HTMLSelectElement;
-        const theme = selected.value;
-        if (theme === 'dark') {
-            // save theme to local storage
-            localStorage.setItem('theme', 'Dark');
-        } else if (theme === 'light') {
-            localStorage.setItem('theme', 'Light');
-        }
+    const checkDarkMode = (value: string) => {
+        localStorage.setItem('theme', value);
+        console.log('Theme: ' + value);
+    }
+
+    const checkLanguage = (value: string) => {
+        localStorage.setItem('language', value);
     }
 
     const checkUrl = () => {
@@ -185,7 +186,7 @@ const ArtadoHeader: React.FC = () => {
             </Button>
 
             <Drawer
-                title="Artado Settings"
+                title={languageData.sidebar.artado_settings}
                 placement={"right"}
                 closable={true}
                 onClose={closeSidebar}
@@ -204,20 +205,20 @@ const ArtadoHeader: React.FC = () => {
                 }
                 >
                 <Select
-                    defaultValue="Select a Theme"
+                    defaultValue={languageData.sidebar.themes.select_a_theme}
                     id={"theme"}
                     onChange={checkDarkMode}
                     style={{ width: "100%", height: "35px", marginBottom: "20px" }}
                     options={[
-                        { value: 'night', label: 'Night' },
-                        { value: 'light', label: 'Light' },
-                        { value: 'auto', label: 'Auto' },
-                        { value: 'disabled', label: 'Select a Theme', disabled: true },
+                        { value: 'night', label: languageData.sidebar.themes.dark },
+                        { value: 'light', label: languageData.sidebar.themes.light },
+                        { value: 'system', label: languageData.sidebar.themes.system },
+                        { value: 'disabled', label: languageData.sidebar.themes.select_a_theme, disabled: true },
                     ]}
                 />
                 <Select
-                    defaultValue="Search Engine (Artado)"
-                    id="engine"
+                    defaultValue={languageData.sidebar.search_engine.select_a_search_engine}
+                    id={"search-engine"}
                     style={{ width: "100%", height: "35px", marginBottom: "20px" }}
                     options={Object.keys(SearchEngines).map(key => ({
                         value: SearchEngines[key].value,
@@ -226,13 +227,13 @@ const ArtadoHeader: React.FC = () => {
                 />
                 <Select
                     id={"language"}
-                    defaultValue="Select a Language"
+                    onChange={checkLanguage}
+                    defaultValue={languageData.sidebar.language.select_a_language}
                     style={{ width: "100%", height: "35px", marginBottom: "20px"}}
                     options={[
-                        { value: 'eng', label: 'English' },
-                        { value: 'tr', label: 'Turkish' },
-                        { value: 'jp', label: 'Japanese' },
-                        { value: 'disabled', label: 'Select a Language', disabled: true },
+                        { value: 'en', label: 'English' },
+                        { value: 'tr', label: 'Türkçe' },
+                        { value: 'disabled', label: languageData.sidebar.language.select_a_language, disabled: true },
                     ]}
                 />
 
@@ -243,7 +244,7 @@ const ArtadoHeader: React.FC = () => {
                         marginBottom: "20px"
                     }}
                 >
-                    Safe Search
+                    {languageData.sidebar.safe_search}
                 </Divider>
 
                 <Switch
@@ -258,7 +259,7 @@ const ArtadoHeader: React.FC = () => {
                 <div
                     style={MutedText}
                 >
-                    Omits sensitive material from general search results.
+                    {languageData.sidebar.safe_search_desc}
                 </div>
 
                 <Divider

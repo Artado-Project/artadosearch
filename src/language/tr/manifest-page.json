@@ -4,22 +4,22 @@
   "manifest_content": "Günümüzde internet, iletişim ve bilgi alışverişi için en büyük araçtır. İnternet sayesinde yeni insanlarla tanışabiliyor, yeni bilgiler öğrenebiliyor ve deneyimlerimizi başkalarıyla paylaşabiliyoruz. İnternet, insan ırkının en büyük icatlarından biridir. Hayatımızı kolaylaştırıyor. Ne yazık ki herkes bu büyük icada özgürce erişemiyor. İnternetin herhangi bir güç ya da otorite tarafından kısıtlanmadan herkes tarafından erişilebilir olmasını istiyoruz. İnternetteki bilgi zenginliğine erişmek temel bir haktır.",
   "manifest_content_2": "Herkesin özgürce bilgi alışverişinde bulunabildiği, kişisel verilere saygı duyulan ve fikirlerin sansür olmaksızın ifade edilebildiği bir interneti savunuyoruz.",
 
-  "why_free_internet": "Neden Özgür İnternet? (Özgürlük gibi)",
+  "why_free_internet": "Neden Özgür Internet? (Özgürlük gibi)",
   "why_free_internet_content": "İnsanlar internet aracılığıyla her şeyi hızlı ve etkili bir şekilde paylaşabiliyor. Bu nedenle internet herkes için özgürce erişilebilir olmalıdır.",
   "why_free_internet_content_2": "Düşünce özgürlüğü demokrasinin temel taşıdır. Demokrasiyle yönetilen ülkelerde düşünce özgürlüğünü kısıtlamak demokrasiye ve halka ihanettir. Düşünce özgürlüğü sadece demokratik ülkelerde değil, tüm insanlık için bir hak olmalıdır. İnternet bu hakkın yerine getirilmesine hizmet eden bir araçtır. Bu aracı kısıtlamak, kişinin temel haklarını inkâr etmektir.",
 
-  "embracing_anti-censorship": "Sansürsüz İnterneti Benimsemek",
-  "embracing_anti-censorship_content": "Bilginin bastırılması, otoriter rejimler tarafından fikirlerin ve bakış açılarının sınırsızca keşfedilmesini engellemek için kullanılan bir mekanizmadır. Filtrelenmemiş gerçeklikle yüzleşmekten endişe duyanlar için tercih edilen bir araç haline gelir ve belirli anlatıları kamu denetiminden korumayı amaçlar. Bu taktik genellikle gerçeği tümüyle gizleme eğiliminde olan kişi veya kuruluşlar tarafından kullanılır ve böylece şeffaflık ve açık söylemin kontrollü bir anlatı lehine feda edildiği bir ortamı teşvik eder.",
-  "embracing_anti-censorship_content_2": "İnternet, herhangi bir güç veya otoritenin kısıtlaması olmaksızın herkes tarafından erişilebilir olmalıdır. İnternetteki bilgi zenginliğine erişmek temel bir haktır. Herkesin özgürce bilgi alışverişinde bulunabildiği, kişisel verilere saygı duyulan ve fikirlerin sansür olmaksızın ifade edilebildiği bir interneti savunuyoruz.",
+  "embracing_anti_censorship": "Sansürsüz Interneti Benimsemek",
+  "embracing_anti_censorship_content": "Bilginin bastırılması, otoriter rejimler tarafından fikirlerin ve bakış açılarının sınırsızca keşfedilmesini engellemek için kullanılan bir mekanizmadır. Filtrelenmemiş gerçeklikle yüzleşmekten endişe duyanlar için tercih edilen bir araç haline gelir ve belirli anlatıları kamu denetiminden korumayı amaçlar. Bu taktik genellikle gerçeği tümüyle gizleme eğiliminde olan kişi veya kuruluşlar tarafından kullanılır ve böylece şeffaflık ve açık söylemin kontrollü bir anlatı lehine feda edildiği bir ortamı teşvik eder.",
+  "embracing_anti_censorship_content_2": "İnternet, herhangi bir güç veya otoritenin kısıtlaması olmaksızın herkes tarafından erişilebilir olmalıdır. İnternetteki bilgi zenginliğine erişmek temel bir haktır. Herkesin özgürce bilgi alışverişinde bulunabildiği, kişisel verilere saygı duyulan ve fikirlerin sansür olmaksızın ifade edilebildiği bir interneti savunuyoruz.",
 
   "anonymity": "Anonimlik",
   "anonymity_content": "İnternetin getirdiği en önemli özelliklerden biri anonimliktir, ancak bu aynı zamanda kötüye de kullanılabilir. Çözüm interneti kısıtlamak ya da anonimliği tamamen ortadan kaldırmak değildir. Temel ve kesin çözüm eğitim ve adalettir.",
   "anonymity_content_2": "Düşünce özgürlüğünün tadını çıkaran eğitimli bir birey anonimliğe ihtiyaç duymaz. Fikirlerini düzgün bir şekilde ifade etmenin olumsuz sonuçlara yol açmayacağını bilirler ve eğitimleri nedeniyle anonimliği kötüye kullanmazlar. Kendilerini anonim olarak ifade eden bireyler genellikle düşünce özgürlüğü olmayan kişilerdir. Birey, potansiyel zarar görme korkusu nedeniyle fikirlerini anonim olarak ifade eder. Bu kötüye kullanımı önlemek isteyen yetkililer genellikle anonimliği ortadan kaldırmaya veya interneti kısıtlamaya çalışırlar.",
   "anonymity_content_3": "İnternetin sağladığı anonim kimlikler, bu özgürlüğe sahip olmayanlara düşünce özgürlüğü sağlamaktadır.",
 
-  "right_to_privacy": "Gizlilik Hakkı",
+  "right_to_privacy": "Mahremiyet Hakkı",
   "right_to_privacy_content": "Mahremiyet, bireylerin temel haklarından biridir. Kişilerin kullandığı internet araçları üzerinden kişisel veriler toplanmamalıdır. Kişisel veriler özeldir ve rıza olmadan alınması ihlaldir. Artado'da bireylerin kişisel verilerine saygı duyuyor ve kişisel verileri koruyarak internette özgürce dolaşmaları için çalışıyoruz. Bireyler, kişisel verilerini korumak için doğru araçları seçme sorumluluğuna sahiptir.",
 
-  "make_the_internet_a_better_place": "İnterneti Daha İyi Bir Yer Haline Getirme",
+  "make_the_internet_a_better_place": "Interneti Daha Iyi Bir Yer Haline Getirme",
   "make_the_internet_a_better_place_content": "Yukarıdaki ilkeleri uygulamak interneti gerçekten güzel bir yer haline getirecektir. 21. yüzyılda internet hem bir eğlence ağı hem de bir iletişim ağıdır. İnsanlığın ilerlemesi için en önemli faktörlerden biridir. Biz Artado olarak yukarıda belirtilen ilkeleri destekliyor ve sizi de desteklemeye davet ediyoruz. Birlik olduğumuzda internet daha iyi bir yer olacak!"
 }

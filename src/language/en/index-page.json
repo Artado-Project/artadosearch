@@ -1,0 +1,73 @@
+{
+  "input": "Let's search the internet!",
+
+  "modal": {
+    "title": "Welcome to Artado Search",
+    "title_1": "What is the Artado Search?",
+    "content_1": "Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the TypeScript and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.",
+    "title_2": "Customise as you like",
+    "content_2": "Artado goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality. You can find new themes, apps and games from the store.",
+    "title_3": "More than one source",
+    "content_3": "In a departure from the norm, Artado Search doesn't rely solely on its own search algorithms. Instead, it combines results from other search engines, presenting users with a comprehensive perspective. This unique approach ensures that users have access to a wider range of information, making it a valuable tool for those who seek diverse search results.",
+    "title_4": "Keep your data to yourself",
+    "content_4": "Artado does not collect any of your personal data. Artado protects your privacy as much as possible."
+  },
+
+  "privacy_policy": "Privacy Policy",
+  "settings": "Settings",
+  "help": "Help",
+  "feedback": "Feedback",
+  "manifest": "Manifest",
+  "about_us": "About Us",
+
+  "sidebar": {
+    "artado_settings": "Artado Settings",
+    "select_a_theme": "Select a Theme",
+    "select_a_language": "Select a Language",
+    "default_search_engine": "Default Search Engine",
+    "safe_search": "Safe Search",
+    "safe_search_desc": "Omits sensitive material from general search results.",
+    "workshop": "Workshop",
+    "forum": "Forum",
+    "manifesto": "Manifesto",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System Default",
+      "select_a_theme": "Select a Theme"
+    },
+    "search_engine": {
+      "artado": "Artado",
+      "google": "Google",
+      "bing": "Bing",
+      "yahoo": "Yahoo",
+      "duckduckgo": "DuckDuckGo",
+      "baidu": "Baidu",
+      "yandex": "Yandex",
+      "select_a_search_engine": "Select a Search Engine"
+    },
+    "language": {
+      "english": "English",
+      "spanish": "Spanish",
+      "french": "French",
+      "german": "German",
+      "italian": "Italian",
+      "dutch": "Dutch",
+      "portuguese": "Portuguese",
+      "russian": "Russian",
+      "japanese": "Japanese",
+      "korean": "Korean",
+      "chinese": "Chinese",
+      "select_a_language": "Select a Language"
+    }
+  },
+
+  "thanks": "Thanks to all contributors to make Artado Search better.",
+
+  "alerts": {
+    "missing_parameters": "Missing parameters",
+    "missing_parameters_desc": "Attention, the URL or input value cannot be empty. If you are getting this error, you are probably having a problem with missing parameters. If you are interacting with a web service or API, make sure you provide the correct parameters."
+  }
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './../../assets/Index.css';
 import {Modal} from 'antd';
 
+const language = localStorage.getItem('language') ?? 'en';
+const languageData = require(`./../../language/${language}/index-page.json`);
 
 const headerStyle = {
     fontWeight: 600,
@@ -45,31 +47,31 @@ const ArtadoSection: React.FC = () => {
                     </svg>
                 </div>
             </div>
-            <Modal title="Welcome the Artado Search!" footer={null} onCancel={onModalCancel} open={isModalOpen}>
+            <Modal title={languageData.modal.title} footer={null} onCancel={onModalCancel} open={isModalOpen}>
                 <div style={{ maxHeight: 350, overflowX: 'auto' }}>
                     <h3 style={headerStyle}>
-                        What is Artado Search? &nbsp; 🤔
+                        {languageData.modal.title_1} &nbsp; 🤔
                     </h3>
                     <p>
-                        Artado Search is a versatile and highly customizable search engine, designed to empower users with the ability to tailor their search experience to their unique needs. This project is based on the TypeScript and is proudly open source under the AGPL v3 license. It not only offers its own search results but also integrates results from other search engines, providing a comprehensive search solution.
+                        {languageData.modal.content_1}
                     </p>
                     <h3 style={headerStyle}>
-                        Customise as you like &nbsp; 🎨
+                        {languageData.modal.title_2} &nbsp; 🎨
                     </h3>
                     <p>
-                        Artado goes beyond traditional search engines by offering extensive customization options. You can create personalized themes and extensions to enhance the user interface and functionality. You can find new themes, apps and games from the store.
+                        {languageData.modal.content_2}
                     </p>
                     <h3 style={headerStyle}>
-                        More than one source &nbsp; 📚
+                        {languageData.modal.title_3} &nbsp; 📚
                     </h3>
                     <p>
-                        In a departure from the norm, Artado Search doesn't rely solely on its own search algorithms. Instead, it combines results from other search engines, presenting users with a comprehensive perspective. This unique approach ensures that users have access to a wider range of information, making it a valuable tool for those who seek diverse search results.
+                        {languageData.modal.content_3}
                     </p>
                     <h3 style={headerStyle}>
-                        Keep your data to yourself &nbsp; 🔒
+                        {languageData.modal.title_4} &nbsp; 🔒
                     </h3>
                     <p>
-                        Artado does not collect any of your personal data. Artado protects your privacy as much as possible.
+                        {languageData.modal.content_4}
                     </p>
                 </div>
             </Modal>

@@ -2,6 +2,9 @@ import React, { useState, useEffect} from 'react';
 import './../../assets/Index.css';
 import {AutoComplete} from 'antd';
 
+const language = localStorage.getItem('language') ?? 'en';
+const languageData = require(`./../../language/${language}/index-page.json`);
+
 const mockVal = (str: string, repeat = 1) => ({
     value: str.repeat(repeat),
 });
@@ -94,7 +97,7 @@ const ArtadoSearchBar: React.FC = () => {
                         style={inputDesign}
                         onSelect={onSelect}
                         onSearch={(text) => setOptions(getPanelValue(text))}
-                        placeholder="Let's search the internet!"
+                        placeholder={languageData.input}
                     />
                     <input
                         name={'q'}

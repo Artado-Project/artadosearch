@@ -1,6 +1,9 @@
 import './../../assets/Index.css';
 import React, {useEffect, useState} from "react";
 
+const language = localStorage.getItem('language') ?? 'en';
+const languageData = require(`./../../language/${language}/index-page.json`);
+
 type LinkProps = {
     title: string;
     link: string;
@@ -9,9 +12,9 @@ type LinkProps = {
 type TypeFooterLinks = Record<string, LinkProps>
 
 const FooterLinks: TypeFooterLinks = {
-    'Privacy Policy': { title: 'Privacy Policy', link: '#PrivacyPolicy' },
-    'Manifest': { title: 'Manifest', link: '/manifest' },
-    'About Us': { title: 'About Us', link: '/about' },
+    'Privacy Policy': { title: languageData.privacy_policy, link: '#PrivacyPolicy' },
+    'Manifest': { title: languageData.manifest, link: '/manifest' },
+    'About Us': { title: languageData.about_us, link: '/about' },
     'GitHub': { title: 'GitHub', link: 'https://github.com/Artado-Project/artadosearch' },
 }
 
@@ -76,7 +79,7 @@ const ArtadoFooter: React.FC = () => {
                 <a
                     className={'font__assistant footer-content'}
                 >
-                    Thanks to all contributors to make Artado Search better.
+                    {languageData.thanks}
                 </a>
                 <br /><br />
                 {Object.keys(FooterLinks).map((key,) => (

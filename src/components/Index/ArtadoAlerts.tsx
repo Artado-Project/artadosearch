@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { notification } from 'antd';
 
+const language = localStorage.getItem('language') ?? 'en';
+const languageData = require(`./../../language/${language}/index-page.json`);
+
 const AlertMessage = (): null => {
     const [hasAlertShown, setHasAlertShown] = useState(false);
 
@@ -13,8 +16,8 @@ const AlertMessage = (): null => {
                 switch (alertType) {
                     case 'empty-url':
                         notification.warning({
-                            message: 'Warning - Missing Parameter',
-                            description: 'Attention, the URL or input value cannot be empty. If you are getting this error, you are probably having a problem with missing parameters. If you are interacting with a web service or API, make sure you provide the correct parameters.',
+                            message: languageData.alerts.missing_parameters,
+                            description: languageData.alerts.missing_parameters_desc,
                             placement: 'bottomRight',
                             duration: 15
                         });
