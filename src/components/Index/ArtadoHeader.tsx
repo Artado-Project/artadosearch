@@ -205,7 +205,7 @@ const ArtadoHeader: React.FC = () => {
                 }
                 >
                 <Select
-                    defaultValue={languageData.sidebar.themes.select_a_theme}
+                    defaultValue={localStorage.getItem('theme') ?? languageData.sidebar.themes.select_a_theme}
                     id={"theme"}
                     onChange={checkDarkMode}
                     style={{ width: "100%", height: "35px", marginBottom: "20px" }}
@@ -217,7 +217,7 @@ const ArtadoHeader: React.FC = () => {
                     ]}
                 />
                 <Select
-                    defaultValue={languageData.sidebar.search_engine.select_a_search_engine}
+                    defaultValue={localStorage.getItem('searchEngine') ?? languageData.sidebar.search_engine.select_a_search_engine}
                     id={"search-engine"}
                     style={{ width: "100%", height: "35px", marginBottom: "20px" }}
                     options={Object.keys(SearchEngines).map(key => ({
@@ -228,7 +228,7 @@ const ArtadoHeader: React.FC = () => {
                 <Select
                     id={"language"}
                     onChange={checkLanguage}
-                    defaultValue={languageData.sidebar.language.select_a_language}
+                    defaultValue={localStorage.getItem('language') ?? languageData.sidebar.language.select_a_language}
                     style={{ width: "100%", height: "35px", marginBottom: "20px"}}
                     options={[
                         { value: 'en', label: 'English' },
