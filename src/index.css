@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.arrow {
+  position: absolute;
+  margin-top: 300px;
+  width: 70px;
+  animation: arrowAnimation 1s infinite alternate;
+  color: #8c8c8c;
+}
+
+.artado-section-arrow {
+  /*margin-bottom: 85vh;*/
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .arrow {
+    margin-top: 200px;
+  }
+}
+
+@keyframes arrowAnimation {
+  from {
+    transform: translateY(0); /* Başlangıç konumu */
+  }
+  to {
+    transform: translateY(10px); /* Bitiş konumu */
+  }
+}
