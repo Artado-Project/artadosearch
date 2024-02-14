@@ -19,6 +19,7 @@
   "feedback": "Geri bildirim",
   "manifest": "Manifesto",
   "about_us": "Hakkımızda",
+  "blog": "Blog",
 
   "sidebar": {
     "artado_settings": "Artado Ayarları",
@@ -65,7 +66,9 @@
         "vietnamese": "Vietnamca",
         "chinese": "Çince",
         "select_a_language": "Bir dil seçin"
-    }
+    },
+
+    "others": "Ek bağlantılar"
   },
 
   "thanks": "Artado Search'ü daha iyi hale getirmek için katkıda bulunan herkese tesekkürler.",
