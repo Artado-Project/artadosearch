@@ -38,12 +38,17 @@ const Options: OptionsProps = {
 
     'Help': {
         title: languageData.help,
-        value: '#Help', // TODO: Add Link
+        value: '/help',
     },
 
     'Feedback': {
         title: languageData.feedback,
         value: '#Feedback' // TODO: Add Link
+    },
+
+    'Blog': {
+        title: languageData.blog,
+        value: '#Blog' // TODO: Add Link
     }
 }
 
@@ -137,11 +142,12 @@ const ArtadoHeader: React.FC = () => {
 
     const checkDarkMode = (value: string) => {
         localStorage.setItem('theme', value);
-        console.log('Theme: ' + value);
+        window.location.reload();
     }
 
     const checkLanguage = (value: string) => {
         localStorage.setItem('language', value);
+        window.location.reload();
     }
 
     const checkUrl = () => {
@@ -300,7 +306,7 @@ const ArtadoHeader: React.FC = () => {
                                 marginBottom: "20px"
                             }}
                         >
-                            Others
+                            {languageData.sidebar.others}
                         </Divider>
 
                         {Object.keys(Options).map((key, ) => (

@@ -5,6 +5,7 @@ import Search from './pages/search';
 import Manifest from './pages/manifest';
 import Settings from './pages/settings';
 import About from './pages/about';
+import Help from './pages/help';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                   <Route path={'/manifest'} element={<Manifest/>} />
                   <Route path={'/settings'} element={<Settings />} />
                   <Route path={'/about'} element={<About />} />
+                  <Route path={'/help'} element={<Help />} />
               </Routes>
           </Router>
       </>
