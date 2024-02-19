@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Tag, Modal, Segmented, Alert, Avatar} from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
-import './SearchCarousel';
-
 
 const SearchResult: React.FC = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -82,7 +80,7 @@ const SearchResult: React.FC = () => {
                         <span>Turkey - Wikipedia</span> <br />
                         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <small style={{ color: '#7c7c7c' }}>en.wikipedia.org  › wiki › Turkey</small>
-                            <Tag color={'green'}>Encyclopedia ~ Verified</Tag>
+                            <Tag color={'green'}>Verified</Tag>
                         </div>
                     </>
                 }
