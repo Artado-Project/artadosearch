@@ -145,6 +145,38 @@
   font-weight: bold;
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  color: #5c5c5c;
+  font-size: 12px;
+  font-weight: bolder;
+  font-family: 'Assistant', 'sans-serif';
+  text-decoration: none;
+}
+
+.more-questions {
+  font-family: 'Assistant', 'sans-serif';
+  font-weight: bold;
+  color: #5c5c5c;
+}
+
+
+.source {
+  color: #8c8c8c;
+  font-size: small;
+  font-weight: bolder;
+  font-family: 'Assistant', 'sans-serif';
+}
+
+.source a {
+  color: #5c5c5c
+}
+
 #others:last-child {
   margin-bottom: 0;
 }
@@ -235,4 +267,17 @@
   .artado-result-card .result-subtitle {
     margin-left: 15px;
   }
+
+  #responsive-first {
+    order: 1 !important;
+    margin-bottom: 50px;
+  }
+
+  #responsive-none {
+    display: none;
+  }
+
+    #responsive-end {
+        order: 2 !important;
+    }
 }

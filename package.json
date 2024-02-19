@@ -26,6 +26,9 @@
     "stable": "^0.1.8",
     "web-vitals": "^2.1.4"
   },
+  "exports": {
+    "lang": "./src/language/"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build & npx tsc",
