@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Segmented, Divider } from 'antd';
+import ReactDOM from "react-dom";
+import {Segmented, Divider, Button} from 'antd';
 import { searchWikipedia } from "../../backend/api/wikipedia/wikipedia";
 import SearchOpenStreetMap from "./SearchOpenStreetMap";
 import './../../assets/Index.css';
@@ -11,10 +12,19 @@ const search = searchParams.get('q');
 const SearchWiki: React.FC = () => {
     const [imgUrl, setImgUrl] = useState<string | undefined>('');
     const [selectedSegment, setSelectedSegment] = useState<SegmentedValue>('wiki');
+    const [isMobile, setIsMobile] = useState(false);
+
+    const setResponsive = () => {
+        const mq = window.matchMedia('(max-width: 720px)');
+        setIsMobile(mq.matches);
+    }
 
     useEffect(() => {
         const country_code = navigator.language.split('-')[0].toLowerCase();
         const query: string | null = search;
+
+        setResponsive();
+        window.addEventListener('resize', setResponsive);
 
         searchWikipedia(country_code, query ?? '').then((url) => {
             setImgUrl(url);
@@ -47,23 +57,85 @@ const SearchWiki: React.FC = () => {
                 { label: 'Internet TLD', value: '.tr' },
             ];
 
+            const checkSeeMore = document.getElementById('seeMoreWiki');
+            checkSeeMore?.addEventListener('click', () => {
+                checkSeeMore.style.display = 'none';
+                const moreInfo = (
+                    <Divider orientation={'center'} plain={true} style={{
+                        fontSize: '13px',
+                        fontWeight: 'bold',
+                        color: '#7c7c7c',
+                        fontFamily: 'assistant, sans-serif'
+                    }}>More Information</Divider>
+                );
+
+                const moreInfoDiv = document.createElement('div');
+                moreInfoDiv.style.display = 'flex';
+                moreInfoDiv.style.flexDirection = 'row';
+                moreInfoDiv.style.flexWrap = 'wrap';
+                moreInfoDiv.style.justifyContent = 'space-between';
+                moreInfoDiv.style.marginTop = '5px';
+
+                about.map((item, index) => {
+                    const div = document.createElement('div');
+                    div.style.flexBasis = '48%';
+                    div.style.marginBottom = '10px';
+                    div.innerHTML = `<span style="color: #5c5c5c; font-size: 14px; font-weight: 500;">${item.label}: </span><span style="color: #5c5c5c; font-size: 14px;">${item.value}</span>`;
+                    moreInfoDiv.appendChild(div);
+                });
+
+                const moreInfoContainer = document.createElement('div');
+                ReactDOM.render(moreInfo, moreInfoContainer);
+
+                checkSeeMore.parentElement?.appendChild(moreInfoContainer);
+                checkSeeMore.parentElement?.appendChild(moreInfoDiv);
+            });
+
             return (
                <>
-                   <h3 style={{ color: '#3c3c3c', fontFamily: 'assistant, sans-serif' }}>Republic of Turkey</h3>
-                   <span style={{ fontSize: '14px', lineHeight: '24px' ,color: '#5c5c5c' }}>
-                        The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
-                   </span>
-                   <Divider orientation={'center'} plain={true} style={{fontSize: '13px', fontWeight: 'bold', color: '#7c7c7c', fontFamily: 'assistant, sans-serif' }}>More Information</Divider>
-                   <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', marginTop: '5px' }}>
-                       {about.map((item, index) => {
-                           return (
-                               <div key={index} style={{ flexBasis: '48%', marginBottom: '10px' }}>
-                                   <span style={{ color: '#5c5c5c', fontSize: '14px', fontWeight: 500 }}>{item.label}: </span>
-                                   <span style={{ color: '#5c5c5c', fontSize: '14px' }}>{item.value}</span>
-                               </div>
-                           );
-                       })}
-                   </div>
+                   {isMobile ?
+                       <>
+                           <h3 style={{color: '#3c3c3c', fontFamily: 'assistant, sans-serif'}}>Republic of Turkey</h3>
+                           <span style={{fontSize: '14px', lineHeight: '24px', color: '#5c5c5c'}}>
+                                The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
+                           </span> <br/><br/>
+                           <Button style={{ width: '100%' }} id={'seeMoreWiki'} type={'default'}>See More</Button>
+
+                       </>
+                       :
+                       <>
+                           <h3 style={{color: '#3c3c3c', fontFamily: 'assistant, sans-serif'}}>Republic of Turkey</h3>
+                           <span style={{fontSize: '14px', lineHeight: '24px', color: '#5c5c5c'}}>
+                                The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
+                            </span>
+                           <Divider orientation={'center'} plain={true} style={{
+                               fontSize: '13px',
+                               fontWeight: 'bold',
+                               color: '#7c7c7c',
+                               fontFamily: 'assistant, sans-serif'
+                           }}>More Information</Divider>
+                           <div style={{
+                               display: 'flex',
+                               flexDirection: 'row',
+                               flexWrap: 'wrap',
+                               justifyContent: 'space-between',
+                               marginTop: '5px'
+                           }}>
+                               {about.map((item, index) => {
+                                   return (
+                                       <div key={index} style={{flexBasis: '48%', marginBottom: '10px'}}>
+                                           <span style={{
+                                               color: '#5c5c5c',
+                                               fontSize: '14px',
+                                               fontWeight: 500
+                                           }}>{item.label}: </span>
+                                           <span style={{color: '#5c5c5c', fontSize: '14px'}}>{item.value}</span>
+                                       </div>
+                                   );
+                               })}
+                           </div>
+                       </>
+                   }
                </>
             );
         } else if (selectedSegment === 'openstreetmap') {
@@ -75,12 +147,14 @@ const SearchWiki: React.FC = () => {
 
     return (
         <>
-            <Segmented style={{ color: '#5c5c5c' }} options={segmented_options} onChange={handleSegmentChange} block />
-            <div style={{ display: "flex", marginTop: '10px' }}>
-                <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png'} alt={'Flag of Turkey'} style={{ width: '200px', borderBottomLeftRadius: '3px', borderTopLeftRadius: '3px'}} />
-                <SearchOpenStreetMap />
+            <div id={'search-wiki'}>
+                <Segmented style={{ color: '#5c5c5c' }} options={segmented_options} onChange={handleSegmentChange} block />
+                <div style={{ display: "flex", marginTop: '10px' }}>
+                    <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png'} alt={'Flag of Turkey'} style={{ width: '200px', borderBottomLeftRadius: '3px', borderTopLeftRadius: '3px'}} />
+                    <SearchOpenStreetMap />
+                </div>
+                {checking_segmented_value()}
             </div>
-            {checking_segmented_value()}
         </>
     );
 }
