@@ -230,6 +230,30 @@
   color: #7c7c7c;
 }
 
+.animation {
+    animation: fadeInDown 0.5s;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .ol-zoom {
   display: none;
 }
@@ -240,6 +264,10 @@
 
 .ol-viewport:last-child {
   display: none;
+}
+
+#artadoManifestContainer {
+  line-height: 25px;
 }
 
 .search-types .search-buttons.active {
@@ -255,6 +283,12 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
+  #artadoManifestContainer {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
   .search-types::-webkit-scrollbar {
     display: none;
   }
