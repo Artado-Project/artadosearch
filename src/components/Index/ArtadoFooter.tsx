@@ -75,13 +75,6 @@ const ArtadoFooter: React.FC = () => {
                     </>
                 )}
                 &nbsp;
-
-                <a
-                    className={'font__assistant footer-content'}
-                >
-                    {languageData.thanks}
-                </a>
-                <br /><br />
                 {Object.keys(FooterLinks).map((key,) => (
                     <a
                         href={FooterLinks[key].link}
