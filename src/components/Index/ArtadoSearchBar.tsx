@@ -58,18 +58,18 @@ const ArtadoSearchBar: React.FC = () => {
     };
 
     const inputDesign = {
-        border: "none",
         boxShadow: isHover
             ? 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
             : 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
         transition: '0.3 ease-in-out',
-        borderRadius: 5,
         ...(isMobile ? {
-            width: 300,
-            height: 34,
+            width: 350,
+            height: 35,
+            borderRadius: 60,
         } : {
-            width: 500,
-            height: 34,
+            width: 600,
+            height: 35,
+            borderRadius: 60,
         })
     }
 
@@ -85,11 +85,12 @@ const ArtadoSearchBar: React.FC = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center'
-                }}>
+                    }}>
                     <img
                         src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
-                        style={isMobile ? {width: 150} : {width: 150, marginBottom: 30}}
-                        alt={'artado logo'}/>
+                        style={isMobile ? {width: 150} : {width: 170}}
+                        alt={'artado logo'}
+                    />
                     <br/>
                     <AutoComplete
                         id={'searchBar'}
@@ -100,6 +101,8 @@ const ArtadoSearchBar: React.FC = () => {
                         placeholder={languageData.input}
                     />
                     <input
+                        id={'searchInput'}
+                        style={{borderRadius: '60px !important'}}
                         name={'q'}
                         type={'hidden'}
                         value={selectedValue}
