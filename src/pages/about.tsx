@@ -8,19 +8,19 @@ const about: React.FC = () => {
     const teamMembers = [
         {
             avatar: "https://avatars.githubusercontent.com/u/47920304?s=64&v=4",
-            name: "ardatdev",
+            name: "Arda Tahtacı",
             role: languageData.role,
             social: "https://github.com/ardatdev"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/79412062?s=64&v=4",
-            name: "Arnolxu",
+            name: "Çınar Yılmaz",
             role: languageData.role,
             social: "https://github.com/Arnolxu"
         },
         {
             avatar: "https://avatars.githubusercontent.com/u/90653146?s=64&v=4",
-            name: "yasinldev",
+            name: "M. Yasin Özkaya",
             role: languageData.role,
             social: "https://github.com/yasinldev"
         },
