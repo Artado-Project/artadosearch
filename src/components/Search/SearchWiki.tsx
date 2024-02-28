@@ -75,6 +75,7 @@ const SearchWiki: React.FC = () => {
                 moreInfoDiv.style.flexWrap = 'wrap';
                 moreInfoDiv.style.justifyContent = 'space-between';
                 moreInfoDiv.style.marginTop = '5px';
+                moreInfoDiv.id = 'more';
 
                 about.map((item, index) => {
                     const div = document.createElement('div');
@@ -100,7 +101,6 @@ const SearchWiki: React.FC = () => {
                                 The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
                            </span> <br/><br/>
                            <Button style={{ width: '100%' }} id={'seeMoreWiki'} type={'default'}>See More</Button>
-
                        </>
                        :
                        <>
@@ -108,19 +108,24 @@ const SearchWiki: React.FC = () => {
                            <span style={{fontSize: '14px', lineHeight: '24px', color: '#5c5c5c'}}>
                                 The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
                             </span>
-                           <Divider orientation={'center'} plain={true} style={{
-                               fontSize: '13px',
-                               fontWeight: 'bold',
-                               color: '#7c7c7c',
-                               fontFamily: 'assistant, sans-serif'
-                           }}>More Information</Divider>
-                           <div style={{
+                           <Divider orientation={'center'} plain={true}
+                            style={{
+                                fontSize: '13px',
+                                fontWeight: 'bold',
+                                color: '#7c7c7c',
+                                fontFamily: 'assistant, sans-serif'
+                           }}
+                           >
+                               More Information</Divider>
+                           <div
+                               style={{
                                display: 'flex',
                                flexDirection: 'row',
                                flexWrap: 'wrap',
                                justifyContent: 'space-between',
                                marginTop: '5px'
-                           }}>
+                           }}
+                           >
                                {about.map((item, index) => {
                                    return (
                                        <div key={index} style={{flexBasis: '48%', marginBottom: '10px'}}>
