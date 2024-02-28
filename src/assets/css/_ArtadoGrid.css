@@ -128,8 +128,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .column-xl-12, .column-xl-11, .column-xl-10, .column-xl-9, .column-xl-8, .column-xl-7, .column-xl-6, .column-xl-5, .column-xl-4, .column-xl-3, .column-xl-2, .column-xl-1, .column-lg-12, .column-lg-11, .column-lg-10, .column-lg-9, .column-lg-8, .column-lg-7, .column-lg-6, .column-lg-5, .column-lg-4, .column-lg-3, .column-lg-2, .column-lg-1, .column-md-12, .column-md-11, .column-md-10, .column-md-9, .column-md-8, .column-md-7, .column-md-6, .column-md-5, .column-md-4, .column-md-3, .column-md-2, .column-md-1, .column-sm-12, .column-sm-11, .column-sm-10, .column-sm-9, .column-sm-8, .column-sm-7, .column-sm-6, .column-sm-5, .column-sm-4, .column-sm-3, .column-sm-2, .column-sm-1, .column-xs-12, .column-xs-11, .column-xs-10, .column-xs-9, .column-xs-8, .column-xs-7, .column-xs-6, .column-xs-5, .column-xs-4, .column-xs-3, .column-xs-2, .column-xs-1, .column-na-12, .column-na-11, .column-na-10, .column-na-9, .column-na-8, .column-na-7, .column-na-6, .column-na-5, .column-na-4, .column-na-3, .column-na-2, .column-na-1, .column-xl, .column-lg, .column-md, .column-sm, .column-xs, .column-na {
