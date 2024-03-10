@@ -1,3 +1,4 @@
+// Changes made: Replaced the original URL with a custom URL for the Google API
 (function (opts_) {/*
 
  Copyright The Closure Library Authors.
