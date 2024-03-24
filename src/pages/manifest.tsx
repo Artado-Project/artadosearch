@@ -8,7 +8,7 @@ const languageData = require(`./../language/${language}/manifest-page.json`);
 function Manifest() {
     return (
         <>
-            <div className={'Artado-container'} id={'artadoManifestContainer'}>
+            <div className={'Artado-container'} id={'textContainer'}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <h1 className='title'>{ languageData.manifest }</h1>
                     <Button

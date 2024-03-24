@@ -51,6 +51,11 @@ const items = [
     },
 ];
 
+const getInputClassName = () => {
+    const input = document.getElementsByClassName('ant-input-affix-wrapper css-dev-only-do-not-override-i1mju1 ant-input-outlined');
+    input.item(0)?.setAttribute('style', 'border-radius: 60px !important; height: 35px;');
+}
+
 const SearchHeader: React.FC = () => {
     const navigate = useNavigate();
 
@@ -58,6 +63,8 @@ const SearchHeader: React.FC = () => {
         if (!search) {
             navigate('/?ret_no=empty-url');
         }
+
+        getInputClassName();
     }, [search, navigate]);
 
     return (
@@ -71,7 +78,7 @@ const SearchHeader: React.FC = () => {
                                 name={'q'}
                                 defaultValue={search ?? ''}
                                 placeholder={'Let\'s find something...'}
-                                style={{width: '100% !important', height: '35px'}}
+                                style={{width: '100% !important', height: '40px', borderRadius: '60px !important'}}
                                 suffix={<img src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
                                              alt={'Artado Search'} width={20} height={20}/>}
                             />

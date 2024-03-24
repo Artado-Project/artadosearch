@@ -36,7 +36,7 @@ const about: React.FC = () => {
 
     return (
         <>
-            <div className={'Artado-container'} style={{lineHeight: '25px'}}>
+            <div className={'Artado-container'} id={'textContainer'} style={{lineHeight: '25px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <h1 className='title'>{ languageData.about_us }</h1>
                     <Button

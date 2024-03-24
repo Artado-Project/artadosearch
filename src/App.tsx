@@ -6,6 +6,7 @@ import Manifest from './pages/manifest';
 import Settings from './pages/settings';
 import About from './pages/about';
 import Help from './pages/help';
+import PrivacyPolicy from "./pages/privacy-policy";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                   <Route path={'/settings'} element={<Settings />} />
                   <Route path={'/about'} element={<About />} />
                   <Route path={'/help'} element={<Help />} />
+                  <Route path={'privacy-policy'} element={<PrivacyPolicy />} />
               </Routes>
           </Router>
       </>

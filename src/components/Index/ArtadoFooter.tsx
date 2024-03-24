@@ -12,7 +12,7 @@ type LinkProps = {
 type TypeFooterLinks = Record<string, LinkProps>
 
 const FooterLinks: TypeFooterLinks = {
-    'Privacy Policy': { title: languageData.privacy_policy, link: '#PrivacyPolicy' },
+    'Privacy Policy': { title: languageData.privacy_policy, link: '/privacy-policy' },
     'Manifest': { title: languageData.manifest, link: '/manifest' },
     'About Us': { title: languageData.about_us, link: '/about' },
     'GitHub': { title: 'GitHub', link: 'https://github.com/Artado-Project/artadosearch' },

@@ -266,7 +266,7 @@
   display: none;
 }
 
-#artadoManifestContainer {
+#textContainer {
   line-height: 25px;
 }
 
@@ -284,7 +284,7 @@
     -ms-overflow-style: none;
   }
 
-  #artadoManifestContainer {
+  #textContainer {
     font-size: 18px;
     line-height: 30px;
   }

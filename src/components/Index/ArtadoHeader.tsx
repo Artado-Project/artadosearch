@@ -70,7 +70,7 @@ const DividerLinks: OptionsProps = {
 
     'Privacy Policy': {
         title: languageData.sidebar.privacy_policy,
-        value: "#PrivacyPolicy" // TODO: Add Link
+        value: "/privacy-policy"
     },
 
     'Terms of Service': {
