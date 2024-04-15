@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import {Tag, Modal, Segmented, Alert, Avatar} from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
+import TextArea from "antd/es/input/TextArea";
 
 const SearchResult: React.FC = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
     const [selectedSegmented, setSelectedSegmented] = useState<SegmentedValue>('summary');
 
     const showModal = () => {
         setIsModalVisible(true);
     }
 
+    const showErrorModal = () => {
+        setIsErrorModalVisible(true);
+    }
+
     const closeModal = () => {
         setIsModalVisible(false);
+    }
+
+    const closeErrorModal = () => {
+        setIsErrorModalVisible(false);
     }
 
     const segmentedOptions = [
@@ -26,16 +36,23 @@ const SearchResult: React.FC = () => {
     const checkSegmentedValue = () => {
         if (selectedSegmented === 'summary') {
             return (
-                <span style={{ color: '#5c5c5c', marginTop: '10px' }}>
-                    <div style={{ marginTop: 10 }}></div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem doloremque eaque enim error in laborum magni nesciunt repellendus. Exercitationem iure laudantium obcaecati officiis porro possimus quae quidem quis, rem repellat! Alias aliquid consectetur debitis delectus dolores eaque enim eos eveniet ex explicabo fuga illo in itaque iusto, magnam magni molestias, nemo nulla numquam pariatur perspiciatis porro rem repudiandae sapiente sequi sunt tempora ullam unde veniam veritatis. Ab ad, commodi consequatur facilis fugiat fugit, maiores nihil possimus quisquam quo tempora veniam!
-                </span>
-            );
-        }
-        else if (selectedSegmented === 'safety') {
-            return (
                 <>
                     <div style={{ marginTop: 10 }}></div>
+                    <span style={{color: '#5c5c5c', marginTop: '10px'}}>
+                        <b style={{marginTop: 10, borderLeft: '1px solid #3c3c3c', paddingLeft: 10, display: "block", marginBottom: 14}}>Summary</b>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi architecto aspernatur assumenda autem consectetur consequatur consequuntur dolores dolorum eligendi enim error esse est et exercitationem illum incidunt inventore ipsam ipsum magni maxime minus modi nemo perspiciatis quae quam quas quibusdam ratione repellendus repudiandae, vel vero voluptate voluptatem? Magni, reprehenderit!
+                        <b style={{marginTop: 14, borderLeft: '1px solid #3c3c3c', paddingLeft: 10, display: "block", marginBottom: 14 }}>Subtitles</b>
+                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Turkey</span>
+                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Sciene In Turkey</span>
+                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Turkey's Education Model</span>
+                        <span style={{ color: "#1677ff", display: "block", marginBottom: 0 }}>#University Exam In Turkey</span>
+                    </span>
+                </>
+            );
+        } else if (selectedSegmented === 'safety') {
+            return (
+                <>
+                    <div style={{marginTop: 10}}></div>
                     <Alert
                         message="This website is safe"
                         description="This website uses the HTTPS protocol. This means that all communications that users carry out on the site are encrypted and transmitted securely. Encryption of data prevents third parties from intercepting users' personal information, passwords and other sensitive data."
@@ -91,7 +108,7 @@ const SearchResult: React.FC = () => {
                         <div style={{ display: "flex", fontSize: '12px', color: '#6c6c6c', borderTop: '1px solid #d0d0d0' }}>
                             <span style={{ paddingTop: '15px' }}>
                                 If you think there is an error &nbsp;
-                                <a href={'/'}>report error</a>
+                                <a onClick={showErrorModal}>report error</a>
                             </span>
                         </div>
                     </>
@@ -100,6 +117,20 @@ const SearchResult: React.FC = () => {
                 >
                 <Segmented options={segmentedOptions} onChange={handleSegmentedChange} block />
                 { checkSegmentedValue() }
+            </Modal>
+            <Modal
+                title={'Send Error'}
+                open={isErrorModalVisible}
+                onCancel={closeErrorModal}
+            >
+                <p>Hmm... We understand you encountered a bug that scared our developers. Can you tell us about the problem?</p>
+                <TextArea
+                    showCount
+                    maxLength={500}
+                    placeholder="What is the problem?"
+                    style={{ height: 120, resize: 'none' }}
+                />
+                <br /><br />
             </Modal>
             {data.map((item: any) => (
                 <div className={'artado-result-card'} style={{paddingLeft: 0}}>
