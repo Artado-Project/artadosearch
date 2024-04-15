@@ -16,6 +16,10 @@ const FooterLinks: TypeFooterLinks = {
     'Manifest': { title: languageData.manifest, link: '/manifest' },
     'About Us': { title: languageData.about_us, link: '/about' },
     'GitHub': { title: 'GitHub', link: 'https://github.com/Artado-Project/artadosearch' },
+    'Donation': {
+        title: languageData.donation,
+        link: '/donation'
+    }
 }
 
 const ArtadoFooter: React.FC = () => {

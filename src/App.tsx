@@ -7,6 +7,7 @@ import Settings from './pages/settings';
 import About from './pages/about';
 import Help from './pages/help';
 import PrivacyPolicy from "./pages/privacy-policy";
+import Donation from "./pages/donation";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Routes>
                   <Route path={'/'} element={<Home />} />
                   <Route path={'/search'} element={<Search />} />
+                  <Route path={'/donation'} element={<Donation />} />
                   <Route path={'/manifest'} element={<Manifest/>} />
                   <Route path={'/settings'} element={<Settings />} />
                   <Route path={'/about'} element={<About />} />
