@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ConfigProvider } from 'antd';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { ConfigProvider, theme } from 'antd';
 
 const checkTheme = () => {
     const theme = localStorage.getItem('theme');
-    return theme === 'dark';
+    return theme === 'night';
 }
 
 const Root = () => {
     const [darkMode, setDarkMode] = useState(checkTheme());
+    const { defaultAlgorithm, darkAlgorithm } = theme;
+
+    useEffect(() => {
+        const isDark = checkTheme();
+        setDarkMode(isDark);
+    }, []);
 
     return (
         <React.StrictMode>
-            <ConfigProvider>
+            <ConfigProvider
+                theme={{ algorithm: darkMode ? darkAlgorithm : defaultAlgorithm }}
+            >
                 <App />
             </ConfigProvider>
         </React.StrictMode>
@@ -26,7 +33,4 @@ const Root = () => {
 const root = ReactDOM.createRoot(document.getElementById('root') ?? document.createElement('div'));
 root.render(<Root />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals(console.log);
