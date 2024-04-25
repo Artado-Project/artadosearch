@@ -5,6 +5,7 @@ import ArtadoSection from "../components/Index/ArtadoSection";
 import ArtadoAlerts from "../components/Index/ArtadoAlerts";
 
 import './../assets/Index.css';
+
 import React from "react";
 import {Alert} from "antd";
 
@@ -14,7 +15,7 @@ function Index() {
             <div className="Artado-container is-fluid" style={{margin: "10px"}}>
                 <Alert
                     message={[
-                        <a href={'#'} className={'font__assistant'} style={{fontSize: 14, fontWeight: "bold", color: '#2e698a'}}>
+                        <a href={'#'} className={'font__assistant'} style={{fontSize: 14, fontWeight: "bold", color: '#448cb2'}}>
                             Make Artado Search your default search engine
                         </a>
                     ]}

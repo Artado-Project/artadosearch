@@ -19,6 +19,19 @@ const Root = () => {
         setDarkMode(isDark);
     }, []);
 
+    useEffect(() => {
+        if (darkMode) {
+            import('./assets/css/_ArtadoNight.module.css').then(() => {
+                console.log('Dark mode stylesheet loaded');
+            });
+        } else {
+            /*
+            import('./lightMode.scss').then(() => {
+                console.log('Light mode stylesheet loaded');
+            }); */
+        }
+    }, [darkMode]);
+
     return (
         <React.StrictMode>
             <ConfigProvider

@@ -61,12 +61,7 @@ const SearchWiki: React.FC = () => {
             checkSeeMore?.addEventListener('click', () => {
                 checkSeeMore.style.display = 'none';
                 const moreInfo = (
-                    <Divider orientation={'center'} plain={true} style={{
-                        fontSize: '13px',
-                        fontWeight: 'bold',
-                        color: '#7c7c7c',
-                        fontFamily: 'assistant, sans-serif'
-                    }}>More Information</Divider>
+                    <Divider orientation={'center'} plain={true} className={'artado-divider'}>More Information</Divider>
                 );
 
                 const moreInfoDiv = document.createElement('div');
@@ -79,9 +74,8 @@ const SearchWiki: React.FC = () => {
 
                 about.map((item, index) => {
                     const div = document.createElement('div');
-                    div.style.flexBasis = '48%';
-                    div.style.marginBottom = '10px';
-                    div.innerHTML = `<span style="color: #5c5c5c; font-size: 14px; font-weight: 500;">${item.label}: </span><span style="color: #5c5c5c; font-size: 14px;">${item.value}</span>`;
+                    div.className = 'more-info'
+                    div.innerHTML = `<span class="labels">${item.label}: </span><span style="color: #5c5c5c; font-size: 14px;">${item.value}</span>`;
                     moreInfoDiv.appendChild(div);
                 });
 
@@ -96,45 +90,25 @@ const SearchWiki: React.FC = () => {
                <>
                    {isMobile ?
                        <>
-                           <h3 style={{color: '#3c3c3c', fontFamily: 'assistant, sans-serif'}}>Republic of Turkey</h3>
-                           <span style={{fontSize: '14px', lineHeight: '24px', color: '#5c5c5c'}}>
+                           <h3 className={'wiki-title'}>Republic of Turkey</h3>
+                           <span className={'wiki-desc'}>
                                 The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
                            </span> <br/><br/>
                            <Button style={{ width: '100%' }} id={'seeMoreWiki'} type={'default'}>See More</Button>
                        </>
                        :
                        <>
-                           <h3 style={{color: '#3c3c3c', fontFamily: 'assistant, sans-serif'}}>Republic of Turkey</h3>
-                           <span style={{fontSize: '14px', lineHeight: '24px', color: '#5c5c5c'}}>
+                           <h3 className={'wiki-title'}>Republic of Turkey</h3>
+                           <span className={'wiki-desc'}>
                                 The Republic of Turkey, is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a smaller portion on the Balkan Peninsula in Southeastern Europe. Turkey is bordered on its northwest by Greece and Bulgaria; north by the Black Sea; northeast by Georgia; east by Armenia, Azerbaijan, and Iran; southeast by Iraq; south by Syria and the Mediterranean Sea; and west by the Aegean Sea. Approximately 70 to 80 percent of the country's citizens identify as Turkish, while Kurds are the largest minority, at between 15 to 20 percent of the population.
                             </span>
-                           <Divider orientation={'center'} plain={true}
-                            style={{
-                                fontSize: '13px',
-                                fontWeight: 'bold',
-                                color: '#7c7c7c',
-                                fontFamily: 'assistant, sans-serif'
-                           }}
-                           >
-                               More Information</Divider>
-                           <div
-                               style={{
-                               display: 'flex',
-                               flexDirection: 'row',
-                               flexWrap: 'wrap',
-                               justifyContent: 'space-between',
-                               marginTop: '5px'
-                           }}
-                           >
+                           <Divider orientation={'center'} plain={true} className={'artado-divider'}>More Information</Divider>
+                           <div className={'wiki-child'}>
                                {about.map((item, index) => {
                                    return (
-                                       <div key={index} style={{flexBasis: '48%', marginBottom: '10px'}}>
-                                           <span style={{
-                                               color: '#5c5c5c',
-                                               fontSize: '14px',
-                                               fontWeight: 500
-                                           }}>{item.label}: </span>
-                                           <span style={{color: '#5c5c5c', fontSize: '14px'}}>{item.value}</span>
+                                       <div key={index} className={'child-header'}>
+                                           <span className={'child-title'}>{item.label}: </span>
+                                           <span className={'child-desc'}>{item.value}</span>
                                        </div>
                                    );
                                })}
@@ -153,7 +127,7 @@ const SearchWiki: React.FC = () => {
     return (
         <>
             <div id={'search-wiki'}>
-                <Segmented style={{ color: '#5c5c5c' }} options={segmented_options} onChange={handleSegmentChange} block />
+                <Segmented className={'segmented'} options={segmented_options} onChange={handleSegmentChange} block />
                 <div style={{ display: "flex", marginTop: '10px' }}>
                     <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png'} alt={'Flag of Turkey'} style={{ width: '200px', borderBottomLeftRadius: '3px', borderTopLeftRadius: '3px'}} />
                     <SearchOpenStreetMap />
