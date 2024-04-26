@@ -4,6 +4,8 @@ import { notification } from 'antd';
 const language = localStorage.getItem('language') ?? 'en';
 const languageData = require(`./../../language/${language}/index-page.json`);
 
+const theme = localStorage.getItem('theme') ?? 'light';
+
 const AlertMessage = (): null => {
     const [hasAlertShown, setHasAlertShown] = useState(false);
 
@@ -16,10 +18,19 @@ const AlertMessage = (): null => {
                 switch (alertType) {
                     case 'empty-url':
                         notification.warning({
-                            message: languageData.alerts.missing_parameters,
-                            description: languageData.alerts.missing_parameters_desc,
+                            message: (
+                                <div style={ theme === 'night' ? { color: '#ffce9c' } : { color: '#3c3c3c' }}>
+                                    {languageData.alerts.missing_parameters}
+                                </div>
+                            ),
+                            description: (
+                                <div style={theme === 'night' ? {color: '#ffd39c'} : {color: '#c5c5c5'}}>
+                                    {languageData.alerts.missing_parameters_desc}
+                                </div>
+                            ),
                             placement: 'bottomRight',
-                            duration: 15
+                            duration: 15,
+                            style: theme === 'night' ? { backgroundColor: '#884305', color: '#d0d0d0 !important', borderRadius: 5} : { color: '#3c3c3c' }
                         });
                         break;
 
