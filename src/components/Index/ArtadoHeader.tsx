@@ -182,7 +182,7 @@ const ArtadoHeader: React.FC = () => {
                     onClick={showSidebar}
                     style={
                         /* checking url is search and isMobile true */
-                        checkUrl() && isMobile ? {display: 'none'} : {paddingTop: "6px", marginLeft: "20px"}}
+                        checkUrl() && isMobile ? {paddingTop: "10px", height: "40px"} : {paddingTop: "6px", marginLeft: "20px"}}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          className="bi bi-list" viewBox="0 0 16 16">

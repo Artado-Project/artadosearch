@@ -9,6 +9,8 @@ import { SegmentedValue } from 'antd/es/segmented';
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
 
+const theme = localStorage.getItem('theme') ?? 'light';
+
 const SearchWiki: React.FC = () => {
     const [imgUrl, setImgUrl] = useState<string | undefined>('');
     const [selectedSegment, setSelectedSegment] = useState<SegmentedValue>('wiki');
@@ -31,8 +33,15 @@ const SearchWiki: React.FC = () => {
         });
     }, [search]);
 
+    useEffect(() => {
+        const checkSeeMore = document.getElementById('seeMoreWiki');
+        if (checkSeeMore) {
+            checkSeeMore.style.display = 'block';
+        }
+    });
+
     const ant_description = document.getElementsByClassName('ant-card-meta-description');
-    ant_description.item(0)?.setAttribute('style', 'color: #5c5c5c !important');
+    ant_description.item(0)?.setAttribute('style', theme === 'night' ? 'color: #d0d0d0' : 'color: #3c3c3c');
 
     const segmented_options = [
         { label: 'Wikipedia', value: 'wiki' },

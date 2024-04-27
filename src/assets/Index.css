@@ -315,3 +315,39 @@
         order: 2 !important;
     }
 }
+
+@media only screen and (max-width: 899px) {
+    .search-types {
+        position: relative;
+        overflow: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .search-types::-webkit-scrollbar {
+        display: none;
+    }
+
+    .search-types .search-buttons {
+        display: flex;
+        font-size: smaller;
+    }
+
+    .artado-result-card .result-subtitle {
+        margin-left: 15px;
+    }
+
+    #responsive-first {
+        order: 1 !important;
+        margin-bottom: 50px;
+    }
+
+    #responsive-none {
+        display: none;
+    }
+
+    #responsive-end {
+        order: 2 !important;
+    }
+}
