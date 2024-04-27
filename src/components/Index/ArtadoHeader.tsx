@@ -119,6 +119,7 @@ const SearchEngines: OptionsProps = {
 const ArtadoHeader: React.FC = () => {
     const [open, setOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
     const showSidebar = () => {
         setOpen(true);
     }
@@ -128,7 +129,9 @@ const ArtadoHeader: React.FC = () => {
 
     const responsiveDesign = () => {
         const mq = window.matchMedia('(max-width: 600px)');
-        setIsMobile(mq.matches);
+        const mqTablet = window.matchMedia('(max-width: 899px)');
+        setIsMobile(mq.matches || mqTablet.matches);
+        setIsTablet(mqTablet.matches);
     }
 
     useEffect(() => {
@@ -169,7 +172,7 @@ const ArtadoHeader: React.FC = () => {
                 {Object.keys(Options).map((key) => (
                     <a
                         href={Options[key].value}
-                        style={isMobile
+                        style={isMobile && isTablet
                             ? {display: 'none'}
                             : LinkStyle}
                         className="font__open-sans"
@@ -182,7 +185,7 @@ const ArtadoHeader: React.FC = () => {
                     onClick={showSidebar}
                     style={
                         /* checking url is search and isMobile true */
-                        checkUrl() && isMobile ? {paddingTop: "10px", height: "40px"} : {paddingTop: "6px", marginLeft: "20px"}}
+                        checkUrl() && isMobile ? {paddingTop: "10px", height: "40px", width: '100%'} : {paddingTop: "6px", marginLeft: "20px"}}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          className="bi bi-list" viewBox="0 0 16 16">

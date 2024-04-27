@@ -58,10 +58,13 @@ const getInputClassName = () => {
 const SearchHeader: React.FC = () => {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
 
     const setResponsive = () => {
         const mq = window.matchMedia('(max-width: 720px)');
-        setIsMobile(mq.matches);
+        const mqTablet = window.matchMedia('(max-width: 899px)');
+        setIsMobile(mq.matches || mqTablet.matches);
+        setIsTablet(mqTablet.matches);
     }
 
     useEffect(() => {
@@ -84,7 +87,7 @@ const SearchHeader: React.FC = () => {
     return (
         <>
             <div className={'Artado-row'} style={{marginBottom: 10}}>
-                {isMobile ? (
+                {isMobile && isTablet ? (
                     <>
                         <div className={'column-na-10'}>
                             <form method={'GET'} action={'/search'}>
