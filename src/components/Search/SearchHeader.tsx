@@ -7,6 +7,8 @@ import './../../assets/Index.css';
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
 
+const theme = localStorage.getItem('theme');
+
 const items = [
     {
         key: 1,
@@ -52,7 +54,13 @@ const items = [
 
 const getInputClassName = () => {
     const input = document.getElementsByClassName('ant-input-affix-wrapper css-dev-only-do-not-override-i1mju1 ant-input-outlined');
-    input.item(0)?.setAttribute('style', 'border-radius: 60px !important; height: 35px;');
+    const inputDark = document.getElementsByClassName('ant-input-affix-wrapper css-dev-only-do-not-override-1s2ni0h ant-input-outlined');
+
+    if (theme === 'night') {
+        inputDark.item(0)?.setAttribute('style', 'border-radius: 10px !important; height: 40px;');
+    } else {
+        input.item(0)?.setAttribute('style', 'border-radius: 10px !important; height: 40px;');
+    }
 }
 
 const SearchHeader: React.FC = () => {
@@ -91,7 +99,7 @@ const SearchHeader: React.FC = () => {
                     <>
                         <div className={'column-na-10'}>
                             <form method={'GET'} action={'/search'}>
-                                <Input.Group>
+                                <Input.Group style={{ borderRadius: 10 }}>
                                     <Input
                                         id={'searchInput'}
                                         name={'q'}
@@ -100,7 +108,7 @@ const SearchHeader: React.FC = () => {
                                         style={{
                                             width: '100% !important',
                                             height: '40px',
-                                            borderRadius: '60px !important'
+                                            borderRadius: '10px !important'
                                         }}
                                         suffix={<img
                                             src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
@@ -126,7 +134,7 @@ const SearchHeader: React.FC = () => {
                                         style={{
                                             width: '100% !important',
                                             height: '40px',
-                                            borderRadius: '60px !important'
+                                            borderRadius: '10px !important'
                                         }}
                                         suffix={<img
                                             src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
