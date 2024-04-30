@@ -1,5 +1,1 @@
-github:
-  custom: 
-    - user: Kreosus
-      href: https://kreosus.com/artadosoft
-      name: Artado
+custom: ["https://kreosus.com/artadosoft"]
