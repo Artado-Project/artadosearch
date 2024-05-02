@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './../../assets/Index.css';
 import {Modal} from 'antd';
 
 const language = localStorage.getItem('language') ?? 'en';

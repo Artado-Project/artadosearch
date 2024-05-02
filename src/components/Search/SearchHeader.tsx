@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Input} from "antd";
 import { useNavigate } from "react-router-dom";
 import ArtadoHeader from "../Index/ArtadoHeader";
-import './../../assets/Index.css';
 
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');

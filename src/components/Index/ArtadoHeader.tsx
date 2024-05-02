@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import './../../assets/Index.css';
 import {Button, Divider, Drawer, Select, Switch,} from "antd";
 
 const language = localStorage.getItem('language') ?? 'en';

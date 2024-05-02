@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import {Segmented, Divider, Button} from 'antd';
 import { searchWikipedia } from "../../backend/api/wikipedia/wikipedia";
 import SearchOpenStreetMap from "./SearchOpenStreetMap";
-import './../../assets/Index.css';
 import { SegmentedValue } from 'antd/es/segmented';
 
 const searchParams = new URLSearchParams(window.location.search);

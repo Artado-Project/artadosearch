@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import './../../assets/Index.css';
 import {AutoComplete, Button} from 'antd';
 
 const language = localStorage.getItem('language') ?? 'en';

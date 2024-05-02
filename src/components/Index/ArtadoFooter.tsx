@@ -45,6 +45,7 @@ const ArtadoFooter: React.FC = () => {
                 <a
                     href={'?ref=true'}
                     className={'font__assistant footer-content'}
+                    style={{ color: '#6c6c6c' }}
                 >
                     <img
                         src={'https://www.artadosearch.com/images/android-chrome-192x192.png'}
@@ -52,7 +53,6 @@ const ArtadoFooter: React.FC = () => {
                             width: '20px',
                             height: '20px',
                             marginRight: '10px',
-                            color: '#7c7c7c',
                             marginBottom: '-5px'
                         }}
                         alt={'artado logo'}
@@ -67,7 +67,7 @@ const ArtadoFooter: React.FC = () => {
                 )}
                 <span
                     style={{
-                        color: '#7c7c7c',
+                        color: '#6c6c6c',
                         marginTop: '-10px'
                     }}
                 >
@@ -84,7 +84,7 @@ const ArtadoFooter: React.FC = () => {
                         href={FooterLinks[key].link}
                         className={'font__assistant footer-content'}
                         key={key}
-                        style={{ borderBottom: '1px solid #d0d0d0' }}
+                        style={{ borderBottom: '0.01rem solid rgb(156, 156, 156)', color: '#6c6c6c' }}
                     >
                         {FooterLinks[key].title}
                     </a>
