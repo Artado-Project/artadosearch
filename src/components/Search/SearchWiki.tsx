@@ -73,17 +73,13 @@ const SearchWiki: React.FC = () => {
                 );
 
                 const moreInfoDiv = document.createElement('div');
-                moreInfoDiv.style.display = 'flex';
-                moreInfoDiv.style.flexDirection = 'row';
-                moreInfoDiv.style.flexWrap = 'wrap';
-                moreInfoDiv.style.justifyContent = 'space-between';
-                moreInfoDiv.style.marginTop = '5px';
+                moreInfoDiv.className = 'wiki-more-info';
                 moreInfoDiv.id = 'more';
 
                 about.map((item, index) => {
                     const div = document.createElement('div');
                     div.className = 'more-info'
-                    div.innerHTML = `<span class="labels">${item.label}: </span><span style="color: #5c5c5c; font-size: 14px;">${item.value}</span>`;
+                    div.innerHTML = `<span class="labels">${item.label}: </span><span class="wiki-labels">${item.value}</span>`;
                     moreInfoDiv.appendChild(div);
                 });
 

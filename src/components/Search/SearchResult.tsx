@@ -38,14 +38,14 @@ const SearchResult: React.FC = () => {
             return (
                 <>
                     <div style={{ marginTop: 10 }}></div>
-                    <span style={{color: '#5c5c5c', marginTop: '10px'}}>
-                        <b style={{marginTop: 10, borderLeft: '1px solid #3c3c3c', paddingLeft: 10, display: "block", marginBottom: 14}}>Summary</b>
+                    <span className={'modal-summary'}>
+                        <b className={'summary-title'}>Summary</b>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi architecto aspernatur assumenda autem consectetur consequatur consequuntur dolores dolorum eligendi enim error esse est et exercitationem illum incidunt inventore ipsam ipsum magni maxime minus modi nemo perspiciatis quae quam quas quibusdam ratione repellendus repudiandae, vel vero voluptate voluptatem? Magni, reprehenderit!
-                        <b style={{marginTop: 14, borderLeft: '1px solid #3c3c3c', paddingLeft: 10, display: "block", marginBottom: 14 }}>Subtitles</b>
-                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Turkey</span>
-                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Sciene In Turkey</span>
-                        <span style={{ color: "#1677ff", display: "block", marginBottom: 10 }}>#Turkey's Education Model</span>
-                        <span style={{ color: "#1677ff", display: "block", marginBottom: 0 }}>#University Exam In Turkey</span>
+                        <b className={'summary-title'}>Subtitles</b>
+                        <span className={'summary-subtitle'}>#Turkey</span>
+                        <span className={'summary-subtitle'}>#Sciene In Turkey</span>
+                        <span className={'summary-subtitle'}>#Turkey's Education Model</span>
+                        <span className={'summary-subtitle'}>#University Exam In Turkey</span>
                     </span>
                 </>
             );
@@ -105,7 +105,7 @@ const SearchResult: React.FC = () => {
                 footer={
                     <>
                         <br />
-                        <div style={{ display: "flex", fontSize: '12px', color: '#6c6c6c', borderTop: '1px solid #d0d0d0' }}>
+                        <div className={'modal-footer'}>
                             <span style={{ paddingTop: '15px' }}>
                                 If you think there is an error &nbsp;
                                 <a onClick={showErrorModal}>report error</a>

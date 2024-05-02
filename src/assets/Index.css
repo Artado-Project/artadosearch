@@ -1,8 +1,142 @@
 @import "css/_ArtadoGrid.css";
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300&family=Open+Sans:wght@400;500&display=swap');
 
+:root {
+  --background-color: white;
+  --bordered-subtitle: #8c8c8c;
+  --search-types: #d7d7d7;
+  --search-buttons: #8c8c8c;
+  --footer-content: #8c8c8c;
+  --search-buttons_hover: #3c3c3c;
+  --links: #5c5c5c;
+  --result-title: #5c5c5c;
+  --result-header: #5c5c5c;
+  --result-desc: #7c7c7c;
+  --result-url: #8c8c8c;
+  --desc: #7c7c7c;
+  --subtitle: #6b6b6b;
+  --search-buttons-active: #1c1c1c;
+  --modal-color: #6c6c6c;
+  --modal-border-top: #d0d0d0;
+  --summary-subtitle: #1677ff;
+  --wiki-title: #3c3c3c;
+  --artado-container-color: #3c3c3c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: rgb(20, 20, 20);
+    --bordered-subtitle: #8c8c8c;
+    --search-types: #3c3c3c;
+    --search-buttons: #8c8c8c;
+    --footer-content: #8c8c8c;
+    --search-buttons_hover: #3c3c3c;
+    --links: #5c5c5c;
+    --result-title: #9c9c9c;
+    --result-header: #7c7c7c;
+    --result-desc: #9c9c9c;
+    --result-url: #8c8c8c;
+    --desc: #7c7c7c;
+    --subtitle: #6b6b6b;
+    --search-buttons-active: #8c8c8c;
+    --modal-color: #8c8c8c;
+    --modal-border-top: #3c3c3c;
+    --summary-subtitle: #64a2ff;
+    --wiki-title: #9c9c9c;
+    --artado-container-color: #9c9c9c;
+  }
+}
+
+#textContainer {
+  color: var(--artado-container-color);
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.wiki-labels {
+  color: var(--result-header);
+  font-size: 14px;
+}
+
+.wiki-more-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.wiki-title {
+  color: var(--wiki-title);
+  font-family: 'Assistant', 'sans-serif';
+}
+
+.wiki-desc {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--result-header);
+}
+
+.wiki-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.wiki-child .child-header {
+  flex-basis: 48%;
+  margin-top: 10px;
+}
+
+.wiki-child .child-header .child-title {
+  color: var(--result-header);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.wiki-child .child-header .child-desc {
+  color: var(--result-desc);
+  font-size: 14px;
+}
+
 .font__assistant {
-  font-family: 'Assistant', sans-serif;
+  font-family: "Assistant", "Arial", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.modal-footer {
+  display: flex;
+  font-size: 12px;
+  color: var(--modal-color);
+  border-top: 1px solid var(--modal-border-top);
+}
+
+.modal-summary {
+  color: var(--modal-color);
+  margin-top: 10px;
+}
+
+.modal-summary .summary-title {
+  margin-top: 10px;
+  border-left: 1px solid var(--bordered-subtitle);
+  padding-left: 10px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.modal-summary .summary-subtitle {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--summary-subtitle);
+}
+
+.modal-summary .summary-subtitle:last-child {
+  margin-bottom: 0;
 }
 
 .font__open-sans {
@@ -36,18 +170,6 @@
   align-content: center;
 }
 
-.manifest-title {
-  font-family: 'Assistant', 'sans-serif';
-  font-weight: bold;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  background-color: #3c3c3c;
-  padding: 20px;
-  color: white;
-  border-radius: 4px;
-}
-
 .line-height {
   line-height: 28px;
 }
@@ -75,7 +197,7 @@
 
 .bordered-subtitle {
   font-family: 'Assistant', 'sans-serif';
-  border-left: 1px solid #8c8c8c;
+  border-left: 1px solid var(--bordered-subtitle);
   line-height: 35px;
   padding-left: 20px;
 }
@@ -86,7 +208,7 @@
   padding-right: 20px;
   padding-left: 20px;
   margin-top: 20px;
-  border-bottom: 0.01rem solid #d7d7d7;
+  border-bottom: 0.01rem solid var(--search-types);
   user-select: none;
 }
 
@@ -97,7 +219,7 @@
   width: fit-content;
   font-size: smaller;
   cursor: pointer;
-  color: #8c8c8c;
+  color: var(--search-buttons);
   text-decoration: none;
 }
 
@@ -115,7 +237,7 @@
 .footer .footer-content {
   text-align: center;
   font-size: 12px;
-  color: #8c8c8c;
+  color: var(--footer-content);
   font-weight: bold;
   margin-right: 10px;
   margin-left: 10px;
@@ -124,7 +246,7 @@
 }
 
 .search-types .search-buttons:hover {
-  color: #3c3c3c;
+  color: var(--search-buttons_hover);
   transition: 0.1s;
 }
 
@@ -152,29 +274,11 @@
 }
 
 .links {
-  color: #5c5c5c;
+  color: var(--links);
   font-size: 12px;
   font-weight: bolder;
   font-family: 'Assistant', 'sans-serif';
   text-decoration: none;
-}
-
-.more-questions {
-  font-family: 'Assistant', 'sans-serif';
-  font-weight: bold;
-  color: #5c5c5c;
-}
-
-
-.source {
-  color: #8c8c8c;
-  font-size: small;
-  font-weight: bolder;
-  font-family: 'Assistant', 'sans-serif';
-}
-
-.source a {
-  color: #5c5c5c
 }
 
 #others:last-child {
@@ -184,25 +288,25 @@
 .artado-result-card .result-title {
   font-size: 20px;
   font-weight: bold;
-  color: #5c5c5c;
+  color: var(--result-title);
   font-family: 'assistant', sans-serif;
 }
 
 .artado-result-card .result-header {
   float: right;
-  color: #5c5c5c;
+  color: var(--result-header);
   margin-top: 10px;
   cursor: pointer;
 }
 
 .artado-result-card .result-desc {
   font-size: 13px;
-  color: #7c7c7c;
+  color: var(--result-desc);
 }
 
 .artado-result-card .result-url {
   font-size: 13px;
-  color: #8c8c8c;
+  color: var(--result-url);
   margin-bottom: -15px;
 }
 
@@ -216,7 +320,7 @@
 .artado-result-card .result-subtitle .subtitle {
   font-size: 15px;
   border-bottom: 1px solid rgba(91, 91, 91, 0.56);
-  color: #6b6b6b;
+  color: var(--subtitle);
   font-family: 'assistant', sans-serif;
   padding-bottom: 1px;
   margin-bottom: 10px;
@@ -227,7 +331,7 @@
 
 .artado-result-card .result-subtitle .desc {
   font-size: 13px;
-  color: #7c7c7c;
+  color: var(--desc);
 }
 
 .animation {
@@ -271,8 +375,8 @@
 }
 
 .search-types .search-buttons.active {
-  color: #3c3c3c;
-  border-bottom: 0.01rem solid #1c1c1c;
+  color: var(--search-buttons_hover);
+  border-bottom: 0.01rem solid var(--search-buttons-active);
 }
 
 @media only screen and (max-width: 600px) {

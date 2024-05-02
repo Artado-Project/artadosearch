@@ -14,23 +14,15 @@ const Root = () => {
     const [darkMode, setDarkMode] = useState(checkTheme());
     const { defaultAlgorithm, darkAlgorithm } = theme;
 
-    useEffect(() => {
-        const isDark = checkTheme();
-        setDarkMode(isDark);
-    }, []);
-
+    // setting prefer-scheme to dark
     useEffect(() => {
         if (darkMode) {
-            import('./assets/css/_ArtadoNight.module.css').then(() => {
-                console.log('Dark mode stylesheet loaded');
-            });
+            document.documentElement.setAttribute('data-theme', 'dark');
         } else {
-            /*
-            import('./lightMode.scss').then(() => {
-                console.log('Light mode stylesheet loaded');
-            }); */
+            document.documentElement.setAttribute('data-theme', 'light');
         }
     }, [darkMode]);
+
 
     return (
         <React.StrictMode>
