@@ -4,16 +4,6 @@ import {Modal} from 'antd';
 const language = localStorage.getItem('language') ?? 'en';
 const languageData = require(`./../../language/${language}/index-page.json`);
 
-const headerStyle = {
-    fontWeight: 600,
-    color: '#000000',
-    fontFamily: 'Assistant',
-    lineHeight: '1.5',
-    marginBottom: '1.5rem',
-    borderLeft: '1px solid #3c3c3c',
-    paddingLeft: '10px',
-}
-
 const ArtadoSection: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
