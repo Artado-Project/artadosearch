@@ -37,7 +37,7 @@
   --result-url: #8c8c8c;
   --desc: #7c7c7c;
   --subtitle: #6b6b6b;
-  --search-buttons-active: #8c8c8c;
+  --search-buttons-active: #d0d0d0;
   --modal-color: #8c8c8c;
   --modal-border-top: #3c3c3c;
   --summary-subtitle: #64a2ff;
@@ -373,7 +373,7 @@ body {
 }
 
 .search-types .search-buttons.active {
-  color: var(--search-buttons_hover);
+  color: var(--search-buttons-active);
   border-bottom: 0.01rem solid var(--search-buttons-active);
 }
 
