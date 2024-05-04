@@ -74,7 +74,7 @@ const about: React.FC = () => {
                 </div>
                 <br /><br />
                 <h2 className="bordered-subtitle">{languageData.contributing}</h2>
-                {languageData.contributing_content} <a href={'https://github.com/Artado-Project/artadosearch/blob/main/CONTRIBUTING.md'}>contributing guidelines</a>.
+                {languageData.contributing_content} <a className={'link'} href={'https://github.com/Artado-Project/artadosearch/blob/main/CONTRIBUTING.md'}>contributing guidelines</a>.
                 <br /><br />
             </div>
         </>

@@ -382,6 +382,10 @@ body {
   padding-left: 10px;
 }
 
+.link {
+  color: var(--summary-subtitle)
+}
+
 .search-types .search-buttons.active {
   color: var(--search-buttons-active);
   border-bottom: 0.01rem solid var(--search-buttons-active);
