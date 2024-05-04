@@ -48,25 +48,25 @@ const ArtadoSection: React.FC = () => {
             </div>
             <Modal title={languageData.modal.title} footer={null} onCancel={onModalCancel} open={isModalOpen}>
                 <div style={{ maxHeight: 350, overflowX: 'auto' }}>
-                    <h3 style={headerStyle}>
+                    <h3 className={'modal-style'}>
                         {languageData.modal.title_1} &nbsp; 🤔
                     </h3>
                     <p>
                         {languageData.modal.content_1}
                     </p>
-                    <h3 style={headerStyle}>
+                    <h3 className={'modal-style'}>
                         {languageData.modal.title_2} &nbsp; 🎨
                     </h3>
                     <p>
                         {languageData.modal.content_2}
                     </p>
-                    <h3 style={headerStyle}>
+                    <h3 className={'modal-style'}>
                         {languageData.modal.title_3} &nbsp; 📚
                     </h3>
                     <p>
                         {languageData.modal.content_3}
                     </p>
-                    <h3 style={headerStyle}>
+                    <h3 className={'modal-style'}>
                         {languageData.modal.title_4} &nbsp; 🔒
                     </h3>
                     <p>

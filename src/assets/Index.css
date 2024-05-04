@@ -372,6 +372,16 @@ body {
   line-height: 25px;
 }
 
+.modal-style {
+  font-weight: 600;
+  color: var(--search-buttons-active);
+  font-family: "Assistant", "Arial", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  border-left: 1px solid var(--bordered-subtitle);
+  padding-left: 10px;
+}
+
 .search-types .search-buttons.active {
   color: var(--search-buttons-active);
   border-bottom: 0.01rem solid var(--search-buttons-active);
