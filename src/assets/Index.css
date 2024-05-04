@@ -23,28 +23,26 @@
   --artado-container-color: #3c3c3c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: rgb(20, 20, 20);
-    --bordered-subtitle: #8c8c8c;
-    --search-types: #3c3c3c;
-    --search-buttons: #8c8c8c;
-    --footer-content: #8c8c8c;
-    --search-buttons_hover: #3c3c3c;
-    --links: #5c5c5c;
-    --result-title: #9c9c9c;
-    --result-header: #7c7c7c;
-    --result-desc: #9c9c9c;
-    --result-url: #8c8c8c;
-    --desc: #7c7c7c;
-    --subtitle: #6b6b6b;
-    --search-buttons-active: #8c8c8c;
-    --modal-color: #8c8c8c;
-    --modal-border-top: #3c3c3c;
-    --summary-subtitle: #64a2ff;
-    --wiki-title: #9c9c9c;
-    --artado-container-color: #9c9c9c;
-  }
+[data-theme="dark"] {
+  --background-color: rgb(20, 20, 20);
+  --bordered-subtitle: #8c8c8c;
+  --search-types: #3c3c3c;
+  --search-buttons: #8c8c8c;
+  --footer-content: #8c8c8c;
+  --search-buttons_hover: #3c3c3c;
+  --links: #5c5c5c;
+  --result-title: #9c9c9c;
+  --result-header: #7c7c7c;
+  --result-desc: #9c9c9c;
+  --result-url: #8c8c8c;
+  --desc: #7c7c7c;
+  --subtitle: #6b6b6b;
+  --search-buttons-active: #8c8c8c;
+  --modal-color: #8c8c8c;
+  --modal-border-top: #3c3c3c;
+  --summary-subtitle: #64a2ff;
+  --wiki-title: #9c9c9c;
+  --artado-container-color: #9c9c9c;
 }
 
 #textContainer {
