@@ -1,5 +1,6 @@
 @import "css/_ArtadoGrid.css";
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300&family=Open+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
   --background-color: white;
@@ -103,6 +104,12 @@ body {
 
 .font__assistant {
   font-family: "Assistant", "Arial", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font__source-code-pro {
+  font-family: "Source Code Pro", "Arial", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -263,6 +270,14 @@ body {
 .title {
   font-family: 'Assistant', 'sans-serif';
   font-weight: bold;
+}
+
+.centered {
+  position: absolute;
+  top: 30%;
+  transform: translate(0, -30%);
+  left: 50%;
+  padding: 10px;
 }
 
 .space-between {
