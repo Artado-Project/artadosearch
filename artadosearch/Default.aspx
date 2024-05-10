@@ -43,6 +43,14 @@
                       class="bi bi-search"></i></button>
                 </div>
               </div>
+                <asp:Repeater ID="Tiles" runat="server">
+                    <ItemTemplate>
+                        <div>
+                            <img src='<%# Eval("image") %>'/><br />
+                            <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
             <div id="save" runat="server" class="save">

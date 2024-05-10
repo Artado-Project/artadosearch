@@ -14,6 +14,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Drawing;
 using Newtonsoft.Json.Linq;
+using System.Data;
+using Newtonsoft.Json;
+using System.Collections;
 
 namespace artadosearch
 {
@@ -264,6 +267,57 @@ namespace artadosearch
                     //             new System.Web.UI.LiteralControl("<script>" + Server.UrlDecode(customjs.Value) + "</script>"));
                     //}
                 }
+
+                //sorry guys we need money :(
+                #region Ads
+                //Personalized Ads
+                HttpCookie ad_id = new HttpCookie("ad_id");
+                string id;
+                if(ad_id != null && ad_id.Value != null)
+                {
+                    id = ad_id.Value;
+                }
+                else if (Session["ad_id"] != null)
+                {
+                    id = Session["ad_id"].ToString();
+                }
+                else
+                {
+                    id = Guid.NewGuid().ToString();
+                    Session["ad_id"] = id;
+                }
+
+                //Region (we use lang instead)
+                System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
+                string lang = cul.TwoLetterISOLanguageName;
+
+                HttpWebRequest request;
+                if (lang == "us" || lang == "gb" || lang == "de" || lang == "at" || lang == "ch")
+                {
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&uid=" + id + "&country=" + lang);
+                }
+                else
+                {
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&uid=" + id + "&country=us");
+                }
+                try
+                {
+                    request.Method = "GET";
+                    request.Accept = "application/json";
+                    request.Headers.Add("Authorization", "Bearer 1f5efb8315778b3eb1e7e76987efdd6c9b57e85d");
+                    WebResponse response = request.GetResponse();
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    string jsonstring = reader.ReadToEnd();
+
+                    DataTable dt = JsonConvert.DeserializeObject<DataTable>(jsonstring);
+                    Tiles.DataSource = dt;
+                    Tiles.DataBind();
+                }
+                catch(Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+                #endregion
             }
             catch
             {
