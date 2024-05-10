@@ -304,7 +304,7 @@ namespace artadosearch
                 {
                     request.Method = "GET";
                     request.Accept = "application/json";
-                    request.Headers.Add("Authorization", "Bearer 1f5efb8315778b3eb1e7e76987efdd6c9b57e85d");
+                    request.Headers.Add("Authorization", "Bearer 20886527687ccf7141968ad1f58a8de0c40749fc");
                     WebResponse response = request.GetResponse();
                     StreamReader reader = new StreamReader(response.GetResponseStream());
                     string jsonstring = reader.ReadToEnd();
