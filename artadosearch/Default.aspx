@@ -52,7 +52,7 @@
                 <div class="tiles">
                     <asp:Repeater ID="Tiles" runat="server">
                         <ItemTemplate>
-                            <a class="sponsored_link" href='<%# Eval("displayUrl") %>' data-url='<%# Eval("url") %>'>
+                            <a class="links" href='<%# Eval("displayUrl") %>' data-url='<%# Eval("url") %>'>
                                 <img src='<%# Eval("image") %>'/>
                                 <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
                             </a>
@@ -196,7 +196,7 @@
     </form>
     <script src="/js/autocomplete.js"></script>
     <script type="text/javascript">
-        const links = document.querySelectorAll('.sponsored_link');
+        const links = document.querySelectorAll('.links');
         links.forEach(link => {
             const realUrl = link.getAttribute('data-url');
 

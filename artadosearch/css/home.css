@@ -235,7 +235,7 @@ input:focus {
         margin-top: 20px
     }
 
-    .sponsored_link {
+    .links {
         width: 80px;
         height: 100px;
         overflow: hidden;
@@ -245,7 +245,7 @@ input:focus {
         display: inline-block !important;
     }
 
-        .sponsored_link img{
+        .links img{
             width: 50px;
             margin-right: auto;
             margin-left: auto;
@@ -450,7 +450,7 @@ input:focus {
         padding: 0 0 0 15px
     }
 
-    .sponsored_link {
+    .links {
         width: 15vw;
         height: 100px;
         overflow: hidden;
@@ -460,7 +460,7 @@ input:focus {
         display: inline-block !important;
     }
 
-        .sponsored_link img {
+        .links img {
             width: 45px;
             margin-right: auto;
             margin-left: auto;
