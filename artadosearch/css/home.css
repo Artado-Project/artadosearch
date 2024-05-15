@@ -212,6 +212,45 @@ input:focus {
     #savetxt {
         display: inline
     }
+
+    .sponsors{
+        margin-top: 30px;
+    }
+
+    .tiles_header {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .tiles_header hr {
+            width: 200px;
+            display: inline;
+        }
+
+    .tiles {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px
+    }
+
+    .sponsored_link {
+        width: 80px;
+        height: 100px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        font-size: 15px;
+        text-align: center;
+        display: inline-block !important;
+    }
+
+        .sponsored_link img{
+            width: 50px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
 }
 
 @media screen and (min-width: 100px) and (max-width: 600px) {

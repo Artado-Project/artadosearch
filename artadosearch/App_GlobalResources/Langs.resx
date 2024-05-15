@@ -426,4 +426,91 @@
   <data name="Video" xml:space="preserve">
     <value>Video</value>
   </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Privacy Policy - Artado Search</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Privacy Policy - Artado Search</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Last Updated: 16.04.2024</value>
+  </data>
+  <data name="Intro" xml:space="preserve">
+    <value>Artado is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information.</value>
+  </data>
+  <data name="InfoWeCollect" xml:space="preserve">
+    <value>1. Information We Collect</value>
+  </data>
+  <data name="UserProvidedInfo" xml:space="preserve">
+    <value>User-Provided Information: We only collect personal information that you willingly provide to us, such as your email address when you sign up for our services or newsletters. We may also collect further information upon lawful requests made by government or legislative authorities.</value>
+  </data>
+  <data name="AnonymousInfo" xml:space="preserve">
+    <value>Anonymous Information by Business Partners: Our business partners may collect certain anonymous information through our services, such as anonymous IDs and search queries. This information helps improve their services and provide relevant advertisements.</value>
+  </data>
+  <data name="UseOfInfo" xml:space="preserve">
+    <value>2. Use of Information</value>
+  </data>
+  <data name="UseUserProvidedInfo" xml:space="preserve">
+    <value>User-Provided Information: Any personal information you provide is used solely for the purpose you provided it for, such as receiving newsletters or updates from Artado.</value>
+  </data>
+  <data name="UseAnonymousInfo" xml:space="preserve">
+    <value>Anonymous Information: Anonymous information collected by our business partners may be used for analytics, improving services, and delivering personalized advertisements.</value>
+  </data>
+  <data name="SearchData" xml:space="preserve">
+    <value>3. Search Data</value>
+  </data>
+  <data name="NoStorageByArtado" xml:space="preserve">
+    <value>No Storage by Artado: Artado does not store any search queries made by users.</value>
+  </data>
+  <data name="ThirdPartyCollection" xml:space="preserve">
+    <value>Third-Party Collection: Our business partners and result providers may collect and store anonymous search queries to improve their services and for analytics purposes. If user only use Artado results and disable the advertisements from settings no one can know what user searched.</value>
+  </data>
+  <data name="Advertising" xml:space="preserve">
+    <value>4. Advertising</value>
+  </data>
+  <data name="UniqueUserId" xml:space="preserve">
+    <value>Unique User ID: We assign a unique ID to each user for the purpose of delivering ads. This ID is deleted when you close Artado Search unless you specifically choose to retain it.</value>
+  </data>
+  <data name="DataProtection" xml:space="preserve">
+    <value>5. Data Protection and Security</value>
+  </data>
+  <data name="SecurityMeasures" xml:space="preserve">
+    <value>We implement industry-standard security measures to protect your personal information. However, please note that no method of transmission over the internet or electronic storage is completely secure.</value>
+  </data>
+  <data name="UserRights" xml:space="preserve">
+    <value>6. User Rights</value>
+  </data>
+  <data name="RightsExplanation" xml:space="preserve">
+    <value>Under the KVKK(Turkish Personal Data Protection Law), you have the following rights regarding your personal data:</value>
+  </data>
+  <data name="AccessRight" xml:space="preserve">
+    <value>Access: You can request access to the personal data we hold about you.</value>
+  </data>
+  <data name="CorrectionRight" xml:space="preserve">
+    <value>Correction: You can request corrections to any inaccurate or incomplete data.</value>
+  </data>
+  <data name="DeletionRight" xml:space="preserve">
+    <value>Deletion: You can request the deletion of your personal data, subject to certain legal requirements.</value>
+  </data>
+  <data name="ObjectionRight" xml:space="preserve">
+    <value>Objection: You can object to the processing of your personal data in certain circumstances.</value>
+  </data>
+  <data name="ContactRights" xml:space="preserve">
+    <value>To exercise any of these rights, please contact us at arda@artadosearch.com.</value>
+  </data>
+  <data name="PolicyChanges" xml:space="preserve">
+    <value>7. Changes to This Privacy Policy</value>
+  </data>
+  <data name="PolicyChangesDetails" xml:space="preserve">
+    <value>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes.</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>8. Contact Us</value>
+  </data>
+  <data name="ContactDetails" xml:space="preserve">
+    <value>If you have any questions or concerns about this Privacy Policy, please contact us at: arda@artadosearch.com or support@artadosearch.com</value>
+  </data>
+  <data name="Agreement" xml:space="preserve">
+    <value>By using Artado Search and our other services, you agree to the terms outlined in this Privacy Policy. Thank you for trusting Artado with your privacy.</value>
+  </data>
 </root>

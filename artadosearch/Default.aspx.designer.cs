@@ -60,6 +60,15 @@ namespace artadosearch
         protected global::System.Web.UI.HtmlControls.HtmlButton searchbutton;
 
         /// <summary>
+        /// sponsor denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sponsor;
+
+        /// <summary>
         /// Tiles denetimi.
         /// </summary>
         /// <remarks>

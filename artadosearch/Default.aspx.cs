@@ -294,22 +294,22 @@ namespace artadosearch
                 HttpWebRequest request;
                 if (lang == "us" || lang == "gb" || lang == "de" || lang == "at" || lang == "ch")
                 {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&uid=" + id + "&country=" + lang);
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + lang);
                 }
                 else
                 {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&uid=" + id + "&country=us");
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=us");
                 }
                 try
                 {
                     request.Method = "GET";
                     request.Accept = "application/json";
-                    request.Headers.Add("Authorization", "Bearer 20886527687ccf7141968ad1f58a8de0c40749fc");
+                    request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
                     WebResponse response = request.GetResponse();
                     StreamReader reader = new StreamReader(response.GetResponseStream());
                     string jsonstring = reader.ReadToEnd();
 
-                    DataTable dt = JsonConvert.DeserializeObject<DataTable>(jsonstring);
+                    DataTable dt = JsonConvert.DeserializeObject<DataTable>(JObject.Parse(jsonstring)["data"].ToString());
                     Tiles.DataSource = dt;
                     Tiles.DataBind();
                 }
