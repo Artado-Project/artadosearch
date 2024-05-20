@@ -20,6 +20,9 @@
 </head>
 <body id="searchpage" runat="server">
     <form id="form1" runat="server">
+        <!-- 100% privacy-first analytics -->
+        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
         <div class="middle">
             <div class="searchbar">
                 <a href="/">

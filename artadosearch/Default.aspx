@@ -31,6 +31,9 @@
 </head>
 <body id="homepage" runat="server">
     <form id="form1" runat="server">
+        <!-- 100% privacy-first analytics -->
+        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
         <div class="middle">
             <div class="flex flex-col items-center">
               <div class="flex items-end" style="margin-top: 150px; margin-bottom: 30px">
