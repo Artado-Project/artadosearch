@@ -4,6 +4,7 @@ using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.IO;
+using System.Net;
 
 namespace artadosearch
 {

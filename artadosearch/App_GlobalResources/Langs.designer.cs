@@ -88,6 +88,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Access: You can request access to the personal data we hold about you. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AccessRight {
+            get {
+                return ResourceManager.GetString("AccessRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   4. Advertising benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Advertising {
+            get {
+                return ResourceManager.GetString("Advertising", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   By using Artado Search and our other services, you agree to the terms outlined in this Privacy Policy. Thank you for trusting Artado with your privacy. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Agreement {
+            get {
+                return ResourceManager.GetString("Agreement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Anonymous Information by Business Partners: Our business partners may collect certain anonymous information through our services, such as anonymous IDs and search queries. This information helps improve their services and provide relevant advertisements. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AnonymousInfo {
+            get {
+                return ResourceManager.GetString("AnonymousInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Apply benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Apply {
@@ -313,11 +349,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   If you have any questions or concerns about this Privacy Policy, please contact us at: arda@artadosearch.com or support@artadosearch.com benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ContactDetails {
+            get {
+                return ResourceManager.GetString("ContactDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   To exercise any of these rights, please contact us at arda@artadosearch.com. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ContactRights {
+            get {
+                return ResourceManager.GetString("ContactRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   8. Contact Us benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cookies benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Cookies1 {
             get {
                 return ResourceManager.GetString("Cookies1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Correction: You can request corrections to any inaccurate or incomplete data. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CorrectionRight {
+            get {
+                return ResourceManager.GetString("CorrectionRight", resourceCulture);
             }
         }
         
@@ -421,6 +493,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   5. Data Protection and Security benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DataProtection {
+            get {
+                return ResourceManager.GetString("DataProtection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Default benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Default {
@@ -444,6 +525,15 @@ namespace Resources {
         internal static string Default3 {
             get {
                 return ResourceManager.GetString("Default3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Deletion: You can request the deletion of your personal data, subject to certain legal requirements. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeletionRight {
+            get {
+                return ResourceManager.GetString("DeletionRight", resourceCulture);
             }
         }
         
@@ -574,6 +664,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   1. Information We Collect benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InfoWeCollect {
+            get {
+                return ResourceManager.GetString("InfoWeCollect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Artado is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Intro {
+            get {
+                return ResourceManager.GetString("Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   IT benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string IT {
@@ -642,6 +750,15 @@ namespace Resources {
         internal static string Lang_exp {
             get {
                 return ResourceManager.GetString("Lang_exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Last Updated: 16.04.2024 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LastUpdated {
+            get {
+                return ResourceManager.GetString("LastUpdated", resourceCulture);
             }
         }
         
@@ -745,6 +862,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   No Storage by Artado: Artado does not store any search queries made by users. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoStorageByArtado {
+            get {
+                return ResourceManager.GetString("NoStorageByArtado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Objection: You can object to the processing of your personal data in certain circumstances. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ObjectionRight {
+            get {
+                return ResourceManager.GetString("ObjectionRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Old Logo benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Old {
@@ -759,6 +894,33 @@ namespace Resources {
         internal static string OpenSource {
             get {
                 return ResourceManager.GetString("OpenSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Privacy Policy - Artado Search benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PageTitle {
+            get {
+                return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   7. Changes to This Privacy Policy benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PolicyChanges {
+            get {
+                return ResourceManager.GetString("PolicyChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PolicyChangesDetails {
+            get {
+                return ResourceManager.GetString("PolicyChangesDetails", resourceCulture);
             }
         }
         
@@ -853,11 +1015,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Under the KVKK(Turkish Personal Data Protection Law), you have the following rights regarding your personal data: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RightsExplanation {
+            get {
+                return ResourceManager.GetString("RightsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Russian benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Russian {
             get {
                 return ResourceManager.GetString("Russian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   3. Search Data benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SearchData {
+            get {
+                return ResourceManager.GetString("SearchData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   We implement industry-standard security measures to protect your personal information. However, please note that no method of transmission over the internet or electronic storage is completely secure. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SecurityMeasures {
+            get {
+                return ResourceManager.GetString("SecurityMeasures", resourceCulture);
             }
         }
         
@@ -934,6 +1123,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Third-Party Collection: Our business partners and result providers may collect and store anonymous search queries to improve their services and for analytics purposes. If user only use Artado results and disable the advertisements from settings no one can know what user searched. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ThirdPartyCollection {
+            get {
+                return ResourceManager.GetString("ThirdPartyCollection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Privacy Policy - Artado Search benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Top benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Top {
@@ -966,6 +1173,60 @@ namespace Resources {
         internal static string Ukrainian {
             get {
                 return ResourceManager.GetString("Ukrainian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Unique User ID: We assign a unique ID to each user for the purpose of delivering ads. This ID is deleted when you close Artado Search unless you specifically choose to retain it. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UniqueUserId {
+            get {
+                return ResourceManager.GetString("UniqueUserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Anonymous Information: Anonymous information collected by our business partners may be used for analytics, improving services, and delivering personalized advertisements. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UseAnonymousInfo {
+            get {
+                return ResourceManager.GetString("UseAnonymousInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   2. Use of Information benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UseOfInfo {
+            get {
+                return ResourceManager.GetString("UseOfInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   User-Provided Information: We only collect personal information that you willingly provide to us, such as your email address when you sign up for our services or newsletters. We may also collect further information upon lawful requests made by government or legislative authorities. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UserProvidedInfo {
+            get {
+                return ResourceManager.GetString("UserProvidedInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   6. User Rights benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UserRights {
+            get {
+                return ResourceManager.GetString("UserRights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   User-Provided Information: Any personal information you provide is used solely for the purpose you provided it for, such as receiving newsletters or updates from Artado. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UseUserProvidedInfo {
+            get {
+                return ResourceManager.GetString("UseUserProvidedInfo", resourceCulture);
             }
         }
         

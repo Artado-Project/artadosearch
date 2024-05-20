@@ -20,6 +20,7 @@ namespace artadosearch
             url.MapPageRoute("themes", "settings/themes", "~/Settings_Pages/themes.aspx");
             url.MapPageRoute("ext", "settings/extensions", "~/Settings_Pages/Extensions.aspx");
             url.MapPageRoute("profiles", "settings/profiles", "~/Settings_Pages/Profiles.aspx");
+            url.MapPageRoute("privacy", "privacy", "~/Settings_Pages/Privacy.aspx");
             url.MapPageRoute("stats", "settings/stats", "~/settings.aspx");
             url.MapPageRoute("workshop", "workshop", "~/Workshop/Default.aspx");
             url.MapPageRoute("product", "workshop/{id}", "~/Workshop/ProductPage.aspx");

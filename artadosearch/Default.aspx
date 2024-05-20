@@ -33,7 +33,7 @@
     <form id="form1" runat="server">
         <div class="middle">
             <div class="flex flex-col items-center">
-              <div class="flex items-end" style="margin-top: 150px; margin-bottom: 30px">
+              <div class="flex items-end" style="margin-top: 15vh; margin-bottom: 30px">
                 <img class="h-44" id="Image1" runat="server" alt="artado search logo">
               </div>
               <div id="searchbar" class="searchbar shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
@@ -43,6 +43,23 @@
                       class="bi bi-search"></i></button>
                 </div>
               </div>
+              <div class="sponsors">
+                <div class="tiles_header">
+                    <hr />
+                    <asp:Label ID="sponsor" runat="server" Text="Sponsored"></asp:Label>
+                    <hr />
+                </div>
+                <div class="tiles">
+                    <asp:Repeater ID="Tiles" runat="server">
+                        <ItemTemplate>
+                            <a class="links" href='<%# Eval("displayUrl") %>' data-url='<%# Eval("url") %>'>
+                                <img src='<%# Eval("image") %>'/>
+                                <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+              </div>  
             </div>
 
             <div id="save" runat="server" class="save">
@@ -122,7 +139,7 @@
                         <asp:Label ID="Label9" runat="server" Text="<%$Resources:Langs, Forum %>"></asp:Label></a><br><br />
                     <a href="/Manifest">
                         <asp:Label ID="Label8" runat="server" Text="<%$Resources:Langs, Manifest %>"></asp:Label></a><br><br />
-                    <a href="https://myacc.artado.xyz/privacy">
+                    <a href="/privacy">
                         <asp:Label ID="Label0" runat="server" Text="<%$Resources:Langs, Privacy %>"></asp:Label></a><br><br />
                     <a href="https://devs.artado.xyz/"><asp:Label ID="Label13" runat="server" Text="Developers"></asp:Label></a><br><br />
                     <a href="https://github.com/Artado-Project/artadosearch"><asp:Label ID="Label12" runat="server" Text="Github"></asp:Label></a><br><br />
@@ -178,5 +195,16 @@
         </div>
     </form>
     <script src="/js/autocomplete.js"></script>
+    <script type="text/javascript">
+        const links = document.querySelectorAll('.links');
+        links.forEach(link => {
+            const realUrl = link.getAttribute('data-url');
+
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                window.location.href = realUrl;
+            });
+        });
+    </script>
 </body>
 </html>

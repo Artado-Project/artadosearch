@@ -13,7 +13,7 @@
     <script src="/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/js/mdb.min.js"></script>
-    <script src="/js/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js"></script>
     <link rel="stylesheet" href="/fonts/ibm-plex-sans/ibm-plex-sans.css" />
     <link rel="stylesheet" href="/styles/theme-white.css" />
     <link rel="stylesheet" href="/components/headerbar/headerbar.css" />
