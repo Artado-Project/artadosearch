@@ -137,6 +137,7 @@
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />
     <Content Include="Settings_Pages\Extensions.aspx" />
+    <Content Include="Settings_Pages\Privacy.aspx" />
     <Content Include="Settings_Pages\Profiles.aspx" />
     <Content Include="Settings_Pages\Themes.aspx" />
     <Content Include="Workshop\Default.aspx" />
@@ -393,6 +394,13 @@
     </Compile>
     <Compile Include="Settings_Pages\Extensions.aspx.designer.cs">
       <DependentUpon>Extensions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings_Pages\Privacy.aspx.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings_Pages\Privacy.aspx.designer.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Settings_Pages\Profiles.aspx.cs">
       <DependentUpon>Profiles.aspx</DependentUpon>
