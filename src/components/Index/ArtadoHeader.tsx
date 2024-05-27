@@ -47,7 +47,7 @@ const Options: OptionsProps = {
 
     'Blog': {
         title: languageData.blog,
-        value: '#Blog' // TODO: Add Link
+        value: '/blog'
     }
 }
 

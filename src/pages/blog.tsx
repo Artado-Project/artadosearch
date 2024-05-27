@@ -112,6 +112,8 @@ const Blog: React.FC = () => {
                             <Tag>Latest blog post</Tag>
                         </div>
                     </div>
+                    <b className={'font__assistant bordered-subtitle'}>What is the Quantum Mechanics?</b>
+                    <br />
                     <Image
                         height={300}
                         width={'100%'}

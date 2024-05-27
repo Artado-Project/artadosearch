@@ -8,8 +8,7 @@ import About from './pages/about';
 import Help from './pages/help';
 import PrivacyPolicy from "./pages/privacy-policy";
 import Donation from "./pages/donation";
-
-// Errors
+import Blog from "./pages/blog";
 import Error404 from './pages/errors/404';
 
 function App() {
@@ -25,6 +24,7 @@ function App() {
                   <Route path={'/about'} element={<About />} />
                   <Route path={'/help'} element={<Help />} />
                   <Route path={'/privacy-policy'} element={<PrivacyPolicy />} />
+                  <Route path={'/blog'} element={<Blog />} />
                   <Route path={'*'} element={<Error404 />} />
               </Routes>
           </Router>
