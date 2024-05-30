@@ -289,8 +289,16 @@ namespace artadosearch
                 }
 
                 //Region (we use lang instead)
-                System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
-                string countrycode = cul.TwoLetterISOLanguageName;
+                string[] userLanguages = Request.UserLanguages;
+                string primaryLanguage = userLanguages != null && userLanguages.Length > 0 ? userLanguages[0] : "us";
+                string countrycode = primaryLanguage.Length > 3 && 
+                                     (primaryLanguage.StartsWith("en") || primaryLanguage.StartsWith("de") || primaryLanguage.StartsWith("zh")) 
+                                     ? primaryLanguage.Substring(3).ToLower() : primaryLanguage.Substring(0, 2);
+
+                if (countrycode == "cn")
+                {
+                    countrycode = "ch";
+                }
 
                 HttpWebRequest request;
                 if (countrycode == "us" || countrycode == "gb" || countrycode == "de" || countrycode == "at" || countrycode == "ch" || countrycode == "tr")

@@ -9,8 +9,8 @@ namespace artadosearch
     {
         public static void Culture()
         {
-            System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
-            string lang = cul.TwoLetterISOLanguageName;
+            string[] userLanguages = HttpContext.Current.Request.UserLanguages;
+            string lang = userLanguages != null && userLanguages.Length > 0 ? userLanguages[0] : "en";
             HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
             if (cookielang != null && cookielang.Value != null)
             {
