@@ -46,7 +46,7 @@
                       class="bi bi-search"></i></button>
                 </div>
               </div>
-              <div class="sponsors">
+              <div id="sponsors" runat="server" class="sponsors">
                 <div class="tiles_header">
                     <hr />
                     <asp:Label ID="sponsor" runat="server" Text="Sponsored"></asp:Label>

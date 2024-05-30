@@ -17,6 +17,7 @@ using Newtonsoft.Json.Linq;
 using System.Data;
 using Newtonsoft.Json;
 using System.Collections;
+using Resources;
 
 namespace artadosearch
 {
@@ -289,33 +290,38 @@ namespace artadosearch
 
                 //Region (we use lang instead)
                 System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
-                string lang = cul.TwoLetterISOLanguageName;
+                string countrycode = cul.TwoLetterISOLanguageName;
 
                 HttpWebRequest request;
-                if (lang == "us" || lang == "gb" || lang == "de" || lang == "at" || lang == "ch")
+                if (countrycode == "us" || countrycode == "gb" || countrycode == "de" || countrycode == "at" || countrycode == "ch" || countrycode == "tr")
                 {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + lang);
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
+                    try
+                    {
+                        request.Method = "GET";
+                        request.Accept = "application/json";
+                        request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
+                        WebResponse response = request.GetResponse();
+                        StreamReader reader = new StreamReader(response.GetResponseStream());
+                        string jsonstring = reader.ReadToEnd();
+
+                        DataTable dt = JsonConvert.DeserializeObject<DataTable>(JObject.Parse(jsonstring)["data"].ToString());
+                        Tiles.DataSource = dt;
+                        Tiles.DataBind();
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.ToString());
+                    }
                 }
                 else
                 {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=us");
-                }
-                try
-                {
+                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
                     request.Method = "GET";
                     request.Accept = "application/json";
                     request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
                     WebResponse response = request.GetResponse();
-                    StreamReader reader = new StreamReader(response.GetResponseStream());
-                    string jsonstring = reader.ReadToEnd();
-
-                    DataTable dt = JsonConvert.DeserializeObject<DataTable>(JObject.Parse(jsonstring)["data"].ToString());
-                    Tiles.DataSource = dt;
-                    Tiles.DataBind();
-                }
-                catch(Exception ex)
-                {
-                    Response.Write(ex.ToString());
+                    sponsors.Visible = false;
                 }
                 #endregion
             }
