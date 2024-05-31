@@ -298,6 +298,20 @@ body {
   margin-bottom: 0;
 }
 
+.artado-result-card {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.artado-result-card:first-child {
+    margin-top: 0;
+}
+
+.artado-result-card:last-child {
+    margin-bottom: 0;
+}
+
+
 .artado-result-card .result-title {
   font-size: 20px;
   font-weight: bold;
