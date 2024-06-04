@@ -11,6 +11,7 @@ function PrivacyPolicy() {
                     <Button
                         type={'default'}
                         href={'/'}
+                        style={{ textDecoration: 'none' }}
                     >
                         Home
                     </Button>

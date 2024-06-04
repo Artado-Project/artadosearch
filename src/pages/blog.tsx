@@ -85,6 +85,7 @@ const Blog: React.FC = () => {
                 <Button
                     type={'default'}
                     href={'/'}
+                    style={{ textDecoration: 'none' }}
                 >
                     Home
                 </Button>

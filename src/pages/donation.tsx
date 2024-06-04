@@ -13,8 +13,9 @@ const donation: React.FC = () => {
                     <Button
                         type={'default'}
                         href={'/'}
+                        style={{ textDecoration: 'none' }}
                     >
-                        {languageData.home}
+                        { languageData.home }
                     </Button>
                 </div>
                 <br/>

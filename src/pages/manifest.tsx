@@ -14,6 +14,7 @@ function Manifest() {
                     <Button
                         type={'default'}
                         href={'/'}
+                        style={{ textDecoration: 'none' }}
                     >
                         { languageData.home }
                     </Button>
