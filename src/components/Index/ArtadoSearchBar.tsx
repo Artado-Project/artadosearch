@@ -13,40 +13,6 @@ const getInputClassName = () => {
     input.item(0)?.setAttribute('style', 'border-radius: 60px !important');
 }
 
-declare global {
-    interface Window {
-        SpeechRecognition: any,
-        webkitSpeechRecognition: any,
-        mozSpeechRecognition: any,
-        msSpeechRecognition: any,
-    }
-}
-
-const recognition = () => {
-    const start = document.getElementById('speech');
-    const out = document.getElementById('searchInput');
-
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-    recognition.lang = 'en-US';
-
-    recognition.onstart = () => {
-        console.log('listening...');
-    };
-
-    recognition.onresult = (event: any) => {
-        const transcript = event.results[0][0].transcript;
-        out!.textContent = transcript;
-    };
-
-    recognition.onend = () => {
-        console.log('listening end');
-    };
-
-    start!.addEventListener('click', () => {
-        recognition.start();
-    });
-}
-
 const ArtadoSearchBar: React.FC = () => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [isMobile, setIsMobile] = useState(false);

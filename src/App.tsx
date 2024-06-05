@@ -2,12 +2,14 @@ import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from './pages';
 import Search from './pages/search';
-import Manifest from './pages/manifest';
+
+// Static Pages
+import Manifest from './pages/statics/manifest';
 import Settings from './pages/settings';
-import About from './pages/about';
-import Help from './pages/help';
-import PrivacyPolicy from "./pages/privacy-policy";
-import Donation from "./pages/donation";
+import About from './pages/statics/about';
+import Help from './pages/statics/help';
+import PrivacyPolicy from "./pages/statics/privacy-policy";
+import Donation from "./pages/statics/donation";
 import Blog from "./pages/blog";
 import Error404 from './pages/errors/404';
 

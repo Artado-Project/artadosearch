@@ -2,7 +2,7 @@ import React from "react";
 import {Avatar, Button, Card} from "antd";
 
 const language = localStorage.getItem('language') ?? 'en';
-const languageData = require(`./../language/${language}/about-page.json`);
+const languageData = require(`./../../language/${language}/about-page.json`);
 
 const about: React.FC = () => {
     const teamMembers = [

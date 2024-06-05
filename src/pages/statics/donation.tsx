@@ -2,7 +2,7 @@ import React from "react";
 import {Button} from "antd";
 
 const language = localStorage.getItem('language') ?? 'en';
-const languageData = require(`./../language/${language}/donation-page.json`);
+const languageData = require(`./../../language/${language}/donation-page.json`);
 
 const donation: React.FC = () => {
     return (

@@ -1,9 +1,9 @@
 import React from "react";
-import './../assets/Index.css';
+import '../../assets/Index.css';
 import { Button } from "antd";
 
 const language = localStorage.getItem('language') ?? 'en';
-const languageData = require(`./../language/${language}/manifest-page.json`);
+const languageData = require(`./../../language/${language}/manifest-page.json`);
 
 function Manifest() {
     return (

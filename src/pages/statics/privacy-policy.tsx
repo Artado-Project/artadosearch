@@ -1,5 +1,5 @@
 import React from "react";
-import './../assets/Index.css';
+import '../../assets/Index.css';
 import { Button } from "antd";
 
 function PrivacyPolicy() {
