@@ -319,7 +319,7 @@ namespace artadosearch
                     }
                     catch (Exception ex)
                     {
-                        Response.Write(ex.ToString());
+                        sponsors.Visible = false;
                     }
                 }
                 else
