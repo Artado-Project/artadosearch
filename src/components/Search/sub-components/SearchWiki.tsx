@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from "react-dom";
 import {Segmented, Divider, Button} from 'antd';
-import { searchWikipedia } from "../../backend/api/wikipedia/wikipedia";
+import { searchWikipedia } from "../../../backend/api/wikipedia/wikipedia";
 import SearchOpenStreetMap from "./SearchOpenStreetMap";
 import { SegmentedValue } from 'antd/es/segmented';
 

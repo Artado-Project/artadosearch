@@ -5,7 +5,7 @@ import { OSM, Vector as VectorSource } from 'ol/source';
 import Point from 'ol/geom/Point';
 import { Interaction } from 'ol/interaction';
 import 'ol/ol.css';
-import '../../assets/Index.css';
+import '../../../assets/Index.css';
 
 const SearchOpenStreetMap: React.FC = () => {
     const [map, setMap] = useState<Map | null>(null);

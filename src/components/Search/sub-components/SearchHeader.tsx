@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {Input} from "antd";
 import { useNavigate } from "react-router-dom";
-import ArtadoHeader from "../Index/ArtadoHeader";
+import ArtadoHeader from "../../Index/ArtadoHeader";
 
 const searchParams = new URLSearchParams(window.location.search);
 const search = searchParams.get('q');
+const type = searchParams.get('type');
 
 const theme = localStorage.getItem('theme');
 
-const items = [
+
+const webItems = [
     {
         key: 1,
         label: 'web',
@@ -149,17 +151,17 @@ const SearchHeader: React.FC = () => {
                 )}
             </div>
             <div className={'search-types'} style={{paddingRight: 0}}>
-                {items.map((item) => (
+                {webItems.map((item) => (
                     <a
                         key={item.key}
                         href={item.url}
-                        className={item.key === 1 ? 'search-buttons active' : 'search-buttons'}
+                        className={item.label === type ? 'search-buttons active' : 'search-buttons'}
                     >
                         {item.label}
                     </a>
                 ))}
             </div>
-        </>
+	    </>
     );
 }
 
