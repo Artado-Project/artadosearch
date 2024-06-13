@@ -13,18 +13,6 @@ function Index() {
     return (
         <>
             <div className="Artado-container is-fluid" style={{margin: "10px"}}>
-                <Alert
-                    message={[
-                        <a href={'#'} className={'font__assistant'} style={{fontSize: 14, fontWeight: "bold", color: '#448cb2'}}>
-                            Make Artado Search your default search engine
-                        </a>
-                    ]}
-                    banner
-                    showIcon={false}
-                    type={'info'}
-                    closable
-                    style={{padding: 10, textAlign: 'center', maxWidth: '100%',  marginBottom: "20px", borderRadius: '5px' }}
-                />
                 <ArtadoHeader/>
                 <div style={{marginTop: '100px'}}>
                     <ArtadoSearchBar/>

@@ -46,6 +46,7 @@
   --artado-container-color: #9c9c9c;
 }
 
+
 #textContainer {
   color: var(--artado-container-color);
 }
@@ -102,8 +103,14 @@ body {
   font-size: 14px;
 }
 
+@font-face {
+    src: url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300&family=Open+Sans:wght@400;500&display=swap');
+    font-family: "ArtadoAssistant";
+    unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+0180-024F;
+}
+
 .font__assistant {
-  font-family: "Assistant", "Arial", sans-serif;
+  font-family: "ArtadoAssistant", "Arial", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -243,7 +250,6 @@ body {
   text-align: center;
   font-size: 12px;
   color: var(--footer-content);
-  font-weight: bold;
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 20px !important;
@@ -286,6 +292,55 @@ body {
   align-items: center;
 }
 
+.image-items {
+  max-width: 2000px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.container-item {
+  display: block;
+  height: 200px;
+  list-style: none;
+  float: left;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.Artado-image {
+  max-width: 300px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.Artado-image:last-child {
+  margin-right: 0;
+}
+
+@media all and (max-width: 600px) {
+  .container-item.container-item {
+    width: 49%;
+    height: 200px;
+  }
+  .container-item {
+    margin-right: 0 !important;
+  }
+  .container-item:nth-of-type(2n) {
+    margin-left: 5px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .container-item.container-item {
+    width: 100%;
+  }
+}
+
 .links {
   color: var(--links);
   font-size: 12px;
@@ -310,7 +365,6 @@ body {
 .artado-result-card:last-child {
     margin-bottom: 0;
 }
-
 
 .artado-result-card .result-title {
   font-size: 20px;

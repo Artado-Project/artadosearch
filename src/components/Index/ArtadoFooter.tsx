@@ -84,7 +84,7 @@ const ArtadoFooter: React.FC = () => {
                         href={FooterLinks[key].link}
                         className={'font__assistant footer-content'}
                         key={key}
-                        style={{ borderBottom: '0.01rem solid rgb(156, 156, 156)', color: '#6c6c6c' }}
+                        style={{ borderBottom: '0.01rem solid rgb(156, 156, 156)'}}
                     >
                         {FooterLinks[key].title}
                     </a>

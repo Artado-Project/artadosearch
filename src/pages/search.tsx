@@ -1,25 +1,27 @@
 import React from 'react';
-import SearchHeader from '../components/Search/SearchHeader';
-import SearchWiki from "../components/Search/SearchWiki";
-import SearchResult from "../components/Search/SearchResult";
+import SearchHeader from '../components/Search/sub-components/SearchHeader';
+import SearchIndex from "../components/Search/SearchIndex";
+import SearchImage from "../components/Search/SearchImage";
 
-import './../assets/Index.css';
+const Search: React.FC = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const search = urlParams.get('type');
 
-function Search() {
-  return (
-    <div className={'Artado-container is-fluid'} style={{ margin: '10px' }}>
-      <SearchHeader />
-      <div className={'Artado-row'} style={{ marginTop: 15 }}>
-          <div className={'column-xs-12 column-sm-12 column-md-7 column-lg-7 column-xl-7'} id={'responsive-end'}>
-              <SearchResult />
-          </div>
-          <div className={'column-xs-12 column-sm-12 column-md-1 column-lg-1 column-xl-1'} id={'responsive-none'}></div>
-          <div className={'column-xs-12 column-sm-12 column-md-4 column-lg-4 column-xl-4'} id={'responsive-first'}>
-              <SearchWiki />
-          </div>
-      </div>
-    </div>
-  );
+    let searchContent;
+    if (search === 'images') {
+        searchContent = <SearchImage />;
+    } else {
+        searchContent = <SearchIndex />;
+    }
+
+    return (
+        <>
+            <div className={'Artado-container is-fluid'} style={{margin: "10px"}}>
+                <SearchHeader />
+                {searchContent}
+            </div>
+        </>
+    )
 }
 
 export default Search;
