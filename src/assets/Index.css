@@ -46,6 +46,25 @@
   --artado-container-color: #9c9c9c;
 }
 
+.image-title {
+  color: var(--result-title);
+}
+
+.image-buttons {
+  background-color: var(--background-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.image-buttons:hover {
+  background: var(--modal-border-top);
+}
+
 
 #textContainer {
   color: var(--artado-container-color);

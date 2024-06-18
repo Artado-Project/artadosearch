@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Divider, Drawer, Image} from "antd";
 
 /**
  * @desc This section is designed and coded experimentally, if you discover a bug you can open an issue by tagging 'yasinldev' on GitHub.
@@ -21,22 +22,23 @@ const ArtadoImageCard: React.FC<ImageProps> = ({ src, alt, onClick, title, desc}
                     alt={alt}
                     onClick={onClick}
                 />
-                <b className={'font__assistant title'} style={{ fontSize: 14 }}>{title}</b>
+                <b className={'font__assistant image-title'} style={{ fontSize: 14, marginTop: 5 }}>{title}</b>
                 <small className={'font__assistant'} style={{ fontSize: 12, color: '#7e7e7e' }}>{desc}</small>
             </div>
         </>
-    )
-        ;
+    );
 };
 
-const ImageCard: React.FC<{ onClose: () => void }> = ({onClose}) => {
-    return (
-        <h1>Hello</h1>
-    );
-}
-
 const SearchImageComp: React.FC = () => {
-    const [imageCard, setImageCard] = useState(false);
+    const [open, setOpen] = useState(false);
+
+    const showDrawer = () => {
+        setOpen(true);
+    };
+
+    const onClose = () => {
+        setOpen(false);
+    };
 
     const images = [
         {
@@ -89,25 +91,35 @@ const SearchImageComp: React.FC = () => {
         },
     ];
 
-    const imageOnClick = () => {
-        setImageCard(true);
-    }
-
     return (
         <div className="Artado-row">
-            <div className={'image-items'}>
+            <div className="image-items">
                 {images.map((image, index) => (
                     <ArtadoImageCard
                         key={index}
                         src={image.src}
                         alt={image.alt}
-                        onClick={imageOnClick}
+                        onClick={showDrawer}
                         title={image.title}
                         desc={image.desc}
                     />
                 ))}
             </div>
-            {imageCard && <ImageCard onClose={() => setImageCard(false)} />}
+            <Drawer
+                title={'Flag of Turkey'}
+                placement="right"
+                closable={true}
+                onClose={onClose}
+                visible={open}
+            >
+               <Image style={{ borderRadius: 5 }} height={250} src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png'} />
+               <div className={'image-buttons'}>Go to website</div>
+               <div className={'image-buttons'}>Share this website</div>
+               <Divider style={{ marginTop: 30 }} className={'font__assistant'}><small>website summary</small></Divider>
+               <p style={{ lineHeight: 1.8, marginTop: 30 }}>
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dolorem ducimus laborum possimus, quam quasi soluta suscipit veniam. Ab at deserunt eos et iure laboriosam libero natus necessitatibus neque nulla porro, quae quas quidem quis quisquam quos rem saepe sed sint ullam veniam veritatis voluptatem. Nam repellendus reprehenderit temporibus vel! Beatae eveniet illo illum molestiae praesentium quod soluta tenetur voluptatum?
+               </p>
+            </Drawer>
         </div>
     );
 }
