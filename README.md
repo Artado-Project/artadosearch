@@ -47,18 +47,32 @@ Also change the parameters in `Config.cs`. Copy the `Config.example.cs` to `Conf
 
 ## Contributing
 
-We welcome contributions from the community to enhance Artado Search's capabilities. If you want to contribute, please follow the [contribution guidelines](CONTRIBUTING.md).
-To contribute:
+Thank you for your interest in contributing to Artado Search! Your support is crucial to helping us build and grow a better, open, and privacy-focused search engine. There are many ways you can contribute to the project, whether you're a developer, designer, or simply someone passionate about the future of online search. If you want to contribute, please follow the [contribution guidelines](CONTRIBUTING.md). Here’s how you can help:
 
-1. Fork the repository and create a new branch from `main`.
+1. **Use Artado Search**  
+   Make Artado your default search engine and encourage others to do the same. By using Artado, you’re helping to spread our message and grow our community.
 
-2. Implement your changes, whether it's fixing issues, introducing new features, or improving existing functionality.
+2. **Donate**  
+   Support the ongoing development and maintenance of Artado by making a donation. Every contribution helps us stay independent and continue improving the platform.
+   You can donate us from [Patreon](https://www.patreon.com/artadosoft) or [Kreosus](https://kreosus.com/artadosoft).
 
-3. Ensure your changes are covered by tests, maintaining the integrity of the existing test suite.
+4. **Contribute to the Code**  
+   If you’re a developer, we’d love your help in making Artado better. Check out the open issues or suggest new features. Every line of code you contribute helps.
 
-4. Open a pull request, providing detailed insights into your changes and their purpose.
+5. **Host an Artado Proxy**  
+   Enhance the network by hosting an Artado Proxy. This helps distribute the load and increase the resilience of the search engine. [Learn more about hosting an Artado Proxy.](https://github.com/Artado-Project/ArtadoProxy)
 
-5. Engage in discussions with reviewers and maintainers to address any feedback or queries.
+6. **Help with Documentation**  
+   Great documentation is essential for any project. Help us write, improve, and maintain the documentation for Artado, making it easier for others to get involved and use the platform. [Learn more about documentations.](https://github.com/Artado-Project/artadosearch-docs)
+
+7. **Develop Themes and Extensions**  
+   Bring your creativity to Artado by developing themes and extensions. Customization is a key part of our vision, and we welcome contributions that enhance the user experience.
+
+No matter how you choose to contribute, your involvement is greatly appreciated. Together, we can build something truly special. Thank you for your support!
+
+---
+
+Feel free to adjust the tone or add any additional details that fit your project!
 
 ## Language Contributions
 
