@@ -50,7 +50,7 @@ Also change the parameters in `Config.cs`. Copy the `Config.example.cs` to `Conf
 Thank you for your interest in contributing to Artado Search! Your support is crucial to helping us build and grow a better, open, and privacy-focused search engine. There are many ways you can contribute to the project, whether you're a developer, designer, or simply someone passionate about the future of online search. If you want to contribute, please follow the [contribution guidelines](CONTRIBUTING.md). Here’s how you can help:
 
 1. **Use Artado Search**  
-   Make Artado your default search engine and encourage others to do the same. By using Artado, you’re helping to spread our message and grow our community.
+   Make Artado your default search engine and encourage others to do the same. By using Artado, you’re helping to spread our message and grow our community. You can read [this](https://github.com/Artado-Project/artadosearch-docs/blob/main/User%20Guide/User%20Guide.md#how-to-set-artado-as-your-default-search-engine) to set Artado your default search engine.
 
 2. **Donate**  
    Support the ongoing development and maintenance of Artado by making a donation. Every contribution helps us stay independent and continue improving the platform.
