@@ -16,7 +16,7 @@ Artado Search is a versatile and highly customizable search engine, designed to 
 
 - **Multi-language Support**: Artado Search supports over 20 languages out of the box. Users have the ability to contribute additional languages or correct translation errors to make the search experience more inclusive and accurate.
   
-- **Bangs**: DuckDuckGo-style [!bang syntax](https://duckduckgo.com/bangs). Artado Search supports over 70 bangs.
+- **Bangs**: Artado Search supports a powerful feature called "[Bangs](https://github.com/Artado-Project/artadosearch-docs/blob/main/User%20Guide/Bangs.md)" that allows you to quickly search specific websites directly from the search bar. Artado Search supports over 70 bangs.
 
 
 ## Getting Started
