@@ -43,7 +43,9 @@ Also change the parameters in `Config.cs`. Copy the `Config.example.cs` to `Conf
 
 4. **Build and Launch**: Utilize your preferred development environment or the command line to build the project. Once built, start the application and access the search engine via your web browser.
 
-5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](Themes_and_Extensions.md) for comprehensive guidelines.
+5. **Development**: If you're interested in creating themes or extensions for Artado Search, refer to the [Developer Documentation](https://github.com/Artado-Project/artadosearch-docs/tree/main/Developer%20Guide) for comprehensive guidelines.
+
+For more detailed selfhost documentation for [Windows](https://github.com/Artado-Project/artadosearch-docs/blob/main/Getting%20Started/Selfhost_on_Win.md), [Linux](https://github.com/Artado-Project/artadosearch-docs/blob/main/Getting%20Started/Selfhost_on_Linux.md) and [macOS](https://github.com/Artado-Project/artadosearch-docs/blob/main/Getting%20Started/Selfhost_on_Mac.md) please check the documentation.
 
 ## Contributing
 
@@ -86,7 +88,7 @@ Artado Search operates under the [AGPL v3](LICENSE) license, which mandates that
 
 ## Contact
 
-For inquiries, collaboration opportunities, or any concerns, reach out to us at [support@artadosearch.com](mailto:support@artadosearch.com).
+For inquiries, collaboration opportunities, or any concerns, reach out to us at [arda@artadosearch.com](mailto:arda@artadosearch.com).
 
 ---
 
