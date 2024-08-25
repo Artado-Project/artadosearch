@@ -54,14 +54,14 @@ namespace artadosearch
 
                     var prefix = "/url?q=";
                     var suffix = "&sa=";
-                    var newurl = "";
+                    var newurl = string.Empty;
 
-                    if (url.StartsWith(prefix))
+                    if (url.IndexOf(prefix) >= 0)
                     {
                         var startIndex = prefix.Length;
                         var endIndex = url.IndexOf(suffix);
 
-                        newurl = endIndex != -1 ? url.Substring(startIndex, endIndex - startIndex) : url.Substring(startIndex);
+                        newurl = url.Substring(startIndex, endIndex - startIndex);
                     }
                     else
                     {
