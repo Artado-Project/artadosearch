@@ -63,6 +63,8 @@ namespace artadosearch
             Themes_Button.Attributes.Add("class", "sidebar-item");
             Extensions.Attributes.Add("class", "sidebar-item");
             Profiles.Attributes.Add("class", "sidebar-item");
+            Proxy.Attributes.Add("class", "sidebar-item");
+            Ads.Attributes.Add("class", "sidebar-item");
         }
 
         protected override void InitializeCulture()
@@ -295,6 +297,16 @@ namespace artadosearch
         protected void Profiles_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Settings/Profiles");
+        }
+
+        protected void Proxy_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Proxy");
+        }
+
+        protected void Ads_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Ads");
         }
     }
 }

@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="right">
-                    <a href="https://www.artadosearch.com/Donate" class="icon button" role="button">
+                    <a href="/donate" class="icon button" role="button">
                         <asp:Label runat="server" ID="Label13" class="font-body-01 greeting" Text="<%$Resources:Langs, Donate %>"></asp:Label>
                     </a>
                 </div>
@@ -56,6 +56,8 @@
                     <asp:Button runat="server" ID="Themes_Button" Text="<%$Resources:Langs, Themes %>" Style="text-align: left" OnClick="Themes_Button_Click" />
                     <asp:Button runat="server" ID="Extensions" Text="<%$Resources:Langs, Extensions %>" Style="text-align: left" OnClick="Extensions_Click" />
                     <asp:Button runat="server" ID="Profiles" Text="<%$Resources:Langs, Profiles %>" Style="text-align: left" OnClick="Profiles_Click" />
+                    <asp:Button runat="server" ID="Proxy" Text="Proxy" Style="text-align: left" OnClick="Proxy_Click" />
+                    <asp:Button runat="server" ID="Ads" Text="<%$Resources:Langs, Ads %>" Style="text-align: left" OnClick="Ads_Click" />
                 </aside>
             </div>
 
@@ -112,6 +114,7 @@
                                 <asp:Label runat="server" ID="Label7" class="font-label-01" ForeColor="#9147ff" Text="<%$Resources:Langs, GoStore %>"></asp:Label></a><br />
                             <asp:DropDownList ID="Logos" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Logos_SelectedIndexChanged">
                                 <asp:ListItem Text="<%$Resources:Langs, Default %>" Value="default"></asp:ListItem>
+                                <asp:ListItem Text="Original" Value="og"></asp:ListItem>
                                 <asp:ListItem Text="<%$Resources:Langs, Colorful %>" Value="colorful"></asp:ListItem>
                                 <asp:ListItem Text="<%$Resources:Langs, Old %>" Value="old"></asp:ListItem>
                                 <asp:ListItem Text="<%$Resources:Langs, Custom %>" Value="custom" disabled=""></asp:ListItem>

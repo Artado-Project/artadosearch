@@ -513,4 +513,43 @@
   <data name="Agreement" xml:space="preserve">
     <value>By using Artado Search and our other services, you agree to the terms outlined in this Privacy Policy. Thank you for trusting Artado with your privacy.</value>
   </data>
+  <data name="Suggestions" xml:space="preserve">
+    <value>Suggestions</value>
+  </data>
+  <data name="Add_Proxy" xml:space="preserve">
+    <value>Add your own proxy</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Set up a proxy</value>
+  </data>
+  <data name="Proxy_exp" xml:space="preserve">
+    <value>Proxies allows users to search the web more privately by sending requests to other search engines. You can self-host your own proxy or you can use the proxies that other people host.</value>
+  </data>
+  <data name="selfhost" xml:space="preserve">
+    <value>Selhost a proxy now!</value>
+  </data>
+  <data name="Net_exp" xml:space="preserve">
+    <value>Allow other users to use this proxy.</value>
+  </data>
+  <data name="ThemeCreator" xml:space="preserve">
+    <value>You can customize and create your own theme for Artado with using Theme Creator tool.</value>
+  </data>
+  <data name="UseCreator" xml:space="preserve">
+    <value>Use Theme Creator</value>
+  </data>
+  <data name="Ads" xml:space="preserve">
+    <value>Ads</value>
+  </data>
+  <data name="Ad_exp" xml:space="preserve">
+    <value>You can disable the ads from here.</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="PersonalAd" xml:space="preserve">
+    <value>I want to see personalized advertisements.</value>
+  </data>
 </root>

@@ -20,6 +20,8 @@ namespace artadosearch
             url.MapPageRoute("themes", "settings/themes", "~/Settings_Pages/themes.aspx");
             url.MapPageRoute("ext", "settings/extensions", "~/Settings_Pages/Extensions.aspx");
             url.MapPageRoute("profiles", "settings/profiles", "~/Settings_Pages/Profiles.aspx");
+            url.MapPageRoute("proxy", "settings/proxy", "~/Settings_Pages/Proxy.aspx");
+            url.MapPageRoute("ads", "settings/ads", "~/Settings_Pages/AdSettings.aspx");
             url.MapPageRoute("privacy", "privacy", "~/Settings_Pages/Privacy.aspx");
             url.MapPageRoute("stats", "settings/stats", "~/settings.aspx");
             url.MapPageRoute("workshop", "workshop", "~/Workshop/Default.aspx");
@@ -28,6 +30,7 @@ namespace artadosearch
             url.MapPageRoute("manifest", "manifest", "~/Manifest.aspx");
             url.MapPageRoute("autocomplete", "api/autocomplete", "~/autocomplete/autocomplete.aspx");
             url.MapPageRoute("favicon", "api/favicon", "~/FaviconAPI.aspx");
+            url.MapPageRoute("donate", "donate", "~/donate.html");
         }
         void Application_Start(object sender, EventArgs e)
         {

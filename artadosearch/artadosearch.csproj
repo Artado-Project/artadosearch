@@ -42,15 +42,58 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.61.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.61\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.8.0.0\lib\net462\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.0\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -82,15 +125,30 @@
     <Content Include="components\profile-container\profile-container.css" />
     <Content Include="components\switch\switch.css" />
     <Content Include="css\bootstrap-icons.css" />
+    <Content Include="css\donate.css" />
     <Content Include="css\otherresults.css" />
     <Content Include="Default.aspx" />
     <Content Include="css\home.css" />
     <Content Include="App_Themes\Night\Night.skin" />
+    <Content Include="donate.html" />
     <Content Include="error.html" />
     <Content Include="FaviconAPI.aspx" />
     <Content Include="hour.txt" />
+    <Content Include="images\kreosus-logo.jpg" />
+    <Content Include="images\oldies\og\android-chrome-192x192.png" />
+    <Content Include="images\oldies\og\android-chrome-512x512.png" />
+    <Content Include="images\oldies\og\apple-touch-icon.png" />
+    <Content Include="images\oldies\og\appstore.png" />
+    <Content Include="images\oldies\og\artadov4.png" />
+    <Content Include="images\oldies\og\artado_black_pp.png" />
+    <Content Include="images\oldies\og\favicon-16x16.png" />
+    <Content Include="images\oldies\og\favicon-32x32.png" />
+    <Content Include="images\oldies\og\favicon.ico" />
+    <Content Include="images\oldies\og\playstore.png" />
+    <Content Include="images\patreon-logo.png" />
     <Content Include="js\Autocomplete.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\creator.js" />
     <Content Include="js\featherrep.js" />
     <Content Include="js\google_api.js" />
     <Content Include="fonts\ibm-plex-sans\IBMPlexSans-Bold.woff2" />
@@ -131,15 +189,20 @@
     <Content Include="js\mdb.min.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="js\home.js" />
+    <Content Include="js\read_adj.js" />
     <Content Include="js\tailwind.js" />
     <Content Include="js\test.js" />
+    <Content Include="js\voice.js" />
     <Content Include="js\weather.js" />
     <Content Include="Manifest.aspx" />
     <Content Include="css\panel.css" />
+    <Content Include="Settings_Pages\AdSettings.aspx" />
     <Content Include="Settings_Pages\Extensions.aspx" />
     <Content Include="Settings_Pages\Privacy.aspx" />
     <Content Include="Settings_Pages\Profiles.aspx" />
+    <Content Include="Settings_Pages\Proxy.aspx" />
     <Content Include="Settings_Pages\Themes.aspx" />
+    <Content Include="Suspect.txt" />
     <Content Include="Workshop\Default.aspx" />
     <Content Include="Workshop\DeveloperPage.aspx" />
     <Content Include="Workshop\ProductPage.aspx" />
@@ -194,15 +257,11 @@
     <Content Include="images\android-chrome-192x192.png" />
     <Content Include="images\android-chrome-512x512.png" />
     <Content Include="images\apple-touch-icon.png" />
-    <Content Include="images\appstore.png" />
     <Content Include="images\artadov3-colorful-icon.png" />
-    <Content Include="images\artadov4.png" />
-    <Content Include="images\artado_black_pp.png" />
     <Content Include="images\artado_searchv3.png" />
     <Content Include="images\favicon-16x16.png" />
     <Content Include="images\favicon-32x32.png" />
     <Content Include="images\favicon.ico" />
-    <Content Include="images\playstore.png" />
     <Content Include="images\privacy.jpg" />
     <Content Include="images\search.svg" />
     <None Include="SOURCES" />
@@ -217,6 +276,7 @@
     <Content Include="Settings_Pages\basics.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Ads.cs" />
     <Compile Include="App_GlobalResources\Langs.bg.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -341,6 +401,7 @@
       <DependentUpon>Autocomplete.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Bangs.cs" />
+    <Compile Include="App_Code\Cache.cs" />
     <Compile Include="Configs.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -360,6 +421,7 @@
     <Compile Include="FaviconAPI.aspx.designer.cs">
       <DependentUpon>FaviconAPI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GetMovies.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -372,6 +434,7 @@
     <Compile Include="Manifest.aspx.designer.cs">
       <DependentUpon>Manifest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\MovieWidget\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\Results.cs" />
     <Compile Include="search.aspx.cs">
@@ -380,6 +443,14 @@
     </Compile>
     <Compile Include="search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Security.cs" />
+    <Compile Include="Settings_Pages\AdSettings.aspx.cs">
+      <DependentUpon>AdSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings_Pages\AdSettings.aspx.designer.cs">
+      <DependentUpon>AdSettings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Settings_Pages\basics.aspx.cs">
       <DependentUpon>basics.aspx</DependentUpon>
@@ -408,6 +479,13 @@
     </Compile>
     <Compile Include="Settings_Pages\Profiles.aspx.designer.cs">
       <DependentUpon>Profiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings_Pages\Proxy.aspx.cs">
+      <DependentUpon>Proxy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings_Pages\Proxy.aspx.designer.cs">
+      <DependentUpon>Proxy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Settings_Pages\Themes.aspx.cs">
       <DependentUpon>Themes.aspx</DependentUpon>

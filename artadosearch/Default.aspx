@@ -31,22 +31,23 @@
 </head>
 <body id="homepage" runat="server">
     <form id="form1" runat="server">
-        <!-- 100% privacy-first analytics -->
-        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
         <div class="middle">
             <div class="flex flex-col items-center">
-              <div class="flex items-end" style="margin-top: 15vh; margin-bottom: 30px">
-                <img class="h-44" id="Image1" runat="server" alt="artado search logo">
+              <div class="flex items-end" style="margin-top: 10vh; margin-bottom: 30px">
+                <img class="h-44 edit" id="Image1" runat="server" alt="artado search logo">
               </div>
-              <div id="searchbar" class="searchbar shadow-lg w-[50%] sm:w-[35rem] z-10" style="border-radius: 10px">
+              <div id="searchbar" class="searchbar shadow-lg w-[50%] sm:w-[35rem] z-10 edit" style="border-radius: 10px">
                 <div class="flex">
                   <asp:TextBox ID="searchinput" runat="server" CssClass="bg-[var(--bg-secondary)] px-4 py-3 rounded-l-lg w-full" placeholder="<%$Resources:Langs, Slogan %>" autocomplete="off" autofocus></asp:TextBox>
+                  <button id="mic-button"><i class="bi bi-mic"></i></button>
                   <button id="searchbutton" runat="server" onserverclick="Search" class="bg-[var(--bg-tertiary)] px-5 rounded-r-lg"><i
                       class="bi bi-search"></i></button>
                 </div>
               </div>
-              <div id="sponsors" runat="server" class="sponsors">
+              <div id="voice-search">
+                <div id="listeningStatus"></div>
+              </div>
+              <div id="sponsors" runat="server" class="sponsors edit">
                 <div class="tiles_header">
                     <hr />
                     <asp:Label ID="sponsor" runat="server" Text="Sponsored"></asp:Label>
@@ -63,6 +64,7 @@
                     </asp:Repeater>
                 </div>
               </div>  
+              <a href="/donate" target="_blank" class="btn btn-success donate-button"><asp:Label ID="donate" runat="server" Text="<%$Resources:Langs, Donate %>"></asp:Label></a>
             </div>
 
             <div id="save" runat="server" class="save">
@@ -76,8 +78,8 @@
             <i class="text-3xl bi bi-chevron-down"></i></a>
         </div>
         <div class="top">
-            <button class="btn btn-success menu" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
-            <div class="offcanvas offcanvas-end" style="max-width: 300px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <button class="btn btn-success menu edit" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
+            <div class="offcanvas offcanvas-end edit" style="max-width: 300px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <style>
                     ::-webkit-scrollbar {
                         width: 4px;
@@ -88,7 +90,7 @@
                     <asp:Label ID="offcanvasRightLabel" runat="server" Text="<%$Resources:Langs, Menu %>" Font-Size="X-Large"></asp:Label>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">
+                <div class="offcanvas-body edit">
                     <asp:DropDownList ID="Themes" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Themes_SelectedIndexChanged">
                         <asp:ListItem Text="<%$Resources:Langs, Themes %>" disabled="" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="<%$Resources:Langs, Classic %>" Value="Default"></asp:ListItem>
@@ -122,8 +124,9 @@
                     </asp:DropDownList>
                     <asp:DropDownList ID="Results" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Results_SelectedIndexChanged">
                         <asp:ListItem Text="<%$Resources:Langs, Results %>" disabled="" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="Google" Value="Google"></asp:ListItem>
+                        <asp:ListItem Text="All" Value="All"></asp:ListItem>
                         <asp:ListItem Text="Artado" Value="Artado"></asp:ListItem>
+                        <asp:ListItem Text="Google" Value="Google"></asp:ListItem>
                         <asp:ListItem Text="Bing" Value="Bing"></asp:ListItem>
                         <asp:ListItem Text="Yahoo!" Value="Yahoo"></asp:ListItem>
                         <asp:ListItem Text="Youtube" Value="Youtube"></asp:ListItem>
@@ -131,6 +134,11 @@
                         <asp:ListItem Text="Scholar" Value="Google Scholar"></asp:ListItem>
                         <asp:ListItem Text="Bing News" Value="News"></asp:ListItem>
                     </asp:DropDownList>
+                     <asp:DropDownList ID="Suggestions" runat="server" AutoPostBack="True" class="form-select mb-3" OnSelectedIndexChanged="Suggestions_SelectedIndexChanged">
+                         <asp:ListItem Text="<%$Resources:Langs, Suggestions %>" disabled="" Selected="True"></asp:ListItem>
+                         <asp:ListItem Text="DuckDuckGo" Value="ddg"></asp:ListItem>
+                         <asp:ListItem Text="Artado" Value="Artado"></asp:ListItem>
+                     </asp:DropDownList>
                     <hr class="ince" />
                     <br />
                     <a href="/Settings">
@@ -151,7 +159,17 @@
             </div>
         </div>
 
-        <div id="features" class="flex flex-col justify-between">
+        <div id="theme_creator" runat="server">
+            <div id="color-panel">
+                <label>Background Color:</label>
+                <input type="color" id="background-color">
+                <label>Text Color:</label>
+                <input type="color" id="text-color">
+            </div>
+            <button id="save-settings">Save</button>
+        </div>
+
+        <div id="features" class="flex flex-col justify-between edit">
             <div class="py-20 px-40 max-sm:px-10">
                 <div class="grid grid-cols-2 max-md:grid-cols-1 gap-x-10 gap-y-20">
                 <div>
@@ -197,7 +215,20 @@
             </div>
         </div>
     </form>
+    <script src="/js/read_adj.js"></script>
+    <script src="/js/voice.js"></script>
     <script src="/js/autocomplete.js"></script>
+    <script>
+        const input = document.getElementById('searchinput');
+        const button = document.getElementById('searchbutton');
+
+        input.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                button.click();
+            }
+        });
+    </script>
     <script type="text/javascript">
         const links = document.querySelectorAll('.links');
         links.forEach(link => {

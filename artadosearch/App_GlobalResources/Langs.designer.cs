@@ -97,11 +97,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Add your own proxy benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Add_Proxy {
+            get {
+                return ResourceManager.GetString("Add_Proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ads benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Ads {
+            get {
+                return ResourceManager.GetString("Ads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   4. Advertising benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Advertising {
             get {
                 return ResourceManager.GetString("Advertising", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   You can disable the ads from here. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Ad_exp {
+            get {
+                return ResourceManager.GetString("Ad_exp", resourceCulture);
             }
         }
         
@@ -538,6 +565,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Disable benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Disable {
+            get {
+                return ResourceManager.GetString("Disable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Donate benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Donate {
@@ -552,6 +588,15 @@ namespace Resources {
         internal static string Down {
             get {
                 return ResourceManager.GetString("Down", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Enable benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Enable {
+            get {
+                return ResourceManager.GetString("Enable", resourceCulture);
             }
         }
         
@@ -844,6 +889,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Allow other users to use this proxy. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Net_exp {
+            get {
+                return ResourceManager.GetString("Net_exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   News benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string News {
@@ -903,6 +957,15 @@ namespace Resources {
         internal static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   I want to see personalized advertisements. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PersonalAd {
+            get {
+                return ResourceManager.GetString("PersonalAd", resourceCulture);
             }
         }
         
@@ -997,6 +1060,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Set up a proxy benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Proxy {
+            get {
+                return ResourceManager.GetString("Proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Proxies allows users to search the web more privately by sending requests to other search engines. You can self-host your own proxy or you can use the proxies that other people host. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Proxy_exp {
+            get {
+                return ResourceManager.GetString("Proxy_exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Results benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Results {
@@ -1051,6 +1132,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Selhost a proxy now! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string selfhost {
+            get {
+                return ResourceManager.GetString("selfhost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Serbian benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Serbian {
@@ -1096,11 +1186,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Suggestions benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Suggestions {
+            get {
+                return ResourceManager.GetString("Suggestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sync with your Artado account benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
         internal static string Sync {
             get {
                 return ResourceManager.GetString("Sync", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   You can customize and create your own theme for Artado with using Theme Creator tool. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ThemeCreator {
+            get {
+                return ResourceManager.GetString("ThemeCreator", resourceCulture);
             }
         }
         
@@ -1191,6 +1299,15 @@ namespace Resources {
         internal static string UseAnonymousInfo {
             get {
                 return ResourceManager.GetString("UseAnonymousInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Use Theme Creator benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UseCreator {
+            get {
+                return ResourceManager.GetString("UseCreator", resourceCulture);
             }
         }
         

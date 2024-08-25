@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net;
-using System.Xml;
-using System.Xml.Linq;
-using System.Net.NetworkInformation;
 using System.IO;
-using System.Security.Cryptography;
-using System.Drawing;
 using Newtonsoft.Json.Linq;
 using System.Data;
 using Newtonsoft.Json;
-using System.Collections;
-using Resources;
 
 namespace artadosearch
 {
@@ -221,6 +211,20 @@ namespace artadosearch
                 else
                 {
                     save.Visible = false;
+
+                    //Theme Creator Mode
+                    string creator = Request.QueryString["creator"];
+                    if(creator != null)
+                    {
+                        homepage.Controls.Add(
+                                 new System.Web.UI.LiteralControl("<script src=\"/js/creator.js\"></script>"));
+                        theme_creator.Visible = true;
+                    }
+                    else
+                    {
+                        theme_creator.Visible = false;
+                    }
+
                     //Custom Theme
                     HttpCookie custom = HttpContext.Current.Request.Cookies["CustomTheme"];
                     if (custom != null && custom.Value != null)
@@ -271,64 +275,72 @@ namespace artadosearch
 
                 //sorry guys we need money :(
                 #region Ads
+                HttpCookie ads_cookie = HttpContext.Current.Request.Cookies["Ads"];
                 //Personalized Ads
-                HttpCookie ad_id = new HttpCookie("ad_id");
-                string id;
-                if(ad_id != null && ad_id.Value != null)
+                if (ads_cookie == null || ads_cookie.Value == "Enable")
                 {
-                    id = ad_id.Value;
-                }
-                else if (Session["ad_id"] != null)
-                {
-                    id = Session["ad_id"].ToString();
-                }
-                else
-                {
-                    id = Guid.NewGuid().ToString();
-                    Session["ad_id"] = id;
-                }
-
-                //Region (we use lang instead)
-                string[] userLanguages = Request.UserLanguages;
-                string primaryLanguage = userLanguages != null && userLanguages.Length > 0 ? userLanguages[0] : "us";
-                string countrycode = primaryLanguage.Length > 3 && 
-                                     (primaryLanguage.StartsWith("en") || primaryLanguage.StartsWith("de") || primaryLanguage.StartsWith("zh")) 
-                                     ? primaryLanguage.Substring(3).ToLower() : primaryLanguage.Substring(0, 2);
-
-                if (countrycode == "cn")
-                {
-                    countrycode = "ch";
-                }
-
-                HttpWebRequest request;
-                if (countrycode == "us" || countrycode == "gb" || countrycode == "de" || countrycode == "at" || countrycode == "ch" || countrycode == "tr")
-                {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
-                    try
+                    HttpCookie ad_id = new HttpCookie("ad_id");
+                    string id;
+                    if (ad_id != null && ad_id.Value != null)
                     {
+                        id = ad_id.Value;
+                    }
+                    else if (Session["ad_id"] != null)
+                    {
+                        id = Session["ad_id"].ToString();
+                    }
+                    else
+                    {
+                        id = Guid.NewGuid().ToString();
+                        Session["ad_id"] = id;
+                    }
+
+                    //Region (we use lang instead)
+                    string[] userLanguages = Request.UserLanguages;
+                    string primaryLanguage = userLanguages != null && userLanguages.Length > 0 ? userLanguages[0] : "us";
+                    string countrycode = primaryLanguage.Length > 3 &&
+                                         (primaryLanguage.StartsWith("en") || primaryLanguage.StartsWith("de") || primaryLanguage.StartsWith("zh"))
+                                         ? primaryLanguage.Substring(3).ToLower() : primaryLanguage.Substring(0, 2);
+
+                    if (countrycode == "cn")
+                    {
+                        countrycode = "ch";
+                    }
+
+                    HttpWebRequest request;
+                    if (countrycode == "us" || countrycode == "gb" || countrycode == "de" || countrycode == "at" || countrycode == "ch" || countrycode == "tr")
+                    {
+                        request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
+                        try
+                        {
+                            request.Method = "GET";
+                            request.Accept = "application/json";
+                            request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
+                            WebResponse response = request.GetResponse();
+                            StreamReader reader = new StreamReader(response.GetResponseStream());
+                            string jsonstring = reader.ReadToEnd();
+
+                            DataTable dt = JsonConvert.DeserializeObject<DataTable>(JObject.Parse(jsonstring)["data"].ToString());
+                            Tiles.DataSource = dt;
+                            Tiles.DataBind();
+                        }
+                        catch (Exception ex)
+                        {
+                            sponsors.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
                         request.Method = "GET";
                         request.Accept = "application/json";
                         request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
                         WebResponse response = request.GetResponse();
-                        StreamReader reader = new StreamReader(response.GetResponseStream());
-                        string jsonstring = reader.ReadToEnd();
-
-                        DataTable dt = JsonConvert.DeserializeObject<DataTable>(JObject.Parse(jsonstring)["data"].ToString());
-                        Tiles.DataSource = dt;
-                        Tiles.DataBind();
-                    }
-                    catch (Exception ex)
-                    {
                         sponsors.Visible = false;
                     }
                 }
                 else
                 {
-                    request = (HttpWebRequest)HttpWebRequest.Create("https://tiles.takernd.com/api/tiles?count=5&deviceId=" + id + "&countryCode=" + countrycode);
-                    request.Method = "GET";
-                    request.Accept = "application/json";
-                    request.Headers.Add("Authorization", "Bearer 626ce7c0d65c670c9a6f1637e7a6f00da57d0adf");
-                    WebResponse response = request.GetResponse();
                     sponsors.Visible = false;
                 }
                 #endregion
@@ -355,7 +367,17 @@ namespace artadosearch
             }
             else
             {
-                Results.SelectedValue = "Google";
+                Results.SelectedValue = "All";
+            }
+
+            System.Web.HttpCookie sug = HttpContext.Current.Request.Cookies["Suggestions"];
+            if (sug != null && sug.Value != null)
+            {
+                Suggestions.SelectedValue = sug.Value;
+            }
+            else
+            {
+                Suggestions.SelectedValue = "ddg";
             }
 
             System.Web.HttpCookie cookielang = HttpContext.Current.Request.Cookies["Lang"];
@@ -381,6 +403,10 @@ namespace artadosearch
                     {
                         case "default":
                             Image1.Src = "/images/android-chrome-192x192.png";
+                            break;
+
+                        case "og":
+                            Image1.Src = "/images/oldies/og/android-chrome-192x192.png";
                             break;
 
                         case "colorful":
@@ -455,22 +481,12 @@ namespace artadosearch
             HttpCookie old = HttpContext.Current.Request.Cookies["Lang"];
             if (old != null && old.Value != null)
             {
-                old.Expires = DateTime.UtcNow.AddDays(-1);
-                Response.Cookies.Add(old);
-                Session.Abandon();
-
-                HttpCookie cookie = new HttpCookie("Lang");
-                cookie.Value = Languages.SelectedValue;
-                cookie.Expires = DateTime.UtcNow.AddDays(360);
-                Response.Cookies.Add(cookie);
+                CreateCookie("Lang", Languages.SelectedValue);
                 Page.Response.Redirect(Page.Request.Url.ToString());
             }
             else
             {
-                HttpCookie cookie = new HttpCookie("Lang");
-                cookie.Value = Languages.SelectedValue;
-                cookie.Expires = DateTime.UtcNow.AddDays(360);
-                Response.Cookies.Add(cookie);
+                CreateCookie("Lang", Languages.SelectedValue);
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(Languages.SelectedValue);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Languages.SelectedValue);
                 Page.Response.Redirect(Page.Request.Url.ToString());
@@ -720,6 +736,12 @@ namespace artadosearch
         protected void no_Click(object sender, EventArgs e)
         {
             Page.Response.Redirect("/");
+        }
+
+        protected void Suggestions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateCookie("suggestions", Suggestions.SelectedValue);
+            Response.Redirect("/");
         }
     }
 }

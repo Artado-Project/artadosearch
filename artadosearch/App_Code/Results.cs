@@ -1,43 +1,192 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Resources;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.UI.WebControls;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace artadosearch
 {
+    public class Result
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string DisplayUrl { get; set; }
+        public string Url { get; set; }
+        public string Source { get; set; }
+    }
+
     public class ResultsClass
     {
-        public static string Bing(string query, int currentPage)
+        private static readonly HttpClient client = new HttpClient();
+
+        public static async Task<List<Result>> GetGoogle(string q, int n)
         {
             try
             {
-                string bing = "https://www.bing.com/search?q=" + query + "&qs=n&sp=-1&pq=" + query + "&sc=8-6&sk=&cvid=E61D587280A143E4B2B331964F17D6C8&first=" + currentPage;
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(bing.Trim());
-                request.Referer = "https://www.bing.com/";
-                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
-                WebResponse response = request.GetResponse();
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                string htmlText = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-                int results1 = htmlText.IndexOf("<ol id=\"b_results\" class=\"\">".ToLower()) + 28;
-                int results2 = htmlText.Substring(results1).IndexOf("</ol>");
-                string resulttext = htmlText.Substring(results1, results2);
-                return resulttext;
+                var results = new List<Result>();
+
+                var response = await client.GetAsync("https://www.google.com/search?q=" + q + "&start=" + n);
+                var html = await response.Content.ReadAsStringAsync();
+
+                var doc = new HtmlDocument();
+                doc.LoadHtml(html);
+
+                foreach (var productHTMLElement in doc.DocumentNode.SelectNodes("//div[@class='Gx5Zad fP1Qef xpd EtOod pkphOe']"))
+                {
+                    var titleNode = productHTMLElement.SelectSingleNode(".//div[@class='BNeawe vvjwJb AP7Wnd']");
+                    var title = titleNode != null ? titleNode.InnerText : "";
+
+                    var displayUrlNode = productHTMLElement.SelectSingleNode(".//div[@class='BNeawe UPmit AP7Wnd lRVwie']");
+                    var displayUrl = displayUrlNode != null ? displayUrlNode.InnerText : "";
+
+                    var UrlNode = productHTMLElement.SelectSingleNode(".//div[@class='egMi0 kCrYT']/a");
+                    var url = UrlNode != null ? UrlNode.Attributes["href"].Value : "";
+
+                    var descriptionNode = productHTMLElement.SelectSingleNode(".//div[@class='BNeawe s3v9rd AP7Wnd']");
+                    var description = descriptionNode != null ? descriptionNode.InnerText : "";
+
+                    var prefix = "/url?q=";
+                    var suffix = "&sa=";
+                    var newurl = "";
+
+                    if (url.StartsWith(prefix))
+                    {
+                        var startIndex = prefix.Length;
+                        var endIndex = url.IndexOf(suffix);
+
+                        newurl = endIndex != -1 ? url.Substring(startIndex, endIndex - startIndex) : url.Substring(startIndex);
+                    }
+                    else
+                    {
+                        newurl = url;
+                    }
+
+                    results.Add(new Result
+                    {
+                        Title = title,
+                        Description = description,
+                        DisplayUrl = displayUrl,
+                        Url = newurl,
+                        Source = "Google"
+                    });
+                }
+
+                string cacheKey = string.Format("{0}_{1}_{2}", q, "google", n);
+                var cache_memo = artadosearch.Cache.Get<List<Result>>(cacheKey);
+                if (cache_memo == null)
+                    artadosearch.Cache.CacheResultsInMemo(q, "google", n, results);
+
+                return results;
             }
             catch
             {
-                return "Something went wrong!";
+                return null;
             }
         }
+
+        public static async Task<List<Result>> GetBing(string q, int n)
+        {
+            try
+            {
+                var results = new List<Result>();
+
+                var response = await client.GetAsync("https://www.bing.com/search?q=" + q + "&start=" + n);
+                var html = await response.Content.ReadAsStringAsync();
+
+                var doc = new HtmlDocument();
+                doc.LoadHtml(html);
+
+                foreach (var productHTMLElement in doc.DocumentNode.SelectNodes("//li[@class='b_algo']"))
+                {
+                    var titleNode = productHTMLElement.SelectSingleNode(".//h2/a");
+                    var title = titleNode != null ? titleNode.InnerText : "";
+
+                    var displayUrlNode = titleNode != null ? titleNode.Attributes["href"] : null;
+                    var displayUrl = displayUrlNode != null ? displayUrlNode.Value : "";
+
+                    var descNode = productHTMLElement.SelectSingleNode(".//p[@class='b_lineclamp4 b_algoSlug']");
+                    var desc = descNode != null ? descNode.InnerText : "";
+
+                    var urlNospace = displayUrl.Replace(" ", "");
+                    var url = urlNospace.Replace("\u203A", "/");
+
+                    if (!Regex.IsMatch(url, @"^https?://", RegexOptions.IgnoreCase))
+                    {
+                        url = "https://" + url;
+                    }
+
+                    if (url.Contains("...") || displayUrl.Contains("..."))
+                    {
+                        url = url.Substring(0, url.IndexOf("..."));
+                        displayUrl = displayUrl.Substring(0, displayUrl.IndexOf("..."));
+                    }
+
+                    if (!url.EndsWith("/"))
+                    {
+                        url += "/";
+                    }
+
+                    var description = desc.Length > 2 ? desc.Substring(2) : desc;
+
+                    results.Add(new Result
+                    {
+                        Title = title,
+                        Description = description,
+                        DisplayUrl = displayUrl,
+                        Url = url,
+                        Source = "Bing"
+                    });
+                }
+
+                string cacheKey = string.Format("{0}_{1}_{2}", q, "bing", n);
+                var cache_memo = artadosearch.Cache.Get<List<Result>>(cacheKey);
+                if (cache_memo == null)
+                    artadosearch.Cache.CacheResultsInMemo(q, "bing", n, results);
+
+                return results;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static async Task<List<Result>> GetAll(string q, int n, List<Result> json1, List<Result> json2)
+        {
+            var map = new Dictionary<string, Result>();
+
+            //Adding items from json1
+            foreach (var item in json1)
+            {
+                map[item.Title] = item;
+            }
+
+            //Adding items from json2
+            foreach (var item in json2)
+            {
+                if (!map.ContainsKey(item.Title))
+                {
+                    map[item.Title] = item;
+                }
+            }
+
+            var results = new List<Result>(map.Values);
+
+            string cacheKey = string.Format("{0}_{1}_{2}", q, "all", n);
+            var cache_memo = artadosearch.Cache.Get<List<Result>>(cacheKey);
+            if (cache_memo == null)
+                artadosearch.Cache.CacheResultsInMemo(q, "all", n, results);
+
+            return results;
+        }
+
 
         public static string Yahoo(string query, int currentPage)
         {
@@ -267,38 +416,7 @@ namespace artadosearch
             }
         }
 
-        public static string Google(string query, string lang)
-        {
-            try
-            {
-                string apikey = GoogleToken.GetToken();
-                string url;
-                if (lang != null)
-                {
-                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
-                }
-                else
-                {
-                    System.Globalization.CultureInfo cul = System.Threading.Thread.CurrentThread.CurrentUICulture;
-                    lang = cul.TwoLetterISOLanguageName;
-                    url = "https://cse.google.com/cse/element/v1?rsz=10&num=10&hl=" + lang + "&source=gcsc&gss=.com&cselibv=e992cd4de3c7044f&cx=160e826a9c5ebe821&q=" + query + "&safe=off&cse_tok=" + apikey + "&filter=0&exp=csqr,cc&callback=google.search.cse.api4218";
-                }
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-                request.Referer = "https://www.google.com/";
-                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0";
-                WebResponse response = request.GetResponse();
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                string jsonstring = reader.ReadToEnd();
-
-                return jsonstring;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        public static DataTable Artado(string query, int num, string lang)
+        public static DataTable Artado(string query, int num, string lang, string desc)
         {
             //Connection Strings
             string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
@@ -309,7 +427,7 @@ namespace artadosearch
             SqlDataAdapter adp;
             if (lang != null)
             {
-                adp = new SqlDataAdapter("select TOP (20) * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank desc", connection);
+                adp = new SqlDataAdapter("select TOP (" + num + ") * from artadoco_admin.WebResults where (Title Like @q or Description Like @q or Keywords Like @q) and Lang Like @Lang order by Rank " + desc, connection);
                 adp.SelectCommand.Parameters.Add(new SqlParameter
                 {
                     ParameterName = "@Lang",
@@ -318,17 +436,58 @@ namespace artadosearch
             }
             else
             {
-                adp = new SqlDataAdapter("select TOP (20) * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank desc", connection);
+                adp = new SqlDataAdapter("select TOP (" + num + ") * from artadoco_admin.WebResults where Title Like @q or Description Like @q or Keywords Like @q order by Rank " + desc, connection);
             }
             adp.SelectCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@q",
                 Value = "%" + query + "%",
             });
-            string cmd = adp.ToString();
             DataTable dt = new DataTable();
             adp.Fill(dt);
+
+            //Cache
+
             return dt;
+        }
+
+        public static string GetProxy(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string json = reader.ReadToEnd();
+            return json;
+        }
+
+        public static DataTable ConvertJsonToDataTable(string jsonString)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Deserialize JSON string into a list of dictionaries
+            var list = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(jsonString);
+
+            if (list == null || list.Count == 0)
+                return dataTable;
+
+            // Create columns based on the keys of the first dictionary
+            foreach (var key in list[0].Keys)
+            {
+                dataTable.Columns.Add(key);
+            }
+
+            // Populate the DataTable
+            foreach (var dict in list)
+            {
+                DataRow row = dataTable.NewRow();
+                foreach (var key in dict.Keys)
+                {
+                    row[key] = dict[key];
+                }
+                dataTable.Rows.Add(row);
+            }
+
+            return dataTable;
         }
     }
 }

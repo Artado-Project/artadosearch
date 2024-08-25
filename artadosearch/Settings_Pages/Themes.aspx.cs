@@ -14,6 +14,8 @@ namespace artadosearch.Settings
             Themes_Button.Attributes.Add("class", "sidebar-item active");
             Extensions.Attributes.Add("class", "sidebar-item");
             Profiles.Attributes.Add("class", "sidebar-item");
+            Proxy.Attributes.Add("class", "sidebar-item");
+            Ads.Attributes.Add("class", "sidebar-item");
 
             themes_page.Visible = true;
 
@@ -192,6 +194,21 @@ namespace artadosearch.Settings
         protected void Profiles_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Settings/Profiles");
+        }
+
+        protected void Proxy_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Proxy");
+        }
+
+        protected void UseCreator_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/?creator=true");
+        }
+
+        protected void Ads_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Ads");
         }
     }
 }

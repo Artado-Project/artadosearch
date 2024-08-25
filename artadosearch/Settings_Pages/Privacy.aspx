@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="right">
-                    <a href="https://www.artadosearch.com/Donate" class="icon button" role="button">
+                    <a href="/donate" class="icon button" role="button">
                         <asp:Label runat="server" ID="Label13" class="font-body-01 greeting" Text="<%$Resources:Langs, Donate %>"></asp:Label>
                     </a>
                 </div>

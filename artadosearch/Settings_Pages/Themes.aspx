@@ -23,6 +23,8 @@
     <script src="/components/accordion/accordion.js" defer></script>
     <link rel="stylesheet" href="/components/button/button.css" />
     <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
     <link
         rel="stylesheet"
         href="/components/profile-container/profile-container.css" />
@@ -43,7 +45,7 @@
                     </a>
                 </div>
                 <div class="right">
-                    <a href="https://www.artadosearch.com/Donate" class="icon button" role="button">
+                    <a href="/donate" class="icon button" role="button">
                         <asp:Label runat="server" ID="Label13" class="font-body-01 greeting" Text="<%$Resources:Langs, Donate %>"></asp:Label>
                     </a>
                 </div>
@@ -56,6 +58,8 @@
                     <asp:Button runat="server" ID="Themes_Button" Text="<%$Resources:Langs, Themes %>" Style="text-align: left" OnClick="Themes_Button_Click" />
                     <asp:Button runat="server" ID="Extensions" Text="<%$Resources:Langs, Extensions %>" Style="text-align: left" OnClick="Extensions_Click" />
                     <asp:Button runat="server" ID="Profiles" Text="<%$Resources:Langs, Profiles %>" Style="text-align: left" OnClick="Profiles_Click" />
+                    <asp:Button runat="server" ID="Proxy" Text="Proxy" Style="text-align: left" OnClick="Proxy_Click" />
+                    <asp:Button runat="server" ID="Ads" Text="<%$Resources:Langs, Ads %>" Style="text-align: left" OnClick="Ads_Click" />
                 </aside>
             </div>
 
@@ -77,6 +81,8 @@
 
                         <div id="customcss" runat="server" class="entry-container">
                             <asp:Label ID="Label2" runat="server" Text="<%$Resources:Langs, CustomCSS %>" Font-Size="Large"></asp:Label><br />
+                            <asp:Label ID="Label4" runat="server" class="font-label-01" Text="<%$Resources:Langs, ThemeCreator %>"></asp:Label><br />
+                            <asp:Button runat="server" ID="UseCreator" CssClass="button" Text="<%$Resources:Langs, UseCreator %>" OnClick="UseCreator_Click" /><br />
                             <asp:Label runat="server" ID="Label3" class="font-label-01" Text="<%$Resources:Langs, CustomCSS_exp %>"></asp:Label>
                             <textarea id="css" runat="server"></textarea>
                         </div>
@@ -86,6 +92,17 @@
             </main>
         </div>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
+            mode: 'css',
+            theme: 'dracula',
+            lineNumbers: true,
+            tabSize: 2,
+            indentWithTabs: true
+        });
+    </script>
     <script src="/js/featherrep.js"></script>
 </body>
 </html>

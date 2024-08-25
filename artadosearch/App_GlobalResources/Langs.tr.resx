@@ -462,91 +462,127 @@
   <data name="Video" xml:space="preserve">
     <value>Video</value>
   </data>
-	<data name="PageTitle" xml:space="preserve">
+  <data name="PageTitle" xml:space="preserve">
     <value>Gizlilik Politikası - Artado Search</value>
   </data>
-	<data name="Title" xml:space="preserve">
+  <data name="Title" xml:space="preserve">
     <value>Gizlilik Politikası - Artado Search</value>
   </data>
-	<data name="LastUpdated" xml:space="preserve">
+  <data name="LastUpdated" xml:space="preserve">
     <value>Son Güncelleme: 16.04.2024</value>
   </data>
-	<data name="Intro" xml:space="preserve">
+  <data name="Intro" xml:space="preserve">
     <value>Artado, gizliliğinizi korumayı taahhüt eder. Bu Gizlilik Politikası, kişisel bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.</value>
   </data>
-	<data name="InfoWeCollect" xml:space="preserve">
+  <data name="InfoWeCollect" xml:space="preserve">
     <value>1. Topladığımız Bilgiler</value>
   </data>
-	<data name="UserProvidedInfo" xml:space="preserve">
+  <data name="UserProvidedInfo" xml:space="preserve">
     <value>Kullanıcı Tarafından Sağlanan Bilgiler: Hizmetlerimize veya bültenlerimize kaydolduğunuzda e-posta adresiniz gibi yalnızca gönüllü olarak sağladığınız kişisel bilgileri toplarız. Ayrıca, hükümet veya yasama makamlarının yasal talepleri doğrultusunda daha fazla bilgi toplayabiliriz.</value>
   </data>
-	<data name="AnonymousInfo" xml:space="preserve">
+  <data name="AnonymousInfo" xml:space="preserve">
     <value>İş Ortakları Tarafından Sağlanan Anonim Bilgiler: İş ortaklarımız, hizmetlerimiz aracılığıyla anonim kimlikler ve arama sorguları gibi bazı anonim bilgileri toplayabilir. Bu bilgiler, hizmetlerini geliştirmelerine ve ilgili reklamları sunmalarına yardımcı olur.</value>
   </data>
-	<data name="UseOfInfo" xml:space="preserve">
+  <data name="UseOfInfo" xml:space="preserve">
     <value>2. Bilgilerin Kullanımı</value>
   </data>
-	<data name="UseUserProvidedInfo" xml:space="preserve">
+  <data name="UseUserProvidedInfo" xml:space="preserve">
     <value>Kullanıcı Tarafından Sağlanan Bilgiler: Sağladığınız kişisel bilgiler yalnızca size bültenler veya Artado güncellemeleri göndermek gibi belirttiğiniz amaç için kullanılır.</value>
   </data>
-	<data name="UseAnonymousInfo" xml:space="preserve">
+  <data name="UseAnonymousInfo" xml:space="preserve">
     <value>Anonim Bilgiler: İş ortaklarımız tarafından toplanan anonim bilgiler, analizler, hizmetlerin iyileştirilmesi ve kişiselleştirilmiş reklamların sunulması amacıyla kullanılabilir.</value>
   </data>
-	<data name="SearchData" xml:space="preserve">
+  <data name="SearchData" xml:space="preserve">
     <value>3. Arama Verileri</value>
   </data>
-	<data name="NoStorageByArtado" xml:space="preserve">
+  <data name="NoStorageByArtado" xml:space="preserve">
     <value>Artado Tarafından Saklanmıyor: Artado, kullanıcılar tarafından yapılan arama sorgularını saklamaz.</value>
   </data>
-	<data name="ThirdPartyCollection" xml:space="preserve">
+  <data name="ThirdPartyCollection" xml:space="preserve">
     <value>Üçüncü Taraf Toplama: İş ortaklarımız ve sonuç sağlayıcılarımız, hizmetlerini iyileştirmek ve analiz amaçları için anonim arama sorgularını toplayabilir ve saklayabilir. Kullanıcı yalnızca Artado sonuçlarını kullanır ve ayarlardan reklamları devre dışı bırakırsa, hiç kimse kullanıcının ne aradığını bilemez.</value>
   </data>
-	<data name="Advertising" xml:space="preserve">
+  <data name="Advertising" xml:space="preserve">
     <value>4. Reklamcılık</value>
   </data>
-	<data name="UniqueUserId" xml:space="preserve">
+  <data name="UniqueUserId" xml:space="preserve">
     <value>Benzersiz Kullanıcı Kimliği: Reklam sunma amacıyla her kullanıcıya benzersiz bir kimlik atarız. Bu kimlik, Artado Search'ü kapattığınızda silinir, ancak özellikle saklamayı tercih ederseniz silinmez.</value>
   </data>
-	<data name="DataProtection" xml:space="preserve">
+  <data name="DataProtection" xml:space="preserve">
     <value>5. Veri Koruma ve Güvenlik</value>
   </data>
-	<data name="SecurityMeasures" xml:space="preserve">
+  <data name="SecurityMeasures" xml:space="preserve">
     <value>Kişisel bilgilerinizi korumak için endüstri standartlarında güvenlik önlemleri uygularız. Ancak, internet üzerinden iletim veya elektronik depolama yönteminin tamamen güvenli olmadığını lütfen unutmayın.</value>
   </data>
-	<data name="UserRights" xml:space="preserve">
+  <data name="UserRights" xml:space="preserve">
     <value>6. Kullanıcı Hakları</value>
   </data>
-	<data name="RightsExplanation" xml:space="preserve">
+  <data name="RightsExplanation" xml:space="preserve">
     <value>KVKK (Kişisel Verilerin Korunması Kanunu) uyarınca, kişisel verilerinizle ilgili olarak aşağıdaki haklara sahipsiniz:</value>
   </data>
-	<data name="AccessRight" xml:space="preserve">
+  <data name="AccessRight" xml:space="preserve">
     <value>Erişim: Hakkınızda sahip olduğumuz kişisel verilere erişim talep edebilirsiniz.</value>
   </data>
-	<data name="CorrectionRight" xml:space="preserve">
+  <data name="CorrectionRight" xml:space="preserve">
     <value>Düzeltme: Herhangi bir yanlış veya eksik verinin düzeltilmesini talep edebilirsiniz.</value>
   </data>
-	<data name="DeletionRight" xml:space="preserve">
+  <data name="DeletionRight" xml:space="preserve">
     <value>Silme: Belirli yasal gereksinimlere tabi olarak kişisel verilerinizin silinmesini talep edebilirsiniz.</value>
   </data>
-	<data name="ObjectionRight" xml:space="preserve">
+  <data name="ObjectionRight" xml:space="preserve">
     <value>İtiraz: Belirli durumlarda kişisel verilerinizin işlenmesine itiraz edebilirsiniz.</value>
   </data>
-	<data name="ContactRights" xml:space="preserve">
+  <data name="ContactRights" xml:space="preserve">
     <value>Bu haklardan herhangi birini kullanmak için lütfen arda@artadosearch.com adresinden bizimle iletişime geçin.</value>
   </data>
-	<data name="PolicyChanges" xml:space="preserve">
+  <data name="PolicyChanges" xml:space="preserve">
     <value>7. Bu Gizlilik Politikasındaki Değişiklikler</value>
   </data>
-	<data name="PolicyChangesDetails" xml:space="preserve">
+  <data name="PolicyChangesDetails" xml:space="preserve">
     <value>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Yeni Gizlilik Politikasını web sitemizde yayınlayarak önemli değişikliklerden sizi haberdar edeceğiz. Bu Gizlilik Politikasını periyodik olarak gözden geçirmenizi öneririz.</value>
   </data>
-	<data name="ContactUs" xml:space="preserve">
+  <data name="ContactUs" xml:space="preserve">
     <value>8. Bize Ulaşın</value>
   </data>
-	<data name="ContactDetails" xml:space="preserve">
+  <data name="ContactDetails" xml:space="preserve">
     <value>Bu Gizlilik Politikası hakkında herhangi bir sorunuz veya endişeniz varsa, lütfen arda@artadosearch.com veya support@artadosearch.com adreslerinden bizimle iletişime geçin.</value>
   </data>
-	<data name="Agreement" xml:space="preserve">
+  <data name="Agreement" xml:space="preserve">
     <value>Artado Search ve diğer servislerimizi kullanarak, bu Gizlilik Politikasında belirtilen şartları kabul etmiş olursunuz. Gizliliğinize güvendiğiniz için teşekkür ederiz.</value>
+  </data>
+  <data name="ThemeCreator" xml:space="preserve">
+    <value>Theme Creator aracını kullanarak Artado için kendi temanızı özelleştirebilir ve oluşturabilirsiniz.</value>
+  </data>
+  <data name="UseCreator" xml:space="preserve">
+    <value>Theme Creator Kullan</value>
+  </data>
+  <data name="Add_Proxy" xml:space="preserve">
+    <value>Kendi proxy sunucunu ekle</value>
+  </data>
+  <data name="Ads" xml:space="preserve">
+    <value>Reklamlar</value>
+  </data>
+  <data name="Ad_exp" xml:space="preserve">
+    <value>Reklamları buradan kapatabilirsiniz.</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Etkinleştir</value>
+  </data>
+  <data name="Net_exp" xml:space="preserve">
+    <value>Diğer kullanıcıların da bu proxy sunucusunu kullanmasına izin ver.</value>
+  </data>
+  <data name="PersonalAd" xml:space="preserve">
+    <value>Kişiselleştirilmiş reklamlar görmek istiyorum.</value>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy sunucusu kur</value>
+  </data>
+  <data name="Proxy_exp" xml:space="preserve">
+    <value>Proxy'ler, kullanıcıların diğer arama motorlarına istek göndererek web'de daha gizli arama yapmalarına olanak tanır. Kendi proxy'nizi kendiniz barındırabilir veya başkalarının barındırdığı proxy'leri kullanabilirsiniz.</value>
+  </data>
+  <data name="selfhost" xml:space="preserve">
+    <value>Kendi proxy sunucunu hostla!</value>
   </data>
 </root>

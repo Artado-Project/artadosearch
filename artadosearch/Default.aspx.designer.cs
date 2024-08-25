@@ -87,6 +87,15 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.Repeater Tiles;
 
         /// <summary>
+        /// donate denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label donate;
+
+        /// <summary>
         /// save denetimi.
         /// </summary>
         /// <remarks>
@@ -159,6 +168,15 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.DropDownList Results;
 
         /// <summary>
+        /// Suggestions denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Suggestions;
+
+        /// <summary>
         /// Label7 denetimi.
         /// </summary>
         /// <remarks>
@@ -229,6 +247,15 @@ namespace artadosearch
         /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label11;
+
+        /// <summary>
+        /// theme_creator denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl theme_creator;
 
         /// <summary>
         /// txt denetimi.

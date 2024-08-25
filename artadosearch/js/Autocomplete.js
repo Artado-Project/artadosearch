@@ -83,6 +83,7 @@
 
     searchInput.addEventListener("input", function () {
         var query = searchInput.value;
+
         if (query.length >= 2 && !query.startsWith("!")) {
             fetch(`/api/autocomplete?q=${query}`)
                 .then(response => response.json())
@@ -90,7 +91,7 @@
                     autocompleteList.innerHTML = "";
                     data.forEach(item => {
                         var listItem = document.createElement("li");
-                        listItem.textContent = item.Keyword;
+                        listItem.textContent = item.phrase || item.Keyword;
                         autocompleteList.appendChild(listItem);
                     });
                     autocompleteList.style.display = "block";

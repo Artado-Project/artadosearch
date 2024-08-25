@@ -78,6 +78,24 @@ namespace artadosearch.Settings_Pages
         protected global::System.Web.UI.WebControls.Button Profiles_Button;
 
         /// <summary>
+        /// Proxy denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Proxy;
+
+        /// <summary>
+        /// Ads denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Ads;
+
+        /// <summary>
         /// edit denetimi.
         /// </summary>
         /// <remarks>

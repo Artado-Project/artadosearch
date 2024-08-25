@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="artadosearch.search" ValidateRequest="false" %>
+﻿<%@ Page Async="true" Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="artadosearch.search" ValidateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -11,23 +11,17 @@
     <link href="css/otherresults.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/mdb.min.css" type="text/css" />
     <link rel="stylesheet" href="/css/bootstrap-icons.css" />
-    <script src="/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/js/mdb.min.js"></script>
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <title></title>
 </head>
 <body id="searchpage" runat="server">
     <form id="form1" runat="server">
-        <!-- 100% privacy-first analytics -->
-        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
         <div class="middle">
             <div class="searchbar">
                 <a href="/">
                     <img id="Image1" runat="server" class="logo" /></a>
-                <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" placeholder="<%$Resources:Langs, Slogan %>"></asp:TextBox>
+                <asp:TextBox ID="searchinput" runat="server" CssClass="searchinput" autocomplete="off" placeholder="<%$Resources:Langs, Slogan %>"></asp:TextBox>
                 <button id="searchbutton" runat="server" onserverclick="Search" class="search"><i
                         class="bi bi-search"></i></button>
             </div>
@@ -87,6 +81,7 @@
             </div>
             <hr/>
             <div id="buttons_r" runat="server" class="tabs" style="margin-bottom: 20px">
+                <asp:Button ID="All" runat="server" Text="All" class="r_div" Font-Size="Small" OnClick="All_Click" />
                 <asp:Button ID="Button1" runat="server" Text="Artado" class="r_div" Font-Size="Small" OnClick="Button1_Click" />
                 <asp:Button ID="Google_B" runat="server" Text="Google" class="r_div" Font-Size="Small" OnClick="Google_B_Click" />
                 <asp:Button ID="Button2" runat="server" Text="Bing" class="r_div" Font-Size="Small" OnClick="Button2_Click" />
@@ -96,10 +91,6 @@
                 <asp:Button ID="Button8" runat="server" Text="Google Scholar" class="r_div" Font-Size="Small" OnClick="Button8_Click" />
                 <asp:Button ID="Button9" runat="server" Text="BASE" class="r_div" Font-Size="Small" OnClick="Button9_Click" />
                 <asp:Button ID="Button10" runat="server" Text="News" class="r_div" Font-Size="Small" OnClick="Button10_Click" />
-            </div>
-
-            <div id="WeatherWidget" runat="server">
-
             </div>
 
             <div id="infocard" runat="server" class="info">
@@ -114,6 +105,27 @@
                 <a id="more" runat="server" style="text-decoration: none;" target="_blank" rel="nofollow">
                     <asp:Label ID="Label9" runat="server" Text="More" Font-Size="Small"></asp:Label></a>
             </div>
+
+            <div id="MovieWidget" class="movie-card" runat="server">
+                <div class="movie-poster">
+                    <img id="Poster" runat="server" alt="Movie Poster">
+                </div>
+                <div class="movie-details">
+                    <div class="movie-title"><asp:Label ID="MovieTitle" runat="server"></asp:Label></div>
+                        <div class="movie-info">
+                            <div class="movie-rated"><asp:Label ID="Rated" runat="server"></asp:Label></div> • <asp:Label ID="Year" runat="server"></asp:Label> • <asp:Label ID="Runtime" runat="server"></asp:Label> • <asp:Label ID="Genre" runat="server"></asp:Label>
+                        </div>
+                        <div class="movie-plot"><asp:Label ID="Plot" runat="server"></asp:Label></div>
+                        <div class="movie-actors"><span class="movie-text">Directors:</span> <asp:Label ID="Director" runat="server"></asp:Label></div>
+                        <div class="movie-actors"><span class="movie-text">Writers:</span> <asp:Label ID="Writer" runat="server"></asp:Label></div>
+                        <div class="movie-actors"><span class="movie-text">Actors:</span> <asp:Label ID="Actors" runat="server"></asp:Label></div>
+                        <div class="movie-actors"><span class="movie-text">Awards:</span> <asp:Label ID="Awards" runat="server"></asp:Label></div>
+                        <div class="movie-actors"><span class="movie-text">BoxOffice:</span> <asp:Label ID="BoxOffice" runat="server"></asp:Label></div>
+                        <div class="source">
+                            <a href="http://www.omdbapi.com/">Source: OMDb</a>
+                        </div>
+                    </div>
+             </div>
 
             <div id="artado" runat="server" class="results">
                 <asp:DropDownList ID="languageDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="languageDropDown_SelectedIndexChanged" class="form-select mb-3" Style="width: 200px; display: inline-block">
@@ -190,21 +202,30 @@
                     <asp:ListItem Text="Lao" Value="lo" />
                     <asp:ListItem Text="Tibetan" Value="bo" />
                 </asp:DropDownList>
-                <asp:Repeater ID="suggestions" runat="server">
+                <asp:Repeater ID="Sponsors" runat="server">
                     <ItemTemplate>
-                        <a id="artado_r" href='<%# Eval("URL") %>' class="result-item">
-                            <div class="result-refs">
-                                <div class="result-badge">
-                                    <svg class="result-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
-                                      <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
-                                    </svg>
-                                    <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("URL") %>'></asp:Label>
+                        <a id="artado_r" href='<%# Eval("trackingLink") %>' class="result">
+                            <small class="result-box">
+                                <div class="result-title font-assistant">
+                                    <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
                                 </div>
-                            </div>
+                                <span class="ad-badge">Sponsored</span>
+                                <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("displayUrl") %>'></asp:Label>
+                                <div class="result-desc text-desc font-assistant">
+                                    <asp:Label ID="desc" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                                </div>
+                            </small>
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:Repeater ID="AllResults" runat="server">
+                    <ItemTemplate>
+                        <a id="artado_r" href='<%# Eval("URL") %>' class="result">
                             <small class="result-box">
                                 <div class="result-title font-assistant">
                                     <asp:Label ID="title" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
                                 </div>
+                                <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("URL") %>'></asp:Label>
                                 <div class="result-desc text-desc font-assistant">
                                     <asp:Label ID="desc" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                                 </div>
@@ -214,52 +235,38 @@
                 </asp:Repeater>
                 <asp:Repeater ID="artado_results" runat="server">
                     <ItemTemplate>
-                        <a href='<%# Eval("url") %>' class="result-item">
-                            <div class="result-refs">
-                                <div class="result-badge">
-                                    <img class="result-icon" src='https://www.google.com/s2/favicons?domain=<%# Eval("url") %>&sz=16' />
-                                    <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("url") %>'></asp:Label>
-                                </div>
-                            </div>
+                        <a id="artado_r" href='<%# Eval("URL") %>' class="result">
                             <small class="result-box">
                                 <div class="result-title font-assistant">
-                                    <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
+                                    <asp:Label ID="title" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
                                 </div>
+                                <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("URL") %>'></asp:Label>
                                 <div class="result-desc text-desc font-assistant">
-                                    <asp:Label ID="desc" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                                    <asp:Label ID="desc" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                                 </div>
                             </small>
                         </a>
                     </ItemTemplate>
                 </asp:Repeater>
-                <div class="att">
+                <div id="att" runat="server" class="att">
                     <asp:Label ID="betatext" runat="server" Text="<%$Resources:Langs, BetaResults %>"></asp:Label>
+                </div>
+                <div id="pages" runat="server">
+                    <a id="Link1" runat="server" class="link-style">1</a>
+                    <a id="Link2" runat="server" class="link-style">2</a>
+                    <a id="Link3" runat="server" class="link-style">3</a>
+                    <a id="Link4" runat="server" class="link-style">4</a>
+                    <a id="Link5" runat="server" class="link-style">5</a>
+                    <a id="Link6" runat="server" class="link-style">6</a>
+                    <a id="Link7" runat="server" class="link-style">7</a>
+                    <a id="Link8" runat="server" class="link-style">8</a>
+                    <a id="Link9" runat="server" class="link-style">9</a>
+                    <a id="Link10" runat="server" class="link-style">10</a>
                 </div>
             </div>
 
             <div id="web_results" runat="server">
                 <div id="google" runat="server">
-                    <asp:Repeater ID="google_server" runat="server">
-                        <ItemTemplate>
-                            <a id="artado_r" href='<%# Eval("url") %>' class="result-item">
-                                <div class="result-refs">
-                                    <div class="result-badge">
-                                        <img class="result-icon" src='/api/favicon?q=<%# Eval("url") %>' />
-                                        <asp:Label ID="url" runat="server" class="result-web font-assistant" Text='<%# Eval("visibleUrl") %>'></asp:Label>
-                                    </div>
-                                </div>
-                                <small class="result-box">
-                                    <div class="result-title font-assistant">
-                                        <asp:Label ID="title" runat="server" Text='<%# Eval("titleNoFormatting") %>'></asp:Label>
-                                    </div>
-                                    <div class="result-desc text-desc font-assistant">
-                                        <asp:Label ID="desc" runat="server" Text='<%# Eval("content") %>'></asp:Label>
-                                    </div>
-                                </small>
-                            </a>
-                        </ItemTemplate>
-                    </asp:Repeater>
-
                    <div id="googlejs" runat="server">
                        <script async src="/js/google.js"></script>
                        <div class="gcse-searchresults-only" enablehistory="false" runat="server"></div>
@@ -275,6 +282,7 @@
                 <div class="gcse-searchresults-only" id="GoogleImage" runat="server"></div>
             </div>
         </div>
+        <script src="/js/autocomplete.js"></script>
     </form>
 </body>
 </html>

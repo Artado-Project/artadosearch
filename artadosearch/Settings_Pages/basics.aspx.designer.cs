@@ -78,6 +78,24 @@ namespace artadosearch
         protected global::System.Web.UI.WebControls.Button Profiles;
 
         /// <summary>
+        /// Proxy denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Proxy;
+
+        /// <summary>
+        /// Ads denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluþturulan alan.
+        /// Deðiþtirmek için, alan bildirimini tasarýmcý dosyasýndan arka plan kod dosyasýna taþýyýn.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Ads;
+
+        /// <summary>
         /// edit denetimi.
         /// </summary>
         /// <remarks>

@@ -22,6 +22,8 @@ namespace artadosearch.Settings_Pages
             Themes_Button.Attributes.Add("class", "sidebar-item");
             Extensions.Attributes.Add("class", "sidebar-item");
             Profiles_Button.Attributes.Add("class", "sidebar-item active");
+            Proxy.Attributes.Add("class", "sidebar-item");
+            Ads.Attributes.Add("class", "sidebar-item");
 
             create_profile.Visible = false;
             profilename.Visible = false;
@@ -241,6 +243,16 @@ namespace artadosearch.Settings_Pages
                 Response.Cookies.Add(cookie);
             }
             Response.Redirect("/Settings/Profiles");
+        }
+
+        protected void Proxy_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Proxy");
+        }
+
+        protected void Ads_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Settings/Ads");
         }
     }
 }
