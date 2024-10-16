@@ -72,7 +72,7 @@ namespace artadosearch
             SqlConnection connection = new SqlConnection(con);
 
             SqlDataAdapter adp;
-            adp = new SqlDataAdapter("select TOP (10) * from Cache where (Title Like @q or Description Like @q) order by Rank desc", connection);
+            adp = new SqlDataAdapter("select TOP (10) * from artadoco_admin.Cache where (Title Like @q or Description Like @q) order by Rank desc", connection);
             adp.SelectCommand.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@q",

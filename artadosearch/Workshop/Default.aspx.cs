@@ -12,51 +12,51 @@ namespace artadosearch.Workshop
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string q = Request.QueryString["i"];
+            //string q = Request.QueryString["i"];
 
-            try
-            {
-                if (q != null)
-                {
-                    searchinput.Attributes.Add("value", q);
-                    GetProduct.Products(Projects, "Workshop", q);
-                }
-                else
-                {
-                    HttpCookie genre = HttpContext.Current.Request.Cookies["Workshop"];
+            //try
+            //{
+            //    if (q != null)
+            //    {
+            //        searchinput.Attributes.Add("value", q);
+            //        GetProduct.Products(Projects, "Workshop", q);
+            //    }
+            //    else
+            //    {
+            //        HttpCookie genre = HttpContext.Current.Request.Cookies["Workshop"];
 
-                    if (genre.Value != null)
-                    {
-                        GetProduct.Products(Projects, genre.Value, null);
+            //        if (genre.Value != null)
+            //        {
+            //            GetProduct.Products(Projects, genre.Value, null);
 
-                        switch (genre.Value)
-                        {
-                            case "Theme":
-                                Theme.Font.Bold = true;
-                                break;
-                            case "Extension":
-                                Ext.Font.Bold = true;
-                                break;
-                            case "Logo":
-                                Logo.Font.Bold = true;
-                                break;
-                            default:
-                                Theme.Font.Bold = false;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        GetProduct.Products(Projects, "Theme", null);
-                        Theme.Font.Bold = true;
-                    }
-                }
-            }
-            catch
-            {
-                GetProduct.Products(Projects, "Theme", null);
-                Theme.Font.Bold = true;
-            }
+            //            switch (genre.Value)
+            //            {
+            //                case "Theme":
+            //                    Theme.Font.Bold = true;
+            //                    break;
+            //                case "Extension":
+            //                    Ext.Font.Bold = true;
+            //                    break;
+            //                case "Logo":
+            //                    Logo.Font.Bold = true;
+            //                    break;
+            //                default:
+            //                    Theme.Font.Bold = false;
+            //                    break;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            GetProduct.Products(Projects, "Theme", null);
+            //            Theme.Font.Bold = true;
+            //        }
+            //    }
+            //}
+            //catch
+            //{
+            //    GetProduct.Products(Projects, "Theme", null);
+            //    Theme.Font.Bold = true;
+            //}
         }
 
         protected void Page_PreInit(object sender, EventArgs e)

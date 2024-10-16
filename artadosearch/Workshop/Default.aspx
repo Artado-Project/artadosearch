@@ -43,8 +43,8 @@
                 <asp:Button ID="Logo" runat="server" Text="<%$Resources:Langs, Logo %>" class="r_div" Font-Size="Small" OnClick="Logo_Click" />
             </div>
             <hr />
-
-            <div id="web_results" runat="server">
+            Workshop is currently under maintenance.
+            <%--<div id="web_results" runat="server">
                 <asp:Repeater runat="server" ID="Projects">
                     <ItemTemplate>
                         <a href='/Workshop/<%# Eval("ID") %>' class="pro_link">
@@ -59,7 +59,7 @@
                         </a>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
+            </div>--%>
         </div>
     </form>
 </body>

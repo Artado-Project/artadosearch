@@ -204,7 +204,7 @@
                 </asp:DropDownList>
                 <asp:Repeater ID="Sponsors" runat="server">
                     <ItemTemplate>
-                        <a id="artado_r" href='<%# Eval("trackingLink") %>' class="result">
+                        <a id="artado_r" href='<%# Eval("displayUrl") %>' data-url='<%# Eval("trackingLink") %>' class="result data">
                             <small class="result-box">
                                 <div class="result-title font-assistant">
                                     <asp:Label ID="title" runat="server" Text='<%# Eval("title") %>'></asp:Label>
@@ -284,5 +284,16 @@
         </div>
         <script src="/js/autocomplete.js"></script>
     </form>
+    <script type="text/javascript">
+        const links = document.querySelectorAll('.data');
+    links.forEach(link => {
+        const realUrl = link.getAttribute('data-url');
+
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            window.location.href = realUrl;
+        });
+    });
+    </script>
 </body>
 </html>

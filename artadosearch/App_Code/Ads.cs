@@ -27,83 +27,97 @@ namespace artadosearch
 
             string jsonData = new JavaScriptSerializer().Serialize(jsonDataObject);
 
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://suggest-rc.takeads.com/api/v1/resolve");
-            req.Method = "POST";
-            req.ContentType = "application/json";
-            req.Headers["Authorization"] = "Bearer 1858e8af3018f980696e0f967ea17aa7c1605da2";
-            byte[] byteArray = Encoding.UTF8.GetBytes(jsonData);
-            req.ContentLength = byteArray.Length;
-
-            using (Stream dataStream = req.GetRequestStream())
+            try
             {
-                dataStream.Write(byteArray, 0, byteArray.Length);
-            }
+                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("https://suggest-rc.takeads.com/api/v1/resolve");
+                req.Method = "POST";
+                req.ContentType = "application/json";
+                req.Headers["Authorization"] = "Bearer 1858e8af3018f980696e0f967ea17aa7c1605da2";
+                byte[] byteArray = Encoding.UTF8.GetBytes(jsonData);
+                req.ContentLength = byteArray.Length;
 
-            // Get the response
-            using (WebResponse response = req.GetResponse())
-            {
-                using (Stream responseStream = response.GetResponseStream())
+                using (Stream dataStream = req.GetRequestStream())
                 {
-                    using (StreamReader reader = new StreamReader(responseStream))
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                }
+
+                // Get the response
+                using (WebResponse response = req.GetResponse())
+                {
+                    using (Stream responseStream = response.GetResponseStream())
                     {
-                        string responseText = reader.ReadToEnd();
-                        return responseText;
+                        using (StreamReader reader = new StreamReader(responseStream))
+                        {
+                            string responseText = reader.ReadToEnd();
+                            return responseText;
+                        }
                     }
                 }
+            }
+            catch
+            {
+                return "noads";
             }
         }
 
         public static DataTable dt(string json, string query, string id)
         {
-            bool shouldRetry = true;
-            int tries = 0;
-            DataTable dataTable = new DataTable();
-
-            dataTable.Columns.Add("Keyword", typeof(string));
-            dataTable.Columns.Add("DisplayUrl", typeof(string));
-            dataTable.Columns.Add("Url", typeof(string));
-            dataTable.Columns.Add("Hostname", typeof(string));
-            dataTable.Columns.Add("Title", typeof(string));
-            dataTable.Columns.Add("Description", typeof(string));
-            dataTable.Columns.Add("Score", typeof(double));
-            dataTable.Columns.Add("TrackingLink", typeof(string));
-            dataTable.Columns.Add("ImageUrl", typeof(string));
-
-            while (shouldRetry && tries <= 2)
+            if(json != "noads")
             {
-                ApiResponse response = JsonConvert.DeserializeObject<ApiResponse>(json);
+                bool shouldRetry = true;
+                int tries = 0;
+                DataTable dataTable = new DataTable();
 
-                foreach (var resolution in response.resolutions)
+                dataTable.Columns.Add("Keyword", typeof(string));
+                dataTable.Columns.Add("DisplayUrl", typeof(string));
+                dataTable.Columns.Add("Url", typeof(string));
+                dataTable.Columns.Add("Hostname", typeof(string));
+                dataTable.Columns.Add("Title", typeof(string));
+                dataTable.Columns.Add("Description", typeof(string));
+                dataTable.Columns.Add("Score", typeof(double));
+                dataTable.Columns.Add("TrackingLink", typeof(string));
+                dataTable.Columns.Add("ImageUrl", typeof(string));
+
+                while (shouldRetry && tries <= 2)
                 {
-                    if (resolution.data != null)
+                    ApiResponse response = JsonConvert.DeserializeObject<ApiResponse>(json);
+
+                    foreach (var resolution in response.resolutions)
                     {
-                        dataTable.Rows.Add(
-                            resolution.keyword,
-                            resolution.data.displayUrl,
-                            resolution.data.url,
-                            resolution.data.hostname,
-                            resolution.data.title,
-                            resolution.data.description,
-                            resolution.data.score ?? 0.0, // Handle nullable double
-                            resolution.data.trackingLink,
-                            resolution.data.imageUrl
-                        );
+                        if (resolution.data != null)
+                        {
+                            dataTable.Rows.Add(
+                                resolution.keyword,
+                                resolution.data.displayUrl,
+                                resolution.data.url,
+                                resolution.data.hostname,
+                                resolution.data.title,
+                                resolution.data.description,
+                                resolution.data.score ?? 0.0, // Handle nullable double
+                                resolution.data.trackingLink,
+                                resolution.data.imageUrl
+                            );
+                        }
+                    }
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        // Exit the loop
+                        shouldRetry = false;
+                    }
+                    else
+                    {
+                        json = Ads.Json("us", "en", query, id);
+                        dataTable.Clear();
+                        tries++;
                     }
                 }
-
-                if (dataTable.Rows.Count > 0)
-                {
-                    // Exit the loop
-                    shouldRetry = false;
-                }
-                else
-                {
-                    json = Ads.Json("us", "en", query, id);
-                    dataTable.Clear();
-                    tries++;
-                }
+                return dataTable;
             }
-            return dataTable;
+            else
+            {
+                return null;
+            }
         }
     }
 

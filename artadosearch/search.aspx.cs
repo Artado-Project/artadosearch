@@ -73,6 +73,8 @@ namespace artadosearch
                         Web(query, source, wiki, movie);
                     }
 
+                    MovieWidget.Visible = false;
+
                     ApplyCustomizations();
                 }
                 else
@@ -629,55 +631,32 @@ namespace artadosearch
                                 }
                                 else if(await tor == false)
                                 {
-                                    try // Try to connect from the Artado server without a proxy
+                                    int maxRetries = 3;
+                                    int attempt = 0;
+
+                                    while (attempt < maxRetries)
                                     {
-                                        DataTable results = new DataTable();
-
-                                        results.Columns.Add("Title", typeof(string));
-                                        results.Columns.Add("Description", typeof(string));
-                                        results.Columns.Add("DisplayUrl", typeof(string));
-                                        results.Columns.Add("Url", typeof(string));
-                                        results.Columns.Add("Source", typeof(string));
-
-                                        List<Result> all_results = await ResultsClass.GetGoogle(query, currentPage);
-
-                                        foreach (var result in all_results)
+                                        try
                                         {
-                                            results.Rows.Add(result.Title, result.Description, result.DisplayUrl, result.Url, result.Source);
+                                            string sql_url = "SELECT TOP (1) Url FROM Proxies ORDER BY NEWID();";
+
+                                            //Connection String
+                                            string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
+                                            SqlConnection connection = new SqlConnection(con);
+                                            SqlCommand command = new SqlCommand(sql_url, connection);
+                                            connection.Open();
+                                            string proxy_url = (string)command.ExecuteScalar();
+
+                                            url = proxy_url + "api?q=" + query + "&number=" + currentPage + "&source=google";
+                                            DataTable results = ResultsClass.ConvertJsonToDataTable(ResultsClass.GetProxy(url));
+
+                                            AllResults.DataSource = results;
+                                            AllResults.DataBind();
+                                            break;
                                         }
-
-                                        AllResults.DataSource = results;
-                                        AllResults.DataBind();
-                                    }
-                                    catch //If Artado server is not availabe, use a proxy
-                                    {
-                                        int maxRetries = 3;
-                                        int attempt = 0;
-
-                                        while (attempt < maxRetries)
+                                        catch
                                         {
-                                            try
-                                            {
-                                                string sql_url = "SELECT TOP (1) Url FROM Proxies ORDER BY NEWID();";
-
-                                                //Connection String
-                                                string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
-                                                SqlConnection connection = new SqlConnection(con);
-                                                SqlCommand command = new SqlCommand(sql_url, connection);
-                                                connection.Open();
-                                                string proxy_url = (string)command.ExecuteScalar();
-
-                                                url = proxy_url + "api?q=" + query + "&number=" + currentPage + "&source=google";
-                                                DataTable results = ResultsClass.ConvertJsonToDataTable(ResultsClass.GetProxy(url));
-
-                                                AllResults.DataSource = results;
-                                                AllResults.DataBind();
-                                                break;
-                                            }
-                                            catch
-                                            {
-                                                attempt++;
-                                            }
+                                            attempt++;
                                         }
                                     }
                                 }
@@ -718,7 +697,7 @@ namespace artadosearch
                         if (ads_cookie == null || ads_cookie.Value == "Enable")
                         {
                             DataTable allads = Ads.dt(Ads.Json(countrycode, lang, query, id), query, id);
-                            if (allads.Rows.Count >= 1)
+                            if (allads != null && allads.Rows.Count >= 1)
                             {
                                 DataTable ads = allads.AsEnumerable().Take(2).CopyToDataTable();
                                 Sponsors.DataSource = ads;
@@ -1071,7 +1050,7 @@ namespace artadosearch
             if (ads_cookie == null || ads_cookie.Value == "Enable")
             {
                 DataTable allads = Ads.dt(Ads.Json(countrycode, lang, query, id), query, id);
-                if (allads.Rows.Count >= 1)
+                if (allads != null && allads.Rows.Count >= 1)
                 {
                     DataTable ads = allads.AsEnumerable().Take(2).CopyToDataTable();
                     Sponsors.DataSource = ads;
@@ -1128,7 +1107,7 @@ namespace artadosearch
 
                 var cache_memo = artadosearch.Cache.Get<List<Result>>(cacheKey);
 
-                if (cache_memo != null)
+                if (cache_memo != null) //Check if memo cache has results
                 {
                     DataTable results = new DataTable();
 
@@ -1150,57 +1129,35 @@ namespace artadosearch
                 }
                 else
                 {
-                    try // Try to connect from the Artado server without a proxy
-                    {
-                        DataTable results = new DataTable();
+                    //Try to connect to a random proxy
+                    int maxRetries = 3;
+                    int attempt = 0;
 
-                        results.Columns.Add("Title", typeof(string));
-                        results.Columns.Add("Description", typeof(string));
-                        results.Columns.Add("DisplayUrl", typeof(string));
-                        results.Columns.Add("Url", typeof(string));
-                        results.Columns.Add("Source", typeof(string));
-                        List<Result> all_results = await ResultsClass.GetAll(query, currentPage, await ResultsClass.GetGoogle(query, currentPage), await ResultsClass.GetBing(query, currentPage));
-                        foreach (var result in all_results)
+                    while (attempt < maxRetries)
+                    {
+                        try
                         {
-                            results.Rows.Add(result.Title, result.Description, result.DisplayUrl, result.Url, result.Source);
+                            string sql_url = "SELECT TOP (1) Url FROM Proxies ORDER BY NEWID();";
+
+                            //Connection String
+                            string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
+                            SqlConnection connection = new SqlConnection(con);
+                            SqlCommand command = new SqlCommand(sql_url, connection);
+                            connection.Open();
+                            string proxy_url = (string)command.ExecuteScalar();
+
+                            url = proxy_url + "api?q=" + query + "&number=" + currentPage + "&source=all";
+                            DataTable results = ResultsClass.ConvertJsonToDataTable(ResultsClass.GetProxy(url));
+
+                            artadosearch.Cache.Save(results, currentPage); // cache the results
+
+                            AllResults.DataSource = results;
+                            AllResults.DataBind();
+                            break;
                         }
-
-                        artadosearch.Cache.Save(results, currentPage); // cache the results to db
-
-                        AllResults.DataSource = results;
-                        AllResults.DataBind();
-                    }
-                    catch //If Artado server is not availabe, use a proxy
-                    {
-                        int maxRetries = 3;
-                        int attempt = 0;
-
-                        while (attempt < maxRetries)
+                        catch
                         {
-                            try
-                            {
-                                string sql_url = "SELECT TOP (1) Url FROM Proxies ORDER BY NEWID();";
-
-                                //Connection String
-                                string con = System.Configuration.ConfigurationManager.ConnectionStrings["search"].ConnectionString.ToString();
-                                SqlConnection connection = new SqlConnection(con);
-                                SqlCommand command = new SqlCommand(sql_url, connection);
-                                connection.Open();
-                                string proxy_url = (string)command.ExecuteScalar();
-
-                                url = proxy_url + "api?q=" + query + "&number=" + currentPage + "&source=all";
-                                DataTable results = ResultsClass.ConvertJsonToDataTable(ResultsClass.GetProxy(url));
-
-                                artadosearch.Cache.Save(results, currentPage); // cache the results
-
-                                AllResults.DataSource = results;
-                                AllResults.DataBind();
-                                break;
-                            }
-                            catch
-                            {
-                                attempt++;
-                            }
+                            attempt++;
                         }
                     }
                 }

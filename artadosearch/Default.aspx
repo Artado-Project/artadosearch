@@ -48,6 +48,7 @@
                 <div id="listeningStatus"></div>
               </div>
               <div id="sponsors" runat="server" class="sponsors edit">
+                <asp:Literal ID="litHostingPower" runat="server" Text='<span style="font-size: small;">Artado Search gets its hosting power from <a href="https://oyunlayici.com/" style="text-decoration: none; color: blue;">oyunlayici.com</a>.</span>' />
                 <div class="tiles_header">
                     <hr />
                     <asp:Label ID="sponsor" runat="server" Text="Sponsored"></asp:Label>
