@@ -37,7 +37,7 @@ namespace artadosearch
                     for (int i = 0; i <= 90; i += 10)
                     {
                         var link = FindControl("Link" + (i / 10 + 1)) as HtmlAnchor;
-                        if (link != null) link.HRef = string.Format("/search?q={0}&p={1}", query, i);
+                        if (link != null) link.HRef = string.Format("/search?q={0}&p={1}", HttpUtility.HtmlEncode(query), i);
                     }
 
                     HttpCookie source = HttpContext.Current.Request.Cookies["WebResults"];
