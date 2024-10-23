@@ -54,14 +54,14 @@ namespace artadosearch
 
                     var handlers = new Dictionary<string, Action>
                     {
-                        { "web", () => Web(query, source, wiki, movie) },
-                        { "image", () => Image(query) },
-                        { "video", () => Videos(query, video_source) },
-                        { "news", () => News(query) },
+                        { "web", () => Web(HttpUtility.HtmlEncode(query), source, wiki, movie) },
+                        { "image", () => Image(HttpUtility.HtmlEncode(query)) },
+                        { "video", () => Videos(HttpUtility.HtmlEncode(query), video_source) },
+                        { "news", () => News(HttpUtility.HtmlEncode(query)) },
                         { "info", () => ShowInfo() },
                         { "movie", () => ShowMovie() },
                         { "it", () => ShowIT() },
-                        { "academic", () => Academic(query, aca_source) }
+                        { "academic", () => Academic(HttpUtility.HtmlEncode(query), aca_source) }
                     };
 
                     if (handlers.ContainsKey(type))
